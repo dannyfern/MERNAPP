@@ -94,6 +94,6 @@ The target audience for this project is for developers and business owners or co
 
 Start of day 1: 
 
-![trello day 1](/Users/meika/Desktop/mern-app/docs/trello-screenshots/trello-day1.png)
+![trello day 1](docs/trello-screenshots/trello-day1.png)
 
 End of day 1:
