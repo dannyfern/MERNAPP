@@ -10,6 +10,17 @@ The purpose of this application is to provide a welcoming environment for develo
 
 ## Functionality / features
 
+- The functionality and features of our application include, a web based application that users can;
+  - Register to the website for access to the site and its functionality. 
+    - Registering will also be necessary for authentication and validation purposes on the backend. 
+  - Create a profile, that details who they are, including past and current work, programming languages that they are versed in as well as future prospects for employment. The profile will be an important aspect of creation as it will allow other developers and prospects to view who you are and what you love doing, as well as being able to get into touch with you. 
+  - Once created, users can browse and post to the forums with CRUD. 
+    - Users can create posts, detailing problems, idea's and thoughts to other developers.
+    - Users can also comment on other posts, creating discussion within the forum. 
+    - Users can  upvote comments on posts, signifying the importance of socials on this website.
+  - Users will be able to browse their respective comments and posts on their profile with access to CRUD for individuals purposes. 
+  - Users will also be able to browse other users profiles so they can possibly get into touch with them outside of this network, or follow more of there posts and comments. 
+
 
 
 
@@ -24,6 +35,53 @@ The target audience for this project is for developers and business owners or co
 
 ## Tech stack
 
+MongoDB</u>*
+
+MongoDB is a widely known and popular document-oriented database that uses NoSQL (non-relational) mechanisms for data storage and retrieval in relational databases, consistently used by big data and real time web applications. Perfect for our MERN stack application and works synchronously with our other technologies. 
+
+*<u>Mongoose</u>*
+
+The library of choice when using MongoDB and Node, Mongoose will give us the ability to create relations in our database, create schema's for our blogs and forum and models for the schema's for record in our database. 
+
+<u>*JavaScript*</u>
+
+*<u>The</u>* essential technology of our application, JavaScript will be necessary for features such as control flow, logins and logic for validations and authentication against the database. 
+
+*<u>Express JS</u>*
+
+Express JS is another essential component of your technology stack. A lightweight framework that integrates with Node.JS and will be used to manage servers and routes. Simplifying our formal code, express will scale efficiently into our framework, allowing us to take advantage of middleware's and other useful features. 
+
+*<u>Node.JS</u>*
+
+Node JS like most of the other components in this stack prides itself on being a efficient, fast and scalable piece of software that developers can use for quick real time developing. Essential for our stack, Node will help incorporate our front and back end through the packet manager, and allow us to make changes in real-time. 
+
+<u>*React*</u> 
+
+The final piece of the MERN stack, React allows us to create fast, scalable user interfaces with a component based approach. React as a library works with our MVC application, and will also run on our server. 
+
+*<u>Heroku</u>* 
+
+Heroku will be used as our deployment application due to its feature rich service, easy deployment and it can be used with a build pack. Being able to manage our application and migration was extremely seamless with Heroku making it the most viable choice for my application. 
+
+*<u>Trello</u>*
+
+Just like Github, Trello organizes individuals and teams. With daily, weekly and monthly requirements we can plan and organize ourselves as individuals and as teams to tackle a project without losing focus or the requirements of the task. This will be utilized throughout the entire course of the project and is invaluable to our team. 
+
+*<u>Github</u>* 
+
+GitHub will be essential for code collaboration and version control. Later in the project Meika and I are going to be trying to push our application in terms of functionality once MVP is done. Having Github for version control will manage all of these changes before they get pushed to our master, and allow us to collaborate and commit changes to our projects the whole way through. 
+
+*<u>Typora</u>* 
+
+A powerful markdown editor, that will not only be utilized for the project requirements and theory but also for idea's and consolidation of our information. Typora is a simple software that our team can utilize efficiently and will work seamlessly with our project requirements. 
+
+*<u>Figma</u>* 
+
+Figma is a fantastic wireframing tool, with the ability to use icons, schemes and templates. Wireframes at this level can come out to look exactly as you planned rather than a wireframe sketch of what the end product should look like. 
+
+*<u>Robo 3T</u>* 
+
+Robo 3T is a useful piece of technology when working with MongoDB, as it allows you to refresh server instantly and see all of your models, schema's and validations/encryptions. Being able to do this in real time when working with a database makes it very efficient. 
 
 
 
