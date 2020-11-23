@@ -40,6 +40,14 @@ The target audience for this project is for developers and business owners or co
 
 (decide whether to have different account types for business/companies and also whether to have job postings as well)
 
+##### Developers in general:
+
+- Have the ability to create an account and set up a profile with their details.
+- They also have the ability to edit their profile, log out and in of their account as well as delete their account entirely.
+- They can create blog posts, containing any information they wish, which will contain a title, a category and the content. They can also read, update or delete these posts. 
+- They can read blog posts on the site, created by other users and choose to comment on those posts or connect with the original poster.
+- They can view the profiles and the posts of other users through the profiles page and connect with them there.
+
 ##### Developer, looking for work:
 
 - Can create an account and set up their profile, filling it with their personal information for employers to see. They should also ensure they are marked as looking for work on their profile and provide information about the type of work they are after.
