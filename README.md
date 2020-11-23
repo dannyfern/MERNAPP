@@ -34,7 +34,16 @@ The target audience for this project is for developers and business owners or co
 
 ## User Stories
 
+(from our chat, review/add/alter)
 
+1. User will see this site and be drawn to how appealing and nurturing it is for a software developer
+2. Once on the site the user will register a free account and be able to use its features
+3. Once logged in the user will be able to create their profile of who they are and prospective job types they are interested in. These details will be in depth so developers can as much visibility as possible.
+4. Users will also be able to maintain activity on the site using blog posts for thoughts, issues in an inclusive environment.
+5. Users will be able to interact with these posts giving feedback and discussion for an interactive experience with other developers.
+6. Users will also be able to view other developers profiles and posts on their specific developer page.
+7. Users will be able to CRUD material they have, and also log out or de register an account.
+8. Features of authentication and authorization to the backend will all be implemented in this.
 
 ## Wireframes - mobile
 
