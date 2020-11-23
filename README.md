@@ -158,7 +158,7 @@ The target audience for this project is for developers and business owners or co
 
 #### End of day 1:
 
-![]()
+![](docs/trello-screenshots/trello-day1end.png)
 
 #### End of day 2:
 
