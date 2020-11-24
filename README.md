@@ -92,7 +92,7 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 ## Application Architecture Diagram
 
-![]()
+![ard](docs/diagrams/ard.JPG)
 
 ## User Stories
 
