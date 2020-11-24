@@ -216,7 +216,7 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 #### End of day 1:
 
-![]()
+![](docs/trello-screenshots/trello-day1end.png)
 
 #### End of day 2:
 
