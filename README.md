@@ -1,10 +1,6 @@
 # README - Developer platform
 
-
-
 ## Purpose of the website
-
-(need to review) 
 
 The purpose of this application is to provide a welcoming environment for developers to put themselves out there and connect with other developers, as well as potential employers. It also simplifies the process of employers finding a suitable person to fit any specific role, by being able to filter through the profiles of users based on the skills and experience needed. Additionally, it is also a platform where developers can share their ideas through public blog posts to further develop their profiles and their presence on the site, for other users to view and connect with and for potential employers to gain an even better understanding of the developer.
 
@@ -21,17 +17,9 @@ The purpose of this application is to provide a welcoming environment for develo
   - Users will be able to browse their respective comments and posts on their profile with access to CRUD for individuals purposes. 
   - Users will also be able to browse other users profiles so they can possibly get into touch with them outside of this network, or follow more of there posts and comments. 
 
-
-
-
-
 ## Target audience
 
-(need to review)
-
 The target audience for this project is for developers and business owners or companies. In regards to developers, it is targeted towards those who are looking for work, looking for a platform to market themselves and their skills, looking to connect with other developers socially or to collaborate on a specific project, wanting to share their ideas with like-minded individuals and read about their ideas as well. Furthermore, in regards to business owners or companies, it is catered to those looking to find a developer to fit any given role, or to keep track of developers which may be needed for future projects.
-
-
 
 ## Tech stack
 
@@ -45,7 +33,7 @@ The library of choice when using MongoDB and Node, Mongoose will give us the abi
 
 <u>*JavaScript*</u>
 
-*<u>The</u>* essential technology of our application, JavaScript will be necessary for features such as control flow, logins and logic for validations and authentication against the database. 
+The essential technology of our application, JavaScript will be necessary for features such as control flow, logins and logic for validations and authentication against the database. 
 
 *<u>Express JS</u>*
 
@@ -84,8 +72,6 @@ Figma is a fantastic wireframing tool, with the ability to use icons, schemes an
 Robo 3T is a useful piece of technology when working with MongoDB, as it allows you to refresh server instantly and see all of your models, schema's and validations/encryptions. Being able to do this in real time when working with a database makes it very efficient. 
 
 
-
-
 ## Dataflow Diagram
 
 ![diagram](docs/diagrams/diagram.jpg)
@@ -95,8 +81,6 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 ![ard](docs/diagrams/ard.JPG)
 
 ## User Stories
-
-(decide whether to have different account types for business/companies and also whether to have job postings as well)
 
 #### Developers in general:
 
@@ -130,19 +114,6 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 - Can create an account and set up their profile, specifying that they are from an agency or a company, looking to hire someone, specifying the type of developer/s needed and the work they will be doing.
 - Can view blog posts from other users, and can use them to find developers through these posts or through the comments on these posts.
 - Can view profiles of all the users on the site, and can filter through them based on the specific needs of the agency or company, such as level of experience, skill level and different passions or interests, and can then choose to contact any specific developer about who their company is, and the type of work they do.
-
-
-
-#### (from chat)
-
-1. User will see this site and be drawn to how appealing and nurturing it is for a software developer
-2. Once on the site the user will register a free account and be able to use its features
-3. Once logged in the user will be able to create their profile of who they are and prospective job types they are interested in. These details will be in depth so developers can as much visibility as possible.
-4. Users will also be able to maintain activity on the site using blog posts for thoughts, issues in an inclusive environment.
-5. Users will be able to interact with these posts giving feedback and discussion for an interactive experience with other developers.
-6. Users will also be able to view other developers profiles and posts on their specific developer page.
-7. Users will be able to CRUD material they have, and also log out or de register an account.
-8. Features of authentication and authorization to the backend will all be implemented in this.
 
 ## Wireframes - mobile
 
