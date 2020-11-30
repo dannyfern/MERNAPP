@@ -162,7 +162,13 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 ## Wireframes - desktop
 
+![desktop-wire](docs/wireframes/desktop/wire1.png)
 
+![desktop-wire](docs/wireframes/desktop/wire2.png)
+
+![desktop-wire](docs/wireframes/desktop/wire3.png)
+
+![desktop-wire](docs/wireframes/desktop/wire4.png)
 
 ## Trello Board
 
