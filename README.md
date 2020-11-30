@@ -1,10 +1,6 @@
 # README - Developer platform
 
-
-
 ## Purpose of the website
-
-(need to review) 
 
 The purpose of this application is to provide a welcoming environment for developers to put themselves out there and connect with other developers, as well as potential employers. It also simplifies the process of employers finding a suitable person to fit any specific role, by being able to filter through the profiles of users based on the skills and experience needed. Additionally, it is also a platform where developers can share their ideas through public blog posts to further develop their profiles and their presence on the site, for other users to view and connect with and for potential employers to gain an even better understanding of the developer.
 
@@ -21,21 +17,13 @@ The purpose of this application is to provide a welcoming environment for develo
   - Users will be able to browse their respective comments and posts on their profile with access to CRUD for individuals purposes. 
   - Users will also be able to browse other users profiles so they can possibly get into touch with them outside of this network, or follow more of there posts and comments. 
 
-
-
-
-
 ## Target audience
-
-(need to review)
 
 The target audience for this project is for developers and business owners or companies. In regards to developers, it is targeted towards those who are looking for work, looking for a platform to market themselves and their skills, looking to connect with other developers socially or to collaborate on a specific project, wanting to share their ideas with like-minded individuals and read about their ideas as well. Furthermore, in regards to business owners or companies, it is catered to those looking to find a developer to fit any given role, or to keep track of developers which may be needed for future projects.
 
-
-
 ## Tech stack
 
-MongoDB</u>*
+*<u>MongoDB</u>*
 
 MongoDB is a widely known and popular document-oriented database that uses NoSQL (non-relational) mechanisms for data storage and retrieval in relational databases, consistently used by big data and real time web applications. Perfect for our MERN stack application and works synchronously with our other technologies. 
 
@@ -45,7 +33,7 @@ The library of choice when using MongoDB and Node, Mongoose will give us the abi
 
 <u>*JavaScript*</u>
 
-*<u>The</u>* essential technology of our application, JavaScript will be necessary for features such as control flow, logins and logic for validations and authentication against the database. 
+The essential technology of our application, JavaScript will be necessary for features such as control flow, logins and logic for validations and authentication against the database. 
 
 *<u>Express JS</u>*
 
@@ -84,8 +72,6 @@ Figma is a fantastic wireframing tool, with the ability to use icons, schemes an
 Robo 3T is a useful piece of technology when working with MongoDB, as it allows you to refresh server instantly and see all of your models, schema's and validations/encryptions. Being able to do this in real time when working with a database makes it very efficient. 
 
 
-
-
 ## Dataflow Diagram
 
 ![diagram](docs/diagrams/diagram.jpg)
@@ -95,8 +81,6 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 ![ard](docs/diagrams/ard.JPG)
 
 ## User Stories
-
-(decide whether to have different account types for business/companies and also whether to have job postings as well)
 
 #### Developers in general:
 
@@ -132,7 +116,6 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 - Can view profiles of all the users on the site, and can filter through them based on the specific needs of the agency or company, such as level of experience, skill level and different passions or interests, and can then choose to contact any specific developer about who their company is, and the type of work they do.
 
 
-
 #### (from chat)
 
 1. User will see this site and want to connect with other developers and add conversation to its arena.
@@ -146,67 +129,29 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 ## Wireframes - mobile
 
-#### Home before login:
+![mobile-wires-1](docs/wireframes/mobile/png/mobile-wireframes-1.png)
 
-![]()
+![mobile-wires-2](docs/wireframes/mobile/png/mobile-wireframes-2.png)
 
-#### Sign up:
-
-![]()
-
-#### Log in:
-
-![]()
-
-#### Create profile:
-
-![]()
-
-#### View profile:
-
-![]()
-
-#### Edit profile: 
-
-![]()
-
-#### Home after login (all posts):
-
-![]()
-
-#### Create single post:
-
-![]()
-
-#### View single post:
-
-![]()
-
-#### Update single post:
-
-![]()
-
-#### All profiles page:
-
-![]()
-
-#### Filtered blog post search:
-
-![]()
-
-#### Filtered profile search:
-
-![]()
-
-
+![mobile-wires-3](docs/wireframes/mobile/png/mobile-wireframes-3.png)
 
 ## Wireframes - tablet
 
+![tablet-wires-1](docs/wireframes/tablet/png/wireframes1.png)
 
+![tablet-wires-2](docs/wireframes/tablet/png/wireframes2.png)
+
+![tablet-wires-3](docs/wireframes/tablet/png/wireframes3.png)
 
 ## Wireframes - desktop
 
+![desktop-wire](docs/wireframes/desktop/wire1.png)
 
+![desktop-wire](docs/wireframes/desktop/wire2.png)
+
+![desktop-wire](docs/wireframes/desktop/wire3.png)
+
+![desktop-wire](docs/wireframes/desktop/wire4.png)
 
 ## Trello Board
 
