@@ -146,57 +146,13 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 ## Wireframes - mobile
 
-#### Home before login:
+![mobile-wires-1](docs/mobile-wireframes-collages/mobile-wireframes-1.pdf)
 
-![]()
+![mobile-wires-2](docs/mobile-wireframes-collages/mobile-wireframes-2.pdf)
 
-#### Sign up:
 
-![]()
 
-#### Log in:
-
-![]()
-
-#### Create profile:
-
-![]()
-
-#### View profile:
-
-![]()
-
-#### Edit profile: 
-
-![]()
-
-#### Home after login (all posts):
-
-![]()
-
-#### Create single post:
-
-![]()
-
-#### View single post:
-
-![]()
-
-#### Update single post:
-
-![]()
-
-#### All profiles page:
-
-![]()
-
-#### Filtered blog post search:
-
-![]()
-
-#### Filtered profile search:
-
-![]()
+![mobile-wires-3](docs/mobile-wireframes-collages/mobile-wireframes-3.pdf)
 
 
 
