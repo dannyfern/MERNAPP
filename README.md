@@ -35,7 +35,7 @@ The target audience for this project is for developers and business owners or co
 
 ## Tech stack
 
-MongoDB</u>*
+*<u>MongoDB</u>*
 
 MongoDB is a widely known and popular document-oriented database that uses NoSQL (non-relational) mechanisms for data storage and retrieval in relational databases, consistently used by big data and real time web applications. Perfect for our MERN stack application and works synchronously with our other technologies. 
 
@@ -146,15 +146,19 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 ## Wireframes - mobile
 
-![mobile-wires-1](docs/mobile-wireframes-collages/png/mobile-wireframes-1.png)
+![mobile-wires-1](docs/wireframes/mobile/png/mobile-wireframes-1.png)
 
-![mobile-wires-2](docs/mobile-wireframes-collages/png/mobile-wireframes-2.png)
+![mobile-wires-2](docs/wireframes/mobile/png/mobile-wireframes-2.png)
 
-![mobile-wires-3](docs/mobile-wireframes-collages/png/mobile-wireframes-3.png)
+![mobile-wires-3](docs/wireframes/mobile/png/mobile-wireframes-3.png)
 
 ## Wireframes - tablet
 
+![tablet-wires-1](docs/wireframes/tablet/png/wireframes1.png)
 
+![tablet-wires-2](docs/wireframes/tablet/png/wireframes2.png)
+
+![tablet-wires-3](docs/wireframes/tablet/png/wireframes3.png)
 
 ## Wireframes - desktop
 
