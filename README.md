@@ -101,7 +101,7 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 #### Developers in general:
 
 - Have the ability to create an account and set up a profile with their details.
-- They also have the ability to edit their profile, log out and in of their account as well as delete their account entirely.
+- They also have the ability to update their profile, log in and out of their account as well as delete their account entirely.
 - They can create blog posts, containing any information they wish, which will contain a title, a category and the content. They can also read, update or delete these posts. 
 - They can read blog posts on the site, created by other users and choose to comment on those posts or connect with the original poster.
 - They can view the profiles and the posts of other users through the profiles page and connect with them there.
@@ -135,10 +135,10 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 #### (from chat)
 
-1. User will see this site and be drawn to how appealing and nurturing it is for a software developer
+1. User will see this site and want to connect with other developers and add conversation to its arena.
 2. Once on the site the user will register a free account and be able to use its features
-3. Once logged in the user will be able to create their profile of who they are and prospective job types they are interested in. These details will be in depth so developers can as much visibility as possible.
-4. Users will also be able to maintain activity on the site using blog posts for thoughts, issues in an inclusive environment.
+3. Once logged in the user will be able to create their profile of who they are and prospective job types they are interested in. These details will be in depth so developers can get as much visibility as possible.
+4. Users will also be able to maintain activity on the site using blog posts for thoughts and issues in an inclusive environment.
 5. Users will be able to interact with these posts giving feedback and discussion for an interactive experience with other developers.
 6. Users will also be able to view other developers profiles and posts on their specific developer page.
 7. Users will be able to CRUD material they have, and also log out or de register an account.
