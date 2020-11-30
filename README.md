@@ -116,8 +116,7 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 - Can view profiles of all the users on the site, and can filter through them based on the specific needs of the agency or company, such as level of experience, skill level and different passions or interests, and can then choose to contact any specific developer about who their company is, and the type of work they do.
 
 
-
-#### (from chat)
+#### General control flow
 
 1. User will see this site and want to connect with other developers and add conversation to its arena.
 2. Once on the site the user will register a free account and be able to use its features
