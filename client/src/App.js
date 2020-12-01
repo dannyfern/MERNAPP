@@ -17,6 +17,8 @@ import EditProfile from './components/profiles/EditProfile'
 import Register from './components/auth/Register'
 import SignIn from './components/auth/SignIn'
 
+import './styles/Styles.css'
+
 
 
 
