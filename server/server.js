@@ -9,6 +9,9 @@ const app = express();
 //Connect Database
 connectDB()
 
+// MIDDLEWARE
+app.use(express.json({ extended: false }))
+
 app.get('/', (req, res) => res.send('I AM RUNNING'));
 
 //Defining the Routes
