@@ -1,24 +1,12 @@
 import React from 'react'
+import { useForm, useStep } from 'react-hooks-helper'
+import MultiStepForm from './MultiStepForm'
 
-// form components : 
-import Details from './formComponents/Details'
-import Skills from './formComponents/Skills'
-import Work from './formComponents/Work'
-import Education from './formComponents/Education'
-import Links from './formComponents/Links'
-
-// steps/sections to the form : 
-const steps = [
-    { id: "details" },
-    { id: "skills" },
-    { id: "work" },
-    { id: "education" },
-    { id: "links" },
-]
 
 
 
 const AddProfile = () => {
+
 
 
     return(
@@ -27,6 +15,7 @@ const AddProfile = () => {
                 <div className="heading">
                     add profile
                 </div>
+                <MultiStepForm />
                 
 
             </div>

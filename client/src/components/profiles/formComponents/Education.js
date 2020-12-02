@@ -1,11 +1,23 @@
 import React from 'react'
 
 
-const Education = () => {
+const Education = ( { setFormData, formData, navigation }) => {
 
     return(
         <div>
-            Education
+            <div className="heading">
+                Education
+            </div>
+            <div className="profileFormDiv">
+
+                <form className="profileForm">
+                    
+
+                </form>
+            </div>
+            
+
+
         </div>
     )
 }
