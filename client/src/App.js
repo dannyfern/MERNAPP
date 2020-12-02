@@ -1,11 +1,11 @@
 import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
+// components :
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 
 import Post from './components/posts/Post'
-// import Posts from './components/posts/Posts'
 import AddPost from './components/posts/AddPost'
 import EditPost from './components/posts/EditPost'
 
@@ -16,6 +16,9 @@ import EditProfile from './components/profiles/EditProfile'
 
 import Register from './components/auth/Register'
 import SignIn from './components/auth/SignIn'
+
+// styles :
+import './styles/Styles.css'
 
 
 
@@ -45,12 +48,9 @@ const App = () => {
                 <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
                 <Route exact path="/posts/:id" render={(props) => <Post {...props} />} />
                 
-                
-
                 <Route exact path="/" component={Home} />
 
             </Switch>
-            
             </BrowserRouter>
         </div>
     )

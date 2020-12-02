@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAKA,AAAA,WAAW,CAAA;EACP,MAAM,EAAE,OAAO;EACf,KAAK,EAAE,IAAI;CAEd;;AAED,AAAA,YAAY,CAAA;EACR,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAczB;;AAhBD,AAMI,YANQ,CAMR,aAAa,CAAA;EACT,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,EAAE;CAEpB;;AAVL,AAYI,YAZQ,CAYR,cAAc,CAAA;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,MAAM;CACjB",
+    "sources": [
+        "Posts.scss"
+    ],
+    "names": [],
+    "file": "Posts.css"
+}
