@@ -6,7 +6,14 @@ const AddProfile = () => {
 
     return(
         <div>
-            add profile 
+            <div>
+                <div className="heading">
+                    add profile
+                </div>
+                
+
+            </div>
+             
         </div>
     )
 }
