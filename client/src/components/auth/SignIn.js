@@ -1,7 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
 const SignIn = () => {
+
+    const initialState = {
+        email: "",
+        password: ""
+    }
+
+    const [userDetails, setUserDetails] = useState(initialState)
+
+
+    function handleChange(event){
+        const name = event.target.name
+        const value = event.target.value
+        setUserDetails({
+            ...userDetails,
+            [name]: value
+        })
+    }
+
+    function handleSubmit(event){
+        event.preventDefault()
+
+    }
 
 
     return(
@@ -11,16 +33,18 @@ const SignIn = () => {
                     sign in
                 </div>
                 <div className="authFormDiv">
-                    <form className="authForm">
+                    <form className="authForm" onSubmit={handleSubmit}>
                         <label>Email</label>
                         <input 
                             type="text"
                             name="email"
+                            onChange={handleChange}
                         />
                         <label>Password</label>
                         <input 
                             type="text"
                             name="password"
+                            onChange={handleChange}
                         />
                         <input
                             type="submit"
