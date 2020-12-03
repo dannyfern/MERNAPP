@@ -1,11 +1,116 @@
 import React from 'react'
 
 
-const Links = () => {
+const Links = ({ setFormData, formData, navigation }) => {
+    const { linkedIn, twitter, instagram, facebook } = formData.links.socialMedia
+    const { portfolio, github, resume } = formData.links.portfolioLinks 
+
 
     return(
         <div>
-            Links
+            <div>
+                <div className="heading">
+                    Links   
+                </div>
+                <div>
+                    <form>
+                        <div>
+                            <h3>Social Media</h3>
+                            
+                                <div>
+                                    <label>
+                                        LinkedIn
+                                    </label>
+                                    <input 
+                                        type="text"
+                                        name="linkedIn"
+                                        value={linkedIn}
+
+
+                                    />
+                                </div>
+                                <div>
+                                    <label>
+                                        Twitter
+                                    </label>
+                                    <input 
+                                        type="text"
+                                        name="twitter"
+                                        value={twitter}
+                                        
+
+                                    />
+                                </div>
+                                <div>
+                                    <label>
+                                        Instagram
+                                    </label>
+                                    <input 
+                                        type="text"
+                                        name="instagram"
+                                        value={instagram}
+                                        
+
+                                    />
+                                </div>
+                                <div>
+                                    <label>
+                                        Facebook
+                                    </label>
+                                    <input 
+                                        type="text"
+                                        name="facebook"
+                                        value={facebook}
+                                        
+
+                                    />
+                                </div>
+                                <button>+</button>     
+                            </div>
+
+
+                        <div>
+                            <h3>Portfolio</h3>
+                            <div>
+                                <label>
+                                    Portfolio
+                                </label>
+                                <input 
+                                    type="text"
+                                    name="portfolio"
+                                    value={portfolio}
+                                    
+
+                                />
+                            </div>
+                            <div>
+                                <label>
+                                    Github
+                                </label>
+                                <input 
+                                    type="text"
+                                    name="github"
+                                    value={github}
+                                    
+
+                                />
+                            </div>
+                            <div>
+                                <input 
+                                    type="file"
+                                    name="resume"
+                                    value={resume}
+                                    
+
+                                />
+                            </div>
+                            <button>+</button> 
+                        </div>
+                    </form>    
+                </div>
+            </div>
+            
+
         </div>
     )
 }

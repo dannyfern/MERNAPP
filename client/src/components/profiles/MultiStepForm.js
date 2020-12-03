@@ -102,6 +102,7 @@ const defaultData = {
         portfolioLinks: {
             portfolio: "",
             github: "",
+            resume: ""
         }
     }
     
@@ -129,7 +130,7 @@ const MultiStepForm = () => {
     //     default:
     //         return null
     // }
-    return <Education {...props} />
+    return <Work {...props} />
  
 
     

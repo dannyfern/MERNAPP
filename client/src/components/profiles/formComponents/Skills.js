@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Skills = () => {
+const Skills = ({ setFormData, formData, navigation }) => {
 
     return(
         <div>
