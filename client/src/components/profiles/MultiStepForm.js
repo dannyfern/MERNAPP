@@ -129,7 +129,7 @@ const MultiStepForm = () => {
     //     default:
     //         return null
     // }
-    return <Details {...props} />
+    return <Education {...props} />
  
 
     
