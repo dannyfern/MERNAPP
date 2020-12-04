@@ -8,6 +8,7 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
 
     const { previous, next } = navigation;
 
+    // due to current bug, have to disable enter keypress from submitting :
     function onKeyPress (e) {
         if (e.which === 13 /* Enter */) {
             e.preventDefault();
