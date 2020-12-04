@@ -1,21 +1,29 @@
 import React, {useState} from 'react'
 
 
-const Details = ({ setFormData, formData, navigation }) => {
+const Details = ({ setDetails, detailsData, navigation }) => {
+    // const { details } = formData
     const {firstName, lastName, username, location, 
-    phoneNumber, birthday, interests, bio, briefDescription } = formData.details
+    phoneNumber, birthday, interests, bio, briefDescription } = detailsData
 
-    const { day, month, year } = birthday
+    const { next } = navigation;
+
+    // const { day, month, year } = birthday
 
 
-    function handleChange (event) {
-        const name = event.target.name
-        const value = event.target.value
+    // function handleChange (event) {
+    //     const name = event.target.name
+    //     const value = event.target.value
 
-        setFormData({
-            ...formData,
-            [name]: value
-        })
+    //     setFormData({
+    //         ...formData,
+    //         [name]: value
+    //     })
+    // }
+
+    function handleSubmit (e) {
+        e.preventDefault()
+        console.log(e.target)
     }
 
 
@@ -30,7 +38,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                     
 
 
-                    <form className="profileForm">
+                    <form className="profileForm" onSubmit={handleSubmit}>
                             <div className="profilePhotoUpload">
                                 <label>Profile Photo</label>
                                 <input 
@@ -43,12 +51,13 @@ const Details = ({ setFormData, formData, navigation }) => {
 
                         <label>
                             First Name:
+                            {firstName}
                         </label>
                         <input 
                             type="text"
                             name="firstName"
                             value={firstName}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <label>
@@ -58,7 +67,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                             type="text"
                             name="lastName"
                             value={lastName}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <label>
@@ -68,7 +77,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                             type="text"
                             name="username"
                             value={username}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <label>
@@ -78,7 +87,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                             type="text"
                             name="location"
                             value={location}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <label>
@@ -88,7 +97,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                             type="text"
                             name="phoneNumber"
                             value={phoneNumber}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <div className="birthdayFields">
@@ -99,9 +108,9 @@ const Details = ({ setFormData, formData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="day"
-                                    value={day}
-                                    onChange={handleChange}
+                                    name="birthday.day"
+                                    value={birthday.day}
+                                    onChange={setDetails}
                                 />
 
                             </div>
@@ -111,9 +120,9 @@ const Details = ({ setFormData, formData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="month"
-                                    value={month}
-                                    onChange={handleChange}
+                                    name="birthday.month"
+                                    value={birthday.month}
+                                    onChange={setDetails}
                                 />
 
                             </div>
@@ -124,9 +133,9 @@ const Details = ({ setFormData, formData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="year"
-                                    value={year}
-                                    onChange={handleChange}
+                                    name="birthday.year"
+                                    value={birthday.year}
+                                    onChange={setDetails}
                                 />
 
                             </div>
@@ -134,12 +143,11 @@ const Details = ({ setFormData, formData, navigation }) => {
 
                         </div>
                         <div className="interestsCheckBoxes">
-                        <label>
-                            Interests:
-                        </label>
-                        <input 
+                            <h4>Interests</h4>
                             
-                        />
+
+                            
+
                         </div>
                         <label>
                             Bio:
@@ -147,7 +155,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                         <textarea 
                             name="bio"
                             value={bio}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
                         <label>
                             Brief Description:
@@ -155,7 +163,7 @@ const Details = ({ setFormData, formData, navigation }) => {
                         <textarea 
                             name="briefDescription"
                             value={briefDescription}
-                            onChange={handleChange}
+                            onChange={setDetails}
                         />
 
                         <input type="submit" value="next" />

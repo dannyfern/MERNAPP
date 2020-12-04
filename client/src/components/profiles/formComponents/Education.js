@@ -2,9 +2,11 @@ import React from 'react'
 import MostRecent from './educationSections/Recent'
 import PastEducation from './educationSections/Past'
 
-const Education = ( { setFormData, formData, navigation }) => {
+const Education = ( { setEducation, educationData, navigation }) => {
     
-    const props = { formData, setFormData, navigation }
+    const props = { setEducation, educationData, navigation }
+
+    const { previous, next } = navigation;
 
     return(
         <div>

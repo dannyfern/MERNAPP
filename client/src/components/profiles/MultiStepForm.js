@@ -17,55 +17,72 @@ const steps = [
     { id: "links" },
 ]
 
-const defaultData = {
-    details: {
-        firstName: "",
-        lastName: "",
-        username: "",
-        location: "",
-        phoneNumber: "",
-        birthday: {
-            day: "",
+const initialDetailsData = {
+    firstName: "",
+    lastName: "",
+    username: "",
+    location: "",
+    phoneNumber: "",
+    birthday: {
+        day: "",
+        month: "",
+        year: ""
+    },
+    interests: [],
+    bio: "",
+    briefDescription: ""
+}
+
+const initialSkillsData = {
+    technical: [
+        {skill: ""}
+    ],
+    soft: [""],
+    skillLevel: "",
+    yearsOfExperience: ""
+}
+
+const initialWorkData = {
+    status: "",
+    currentRole: {
+        title: "",
+        company: "",
+        startDate: {
             month: "",
             year: ""
-        },
-        interests: [],
-        bio: "",
-        briefDescription: ""
+        }
     },
-    skills: {
-        technical: [],
-        soft: [],
-        skillLevel: "",
-        yearsOfExperience: ""
-    },
-    work: {
-        status: "",
-        currentRole: {
+    pastRoles: [
+        {
             title: "",
             company: "",
             startDate: {
                 month: "",
                 year: ""
+            },
+            endDate: {
+                month: "",
+                year: ""
             }
+        }
+    ]
+}
+
+const initialEducationData = {
+    mostRecent: {
+        school: "",
+        degree: "",
+        startDate: {
+            month: "",
+            year: ""
         },
-        pastRoles: [
-            {
-                title: "",
-                company: "",
-                startDate: {
-                    month: "",
-                    year: ""
-                },
-                endDate: {
-                    month: "",
-                    year: ""
-                }
-            }
-        ]
+        endDate: {
+            month: "",
+            year: ""
+        }
     },
-    education: {
-        mostRecent: {
+    pastEducation: [
+        {
             school: "",
             degree: "",
             startDate: {
@@ -76,45 +93,130 @@ const defaultData = {
                 month: "",
                 year: ""
             }
-        },
-        pastEducation: [
-            {
-                school: "",
-                degree: "",
-                startDate: {
-                    month: "",
-                    year: ""
-                },
-                endDate: {
-                    month: "",
-                    year: ""
-                }
-            }
-        ]
-    },
-    links: {
-        socialMedia: {
-            linkedIn: "",
-            twitter: "",
-            instagram: "",
-            facebook: ""
-        },
-        portfolioLinks: {
-            portfolio: "",
-            github: "",
-            resume: ""
         }
-    }
-    
-
+    ]
 }
 
+const initialLinkData = {
+    socialMedia: {
+        linkedIn: "",
+        twitter: "",
+        instagram: "",
+        facebook: ""
+    },
+    portfolioLinks: {
+        portfolio: "",
+        github: "",
+        resume: ""
+    }
+}
+
+// const defaultData = {
+//     details: {
+//         firstName: "",
+//         lastName: "",
+//         username: "",
+//         location: "",
+//         phoneNumber: "",
+//         birthday: {
+//             day: "",
+//             month: "",
+//             year: ""
+//         },
+//         interests: [],
+//         bio: "",
+//         briefDescription: ""
+//     },
+//     skills: {
+//         technical: [],
+//         soft: [],
+//         skillLevel: "",
+//         yearsOfExperience: ""
+//     },
+//     work: {
+//         status: "",
+//         currentRole: {
+//             title: "",
+//             company: "",
+//             startDate: {
+//                 month: "",
+//                 year: ""
+//             }
+//         },
+//         pastRoles: [
+//             {
+//                 title: "",
+//                 company: "",
+//                 startDate: {
+//                     month: "",
+//                     year: ""
+//                 },
+//                 endDate: {
+//                     month: "",
+//                     year: ""
+//                 }
+//             }
+//         ]
+//     },
+//     education: {
+//         mostRecent: {
+//             school: "",
+//             degree: "",
+//             startDate: {
+//                 month: "",
+//                 year: ""
+//             },
+//             endDate: {
+//                 month: "",
+//                 year: ""
+//             }
+//         },
+//         pastEducation: [
+//             {
+//                 school: "",
+//                 degree: "",
+//                 startDate: {
+//                     month: "",
+//                     year: ""
+//                 },
+//                 endDate: {
+//                     month: "",
+//                     year: ""
+//                 }
+//             }
+//         ]
+//     },
+//     links: {
+//         socialMedia: {
+//             linkedIn: "",
+//             twitter: "",
+//             instagram: "",
+//             facebook: ""
+//         },
+//         portfolioLinks: {
+//             portfolio: "",
+//             github: "",
+//             resume: ""
+//         }
+//     }
+    
+
+// }
+
 const MultiStepForm = () => {
-    const [formData, setFormData] = useForm(defaultData)
+    // const [formData, setFormData] = useForm(defaultData)
+    const [detailsData, setDetails] = useForm(initialDetailsData)
+    const [skillsData, setSkills] = useForm(initialSkillsData)
+    const [workData, setWork] = useForm(initialWorkData)
+    const [educationData, setEducation] = useForm(initialEducationData)
+    const [linkData, setLinks] = useForm(initialLinkData)
+
+
     const { step, navigation } = useStep({ initialStep: 0, steps })
     const { id } = step
 
-    const props = { formData, setFormData, navigation }
+    const props = { navigation, detailsData, setDetails, skillsData, setSkills, 
+    workData, setWork, educationData, setEducation, linkData, setLinks }
 
     // switch (id) {
     //     case "details":
@@ -130,7 +232,7 @@ const MultiStepForm = () => {
     //     default:
     //         return null
     // }
-    return <Work {...props} />
+    return <Skills {...props} />
  
 
     

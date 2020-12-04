@@ -1,9 +1,11 @@
 import React from 'react'
 
 
-const Links = ({ setFormData, formData, navigation }) => {
-    const { linkedIn, twitter, instagram, facebook } = formData.links.socialMedia
-    const { portfolio, github, resume } = formData.links.portfolioLinks 
+const Links = ({ setLinks, linkData, navigation }) => {
+    const { linkedIn, twitter, instagram, facebook } = linkData.socialMedia
+    const { portfolio, github, resume } = linkData.portfolioLinks
+
+    const { previous, next } = navigation;
 
 
     return(

@@ -3,8 +3,10 @@ import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
 
 
-const Work = ({ setFormData, formData, navigation }) => {
-    const props = { setFormData, formData, navigation }
+const Work = ({ setWork, workData, navigation }) => {
+    const props = { setWork, workData, navigation }
+
+    const { previous, next } = navigation;
 
     return(
         <div>

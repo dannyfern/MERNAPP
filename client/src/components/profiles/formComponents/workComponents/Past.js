@@ -33,7 +33,7 @@ const PastWork = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="startMonth"
+                    name="startDate.month"
                     value={startDate.month}
                 />
             </div>
@@ -43,7 +43,7 @@ const PastWork = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="startYear"
+                    name="startDate.year"
                     value={startDate.year}
                 />
             </div>
@@ -55,7 +55,7 @@ const PastWork = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="endMonth"
+                    name="endDate.month"
                     value={endDate.month}
                 />
             </div>
@@ -65,7 +65,7 @@ const PastWork = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="endYear"
+                    name="endDate.year"
                     value={endDate.year}
                 />
             </div>

@@ -39,7 +39,7 @@ const PastEducation = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="month"
+                    name="startDate.month"
                     value={startDate.month}
 
                 />
@@ -48,7 +48,7 @@ const PastEducation = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="year"
+                    name="startDate.year"
                     value={startDate.year}
 
                 />
@@ -61,7 +61,7 @@ const PastEducation = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="month"
+                    name="endDate.month"
                     value={endDate.month}
 
                 />
@@ -70,7 +70,7 @@ const PastEducation = ({ setFormData, formData, navigation }) => {
                 </label>
                 <input 
                     type="text"
-                    name="year"
+                    name="endDate.year"
                     value={endDate.year}
 
                 />
