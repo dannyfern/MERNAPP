@@ -8,6 +8,20 @@ const Links = ({ setLinks, linkData, navigation }) => {
     const { previous, next } = navigation;
 
 
+    const addFormField = (e) => {
+        e.preventDefault()
+        const div = document.getElementById("additionalForms")
+        const nameField = document.createElement("INPUT")
+        const valueField = document.createElement("INPUT")
+
+        nameField.setAttribute("type", "text")
+        nameField.setAttribute("type", "text")
+
+        div.appendChild(nameField)
+        div.appendChild(valueField)
+    }
+
+
     return(
         <div>
             <div>
@@ -67,7 +81,18 @@ const Links = ({ setLinks, linkData, navigation }) => {
 
                                     />
                                 </div>
-                                <button>+</button>     
+                                <div>
+                                <label>Additional</label>
+                                <select>
+                                    <option>Youtube</option>
+                                    <option>Pinterest</option>
+                                    <option>Reddit</option>
+                                </select>
+
+                                <button onClick={addFormField}>+</button> 
+                                </div>
+
+                                    
                             </div>
 
 
@@ -108,7 +133,9 @@ const Links = ({ setLinks, linkData, navigation }) => {
                             </div>
                             <button>+</button> 
                         </div>
-                    </form>    
+                    </form>  
+                    <button onClick={previous}>back</button>  
+                    <button>Create profile</button>  
                 </div>
             </div>
             
