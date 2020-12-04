@@ -36,6 +36,7 @@ const Education = ( { setEducation, educationData, navigation }) => {
 
 
                 </form>
+                <button onClick={next}>Next</button>
             </div>
             
 

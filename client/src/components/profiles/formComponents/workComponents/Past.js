@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const PastWork = ({ setFormData, formData, navigation }) => {
-    const { title, company, startDate, endDate } = formData.work.pastRoles[0]
+const PastWork = ({ setWork, workData, navigation }) => {
+    const { title, company, startDate, endDate } = workData.pastRoles[0]
 
     return(
         <div>

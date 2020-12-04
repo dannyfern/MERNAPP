@@ -166,10 +166,14 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             onChange={setDetails}
                         />
 
-                        <input type="submit" value="next" />
+                        {/* <input type="submit" value="next" /> */}
 
                         
                     </form>
+                    <div>
+                        <button onClick={next}>next</button>
+                    </div>
+
                     
                 </div>
 

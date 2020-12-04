@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-const MostRecent = ({ setFormData, formData, navigation }) => {
+const MostRecent = ({ setEducationData, educationData, navigation }) => {
 
-    const { school, degree, startDate, endDate } = formData.education.mostRecent
+    const { school, degree, startDate, endDate } = educationData.mostRecent
 
     function changeHandler (e) {
         // console.log(e.target.name)

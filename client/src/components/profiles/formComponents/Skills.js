@@ -56,6 +56,10 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                         
                     </div>
                 </form>
+                <div>
+                    <button onClick={next}>Next</button>
+                </div>
+
                 
                 
             </div>

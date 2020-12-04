@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const RecentWork = ({ setFormData, formData, navigation }) => {
-    const { title, company, startDate } = formData.work.currentRole
+const RecentWork = ({ setWork, workData, navigation }) => {
+    const { title, company, startDate } = workData.currentRole
 
     return(
         <div>

@@ -60,6 +60,9 @@ const Work = ({ setWork, workData, navigation }) => {
                         </div>
 
                     </form>
+                    <div>
+                        <button onClick={next}>Next</button>
+                    </div>
                 </div>
             </div>
         </div>

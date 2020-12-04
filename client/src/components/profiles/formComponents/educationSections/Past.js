@@ -1,8 +1,9 @@
 import React from 'react'
 
 
-const PastEducation = ({ setFormData, formData, navigation }) => {
-    const { school, degree, startDate, endDate } = formData.education.pastEducation[0]
+const PastEducation = ({ setEducationData, educationData, navigation }) => {
+
+    const { school, degree, startDate, endDate } = educationData.pastEducation[0]
 
 
 
