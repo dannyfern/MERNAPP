@@ -12,7 +12,7 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
     function onKeyPress (e) {
         if (e.which === 13 /* Enter */) {
             e.preventDefault();
-          }
+        }
     }
 
     return(

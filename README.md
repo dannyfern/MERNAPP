@@ -71,6 +71,10 @@ Figma is a fantastic wireframing tool, with the ability to use icons, schemes an
 
 Robo 3T is a useful piece of technology when working with MongoDB, as it allows you to refresh server instantly and see all of your models, schema's and validations/encryptions. Being able to do this in real time when working with a database makes it very efficient. 
 
+*<u>Jest</u>*  Jest will be used as our testing framework both for the front and back end of the project. We choose this over other frameworks due to the consistency of using one framework and learning it intricately, rather then using different frameworks for the front and backend. Jest is compatible with Node and React, and is considered a fast and safe choice when testing in your environment.
+
+*<u>Netlify</u>* Netlify will handle all of our client side code. After deploying to Heroku our front end react will make request to our express API handled on Heroku. Assuming that our application is connected ioaZto mongoDB, Heroku and Netlify are great choices that work synchronously to host your application to users.
+
 
 ## Dataflow Diagram
 
@@ -92,7 +96,8 @@ Robo 3T is a useful piece of technology when working with MongoDB, as it allows 
 
 #### Developer, looking for work:
 
-- Can create an account and set up their profile, filling it with their personal information for employers to see. They should also ensure they are marked as looking for work on their profile and provide information about the type of work they are after.
+- Can create an account and set up their profile, filling it with their personal information for employers to see. They should also ensure they are marked as looking for work on their profile and provid
+- e information about the type of work they are after.
 - Can create blog posts with CRUD functionality, sharing their ideas with others on the site and further marketing themselves.
 - Can read other's blog posts and comment on them, forming new connections which may help them in finding work suitable for them.
 - Their profile will be shown on the profiles page, and may be seen by employers, based on what the employer is searching for.

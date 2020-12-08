@@ -1,31 +1,80 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import CheckBox from './reusable/CheckBox'
+import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
 
 
 const Details = ({ setDetails, detailsData, navigation }) => {
-    // const { details } = formData
+    
+    // fields from detail form data :
     const {firstName, lastName, username, location, 
     phoneNumber, birthday, interests, bio, briefDescription } = detailsData
 
+    // next from hooks helper
     const { next } = navigation;
 
-    // const { day, month, year } = birthday
+    // declare empty object for ticked interests
+    const items = {}
+
+    // fill object with key value pairs with keys being names from checkbox data and setting 
+    // initial value to be false :
+    for (const key of interestsCheckBoxes) {
+        const name = key.name
+        items[name] = false
+    }
+
+    // use object from above to track checked items :
+    const [checkedItems, setChecked ] = useState(items)
 
 
-    // function handleChange (event) {
-    //     const name = event.target.name
-    //     const value = event.target.value
-
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value
-    //     })
-    // }
 
     function handleSubmit (e) {
         e.preventDefault()
         console.log(e.target)
     }
 
+    
+    const checkedTrue = []
+    
+    for (const key in checkedItems){
+        if (checkedItems[key] === true){
+            checkedTrue.push(key)
+        }
+    }
+
+    console.log('checked true: ', checkedTrue)
+    
+    // setDetails({
+    //     ...detailsData,
+    //     interests: [...interests, ...checkedTrue]
+    // })
+
+    useEffect(() => {
+        setDetails({
+            target: {
+                name: "interests",
+                value: checkedTrue
+            }
+        })
+    }, [])
+
+    function handleChange (e) {
+        
+        const item = e.target.name
+
+        setChecked({
+            ...checkedItems,
+            [item]: true 
+        })
+        console.log('after ', checkedItems)
+        
+
+        
+
+        
+
+        console.log(detailsData.interests)
+
+    }
 
     return(
         <div>
@@ -108,7 +157,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="birthday.day"
+                                    name="day"
                                     value={birthday.day}
                                     onChange={setDetails}
                                 />
@@ -120,7 +169,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="birthday.month"
+                                    name="month"
                                     value={birthday.month}
                                     onChange={setDetails}
                                 />
@@ -133,7 +182,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 </label>
                                 <input 
                                     type="text"
-                                    name="birthday.year"
+                                    name="year"
                                     value={birthday.year}
                                     onChange={setDetails}
                                 />
@@ -144,6 +193,27 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                         </div>
                         <div className="interestsCheckBoxes">
                             <h4>Interests</h4>
+                            {
+                                interestsCheckBoxes.map((item, index) => {
+                                    const name = item.name
+                                    // console.log(name)
+                                    // console.log(checkedItems.[name])
+                                    const isChecked = checkedItems.[name]
+                                    return(
+                                        <div key={index}>
+                                            <label>
+                                            {item.label}
+                                            </label>
+
+                                            <CheckBox name={item.name} checked={isChecked} onChange={handleChange}  />
+                                        </div>
+                                    )
+                                    
+                                })
+
+                                
+                            }
+                            
                             
 
                             

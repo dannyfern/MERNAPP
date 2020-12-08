@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm, useStep } from 'react-hooks-helper'
 
 // form components : 
@@ -28,7 +28,7 @@ const initialDetailsData = {
         month: "",
         year: ""
     },
-    interests: [],
+    interests: {},
     bio: "",
     briefDescription: ""
 }
@@ -111,101 +111,10 @@ const initialLinkData = {
     }
 }
 
-// const defaultData = {
-//     details: {
-//         firstName: "",
-//         lastName: "",
-//         username: "",
-//         location: "",
-//         phoneNumber: "",
-//         birthday: {
-//             day: "",
-//             month: "",
-//             year: ""
-//         },
-//         interests: [],
-//         bio: "",
-//         briefDescription: ""
-//     },
-//     skills: {
-//         technical: [],
-//         soft: [],
-//         skillLevel: "",
-//         yearsOfExperience: ""
-//     },
-//     work: {
-//         status: "",
-//         currentRole: {
-//             title: "",
-//             company: "",
-//             startDate: {
-//                 month: "",
-//                 year: ""
-//             }
-//         },
-//         pastRoles: [
-//             {
-//                 title: "",
-//                 company: "",
-//                 startDate: {
-//                     month: "",
-//                     year: ""
-//                 },
-//                 endDate: {
-//                     month: "",
-//                     year: ""
-//                 }
-//             }
-//         ]
-//     },
-//     education: {
-//         mostRecent: {
-//             school: "",
-//             degree: "",
-//             startDate: {
-//                 month: "",
-//                 year: ""
-//             },
-//             endDate: {
-//                 month: "",
-//                 year: ""
-//             }
-//         },
-//         pastEducation: [
-//             {
-//                 school: "",
-//                 degree: "",
-//                 startDate: {
-//                     month: "",
-//                     year: ""
-//                 },
-//                 endDate: {
-//                     month: "",
-//                     year: ""
-//                 }
-//             }
-//         ]
-//     },
-//     links: {
-//         socialMedia: {
-//             linkedIn: "",
-//             twitter: "",
-//             instagram: "",
-//             facebook: ""
-//         },
-//         portfolioLinks: {
-//             portfolio: "",
-//             github: "",
-//             resume: ""
-//         }
-//     }
-    
 
-// }
 
 const MultiStepForm = () => {
-    // const [formData, setFormData] = useForm(defaultData)
-    const [detailsData, setDetails] = useForm(initialDetailsData)
+    const [detailsData, setDetails] = useState(initialDetailsData)
     const [skillsData, setSkills] = useForm(initialSkillsData)
     const [workData, setWork] = useForm(initialWorkData)
     const [educationData, setEducation] = useForm(initialEducationData)
@@ -218,21 +127,21 @@ const MultiStepForm = () => {
     const props = { navigation, detailsData, setDetails, skillsData, setSkills, 
     workData, setWork, educationData, setEducation, linkData, setLinks }
 
-    // switch (id) {
-    //     case "details":
-    //         return <Details {...props} />
-    //     case "skills":
-    //         return <Skills {...props} />
-    //     case "work":
-    //         return <Work {...props} />
-    //     case "education":
-    //         return <Education {...props} />
-    //     case "links":
-    //         return <Links {...props} />
-    //     default:
-    //         return null
-    // }
-    return <Links {...props} />
+    switch (id) {
+        case "details":
+            return <Details {...props} />
+        case "skills":
+            return <Skills {...props} />
+        case "work":
+            return <Work {...props} />
+        case "education":
+            return <Education {...props} />
+        case "links":
+            return <Links {...props} />
+        default:
+            return null
+    }
+    // return <Details {...props} />
  
 
     

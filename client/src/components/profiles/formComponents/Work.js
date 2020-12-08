@@ -61,6 +61,7 @@ const Work = ({ setWork, workData, navigation }) => {
 
                     </form>
                     <div>
+                        <button onClick={previous}>Back</button>
                         <button onClick={next}>Next</button>
                     </div>
                 </div>

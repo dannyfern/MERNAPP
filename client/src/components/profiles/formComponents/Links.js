@@ -135,7 +135,7 @@ const Links = ({ setLinks, linkData, navigation }) => {
                         </div>
                     </form>  
                     <button onClick={previous}>back</button>  
-                    <button>Create profile</button>  
+                    <button onClick={next}>Create profile</button>  
                 </div>
             </div>
             
