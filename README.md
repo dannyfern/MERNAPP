@@ -177,7 +177,7 @@ Netlify will handle all of our client side code. After deploying to Heroku our f
 
 #### End of week 2:
 
-![]()
+![](docs/trello-screenshots/)
 
 #### End of week 3:
 
