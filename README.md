@@ -1,4 +1,4 @@
-# README - Developer platform
+README - Developer platform
 
 ## Purpose of the website
 
@@ -175,10 +175,10 @@ Netlify will handle all of our client side code. After deploying to Heroku our f
 
 ![end of week 1](docs/trello-screenshots/trello-end-week1.png)
 
-#### End of week 2:
+#### Week 2:
 
-![](docs/trello-screenshots/)
+![week2-trello](docs/trello-screenshots/trello-week2.png)
 
-#### End of week 3:
+#### Week 3:
 
-![]()
+![week3-trello](docs/trello-screenshots/trello-week3.png)
