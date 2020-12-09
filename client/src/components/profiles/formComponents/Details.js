@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import CheckBox from './reusable/CheckBox'
 import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
-
+import FormInput from './reusable/FormInput'
+import './../../../'
 
 const Details = ({ setDetails, detailsData, navigation }) => {
     
@@ -41,21 +42,8 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         }
     }
 
-    console.log('checked true: ', checkedTrue)
     
-    // setDetails({
-    //     ...detailsData,
-    //     interests: [...interests, ...checkedTrue]
-    // })
-
-    useEffect(() => {
-        setDetails({
-            target: {
-                name: "interests",
-                value: checkedTrue
-            }
-        })
-    }, [])
+ 
 
     function handleChange (e) {
         
@@ -88,117 +76,77 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
 
                     <form className="profileForm" onSubmit={handleSubmit}>
-                            <div className="profilePhotoUpload">
-                                <label>Profile Photo</label>
-                                <input 
-                                    type="file"
-                                    name="profilePhoto"
-                                />
 
-                            </div>
+                        {/* profile photo : */}
+                        <div className="profilePhotoUpload">
+                            <label>Profile Photo</label>
+                            <input 
+                                type="file"
+                                name="profilePhoto"
+                                accept="image/png, image/jpeg"
+                            />
+
+                        </div>
 
 
-                        <label>
-                            First Name:
-                            {firstName}
-                        </label>
-                        <input 
-                            type="text"
-                            name="firstName"
-                            value={firstName}
-                            onChange={setDetails}
-                        />
 
-                        <label>
-                            Last Name:
-                        </label>
-                        <input 
-                            type="text"
-                            name="lastName"
-                            value={lastName}
-                            onChange={setDetails}
-                        />
+                        <div>
+                            <label>
+                                First Name:
+                                {firstName}
+                            </label>
+                            <FormInput name="firstName" value={firstName} onChange={setDetails} />  
+                        </div>
 
-                        <label>
-                            Username:
-                        </label>
-                        <input 
-                            type="text"
-                            name="username"
-                            value={username}
-                            onChange={setDetails}
-                        />
+                        
+                        <div>
+                            <label>
+                                Last Name:
+                            </label>
+            
+                            <FormInput name="lastName" value={lastName} onChange={setDetails} />
+                        </div>
 
-                        <label>
-                            Location:
-                        </label>
-                        <input 
-                            type="text"
-                            name="location"
-                            value={location}
-                            onChange={setDetails}
-                        />
 
-                        <label>
-                            Phone Number:
-                        </label>
-                        <input 
-                            type="text"
-                            name="phoneNumber"
-                            value={phoneNumber}
-                            onChange={setDetails}
-                        />
+                        
+                        <div>
+                            <label>
+                                Username:
+                            </label>
+                            <FormInput name="username" value={username} onChange={setDetails} /> 
+                        </div>
+
+                        
+                        <div>
+                            <label>
+                                Location:
+                            </label>
+        
+                            <FormInput name="location" value={location} onChange={setDetails} />
+                        </div>
+                        
+                        <div>
+
+                            <label>
+                                Phone Number:
+                            </label>
+                            <FormInput name="phoneNumber" value={phoneNumber} onChange={setDetails} />
+                        </div>
 
                         <div className="birthdayFields">
                             <label>Birthday</label>
-                            <div>
-                                <label>
-                                    Day:
-                                </label>
-                                <input 
-                                    type="text"
-                                    name="day"
-                                    value={birthday.day}
-                                    onChange={setDetails}
-                                />
 
-                            </div>
-                            <div>
-                                <label>
-                                    Month:
-                                </label>
-                                <input 
-                                    type="text"
-                                    name="month"
-                                    value={birthday.month}
-                                    onChange={setDetails}
-                                />
-
-                            </div>
-
-                            <div>
-                                <label>
-                                    Year:
-                                </label>
-                                <input 
-                                    type="text"
-                                    name="year"
-                                    value={birthday.year}
-                                    onChange={setDetails}
-                                />
-
-                            </div>
-
-
+                            <FormInput type="date" name="birthday" value={birthday} />
+        
                         </div>
+
+
                         <div className="interestsCheckBoxes">
                             <h4>Interests</h4>
                             {
                                 interestsCheckBoxes.map((item, index) => {
                                     const name = item.name
-                                    // console.log(name)
-                                    // console.log(checkedItems.[name])
-                                    const isChecked = checkedItems.[name]
+                                    const isChecked = checkedItems[name]
                                     return(
                                         <div key={index}>
                                             <label>
@@ -214,29 +162,31 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 
                             }
                             
-                            
-
-                            
 
                         </div>
-                        <label>
-                            Bio:
-                        </label>
-                        <textarea 
-                            name="bio"
-                            value={bio}
-                            onChange={setDetails}
-                        />
-                        <label>
-                            Brief Description:
-                        </label>
-                        <textarea 
-                            name="briefDescription"
-                            value={briefDescription}
-                            onChange={setDetails}
-                        />
 
-                        {/* <input type="submit" value="next" /> */}
+                        <div>
+                            <label>
+                                Bio:
+                            </label>
+                            <textarea 
+                                name="bio"
+                                value={bio}
+                                onChange={setDetails}
+                            />
+                        </div>
+
+                        <div>
+                            <label>
+                                Brief Description:
+                            </label>
+                            <textarea 
+                                name="briefDescription"
+                                value={briefDescription}
+                                onChange={setDetails}
+                            />
+                        </div>
+                        
 
                         
                     </form>

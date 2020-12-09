@@ -17,7 +17,7 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
 
     return(
         <div>
-            <div>
+            <div className="profileFormDiv">
                 <div className="heading">
                     Skills
                 </div>

@@ -23,11 +23,7 @@ const initialDetailsData = {
     username: "",
     location: "",
     phoneNumber: "",
-    birthday: {
-        day: "",
-        month: "",
-        year: ""
-    },
+    birthday: "",
     interests: {},
     bio: "",
     briefDescription: ""
@@ -119,6 +115,7 @@ const MultiStepForm = () => {
     const [workData, setWork] = useForm(initialWorkData)
     const [educationData, setEducation] = useForm(initialEducationData)
     const [linkData, setLinks] = useForm(initialLinkData)
+    console.log('DETAILS: ', detailsData)
 
 
     const { step, navigation } = useStep({ initialStep: 0, steps })

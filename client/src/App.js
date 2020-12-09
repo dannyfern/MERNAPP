@@ -19,6 +19,7 @@ import SignIn from './components/auth/SignIn'
 
 // styles :
 import './styles/Styles.css'
+import './styles/Profile.css'
 
 
 

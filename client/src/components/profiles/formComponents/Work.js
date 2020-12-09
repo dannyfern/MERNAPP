@@ -10,7 +10,7 @@ const Work = ({ setWork, workData, navigation }) => {
 
     return(
         <div>
-            <div>
+            <div className="profileFormDiv">
                 <div className="heading">
                     Work Information
                 </div>

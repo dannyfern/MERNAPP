@@ -28,7 +28,7 @@ const Links = ({ setLinks, linkData, navigation }) => {
                 <div className="heading">
                     Links   
                 </div>
-                <div>
+                <div className="profileFormDiv">
                     <form>
                         <div>
                             <h3>Social Media</h3>
