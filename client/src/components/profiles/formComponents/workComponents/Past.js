@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FormInput from './../reusable/FormInput'
 
 const PastWork = ({ setWork, workData, navigation }) => {
     const { title, company, startDate, endDate } = workData.pastRoles[0]
@@ -10,64 +10,25 @@ const PastWork = ({ setWork, workData, navigation }) => {
                 <label>
                     Title
                 </label>
-                <input 
-                    type="text"
-                    name="title"
-                    value={title}
-                />
+                <FormInput name="title" value={title} />
             </div>
             <div>
                 <label>
                     Company
                 </label>
-                <input 
-                    type="text"
-                    name="company"
-                    value={company}
-                />
-            </div>
-            <h3>Start date</h3>
-            <div>
-                <label>
-                    Month
-                </label>
-                <input 
-                    type="text"
-                    name="startDate.month"
-                    value={startDate.month}
-                />
+                <FormInput name="company" value={company} />
             </div>
             <div>
                 <label>
-                    Year
+                Start date
                 </label>
-                <input 
-                    type="text"
-                    name="startDate.year"
-                    value={startDate.year}
-                />
-            </div>
-
-            <h3>End date</h3>
-            <div>
-                <label>
-                    Month
-                </label>
-                <input 
-                    type="text"
-                    name="endDate.month"
-                    value={endDate.month}
-                />
+                <FormInput type="date" name="startDate" value={startDate} />
             </div>
             <div>
                 <label>
-                    Year
+                End date
                 </label>
-                <input 
-                    type="text"
-                    name="endDate.year"
-                    value={endDate.year}
-                />
+                <FormInput type="date" name="endDate" value={endDate} />
             </div>
             <button>+</button>
         </div>

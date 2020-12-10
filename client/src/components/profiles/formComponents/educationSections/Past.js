@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FormInput from './../reusable/FormInput'
 
 const PastEducation = ({ setEducationData, educationData, navigation }) => {
 
@@ -13,68 +13,28 @@ const PastEducation = ({ setEducationData, educationData, navigation }) => {
                 <label>
                     School
                 </label>
-                <input 
-                    type="text"
-                    name="school"
-                    value={school}
-
-                />
+                <FormInput name="school" value={school} />
 
             </div>
             <div>
                 <label>
                     Degree
                 </label>
-                <input 
-                    type="text"
-                    name="degree"
-                    value={degree}
-
-                />
+                <FormInput name="degree" value={degree} />
 
             </div>
             <div>
-                <h4>Start date</h4>
                 <label>
-                    Month
+                    Start Date
                 </label>
-                <input 
-                    type="text"
-                    name="startDate.month"
-                    value={startDate.month}
-
-                />
-                <label>
-                    Year
-                </label>
-                <input 
-                    type="text"
-                    name="startDate.year"
-                    value={startDate.year}
-
-                />
+                <FormInput type="date" name="startDate" value={startDate} />
 
             </div>
             <div>
-                <h4>End date</h4>
                 <label>
-                    Month
+                    End Date
                 </label>
-                <input 
-                    type="text"
-                    name="endDate.month"
-                    value={endDate.month}
-
-                />
-                <label>
-                    Year
-                </label>
-                <input 
-                    type="text"
-                    name="endDate.year"
-                    value={endDate.year}
-
-                />
+                <FormInput type="date" name="endDate" value={endDate} />
 
             </div>
             <button>+</button>

@@ -127,6 +127,7 @@ const Links = ({ setLinks, linkData, navigation }) => {
                                     type="file"
                                     name="resume"
                                     value={resume}
+                                    accept="file/pdf"
                                     
 
                                 />
@@ -135,7 +136,7 @@ const Links = ({ setLinks, linkData, navigation }) => {
                         </div>
                     </form>  
                     <button onClick={previous}>back</button>  
-                    <button onClick={next}>Create profile</button>  
+                    <button onClick={next}>Review</button>  
                 </div>
             </div>
             

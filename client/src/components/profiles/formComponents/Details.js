@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import CheckBox from './reusable/CheckBox'
 import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
 import FormInput from './reusable/FormInput'
-import './../../../'
+import profileImg from './../../../img/default-profile.png'
+
 
 const Details = ({ setDetails, detailsData, navigation }) => {
     
     // fields from detail form data :
-    const {firstName, lastName, username, location, 
+    const { profilePhoto, firstName, lastName, username, location, 
     phoneNumber, birthday, interests, bio, briefDescription } = detailsData
+    // setDetails({
+    //     profilePhoto: {profileImg}
+    // })
 
     // next from hooks helper
     const { next } = navigation;
@@ -22,6 +26,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         const name = key.name
         items[name] = false
     }
+    
 
     // use object from above to track checked items :
     const [checkedItems, setChecked ] = useState(items)
@@ -42,27 +47,38 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         }
     }
 
-    
  
 
-    function handleChange (e) {
+    function handleCheckboxChange (e) {
         
         const item = e.target.name
 
+        
         setChecked({
             ...checkedItems,
             [item]: true 
         })
-        console.log('after ', checkedItems)
-        
-
-        
-
-        
-
-        console.log(detailsData.interests)
 
     }
+
+    function handleChange (e) {
+        const name = e.target.name
+        const value = e.target.value
+        setDetails({
+            ...detailsData,
+            [name]: value
+        })
+        // console.log(detailsData)
+        console.log('DETAILS on change: ', detailsData.firstName)
+    }
+
+    function updateImg (e) {
+
+    }
+
+
+
+    // const refContainer = useRef(profileImg)
 
     return(
         <div>
@@ -72,18 +88,31 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                 </div>
 
                 <div className="profileFormDiv">
-                    
+                    <div className="profilePhoto">
+                        <img
+                            src={profilePhoto}
+                            alt="profilePhoto"
+                            />
+                    </div>
+                    <div>
+                   
+
+                    </div>
 
 
                     <form className="profileForm" onSubmit={handleSubmit}>
 
                         {/* profile photo : */}
                         <div className="profilePhotoUpload">
-                            <label>Profile Photo</label>
+                            <label>Profile Photo:</label>
                             <input 
                                 type="file"
                                 name="profilePhoto"
+                                value={profilePhoto}
                                 accept="image/png, image/jpeg"
+                                multiple="false"
+                                onChange={updateImg}
+                               
                             />
 
                         </div>
@@ -95,7 +124,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 First Name:
                                 {firstName}
                             </label>
-                            <FormInput name="firstName" value={firstName} onChange={setDetails} />  
+                            <FormInput name="firstName" value={firstName} onChange={handleChange} />  
                         </div>
 
                         
@@ -104,7 +133,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 Last Name:
                             </label>
             
-                            <FormInput name="lastName" value={lastName} onChange={setDetails} />
+                            <FormInput name="lastName" value={lastName} onChange={handleChange} />
                         </div>
 
 
@@ -113,7 +142,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             <label>
                                 Username:
                             </label>
-                            <FormInput name="username" value={username} onChange={setDetails} /> 
+                            <FormInput name="username" value={username} onChange={handleChange} /> 
                         </div>
 
                         
@@ -122,7 +151,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 Location:
                             </label>
         
-                            <FormInput name="location" value={location} onChange={setDetails} />
+                            <FormInput name="location" value={location} onChange={handleChange} />
                         </div>
                         
                         <div>
@@ -130,13 +159,13 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             <label>
                                 Phone Number:
                             </label>
-                            <FormInput name="phoneNumber" value={phoneNumber} onChange={setDetails} />
+                            <FormInput name="phoneNumber" value={phoneNumber} onChange={handleChange} />
                         </div>
 
                         <div className="birthdayFields">
                             <label>Birthday</label>
 
-                            <FormInput type="date" name="birthday" value={birthday} />
+                            <FormInput type="date" name="birthday" value={birthday} onChange={handleChange}/>
         
                         </div>
 
@@ -153,7 +182,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                             {item.label}
                                             </label>
 
-                                            <CheckBox name={item.name} checked={isChecked} onChange={handleChange}  />
+                                            <CheckBox name={item.name} checked={isChecked} onChange={handleCheckboxChange}  />
                                         </div>
                                     )
                                     
@@ -172,7 +201,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             <textarea 
                                 name="bio"
                                 value={bio}
-                                onChange={setDetails}
+                                onChange={handleChange}
                             />
                         </div>
 
@@ -183,7 +212,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             <textarea 
                                 name="briefDescription"
                                 value={briefDescription}
-                                onChange={setDetails}
+                                onChange={handleChange}
                             />
                         </div>
                         

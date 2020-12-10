@@ -1,10 +1,16 @@
 import React from 'react'
 import SkillsForm from './skillsComponents/SkillForm'
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css';
+// import './../../../styles/Profile.css'
 
-const Skills = ({ setSkills, skillsData, navigation }) => {
+
+const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
     const props = { setSkills, skillsData, navigation }
 
-    const { yearsOfExperience } = skillsData
+    const { skillLevel, yearsOfExperience } = skillsData
+    console.log(detailsData)
+
 
     const { previous, next } = navigation;
 
@@ -14,6 +20,31 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
             e.preventDefault();
         }
     }
+
+    function handleChange (e) {
+        console.log(e)
+        const name = e.target.name
+        const value = e.target.value
+        setSkills({
+            ...skillsData,
+            [name]: value
+        })
+        console.log(skillsData)
+
+    }
+
+
+
+    function onSelect (e) {
+        const value = e.value
+        setSkills({
+            ...skillsData,
+            skillLevel: value
+        })
+        console.log(skillsData)
+    }
+
+    const options = ['Aspirational', 'Junior-level', 'Mid-level', 'Senior-level']
 
     return(
         <div>
@@ -36,11 +67,13 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                             <label>
                                 Skill level
                             </label>
-                            <select>
+                            {/* <select>
+                                <option>Aspirational</option>
                                 <option>Junior-level</option>
                                 <option>Mid-level</option>
                                 <option>Senior-level</option>
-                            </select>
+                            </select> */}
+                            <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
                         </div>
                         <div>
                             <label>
@@ -50,6 +83,7 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                                 type="text"
                                 name="yearsOfExperience"
                                 value={yearsOfExperience}
+                                onChange={handleChange}
                             />
                         </div>
                         

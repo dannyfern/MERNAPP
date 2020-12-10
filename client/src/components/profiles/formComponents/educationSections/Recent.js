@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FormInput from './../reusable/FormInput'
 
 const MostRecent = ({ setEducationData, educationData, navigation }) => {
 
@@ -27,69 +27,28 @@ const MostRecent = ({ setEducationData, educationData, navigation }) => {
                 <label>
                     School
                 </label>
-                <input 
-                    type="text"
-                    name="school"
-                    value={school}
-                    onChange={changeHandler}
-
-                />
+                <FormInput name="school" value={school} onChange={changeHandler} />
 
             </div>
             <div>
                 <label>
                     Degree
                 </label>
-                <input 
-                    type="text"
-                    name="degree"
-                    value={degree}
-
-                />
+                <FormInput name="degree" value={degree} onChange={changeHandler} />
 
             </div>
             <div>
-                <h4>Start date</h4>
                 <label>
-                    Month
+                    Start Date
                 </label>
-                <input 
-                    type="text"
-                    name="month"
-                    value={startDate.month}
-
-                />
-                <label>
-                    Year
-                </label>
-                <input 
-                    type="text"
-                    name="year"
-                    value={startDate.year}
-
-                />
+                <FormInput type="date" name="startDate" value={startDate} onChange={changeHandler} />
 
             </div>
             <div>
-                <h4>End date</h4>
                 <label>
-                    Month
+                    End date
                 </label>
-                <input 
-                    type="text"
-                    name="month"
-                    value={endDate.month}
-
-                />
-                <label>
-                    Year
-                </label>
-                <input 
-                    type="text"
-                    name="year"
-                    value={endDate.year}
-
-                />
+                <FormInput type="date" name="endDate" value={endDate} onChange={changeHandler} />
 
             </div>
             

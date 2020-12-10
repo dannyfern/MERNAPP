@@ -7,6 +7,10 @@ import Skills from './formComponents/Skills'
 import Work from './formComponents/Work'
 import Education from './formComponents/Education'
 import Links from './formComponents/Links'
+import Review from './formComponents/Review'
+// import profileImg from './../../img/default-profile.png'
+
+// import ImageUpload from './../ImageUpload'
 
 // steps/sections to the form : 
 const steps = [
@@ -15,9 +19,11 @@ const steps = [
     { id: "work" },
     { id: "education" },
     { id: "links" },
+    { id: "review" }
 ]
 
 const initialDetailsData = {
+    profilePhoto: "",
     firstName: "",
     lastName: "",
     username: "",
@@ -30,9 +36,7 @@ const initialDetailsData = {
 }
 
 const initialSkillsData = {
-    technical: [
-        {skill: ""}
-    ],
+    technical: [""],
     soft: [""],
     skillLevel: "",
     yearsOfExperience: ""
@@ -43,23 +47,14 @@ const initialWorkData = {
     currentRole: {
         title: "",
         company: "",
-        startDate: {
-            month: "",
-            year: ""
-        }
+        startDate: ""
     },
     pastRoles: [
         {
             title: "",
             company: "",
-            startDate: {
-                month: "",
-                year: ""
-            },
-            endDate: {
-                month: "",
-                year: ""
-            }
+            startDate: "",
+            endDate: ""
         }
     ]
 }
@@ -68,27 +63,15 @@ const initialEducationData = {
     mostRecent: {
         school: "",
         degree: "",
-        startDate: {
-            month: "",
-            year: ""
-        },
-        endDate: {
-            month: "",
-            year: ""
-        }
+        startDate: "",
+        endDate: ""
     },
     pastEducation: [
         {
             school: "",
             degree: "",
-            startDate: {
-                month: "",
-                year: ""
-            },
-            endDate: {
-                month: "",
-                year: ""
-            }
+            startDate: "",
+            endDate: ""
         }
     ]
 }
@@ -111,7 +94,7 @@ const initialLinkData = {
 
 const MultiStepForm = () => {
     const [detailsData, setDetails] = useState(initialDetailsData)
-    const [skillsData, setSkills] = useForm(initialSkillsData)
+    const [skillsData, setSkills] = useState(initialSkillsData)
     const [workData, setWork] = useForm(initialWorkData)
     const [educationData, setEducation] = useForm(initialEducationData)
     const [linkData, setLinks] = useForm(initialLinkData)
@@ -135,10 +118,12 @@ const MultiStepForm = () => {
             return <Education {...props} />
         case "links":
             return <Links {...props} />
+        case "Review":
+            return <Review {...props} />
         default:
             return null
     }
-    // return <Details {...props} />
+    // return <ImageUpload {...props} />
  
 
     

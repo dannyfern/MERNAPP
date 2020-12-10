@@ -1,10 +1,11 @@
 import React from 'react'
 import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
+import FormInput from './reusable/FormInput'
 
-
-const Work = ({ setWork, workData, navigation }) => {
+const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
     const props = { setWork, workData, navigation }
+    console.log(skillsData)
 
     const { previous, next } = navigation;
 
@@ -20,28 +21,19 @@ const Work = ({ setWork, workData, navigation }) => {
                             <h3>Please Choose one:</h3>
                             <div className="radio">
                                 <label>
-                                    <input
-                                        type="radio"
-                                        value="looking"
-                                    />
+                                    <FormInput value="looking" type="radio" onChange={setWork} />
                                     Looking for work
                                 </label>
                             </div>
                             <div className="radio">
                                 <label>
-                                    <input
-                                        type="radio"
-                                        value="open"
-                                    />
+                                <FormInput value="open" type="radio" onChange={setWork} />
                                     Not looking for work, but open to offers
                                 </label>
                             </div>
                             <div className="radio">
                                 <label>
-                                    <input
-                                        type="radio"
-                                        value="notLooking"
-                                    />
+                                <FormInput value="notLooking" type="radio" onChange={setWork} />
                                     Not looking for work
                                 </label>
                             </div>

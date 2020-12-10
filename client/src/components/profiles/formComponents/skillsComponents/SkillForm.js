@@ -19,6 +19,7 @@ import React, { useState } from 'react'
 
 
 const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
+    const { technical, soft } = skillsData
     
     // states for tech and soft skills arrays :
     const [techSkills, setTechSkills] = useState([

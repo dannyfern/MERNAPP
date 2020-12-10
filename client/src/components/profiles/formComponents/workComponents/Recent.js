@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FormInput from './../reusable/FormInput'
 
 const RecentWork = ({ setWork, workData, navigation }) => {
     const { title, company, startDate } = workData.currentRole
@@ -10,42 +10,19 @@ const RecentWork = ({ setWork, workData, navigation }) => {
                 <label>
                     Title
                 </label>
-                <input 
-                    type="text"
-                    name="title"
-                    value={title}
-                />
+                <FormInput name="title" value={title} onChange={setWork}/>
             </div>
             <div>
                 <label>
                     Company
                 </label>
-                <input 
-                    type="text"
-                    name="company"
-                    value={company}
-                />
-            </div>
-            <h3>Start date</h3>
-            <div>
-                <label>
-                    Month
-                </label>
-                <input 
-                    type="text"
-                    name="startDate.month"
-                    value={startDate.month}
-                />
+                <FormInput name="company" value={company} onChange={setWork}/>
             </div>
             <div>
                 <label>
-                    Year
+                Start date
                 </label>
-                <input 
-                    type="text"
-                    name="startDate.year"
-                    value={startDate.year}
-                />
+                <FormInput type="date" name="startDate" value={startDate} onChange={setWork}/>
             </div>
 
         </div>
