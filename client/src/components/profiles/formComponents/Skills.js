@@ -3,6 +3,7 @@ import SkillsForm from './skillsComponents/SkillForm'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 // import './../../../styles/Profile.css'
+import FormInput from './reusable/FormInput'
 
 
 const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
@@ -67,24 +68,14 @@ const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
                             <label>
                                 Skill level
                             </label>
-                            {/* <select>
-                                <option>Aspirational</option>
-                                <option>Junior-level</option>
-                                <option>Mid-level</option>
-                                <option>Senior-level</option>
-                            </select> */}
                             <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
                         </div>
                         <div>
                             <label>
                                 Years of Experience
                             </label>
-                            <input 
-                                type="text"
-                                name="yearsOfExperience"
-                                value={yearsOfExperience}
-                                onChange={handleChange}
-                            />
+                            <FormInput name="yearsOfExperience" value={yearsOfExperience} onChnage={handleChange} />
+                            
                         </div>
                         
                         

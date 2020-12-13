@@ -77,17 +77,15 @@ const initialEducationData = {
 }
 
 const initialLinkData = {
-    socialMedia: {
-        linkedIn: "",
-        twitter: "",
-        instagram: "",
-        facebook: ""
-    },
-    portfolioLinks: {
-        portfolio: "",
-        github: "",
-        resume: ""
-    }
+    linkedIn: "",
+    twitter: "",
+    instagram: "",
+    facebook: "",
+    portfolio: "",
+    github: "",
+    resume: "",
+    additionalLinks: []
+
 }
 
 
@@ -97,8 +95,8 @@ const MultiStepForm = () => {
     const [skillsData, setSkills] = useState(initialSkillsData)
     const [workData, setWork] = useForm(initialWorkData)
     const [educationData, setEducation] = useForm(initialEducationData)
-    const [linkData, setLinks] = useForm(initialLinkData)
-    console.log('DETAILS: ', detailsData)
+    const [linkData, setLinks] = useState(initialLinkData)
+    // console.log('DETAILS: ', detailsData)
 
 
     const { step, navigation } = useStep({ initialStep: 0, steps })

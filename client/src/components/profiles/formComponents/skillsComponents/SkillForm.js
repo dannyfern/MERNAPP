@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import FormInput from './../reusable/FormInput'
 
 // skills forms working, current bug: 
 // tryed different ways to have button as a submit button, however 
@@ -50,6 +50,7 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
     function handleSubmit (e) {
         addToArray(tempVal)
         setTempVal("")
+        
         e.preventDefault()
     }
 
@@ -59,10 +60,19 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
         if (tempName === "technical"){
             const newArr = [...techSkills, item ]
             setTechSkills(newArr)
+            setSkills({
+                ...skillsData,
+                technical: newArr
+            })
         } else if (tempName === "soft"){
             const newArr = [...softSkills, item]
             setSoftSkills(newArr)
+            setSkills({
+                ...skillsData,
+                soft: newArr
+            })
         }
+        console.log(skillsData)
     }
 
     // display function that displays the correct list of skills based on temp name :
@@ -89,12 +99,7 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
             <label>
                 Skill
             </label>
-            <input
-                type="text"
-                name={skillType}
-                value={tempVal}
-                onChange={handleChange}
-            />
+            <FormInput name={skillType} value={tempVal} onChange={handleChange} />
             <button onClick={handleSubmit}>+</button>
         </div>
     )

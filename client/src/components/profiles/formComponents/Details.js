@@ -69,7 +69,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
             [name]: value
         })
         // console.log(detailsData)
-        console.log('DETAILS on change: ', detailsData.firstName)
+        // console.log('DETAILS on change: ', detailsData.firstName)
     }
 
     function updateImg (e) {

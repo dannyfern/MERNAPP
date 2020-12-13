@@ -1,26 +1,74 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import FormInput from './reusable/FormInput'
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css';
 
 const Links = ({ setLinks, linkData, navigation }) => {
-    const { linkedIn, twitter, instagram, facebook } = linkData.socialMedia
-    const { portfolio, github, resume } = linkData.portfolioLinks
+    const { linkedIn, twitter, instagram, facebook, additionalLinks, portfolio, github, resume } = linkData
+
 
     const { previous, next } = navigation;
 
+    const [tempValue, setTempValue] = useState("")
+    const [tempName, setTempName] = useState("")
 
-    const addFormField = (e) => {
-        e.preventDefault()
-        const div = document.getElementById("additionalForms")
-        const nameField = document.createElement("INPUT")
-        const valueField = document.createElement("INPUT")
+    function handleAdditional (e) {
+        console.log(e.target.value)
 
-        nameField.setAttribute("type", "text")
-        nameField.setAttribute("type", "text")
-
-        div.appendChild(nameField)
-        div.appendChild(valueField)
+        // setTempValue(e.target.value)
+        // console.log('tempval: ', tempValue)
     }
 
+
+    const addFormField = (e) => {
+        const div = document.getElementById("additionalForms")
+        const valueField = document.createElement("INPUT")
+        valueField.setAttribute("type", "text")
+
+        valueField.addEventListener("change", handleAdditional)
+        div.appendChild(valueField)
+    }
+    const options = [
+        "Youtube", "Pinterest", "Reddit", "Codewars", "Stack Overflow"
+    ]
+
+
+    function onSelect (e) {
+        console.log(e)
+        const value = e.value
+        // const newArr = [...]
+        console.log(additionalLinks)
+        setTempName(value)
+        if (additionalLinks.length < 1){
+            addFormField()
+
+        } 
+        
+    }
+
+    function handleChange (e) {
+
+        const name = e.target.name
+        const value = e.target.value
+        console.log('name: ', name, 'value: ', value)
+
+        setLinks( {
+            ...linkData,
+            [name]: value
+        })
+
+        console.log(linkData)
+    }
+
+    function handleClick (e) {
+        e.preventDefault()
+        const newArr = [...additionalLinks, {[tempName]: [tempValue]}]
+        setLinks({
+            ...linkData,
+            additionalLinks: newArr
+        })
+        console.log(additionalLinks)
+    }
 
     return(
         <div>
@@ -33,67 +81,34 @@ const Links = ({ setLinks, linkData, navigation }) => {
                         <div>
                             <h3>Social Media</h3>
                             
-                                <div>
-                                    <label>
-                                        LinkedIn
-                                    </label>
-                                    <input 
-                                        type="text"
-                                        name="linkedIn"
-                                        value={linkedIn}
-
-
-                                    />
-                                </div>
-                                <div>
-                                    <label>
-                                        Twitter
-                                    </label>
-                                    <input 
-                                        type="text"
-                                        name="twitter"
-                                        value={twitter}
-                                        
-
-                                    />
-                                </div>
-                                <div>
-                                    <label>
-                                        Instagram
-                                    </label>
-                                    <input 
-                                        type="text"
-                                        name="instagram"
-                                        value={instagram}
-                                        
-
-                                    />
-                                </div>
-                                <div>
-                                    <label>
-                                        Facebook
-                                    </label>
-                                    <input 
-                                        type="text"
-                                        name="facebook"
-                                        value={facebook}
-                                        
-
-                                    />
-                                </div>
-                                <div>
-                                <label>Additional</label>
-                                <select>
-                                    <option>Youtube</option>
-                                    <option>Pinterest</option>
-                                    <option>Reddit</option>
-                                </select>
-
-                                <button onClick={addFormField}>+</button> 
-                                </div>
+                            <div>
+                                <label>
+                                    LinkedIn
+                                </label>
+                                <FormInput name="linkedIn" value={linkedIn} onChange={handleChange} />
+                            </div>
+                            <div>
+                                <label>
+                                    Twitter
+                                </label>
+                                <FormInput name="twitter" value={twitter} onChange={handleChange} />
+                            </div>
+                            <div>
+                                <label>
+                                    Instagram
+                                </label>
+                                <FormInput name="instagram" value={instagram} onChange={handleChange} />
+                            </div>
+                            <div>
+                                <label>
+                                    Facebook
+                                </label>
+                                <FormInput name="facebook" value={facebook} onChange={handleChange} />
+                            </div>
+                    
 
                                     
-                            </div>
+                        </div>
 
 
                         <div>
@@ -102,38 +117,29 @@ const Links = ({ setLinks, linkData, navigation }) => {
                                 <label>
                                     Portfolio
                                 </label>
-                                <input 
-                                    type="text"
-                                    name="portfolio"
-                                    value={portfolio}
-                                    
-
-                                />
+                                <FormInput name="portfolio" value={portfolio} onChange={handleChange} />
                             </div>
                             <div>
                                 <label>
                                     Github
                                 </label>
-                                <input 
-                                    type="text"
-                                    name="github"
-                                    value={github}
-                                    
-
-                                />
+                                <FormInput name="github" value={github} onChange={handleChange} />
                             </div>
                             <div>
-                                <input 
-                                    type="file"
-                                    name="resume"
-                                    value={resume}
-                                    accept="file/pdf"
-                                    
-
-                                />
+                                <FormInput type="file" name="resume" value={resume} />
+                                
                             </div>
-                            <button>+</button> 
                         </div>
+                        <div>
+                            <h3>Additional</h3>
+                            <div>
+                            <Dropdown options={options} onChange={onSelect} value={additionalLinks} name="additionalLinks" />
+                            <button onClick={handleClick}>+</button> 
+                            <div id="additionalForms"></div>
+
+                            </div>
+                        </div>
+
                     </form>  
                     <button onClick={previous}>back</button>  
                     <button onClick={next}>Review</button>  
