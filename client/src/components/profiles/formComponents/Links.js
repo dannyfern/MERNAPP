@@ -5,10 +5,10 @@ import 'react-dropdown/style.css';
 
 // need to add validation on additional links form -> display error message if no name for additional link is selected
 
-const Links = ({ setLinks, linkData, navigation }) => {
+const Links = ({ setLinks, linkData, navigation,  }) => {
     // form props :
     const { linkedIn, twitter, instagram, facebook, additionalLinks, portfolio, github, resume } = linkData
-
+    
 
     // for wizard form navigation :
     const { previous, next } = navigation;
@@ -98,6 +98,7 @@ const Links = ({ setLinks, linkData, navigation }) => {
             ...linkData,
             additionalLinks: {...additionalLinks, [tempName]: tempValue}
         })
+        
         setTempValue("")
         setTempName("")
         const valueField = document.getElementById("valueField")

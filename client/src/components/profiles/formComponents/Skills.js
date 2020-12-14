@@ -10,7 +10,7 @@ const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
     const props = { setSkills, skillsData, navigation }
 
     const { skillLevel, yearsOfExperience } = skillsData
-    console.log(detailsData)
+    console.log(skillsData)
 
 
     const { previous, next } = navigation;
@@ -74,7 +74,7 @@ const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
                             <label>
                                 Years of Experience
                             </label>
-                            <FormInput name="yearsOfExperience" value={yearsOfExperience} onChnage={handleChange} />
+                            <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} />
                             
                         </div>
                         

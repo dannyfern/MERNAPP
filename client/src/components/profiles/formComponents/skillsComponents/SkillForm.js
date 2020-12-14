@@ -79,7 +79,6 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
     function Display(){
         
         if (tempName === "technical"){
-            console.log("hello wtf")
             return techSkills.map((item, index) => 
                 <li key={index}>{item}</li>
             )

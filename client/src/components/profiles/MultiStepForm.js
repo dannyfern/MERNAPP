@@ -30,7 +30,7 @@ const initialDetailsData = {
     location: "",
     phoneNumber: "",
     birthday: "",
-    interests: {},
+    interests: [],
     bio: "",
     briefDescription: ""
 }
@@ -51,20 +51,11 @@ const initialWorkData = {
 }
 
 const initialEducationData = {
-    mostRecent: {
-        school: "",
-        degree: "",
-        startDate: "",
-        endDate: ""
-    },
-    pastEducation: [
-        {
-            school: "",
-            degree: "",
-            startDate: "",
-            endDate: ""
-        }
-    ]
+    recentSchool: "",
+    recentDegree: "",
+    recentStartDate: "",
+    recentEndDate: "",
+    pastEducation: []
 }
 
 const initialLinkData = {
@@ -96,23 +87,23 @@ const MultiStepForm = () => {
     const props = { navigation, detailsData, setDetails, skillsData, setSkills, 
     workData, setWork, educationData, setEducation, linkData, setLinks }
 
-    // switch (id) {
-    //     case "details":
-    //         return <Details {...props} />
-    //     case "skills":
-    //         return <Skills {...props} />
-    //     case "work":
-    //         return <Work {...props} />
-    //     case "education":
-    //         return <Education {...props} />
-    //     case "links":
-    //         return <Links {...props} />
-    //     case "Review":
-    //         return <Review {...props} />
-    //     default:
-    //         return null
-    // }
-    return <Work {...props} />
+    switch (id) {
+        case "details":
+            return <Details {...props} />
+        case "skills":
+            return <Skills {...props} />
+        case "work":
+            return <Work {...props} />
+        case "education":
+            return <Education {...props} />
+        case "links":
+            return <Links {...props} />
+        case "review":
+            return <Review {...props} />
+        default:
+            return null
+    }
+    // return <Review {...props} />
  
 
     

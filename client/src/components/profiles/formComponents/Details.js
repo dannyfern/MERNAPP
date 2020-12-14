@@ -4,21 +4,24 @@ import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
 import FormInput from './reusable/FormInput'
 import profileImg from './../../../img/default-profile.png'
 
+// bug with changes appearing in console and map function late
+
+
 
 const Details = ({ setDetails, detailsData, navigation }) => {
     
     // fields from detail form data :
     const { profilePhoto, firstName, lastName, username, location, 
     phoneNumber, birthday, interests, bio, briefDescription } = detailsData
-    // setDetails({
-    //     profilePhoto: {profileImg}
-    // })
+
 
     // next from hooks helper
     const { next } = navigation;
 
+
     // declare empty object for ticked interests
     const items = {}
+
 
     // fill object with key value pairs with keys being names from checkbox data and setting 
     // initial value to be false :
@@ -31,33 +34,46 @@ const Details = ({ setDetails, detailsData, navigation }) => {
     // use object from above to track checked items :
     const [checkedItems, setChecked ] = useState(items)
 
-
-
-    function handleSubmit (e) {
-        e.preventDefault()
-        console.log(e.target)
-    }
-
-    
     const checkedTrue = []
     
-    for (const key in checkedItems){
-        if (checkedItems[key] === true){
-            checkedTrue.push(key)
-        }
-    }
+    
 
  
 
     function handleCheckboxChange (e) {
         
-        const item = e.target.name
 
-        
-        setChecked({
-            ...checkedItems,
-            [item]: true 
+        const item = e.target.name
+        if (checkedItems[item] === false){
+            setChecked({
+                ...checkedItems,
+                [item]: true 
+            })
+        } else {
+            setChecked({
+                ...checkedItems,
+                [item]: false
+            })
+        }
+
+        for (const key in checkedItems){
+            if (checkedItems[key] === true){
+                checkedTrue.push(key)
+            }
+        }
+
+        console.log(interests)
+        setDetails({
+            ...detailsData,
+            interests: [...checkedTrue]
         })
+        console.log('CHECKED: ', checkedTrue)
+    
+        
+        
+        
+        console.log(detailsData)
+
 
     }
 
@@ -69,16 +85,27 @@ const Details = ({ setDetails, detailsData, navigation }) => {
             [name]: value
         })
         // console.log(detailsData)
-        // console.log('DETAILS on change: ', detailsData.firstName)
     }
 
-    function updateImg (e) {
-
+    function uploadImg (e) {
+        setDetails({
+            ...detailsData,
+            profilePhoto: e.target.files[0]
+        })
     }
 
+    function Display(){
+        console.log('INTERESTS', interests)
+        if (interests){
+            return(
+                interests.map((item, index) => {
+                    return <li key={index}>{item}</li>
+                })
+            )
+            
+        }
+    }
 
-
-    // const refContainer = useRef(profileImg)
 
     return(
         <div>
@@ -94,13 +121,9 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             alt="profilePhoto"
                             />
                     </div>
-                    <div>
-                   
-
-                    </div>
 
 
-                    <form className="profileForm" onSubmit={handleSubmit}>
+                    <form className="profileForm">
 
                         {/* profile photo : */}
                         <div className="profilePhotoUpload">
@@ -108,10 +131,9 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             <input 
                                 type="file"
                                 name="profilePhoto"
-                                value={profilePhoto}
                                 accept="image/png, image/jpeg"
                                 multiple="false"
-                                onChange={updateImg}
+                                onChange={uploadImg}
                                
                             />
 
@@ -172,10 +194,12 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
                         <div className="interestsCheckBoxes">
                             <h4>Interests</h4>
+                            <Display />
                             {
                                 interestsCheckBoxes.map((item, index) => {
                                     const name = item.name
-                                    const isChecked = checkedItems[name]
+                                    let isChecked = checkedItems[name]
+                                    // console.log(checkedItems)
                                     return(
                                         <div key={index}>
                                             <label>
@@ -231,6 +255,5 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         </div>
     )
 }
-
 
 export default Details

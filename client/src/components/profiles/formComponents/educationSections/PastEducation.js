@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
-import FormInput from './../reusable/FormInput'
+import React, {useState} from 'react'
+import FormInput from '../reusable/FormInput'
 
-const PastWork = ({ setWork, workData, navigation }) => {
-    const {pastRoles} = workData
-    const pastRole = {
-        title: "",
-        company: "", 
-        startDate: "", 
+//  how to dry up past education and work ? functions are almost identical
+
+
+const PastEducation = ({ setEducation, educationData, navigation }) => {
+
+    const { pastEducation } = educationData
+    const education  = {
+        school: "",
+        degree: "",
+        startDate: "",
         endDate: ""
     }
+    const [tempVals, setTempVals] = useState(education)
 
-    
-    const [tempVals, setTempVals] = useState(pastRole)
-    // const [roles, setRoles] = useState([])
-    const { title, company, startDate, endDate } = tempVals
+    const { school, degree, startDate, endDate } = tempVals
+
 
     function handleChange (e) {
         const name = e.target.name
@@ -22,48 +25,40 @@ const PastWork = ({ setWork, workData, navigation }) => {
             ...tempVals,
             [name]: value
         })
+        console.log(tempVals)
     }
 
     function handleClick (e) {
         e.preventDefault()
 
-        setWork({
-            ...workData,
-            pastRoles: [...pastRoles, tempVals]
+        setEducation({
+            ...educationData,
+            pastEducation: [...pastEducation, tempVals]
         })
-        setTempVals(pastRole)
-        
+
+        setTempVals(education)
+        console.log(educationData)
     }
 
-    function Display (){
+    function Display(){
 
-        if (pastRoles){
-            return (
-                pastRoles.map((item, index) => {
+        if (pastEducation){
+            return(
+                pastEducation.map((item, index) => {
                     return (
                         <div key={index}>
-                            <h3>role: {index + 1}</h3>
-
+                            <h3>Education: {index + 1}</h3>
                             {
                                 Object.entries(item).map(([key, value]) => {
                                     return <li key={key}>{key}: {value}</li>
                                 })
                             }
                         </div>
-                        
-                    
                     )
                 })
-                
             )
-        } else return null
+        }
     }
-
-    // return <li key={index}>{item}</li>
-
-    // pastRoles.map(item => {
-    //     console.log('ITEMS: ', item)
-    // })
 
 
     return(
@@ -74,31 +69,36 @@ const PastWork = ({ setWork, workData, navigation }) => {
 
             <div>
                 <label>
-                    Title
+                    School
                 </label>
-                <FormInput name="title" value={title} onChange={handleChange} />
+                <FormInput name="school" value={school} onChange={handleChange} />
+
             </div>
             <div>
                 <label>
-                    Company
+                    Degree
                 </label>
-                <FormInput name="company" value={company} onChange={handleChange} />
+                <FormInput name="degree" value={degree} onChange={handleChange} />
+
             </div>
             <div>
                 <label>
-                Start date
+                    Start Date
                 </label>
                 <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+
             </div>
             <div>
                 <label>
-                End date
+                    End Date
                 </label>
                 <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+
             </div>
             <button onClick={handleClick}>+</button>
         </div>
     )
 }
 
-export default PastWork
+
+export default PastEducation
