@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const FormInput = ({ type = "text", name, value, onChange }) => {
-    return <input type={type} name={name} value={value} onChange={onChange}/>
+const FormInput = ({ type = "text", name, value, onChange, accept }) => {
+    return <input type={type} name={name} value={value} onChange={onChange} accept={accept}/>
 }
 
 FormInput.propTypes = {

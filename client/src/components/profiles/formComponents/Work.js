@@ -5,9 +5,13 @@ import FormInput from './reusable/FormInput'
 
 const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
     const props = { setWork, workData, navigation }
-    console.log(skillsData)
+    // console.log(skillsData)
 
     const { previous, next } = navigation;
+
+    function handleChange (e) {
+
+    }
 
     return(
         <div>
@@ -21,7 +25,7 @@ const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
                             <h3>Please Choose one:</h3>
                             <div className="radio">
                                 <label>
-                                    <FormInput value="looking" type="radio" onChange={setWork} />
+                                    <FormInput value="looking" type="radio" onChange={} />
                                     Looking for work
                                 </label>
                             </div>

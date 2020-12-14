@@ -84,7 +84,7 @@ const initialLinkData = {
     portfolio: "",
     github: "",
     resume: "",
-    additionalLinks: []
+    additionalLinks: {}
 
 }
 
@@ -93,10 +93,10 @@ const initialLinkData = {
 const MultiStepForm = () => {
     const [detailsData, setDetails] = useState(initialDetailsData)
     const [skillsData, setSkills] = useState(initialSkillsData)
-    const [workData, setWork] = useForm(initialWorkData)
-    const [educationData, setEducation] = useForm(initialEducationData)
+    const [workData, setWork] = useState(initialWorkData)
+    const [educationData, setEducation] = useState(initialEducationData)
     const [linkData, setLinks] = useState(initialLinkData)
-    // console.log('DETAILS: ', detailsData)
+    // console.log('Links: ', linkData)
 
 
     const { step, navigation } = useStep({ initialStep: 0, steps })
@@ -105,23 +105,23 @@ const MultiStepForm = () => {
     const props = { navigation, detailsData, setDetails, skillsData, setSkills, 
     workData, setWork, educationData, setEducation, linkData, setLinks }
 
-    switch (id) {
-        case "details":
-            return <Details {...props} />
-        case "skills":
-            return <Skills {...props} />
-        case "work":
-            return <Work {...props} />
-        case "education":
-            return <Education {...props} />
-        case "links":
-            return <Links {...props} />
-        case "Review":
-            return <Review {...props} />
-        default:
-            return null
-    }
-    // return <ImageUpload {...props} />
+    // switch (id) {
+    //     case "details":
+    //         return <Details {...props} />
+    //     case "skills":
+    //         return <Skills {...props} />
+    //     case "work":
+    //         return <Work {...props} />
+    //     case "education":
+    //         return <Education {...props} />
+    //     case "links":
+    //         return <Links {...props} />
+    //     case "Review":
+    //         return <Review {...props} />
+    //     default:
+    //         return null
+    // }
+    return <Work {...props} />
  
 
     

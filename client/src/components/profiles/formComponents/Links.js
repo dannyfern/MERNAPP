@@ -1,73 +1,116 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FormInput from './reusable/FormInput'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 
+// need to add validation on additional links form -> display error message if no name for additional link is selected
+
 const Links = ({ setLinks, linkData, navigation }) => {
+    // form props :
     const { linkedIn, twitter, instagram, facebook, additionalLinks, portfolio, github, resume } = linkData
 
 
+    // for wizard form navigation :
     const { previous, next } = navigation;
 
+
+    // local states for controlled forms :
     const [tempValue, setTempValue] = useState("")
     const [tempName, setTempName] = useState("")
+    const [defaultOption, setDefaultOption] = useState("")
 
+
+    // sets temp values for additional links form :
     function handleAdditional (e) {
-        console.log(e.target.value)
-
-        // setTempValue(e.target.value)
-        // console.log('tempval: ', tempValue)
+        setTempValue(e.target.value)
     }
 
 
+    // add form :
+    // find div, create input element, set attributes of type and id, set value, add event listener for change,
+    // append the input field to the div, 
     const addFormField = (e) => {
+
         const div = document.getElementById("additionalForms")
         const valueField = document.createElement("INPUT")
         valueField.setAttribute("type", "text")
-
+        valueField.setAttribute("id", "valueField")
+        valueField.value = tempValue
         valueField.addEventListener("change", handleAdditional)
         div.appendChild(valueField)
+
     }
+
+
+    // options for dropdown of additional links :
     const options = [
         "Youtube", "Pinterest", "Reddit", "Codewars", "Stack Overflow"
     ]
 
 
+    // function for selecting dropdown options :
+    // set the temp name for the additional link from selected value,
+    // add a form field if there are no items in additional links object
     function onSelect (e) {
-        console.log(e)
-        const value = e.value
-        // const newArr = [...]
-        console.log(additionalLinks)
-        setTempName(value)
-        if (additionalLinks.length < 1){
-            addFormField()
 
+        const value = e.value
+        setTempName(value)
+
+        if (Object.entries(additionalLinks).length < 1){
+            addFormField()
         } 
-        
     }
 
+
+    // function to handle changes from set input fields :
+    // set linkdata to the name and value given
     function handleChange (e) {
 
         const name = e.target.name
         const value = e.target.value
-        console.log('name: ', name, 'value: ', value)
 
         setLinks( {
             ...linkData,
             [name]: value
         })
-
-        console.log(linkData)
     }
 
+
+    // display additional items keys and values:
+    function DisplayItems () {
+
+        return (
+            Object.entries(additionalLinks).map(([key, value]) => {
+                return <li key={key}>{key}: {value}</li>
+            })
+        )
+    }
+    
+
+    // function to handle the click of the + button :
+    // set the additional links to the ones saved in temp name and value,
+    // clear temp value, value field and dropdown selection
+    // add validation in here to prevent blank name : (if !name => display msg, dont allow submission)
     function handleClick (e) {
         e.preventDefault()
-        const newArr = [...additionalLinks, {[tempName]: [tempValue]}]
+
         setLinks({
             ...linkData,
-            additionalLinks: newArr
+            additionalLinks: {...additionalLinks, [tempName]: tempValue}
         })
-        console.log(additionalLinks)
+        setTempValue("")
+        setTempName("")
+        const valueField = document.getElementById("valueField")
+        valueField.value = ""
+        setDefaultOption("Select...")
+    }
+
+    function handleUpload (e) {
+        console.log(e.target.files[0])
+        setLinks({
+            ...linkData,
+            resume: e.target.files[0]
+        })
     }
 
     return(
@@ -126,17 +169,26 @@ const Links = ({ setLinks, linkData, navigation }) => {
                                 <FormInput name="github" value={github} onChange={handleChange} />
                             </div>
                             <div>
-                                <FormInput type="file" name="resume" value={resume} />
+                                <label>
+                                    Resume
+                                </label>
+                                <FormInput type="file" name="resume" accept=".pdf" onChange={handleUpload}/>
                                 
                             </div>
                         </div>
                         <div>
                             <h3>Additional</h3>
                             <div>
-                            <Dropdown options={options} onChange={onSelect} value={additionalLinks} name="additionalLinks" />
+                            <Dropdown options={options} onChange={onSelect} value={defaultOption} name="additionalLinks" />
                             <button onClick={handleClick}>+</button> 
                             <div id="additionalForms"></div>
 
+                            </div>
+                            <div id="additionalItems">
+                                    
+                            <DisplayItems />
+                                    
+                                
                             </div>
                         </div>
 
