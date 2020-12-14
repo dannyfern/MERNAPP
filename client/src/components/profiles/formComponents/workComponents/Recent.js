@@ -2,7 +2,17 @@ import React from 'react'
 import FormInput from './../reusable/FormInput'
 
 const RecentWork = ({ setWork, workData, navigation }) => {
-    const { title, company, startDate } = workData.currentRole
+    const { currentTitle, currentCompany, currentStartDate } = workData
+    console.log(workData)
+
+    function handleChange (e) {
+        const name = e.target.name
+        const value = e.target.value
+        setWork({
+            ...workData,
+            [name]: value
+        })
+    }
 
     return(
         <div>
@@ -10,19 +20,19 @@ const RecentWork = ({ setWork, workData, navigation }) => {
                 <label>
                     Title
                 </label>
-                <FormInput name="title" value={title} onChange={setWork}/>
+                <FormInput name="currentTitle" value={currentTitle} onChange={handleChange}/>
             </div>
             <div>
                 <label>
                     Company
                 </label>
-                <FormInput name="company" value={company} onChange={setWork}/>
+                <FormInput name="currentCompany" value={currentCompany} onChange={handleChange}/>
             </div>
             <div>
                 <label>
                 Start date
                 </label>
-                <FormInput type="date" name="startDate" value={startDate} onChange={setWork}/>
+                <FormInput type="date" name="currentStartDate" value={currentStartDate} onChange={handleChange}/>
             </div>
 
         </div>

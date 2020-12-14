@@ -44,19 +44,10 @@ const initialSkillsData = {
 
 const initialWorkData = {
     status: "",
-    currentRole: {
-        title: "",
-        company: "",
-        startDate: ""
-    },
-    pastRoles: [
-        {
-            title: "",
-            company: "",
-            startDate: "",
-            endDate: ""
-        }
-    ]
+    currentTitle: "",
+    currentCompany: "",
+    currentStartDate: "",
+    pastRoles: []
 }
 
 const initialEducationData = {
