@@ -66,8 +66,7 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
     // set linkdata to the name and value given
     function handleChange (e) {
 
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
 
         setLinks( {
             ...linkData,

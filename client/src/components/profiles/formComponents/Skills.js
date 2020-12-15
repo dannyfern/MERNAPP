@@ -24,8 +24,7 @@ const Skills = ({ setSkills, skillsData, navigation, detailsData }) => {
 
     function handleChange (e) {
         console.log(e)
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
         setSkills({
             ...skillsData,
             [name]: value

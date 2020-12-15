@@ -3,14 +3,18 @@ import Posts from './posts/Posts'
 
 
 
-const Home = () => {
+const Home = ({postsData}) => {
+    const props = {postsData}
 
 
     return (
         <div>
-            home page
+            <div className="heading">
+                <h2>home page</h2>
+            </div>
+            
 
-            <Posts />
+            <Posts {...props} />
 
 
         </div>

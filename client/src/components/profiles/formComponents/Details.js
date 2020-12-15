@@ -78,8 +78,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
     }
 
     function handleChange (e) {
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
         setDetails({
             ...detailsData,
             [name]: value

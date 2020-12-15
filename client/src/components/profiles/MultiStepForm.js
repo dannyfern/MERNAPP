@@ -36,8 +36,8 @@ const initialDetailsData = {
 }
 
 const initialSkillsData = {
-    technical: [""],
-    soft: [""],
+    technical: [],
+    soft: [],
     skillLevel: "",
     yearsOfExperience: ""
 }
