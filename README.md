@@ -1,4 +1,4 @@
-README - Developer platform
+# README - Developer platform
 
 ## Purpose of the website
 
