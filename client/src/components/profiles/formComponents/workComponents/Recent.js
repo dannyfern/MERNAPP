@@ -1,13 +1,15 @@
 import React from 'react'
-import FormInput from './../reusable/FormInput'
+import FormInput from '../../../reusable/FormInput'
 
-const RecentWork = ({ setWork, workData, navigation }) => {
+// combine this into main work component !!
+
+const RecentWork = ({ setWork, workData }) => {
+
     const { currentTitle, currentCompany, currentStartDate } = workData
-    console.log(workData)
 
+    // handle change for regular inputs :
     function handleChange (e) {
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
         setWork({
             ...workData,
             [name]: value

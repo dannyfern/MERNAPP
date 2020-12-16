@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import FormInput from './../reusable/FormInput'
+import FormInput from '../../../reusable/FormInput'
 
-const PastWork = ({ setWork, workData, navigation }) => {
-    const {pastRoles} = workData
+const PastWork = ({ setWork, workData }) => {
+
+    const { pastRoles } = workData
+
+    // initial form data for past roles :
     const pastRole = {
         title: "",
         company: "", 
@@ -10,31 +13,36 @@ const PastWork = ({ setWork, workData, navigation }) => {
         endDate: ""
     }
 
-    
+    // temp values to save to state and then to form data : 
     const [tempVals, setTempVals] = useState(pastRole)
-    // const [roles, setRoles] = useState([])
     const { title, company, startDate, endDate } = tempVals
 
+
+    // function to set values for tempvals from form input :
     function handleChange (e) {
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
         setTempVals({
             ...tempVals,
             [name]: value
         })
     }
 
+    // handle plus button click 
     function handleClick (e) {
         e.preventDefault()
 
+        // set work form details to include the tempvals
         setWork({
             ...workData,
             pastRoles: [...pastRoles, tempVals]
         })
+
+        // clear tempvals 
         setTempVals(pastRole)
         
     }
 
+    // display past roles data if there is any :
     function Display (){
 
         if (pastRoles){
@@ -42,32 +50,25 @@ const PastWork = ({ setWork, workData, navigation }) => {
                 pastRoles.map((item, index) => {
                     return (
                         <div key={index}>
-                            <h3>role: {index + 1}</h3>
 
+                            <h3>role: {index + 1}</h3>
                             {
                                 Object.entries(item).map(([key, value]) => {
                                     return <li key={key}>{key}: {value}</li>
                                 })
                             }
+
                         </div>
-                        
-                    
                     )
                 })
-                
             )
         } else return null
     }
 
-    // return <li key={index}>{item}</li>
-
-    // pastRoles.map(item => {
-    //     console.log('ITEMS: ', item)
-    // })
-
 
     return(
         <div>
+
             <div>
                 <Display />
             </div>
@@ -78,25 +79,30 @@ const PastWork = ({ setWork, workData, navigation }) => {
                 </label>
                 <FormInput name="title" value={title} onChange={handleChange} />
             </div>
+
             <div>
                 <label>
                     Company
                 </label>
                 <FormInput name="company" value={company} onChange={handleChange} />
             </div>
+
             <div>
                 <label>
                 Start date
                 </label>
                 <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
             </div>
+
             <div>
                 <label>
                 End date
                 </label>
                 <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
             </div>
+
             <button onClick={handleClick}>+</button>
+
         </div>
     )
 }

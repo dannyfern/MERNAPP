@@ -7,9 +7,7 @@ const Posts = ({postsData}) => {
     return(
         <div>
             <div className="heading">
-                <h3>
-                    posts
-                </h3>
+                <h4>Posts</h4>
             </div>
             
             <div>
@@ -19,6 +17,7 @@ const Posts = ({postsData}) => {
                     .map((post) => <Post key={post._id} post={post} />)
                 }
             </div>
+
 
         </div>
     )

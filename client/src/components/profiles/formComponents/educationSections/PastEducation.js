@@ -1,31 +1,31 @@
 import React, {useState} from 'react'
-import FormInput from '../reusable/FormInput'
+import FormInput from '../../../reusable/FormInput'
 
 //  how to dry up past education and work ? functions are almost identical
 
-
-const PastEducation = ({ setEducation, educationData, navigation }) => {
+const PastEducation = ({ setEducation, educationData }) => {
 
     const { pastEducation } = educationData
+
+    // empty initial data 
     const education  = {
         school: "",
         degree: "",
         startDate: "",
         endDate: ""
     }
+    // temp values to save to state :
     const [tempVals, setTempVals] = useState(education)
 
     const { school, degree, startDate, endDate } = tempVals
 
 
     function handleChange (e) {
-        const name = e.target.name
-        const value = e.target.value
+        const { name, value } = e.target
         setTempVals({
             ...tempVals,
             [name]: value
         })
-        console.log(tempVals)
     }
 
     function handleClick (e) {
@@ -37,7 +37,6 @@ const PastEducation = ({ setEducation, educationData, navigation }) => {
         })
 
         setTempVals(education)
-        console.log(educationData)
     }
 
     function Display(){
