@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
+
 import stateReducer from './config/stateReducer'
 import { StateContext } from './config/globalState'
 import blogData from './data/post_data'
@@ -26,7 +27,9 @@ import SignIn from './components/auth/SignIn'
 // styles :
 import './styles/Styles.css'
 import './styles/Profile.css'
+import './styles/Desktop.css'
 // import { getAllBlogPosts, getPostFromId } from './services/blogPostServices'
+
 
 
 
@@ -85,9 +88,11 @@ const App = () => {
 
 
 
+
     return (
         <div>
             <StateContext.Provider value={{store, dispatch}}>
+                
                 <BrowserRouter >
                 <Navbar />
                 {error ? (<Oopsie />) : (
@@ -114,6 +119,12 @@ const App = () => {
                 
                 </BrowserRouter>
             </StateContext.Provider>
+
+
+
+
+
+
         </div>
     )
 }

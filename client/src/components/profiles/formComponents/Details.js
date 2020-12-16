@@ -1,27 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react'
-import CheckBox from './reusable/CheckBox'
+import React, { useState } from 'react'
+import CheckBox from '../../reusable/CheckBox'
 import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
-import FormInput from './reusable/FormInput'
-import profileImg from './../../../img/default-profile.png'
+import FormInput from '../../reusable/FormInput'
 
-// bug with changes appearing in console and map function late
-
-
+// have image shown on screen when uploaded - maybe look into components (antd)
+// move checkbox data to data file (once merged)
 
 const Details = ({ setDetails, detailsData, navigation }) => {
     
     // fields from detail form data :
     const { profilePhoto, firstName, lastName, username, location, 
-    phoneNumber, birthday, interests, bio, briefDescription } = detailsData
-
+    phoneNumber, birthday, bio, briefDescription } = detailsData
 
     // next from hooks helper
     const { next } = navigation;
 
-
     // declare empty object for ticked interests
     const items = {}
-
 
     // fill object with key value pairs with keys being names from checkbox data and setting 
     // initial value to be false :
@@ -30,20 +25,20 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         items[name] = false
     }
     
-
     // use object from above to track checked items :
-    const [checkedItems, setChecked ] = useState(items)
+    const [checkedItems, setChecked] = useState(items)
 
+    // array of names of items which are checked :
     const checkedTrue = []
-    
-    
 
- 
-
+    // function to handle checkbox toggle : 
     function handleCheckboxChange (e) {
-        
 
         const item = e.target.name
+
+        // - check if the item being checked is set to false in the checked items state
+        // - if it is, change to true
+        // - if it isnt, change to false
         if (checkedItems[item] === false){
             setChecked({
                 ...checkedItems,
@@ -55,37 +50,31 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                 [item]: false
             })
         }
-
+            
+        // - put the items marked true into checkedtrue array
         for (const key in checkedItems){
             if (checkedItems[key] === true){
                 checkedTrue.push(key)
             }
         }
 
-        console.log(interests)
+        // set form data for interests to include all checked true items
         setDetails({
             ...detailsData,
             interests: [...checkedTrue]
         })
-        console.log('CHECKED: ', checkedTrue)
-    
-        
-        
-        
-        console.log(detailsData)
-
-
     }
 
+    // function to handle change of regular form inputs :
     function handleChange (e) {
         const { name, value } = e.target
         setDetails({
             ...detailsData,
             [name]: value
         })
-        // console.log(detailsData)
     }
 
+    // function for image upload :
     function uploadImg (e) {
         setDetails({
             ...detailsData,
@@ -93,24 +82,14 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         })
     }
 
-    function Display(){
-        console.log('INTERESTS', interests)
-        if (interests){
-            return(
-                interests.map((item, index) => {
-                    return <li key={index}>{item}</li>
-                })
-            )
-            
-        }
-    }
-
 
     return(
         <div>
             <div>
                 <div className="heading">
-                    details
+                    <h4>
+                        Personal Details
+                    </h4>
                 </div>
 
                 <div className="profileFormDiv">
@@ -124,7 +103,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
                     <form className="profileForm">
 
-                        {/* profile photo : */}
+
                         <div className="profilePhotoUpload">
                             <label>Profile Photo:</label>
                             <input 
@@ -143,7 +122,6 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                         <div>
                             <label>
                                 First Name:
-                                {firstName}
                             </label>
                             <FormInput name="firstName" value={firstName} onChange={handleChange} />  
                         </div>
@@ -193,28 +171,18 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
                         <div className="interestsCheckBoxes">
                             <h4>Interests</h4>
-                            <Display />
-                            {
+                            { // map over checkbox items from checkbox data file :
                                 interestsCheckBoxes.map((item, index) => {
-                                    const name = item.name
+                                    const { name } = item
                                     let isChecked = checkedItems[name]
-                                    // console.log(checkedItems)
                                     return(
                                         <div key={index}>
-                                            <label>
-                                            {item.label}
-                                            </label>
-
+                                            <label>{item.label}</label>
                                             <CheckBox name={item.name} checked={isChecked} onChange={handleCheckboxChange}  />
                                         </div>
-                                    )
-                                    
+                                    )   
                                 })
-
-                                
                             }
-                            
-
                         </div>
 
                         <div>
@@ -238,9 +206,6 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 onChange={handleChange}
                             />
                         </div>
-                        
-
-                        
                     </form>
                     <div>
                         <button onClick={next}>next</button>

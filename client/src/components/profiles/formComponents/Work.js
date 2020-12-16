@@ -1,35 +1,36 @@
 import React from 'react'
 import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
-import FormInput from './reusable/FormInput'
 import { RadioGroup, RadioButton } from 'react-radio-buttons'
 
-const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
-    const props = { setWork, workData, navigation }
-    const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
-    // console.log(skillsData)
+const Work = ({ setWork, workData, navigation }) => {
 
+    const props = { setWork, workData, navigation }
     const { previous, next } = navigation;
 
+
+    // handle change function for radio group for work status :
     function handleChange (e) {
-        console.log(e)
         setWork({
             ...workData,
             status: e
         })
-        console.log(workData)
     }
 
     return(
         <div>
             <div className="profileFormDiv">
                 <div className="heading">
-                    Work Information
+                    <h4>
+                        Work Information
+                    </h4>
                 </div>
                 <div>
                     <form>
                         <div>
                             <h3>Please Choose one:</h3>
+                            {/* radio button component from package */}
+
                             <RadioGroup onChange={handleChange} horizontal>
                                 <RadioButton value="looking">
                                     Looking for Work
@@ -40,9 +41,7 @@ const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
                                 <RadioButton value="notLooking">
                                     Not looking for work
                                 </RadioButton>
-
                             </RadioGroup>
-
                         </div>
                         
                         <div>
@@ -53,7 +52,6 @@ const Work = ({ setWork, workData, navigation, detailsData, skillsData }) => {
                         <div>
                             <h3>Past Roles</h3>
                             <PastWork {...props} />
-
                         </div>
 
                     </form>
