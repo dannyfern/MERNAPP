@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import FormInput from './../reusable/FormInput'
+import FormInput from '../../../reusable/FormInput'
 
 // skills forms working, current bug: 
 // tryed different ways to have button as a submit button, however 

@@ -8,9 +8,11 @@ const Home = ({postsData}) => {
 
 
     return (
-        <div>
+        <div className="width70">
             <div className="heading">
-                <h2>home page</h2>
+
+                <h1>Home</h1>
+
             </div>
             
 
