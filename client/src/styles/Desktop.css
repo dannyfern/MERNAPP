@@ -62,5 +62,10 @@
     font-size: 1.5em;
     padding: 1% 0 1%;
   }
-}
+
+  .width70 {
+    width: 70vw;
+    margin: 0 auto;
+  }
+
 /*# sourceMappingURL=Desktop.css.map */
