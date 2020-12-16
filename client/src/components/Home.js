@@ -10,7 +10,9 @@ const Home = ({postsData}) => {
     return (
         <div>
             <div className="heading">
-                <h2>home page</h2>
+
+                <h1>Home</h1>
+
             </div>
             
 

@@ -13,7 +13,7 @@ const AddProfile = () => {
         <div>
             <div>
                 <div className="heading">
-                    add profile
+                    <h1>Add Profile</h1>
                 </div>
                 <MultiStepForm />
                 

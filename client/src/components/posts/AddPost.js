@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './../../styles/Posts.css'
-import FormInput from './../profiles/formComponents/reusable/FormInput'
+import FormInput from './../reusable/FormInput'
 import Posts from './Posts'
 
 
@@ -49,7 +49,7 @@ const AddPost = ({ history, nextId, addPost}) => {
             
             <div id="addPostDiv">
                 <div className="heading">
-                    Add post
+                    <h1>Add post</h1>
                 </div>
                 <form id="addPostForm" onSubmit={handleSubmit}>
 
