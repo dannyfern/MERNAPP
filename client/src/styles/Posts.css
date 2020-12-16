@@ -22,4 +22,59 @@
   width: 10vw;
   margin: 0 auto;
 }
+
+.posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.postCard {
+  padding: 4%;
+  border: 1px solid #75ACB4;
+  margin: 4% 7%;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.postCard .titleLink {
+  text-decoration: none !important;
+}
+
+.postCard .titleLink .postTitle {
+  color: #75ACB4;
+  font-size: 1.75em;
+}
+
+.postCard .postInfo h5 {
+  font-weight: 500;
+  margin-top: 6%;
+  font-size: 1em;
+}
+
+.postCard .postInfo h3 {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin-top: 3%;
+}
+
+.postCard .postInfo .upVotesDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.postCard .postInfo .upVotesDiv .upVotes {
+  color: #75ACB4;
+  font-weight: 700;
+  font-size: 1.25em;
+}
 /*# sourceMappingURL=Posts.css.map */

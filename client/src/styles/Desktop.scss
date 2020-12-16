@@ -14,6 +14,15 @@
     .col-12 {width: 100%;}
 
 
+    .heading{
+        margin: 5% !important;
+    }
+
+    .width70{
+        width: 70vw !important;
+        margin: 0 auto;
+    }
+
     .nav-ul{
         display: flex;
         justify-content: space-around;
@@ -40,9 +49,38 @@
     }
 
 
+    // posts :
     .width70{
-        width: 70vw;
-        margin: 0 auto;
+        .posts{
+
+            .postCard{
+                padding: 2%;
+                margin: 3%;
+        
+                .titleLink{
+                    .postTitle{
+                        font-size: 1.35em;
+                        
+                    }
+                }
+
+                .postInfo{
+                    h5{
+                        font-size: 0.95em;
+                        margin-top: 4%;
+                    }
+                    h3{
+                        font-size: 1.25em;
+                    }
+                }
+            }
+        }
     }
+    
+    
+
+    
+
+
 
 }

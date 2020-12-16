@@ -1,9 +1,18 @@
+
+// fonts : 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url("https://use.typekit.net/buj1oiz.css");
 
+// variables:
+@import "variables";
+
+// other files :
+// @import "Posts";
+
+
 .heading{
     text-align: center;
-    margin: 3% 0;
+    margin: 8% 0;
 }
 
 *{
@@ -17,7 +26,7 @@
     display: flex;
     flex-direction: column;
     // justify-content: space-between;
-    background-color: #75ACB4;
+    background-color: $green;
     // height: 10%;
     width: 100vw;
     text-align: center;

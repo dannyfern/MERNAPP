@@ -36,6 +36,13 @@
   .col-12 {
     width: 100%;
   }
+  .heading {
+    margin: 5% !important;
+  }
+  .width70 {
+    width: 70vw !important;
+    margin: 0 auto;
+  }
   .nav-ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -62,10 +69,19 @@
     font-size: 1.5em;
     padding: 1% 0 1%;
   }
-
-  .width70 {
-    width: 70vw;
-    margin: 0 auto;
+  .width70 .posts .postCard {
+    padding: 2%;
+    margin: 3%;
   }
-
+  .width70 .posts .postCard .titleLink .postTitle {
+    font-size: 1.35em;
+  }
+  .width70 .posts .postCard .postInfo h5 {
+    font-size: 0.95em;
+    margin-top: 4%;
+  }
+  .width70 .posts .postCard .postInfo h3 {
+    font-size: 1.25em;
+  }
+}
 /*# sourceMappingURL=Desktop.css.map */

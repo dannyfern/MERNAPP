@@ -28,6 +28,8 @@ import SignIn from './components/auth/SignIn'
 import './styles/Styles.css'
 import './styles/Profile.css'
 import './styles/Desktop.css'
+import './styles/Posts.css'
+import './styles/Tablet.css'
 // import { getAllBlogPosts, getPostFromId } from './services/blogPostServices'
 
 
