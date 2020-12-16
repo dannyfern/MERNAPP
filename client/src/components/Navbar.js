@@ -33,6 +33,7 @@ const Navbar = () => {
                 
 
                 <div id="navLinks" className={className}>
+                    <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
                     <Link className="navLinkStyles" to="/" >Home</Link>
                     <Link className="navLinkStyles" to="/posts/new">New Post</Link>
                     <Link className="navLinkStyles" to="/profiles">Developers</Link>

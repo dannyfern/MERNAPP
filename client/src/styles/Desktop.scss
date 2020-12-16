@@ -25,6 +25,19 @@
     }
 
     #navLinks{ 
-        display: block;
+        display: flex;
+        justify-content: space-around;
+        
+        a{
+            color: white;
+            padding: 1.5% 0;
+        }
+        #logo{
+            font-family: diazo-mvb-ex-cond, sans-serif;
+            font-size: 1.5em;
+            padding: 1% 0 1%;
+        }
     }
+
+    
 }

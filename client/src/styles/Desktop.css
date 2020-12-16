@@ -47,7 +47,20 @@
     display: none;
   }
   #navLinks {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #navLinks a {
+    color: white;
+    padding: 1.5% 0;
+  }
+  #navLinks #logo {
+    font-family: diazo-mvb-ex-cond, sans-serif;
+    font-size: 1.5em;
+    padding: 1% 0 1%;
   }
 }
 /*# sourceMappingURL=Desktop.css.map */
