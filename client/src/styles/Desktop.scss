@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 780px) {
     /* For desktop: */
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
@@ -52,10 +52,12 @@
     // posts :
     .width70{
         .posts{
+            
 
             .postCard{
                 padding: 2%;
                 margin: 3%;
+                flex: 20%;
         
                 .titleLink{
                     .postTitle{
@@ -73,6 +75,49 @@
                         font-size: 1.25em;
                     }
                 }
+            }
+        }
+    }
+
+    .singlePostTitle{
+        padding: 8% !important;
+        .singleTitleLink{
+            #postTitle{
+                font-size: 2em;
+            }
+        }
+    }
+
+    #postSections{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        margin-top: 5%;
+        
+
+        .singlePostInfo{
+            width: 40vw;
+            border-left: 1px solid black;
+            padding-left: 5%;
+
+
+            h5{
+                font-size: 1.25em;
+                margin: 0;
+            }
+
+            h3{
+                font-size: 1.5em;
+            }
+            p{
+                font-size: 1.25em;
+            }
+        }
+
+        .authorInfo{
+            margin: 0;
+            p{
+                font-size: 1.25em;
             }
         }
     }

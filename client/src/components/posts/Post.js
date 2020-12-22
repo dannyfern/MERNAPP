@@ -13,12 +13,26 @@ const Post = ({history, post}) => {
         return (
             <div>
                 <div>
-                    <Link to={`/posts/${post._id}`}>
-                        <h1>{title}</h1>
-                    </Link>
-                    <h3>{category}</h3>
-                    <h5>{modified_date.toLocaleString()}</h5>
-                    <p>{content}</p>
+                    <div className="singlePostTitle">
+                        <Link to={`/posts/${post._id}`} className="singleTitleLink">
+                            <h1 id="postTitle">{title}</h1>
+                        </Link>
+                    </div>
+                    <div id="postSections" className="width70">
+                        
+                        <div className="singlePostInfo">
+                            <h5 id="postDate">Posted {modified_date.toLocaleString()}</h5>
+                            <h3>{category}</h3>
+                            
+                            <p>{content}</p>
+                        </div>
+                        <div className="authorInfo">
+                            <p>author name</p>
+                            <p>author description</p>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         )

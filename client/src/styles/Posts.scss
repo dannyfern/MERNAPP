@@ -82,3 +82,55 @@
 
 
 // single post
+
+
+.singlePostTitle{
+    background: rgba(117, 172, 180, 0.3);
+    padding: 15% 10%;
+
+    .singleTitleLink{
+        text-align: center;
+        text-decoration: none;
+        
+
+        h1{
+            color: black;
+            font-family: $dvb;
+            font-weight: 100;
+            
+        }
+    }
+}
+
+.singlePostInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80vw;
+    margin: 0 auto;
+
+    h5{
+        margin: 12% 0 2%;
+        font-size: 1.25em;
+        font-weight: 400;
+    }
+    h3{
+        margin: 0 0 5%;
+        font-weight: 200;
+        font-size: 1.5em;
+
+    }
+    p{
+        margin: 3% 0;
+        font-size: 1.25em;
+        line-height: 1.5;
+
+    }
+}
+
+.authorInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10%;
+}

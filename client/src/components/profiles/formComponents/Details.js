@@ -80,141 +80,172 @@ const Details = ({ setDetails, detailsData, navigation }) => {
             ...detailsData,
             profilePhoto: e.target.files[0]
         })
+
+        const file = document.getElementById('fileChosen')
+        file.textContent = e.target.files[0].name
     }
+
+
 
 
     return(
         <div>
-            <div>
-                <div className="heading">
-                    <h4>
-                        Personal Details
-                    </h4>
+    
+            <div className="heading">
+                <h4>
+                    Personal Details
+                </h4>
+            </div>
+
+            <div className="profileFormDiv">
+                <div className="profilePhoto">
+                    <img
+                        src={profilePhoto}
+                        alt="profilephoto"
+                        />
                 </div>
 
-                <div className="profileFormDiv">
-                    <div className="profilePhoto">
-                        <img
-                            src={profilePhoto}
-                            alt="profilePhoto"
-                            />
+
+                <form className="profileForm">
+
+
+                    <div className="profilePhotoUpload">
+                        <label for="photoBtn">Upload Image</label>
+                        <input 
+                            type="file"
+                            name="profilePhoto"
+                            accept="image/png, image/jpeg"
+                            multiple="false"
+                            onChange={uploadImg}
+                            id="photoBtn"
+                            hidden
+                            
+                        />
+                        <span id="fileChosen">No file Chosen</span>
+
                     </div>
 
 
-                    <form className="profileForm">
+                    <div className="profileFormSection">
 
+                        <div className="doubleFields">
+                            <div className="formFields">
+                                <label>
+                                    First Name
+                                </label>
+                                <FormInput name="firstName" value={firstName} onChange={handleChange} />  
+                            </div>
 
-                        <div className="profilePhotoUpload">
-                            <label>Profile Photo:</label>
-                            <input 
-                                type="file"
-                                name="profilePhoto"
-                                accept="image/png, image/jpeg"
-                                multiple="false"
-                                onChange={uploadImg}
-                               
-                            />
+                            
+                            <div className="formFields">
+                                <label>
+                                    Last Name
+                                </label>
+                
+                                <FormInput name="lastName" value={lastName} onChange={handleChange} />
+                            </div>
 
                         </div>
-
-
-
-                        <div>
-                            <label>
-                                First Name:
-                            </label>
-                            <FormInput name="firstName" value={firstName} onChange={handleChange} />  
-                        </div>
-
                         
-                        <div>
-                            <label>
-                                Last Name:
-                            </label>
+
+
+                        <div className="doubleFields">
+                            <div className="formFields">
+                                <label>
+                                    Username
+                                </label>
+                                <FormInput name="username" value={username} onChange={handleChange} /> 
+                            </div>
+
+                            
+                            <div className="formFields">
+                                <label>
+                                    Location
+                                </label>
             
-                            <FormInput name="lastName" value={lastName} onChange={handleChange} />
-                        </div>
-
-
-                        
-                        <div>
-                            <label>
-                                Username:
-                            </label>
-                            <FormInput name="username" value={username} onChange={handleChange} /> 
+                                <FormInput name="location" value={location} onChange={handleChange} />
+                            </div>
                         </div>
 
                         
-                        <div>
-                            <label>
-                                Location:
-                            </label>
-        
-                            <FormInput name="location" value={location} onChange={handleChange} />
-                        </div>
-                        
-                        <div>
+                        <div className="doubleFields">
+                            <div className="formFields">
 
-                            <label>
-                                Phone Number:
-                            </label>
-                            <FormInput name="phoneNumber" value={phoneNumber} onChange={handleChange} />
-                        </div>
+                                <label>
+                                    Phone Number
+                                </label>
+                                <FormInput name="phoneNumber" value={phoneNumber} onChange={handleChange} />
+                            </div>
 
-                        <div className="birthdayFields">
-                            <label>Birthday</label>
+                            <div className="birthdayFields formFields">
+                                <label>Birthday</label>
 
-                            <FormInput type="date" name="birthday" value={birthday} onChange={handleChange}/>
-        
+                                <FormInput type="date" name="birthday" value={birthday} onChange={handleChange}/>
+            
+                            </div>
                         </div>
 
 
-                        <div className="interestsCheckBoxes">
+                        <div className="interestsSection">
                             <h4>Interests</h4>
+                            <div className="interestsCheckBoxes">
+
+                            
                             { // map over checkbox items from checkbox data file :
                                 interestsCheckBoxes.map((item, index) => {
                                     const { name } = item
                                     let isChecked = checkedItems[name]
                                     return(
-                                        <div key={index}>
-                                            <label>{item.label}</label>
+                                        <div key={index} className="checkboxes">
+                                            
+
                                             <CheckBox name={item.name} checked={isChecked} onChange={handleCheckboxChange}  />
+                                            {/* <span class="check"></span> */}
+                                            <label className="checkLabel">
+                                                {item.label}
+                                            
+                                            </label>
                                         </div>
                                     )   
                                 })
                             }
+
+                            </div>
                         </div>
 
-                        <div>
+                        <div className="formFields">
                             <label>
-                                Bio:
+                                Bio
                             </label>
                             <textarea 
                                 name="bio"
                                 value={bio}
                                 onChange={handleChange}
+                                className="bio"
                             />
                         </div>
 
-                        <div>
+                        <div className="formFields">
                             <label>
-                                Brief Description:
+                                Brief Description
                             </label>
                             <textarea 
                                 name="briefDescription"
                                 value={briefDescription}
                                 onChange={handleChange}
+                                className="description"
                             />
                         </div>
-                    </form>
-                    <div>
-                        <button onClick={next}>next</button>
                     </div>
-
-                    
+                </form>
+                <div>
+                    <button onClick={next}>next</button>
                 </div>
 
+                
             </div>
+
+            
             
         </div>
     )

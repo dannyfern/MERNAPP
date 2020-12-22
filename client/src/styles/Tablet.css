@@ -41,7 +41,7 @@
     margin: 0 auto;
   }
   .heading {
-    margin: 10%;
+    margin: 8%;
   }
   .posts {
     -webkit-box-orient: horizontal;
@@ -56,6 +56,31 @@
         -ms-flex: 40%;
             flex: 40%;
     margin: 3% 3%;
+  }
+  .singlePostTitle {
+    padding: 10%;
+  }
+  .singlePostTitle .singleTitleLink h1 {
+    font-size: 3em;
+  }
+  .singlePostInfo #postDate {
+    font-size: 1.75em;
+  }
+  .singlePostInfo h3 {
+    font-size: 2em;
+  }
+  .singlePostInfo p {
+    font-size: 1.55em;
+  }
+  .authorInfo p {
+    font-size: 1.5em;
+  }
+  .profileFormSection label {
+    font-size: 1.75rem;
+  }
+  .profileFormSection .doubleFields input {
+    padding: 3%;
+    font-size: 1.5rem;
   }
 }
 /*# sourceMappingURL=Tablet.css.map */

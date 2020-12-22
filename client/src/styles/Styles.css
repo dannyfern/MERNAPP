@@ -5,6 +5,11 @@
   margin: 8% 0;
 }
 
+.headingFont {
+  font-family: diazo-mvb-ex-cond, sans-serif;
+  font-weight: 200;
+}
+
 * {
   font-family: 'Quicksand', sans-serif;
   margin: 0;

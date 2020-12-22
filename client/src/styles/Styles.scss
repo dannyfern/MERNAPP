@@ -8,11 +8,17 @@
 
 // other files :
 // @import "Posts";
+// @import "Profile";
 
 
 .heading{
     text-align: center;
     margin: 8% 0;
+}
+
+.headingFont{
+    font-family: $dvb;
+    font-weight: 200;
 }
 
 *{

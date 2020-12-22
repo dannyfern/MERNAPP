@@ -48,32 +48,34 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                     </h4>
                 </div>
                 <form onKeyPress={onKeyPress}>
-                    <div>
-                        <h3>Technical Skills</h3>
-                        <SkillsForm {...props} skillType="technical"/>
-                    </div>
-                    <div>
-                        <h3>Soft Skills</h3>
-                        <SkillsForm {...props} skillType="soft"/>
-                    </div>
-                    <div>
-                        <h3>Experience</h3>
+                    <div className="skillsFormSection">
                         <div>
-                            <label>
-                                Skill level
-                            </label>
-                            {/* dropdown component from package : */}
-                            <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
+                            <h3>Technical Skills</h3>
+                            <SkillsForm {...props} skillType="technical"/>
                         </div>
                         <div>
-                            <label>
-                                Years of Experience
-                            </label>
-                            <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} />
+                            <h3>Soft Skills</h3>
+                            <SkillsForm {...props} skillType="soft"/>
+                        </div>
+                        <div>
+                            <h3>Experience</h3>
+                            <div>
+                                <label>
+                                    Skill level
+                                </label>
+                                {/* dropdown component from package : */}
+                                <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
+                            </div>
+                            <div>
+                                <label>
+                                    Years of Experience
+                                </label>
+                                <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} />
+                                
+                            </div>
+                            
                             
                         </div>
-                        
-                        
                     </div>
                 </form>
                 <div>

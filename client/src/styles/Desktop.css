@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 780px) {
   /* For desktop: */
   .col-1 {
     width: 8.33%;
@@ -72,6 +72,9 @@
   .width70 .posts .postCard {
     padding: 2%;
     margin: 3%;
+    -webkit-box-flex: 20%;
+        -ms-flex: 20%;
+            flex: 20%;
   }
   .width70 .posts .postCard .titleLink .postTitle {
     font-size: 1.35em;
@@ -81,6 +84,46 @@
     margin-top: 4%;
   }
   .width70 .posts .postCard .postInfo h3 {
+    font-size: 1.25em;
+  }
+  .singlePostTitle {
+    padding: 8% !important;
+  }
+  .singlePostTitle .singleTitleLink #postTitle {
+    font-size: 2em;
+  }
+  #postSections {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 5%;
+  }
+  #postSections .singlePostInfo {
+    width: 40vw;
+    border-left: 1px solid black;
+    padding-left: 5%;
+  }
+  #postSections .singlePostInfo h5 {
+    font-size: 1.25em;
+    margin: 0;
+  }
+  #postSections .singlePostInfo h3 {
+    font-size: 1.5em;
+  }
+  #postSections .singlePostInfo p {
+    font-size: 1.25em;
+  }
+  #postSections .authorInfo {
+    margin: 0;
+  }
+  #postSections .authorInfo p {
     font-size: 1.25em;
   }
 }

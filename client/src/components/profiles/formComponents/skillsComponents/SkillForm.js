@@ -80,11 +80,17 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
         
         if (tempName === "technical"){
             return techSkills.map((item, index) => 
-                <li key={index}>{item}</li>
+
+                    <li className="skillItem" key={index}>{item}</li>
+ 
+                
             )
         } else if (tempName === "soft"){
             return softSkills.map((item, index) => 
-                <li key={index}>{item}</li>
+
+                    <li className="skillItem" key={index}>{item}</li>
+
+                
             )
         } else return null
 
@@ -92,14 +98,30 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
 
 
     return(
-        <div>
-            <Display />
-            <br></br>
-            <label>
-                Skill
-            </label>
-            <FormInput name={skillType} value={tempVal} onChange={handleChange} />
-            <button onClick={handleSubmit}>+</button>
+        <div className="skillsDisplayInput">
+            <div className="formFields">
+                <div>
+                    <label>
+                        Skill
+                    </label>
+                    <div className="skillInputSection">
+                        <FormInput name={skillType} value={tempVal} onChange={handleChange} />
+                        <button onClick={handleSubmit} className="addBtn">+</button>
+                    </div>
+                </div>
+                
+                <div className="skillsList">
+                   <Display /> 
+                </div>
+                
+            </div>
+            
+
+            
+
+            
+            
+            
         </div>
     )
 }

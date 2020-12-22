@@ -19,9 +19,11 @@
     }
 
     .heading{
-        margin: 10%;
+        margin: 8%;
     }
 
+
+    // posts : 
     .posts{
         flex-direction: row;
         flex-wrap: wrap;
@@ -31,6 +33,63 @@
         }
 
         
+    }
+
+    .singlePostTitle{
+        padding: 10%;
+
+        .singleTitleLink{
+
+            h1{
+                font-size: 3em;
+            }
+        }
+    }
+
+    .singlePostInfo{
+
+        #postDate{
+            font-size: 1.75em;
+        }
+        h3{
+            font-size: 2em;
+        }
+        p{
+            font-size: 1.55em;
+        }
+    }
+
+    .authorInfo{
+        p{
+            font-size: 1.5em;
+        }
+    }
+
+
+
+    // profiles
+
+    .profileFormSection{
+        label{
+            font-size: 1.75rem;
+        }
+
+        .doubleFields{
+            
+            input{
+                padding: 3%;
+                font-size: 1.5rem
+            }
+        }
+    }
+
+    .profileForm{
+
+
+        .profilePhotoUpload{
+            
+        }
+
     }
 
 
