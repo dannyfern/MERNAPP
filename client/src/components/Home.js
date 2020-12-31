@@ -11,7 +11,7 @@ const Home = ({postsData}) => {
         <div className="width70">
             <div className="heading">
 
-                <h1>Home</h1>
+                <h1 className="headingFont">Home</h1>
 
             </div>
             

@@ -1,3 +1,56 @@
+.filters {
+  border: 1px solid #75ACB4;
+  border-radius: 3px;
+  padding: 4%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 85vw;
+  margin: 5% auto;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.filters p {
+  margin: 0 0 2%;
+}
+
+.filters .Dropdown-root {
+  margin: 0 0 3%;
+}
+
+.filters .Dropdown-control, .filters .Dropdown-menu {
+  border: 1px solid #75ACB4;
+  border-radius: 3px;
+  padding: 0.25rem;
+  color: black;
+}
+
+.filters .Dropdown-control .Dropdown-option, .filters .Dropdown-menu .Dropdown-option {
+  color: black;
+  padding: 0.25rem;
+}
+
+.filters .Dropdown-control {
+  margin: 3% 0;
+}
+
+.filters .filterBtn {
+  margin-top: 4%;
+}
+
+.filters .filterBtn button {
+  background-color: #75ACB4;
+  color: white;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  padding: 1% 0;
+  font-size: 1em;
+}
+
 #addPostDiv {
   margin: 3% auto;
   width: 30vw;
@@ -36,7 +89,8 @@
 .postCard {
   padding: 4%;
   border: 1px solid #75ACB4;
-  margin: 4% 7%;
+  margin: 4% auto;
+  width: 85vw;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);

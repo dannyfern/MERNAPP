@@ -43,6 +43,41 @@
   .heading {
     margin: 8%;
   }
+  .headingFont {
+    font-size: 3rem;
+  }
+  .filterText {
+    font-size: 1.5rem;
+    margin-bottom: 3%;
+  }
+  .filters {
+    margin: 5% auto;
+    width: 85vw;
+  }
+  .filters .filterDropdowns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .filters .filterDropdowns .dropdownDiv {
+    width: 47%;
+  }
+  .filters p {
+    font-size: 1.5rem;
+  }
+  .filters .Dropdown-control, .filters .Dropdown-menu {
+    font-size: 1.5rem;
+  }
+  .filters .filterBtn {
+    font-size: 1.5rem;
+  }
   .posts {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

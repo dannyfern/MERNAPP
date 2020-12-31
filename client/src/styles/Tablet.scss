@@ -22,6 +22,44 @@
         margin: 8%;
     }
 
+    .headingFont{
+        font-size: 3rem;
+    }
+
+
+    // post filters :
+
+    .filterText{
+        font-size: 1.5rem;
+        margin-bottom: 3%;
+    }
+
+    .filters{
+        margin: 5% auto;
+        width: 85vw;
+
+        .filterDropdowns{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .dropdownDiv{
+                width: 47%;
+            }
+        }
+
+        p{
+            font-size: 1.5rem;
+        }
+
+        .Dropdown-control, .Dropdown-menu{
+            font-size: 1.5rem;
+        }
+
+        .filterBtn{
+            font-size: 1.5rem;
+        }
+    }
 
     // posts : 
     .posts{
