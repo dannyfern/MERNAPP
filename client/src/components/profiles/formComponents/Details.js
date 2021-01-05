@@ -227,8 +227,10 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
                         <div className="formFields">
                             <label>
-                                Brief Description
+                                Brief Author Description 
                             </label>
+                            <p>(This will be shown underneath your blog posts)</p>
+                            
                             <textarea 
                                 name="briefDescription"
                                 value={briefDescription}
@@ -238,8 +240,8 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                         </div>
                     </div>
                 </form>
-                <div>
-                    <button onClick={next}>next</button>
+                <div className="navigationDiv">
+                    <button className="nextBtn" onClick={next}>next</button>
                 </div>
 
                 

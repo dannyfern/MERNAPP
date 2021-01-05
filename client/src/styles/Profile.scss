@@ -1,7 +1,23 @@
 @import "variables";
 
 
+.navigationDiv{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+.nextBtn{
+    border: none;
+    border-radius: 3px;
+    background-color: $green;
+    color: #fff;
+    padding: 1%;
+    font-size: 1.25rem;
+    width: 85vw;
+    margin: 1%;
+    
 
+}
 
 .profileFormDiv{
     display: flex;
@@ -26,6 +42,8 @@
         }
     }
 
+
+    //  skills  ------------------------------------------------------------
     .skillsFormSection{
         background-color: $grey;
         padding: 6% 8%;
@@ -56,9 +74,10 @@
                 .skillsList{
                     display: flex;
                     flex-direction: column;
+                    list-style-type: none;
 
                     .skillItem{
-                        padding-left: 40%;
+                        padding-left: 100%;
                     }
                 }
             }
@@ -97,31 +116,28 @@
 
     }   
 
+    //  deets ------------------------------------------------------------
+
     .profileFormSection{
         background-color: $grey;
         padding: 6% 8%;
+
+
+        label{
+            font-weight: 500;
+        }
+
         
 
-        input{
+        input[type=text], input[type=date]{
             border: 1px solid $green;
             border-radius: 3px;
-            padding: 0.2rem;
+            padding: 0 0.4rem;
+            height: 2em;
 
             
         }
-        input[type=date]{
-            padding: 0.98%;
-        }
-        // .checkboxes{
 
-            
-            
-        // }
-    
-        
-
-
-        
 
         .doubleFields{
             display: flex;
@@ -143,6 +159,7 @@
                 height: 20vh;
                 border: 1px solid $green;
                 border-radius: 3px;
+                resize: none;
 
             }
 
@@ -150,6 +167,7 @@
                 height: 10vh;
                 border: 1px solid $green;
                 border-radius: 3px;
+                resize: none;
             }
         }
 
@@ -161,10 +179,12 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 margin-top: 2%;
+
      
                 .checkboxes{
                     width: 50%;
                     padding: 1% 0;
+                    
      
                     label{
                         padding-left: 5%;
@@ -200,4 +220,117 @@
         border-radius: 50%;
     }
 }
+
+
+// profile display : ------------------------------------------------------------
+
+// looking for work display color: #9cff75
+// open : #ccf0ff
+// not looking : #999999 or  #ffbdbd
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    // width: 85vw;
+    margin: 0 auto;
+    padding: 0;
+
+
+    #username{
+        font-family: $dvb;
+        color: $green;
+        font-size: 3.5rem;
+        font-weight: 200;
+    }
+
+    #name{
+        font-weight: 400;
+        font-size: 2rem;
+        padding: 1%;
+    }
+
+    #location{
+        font-weight: 100;
+        font-size: 1.5rem;
+        padding: 2%;
+    }
+
+
+    h1{
+        font-weight: 600;
+    }
+    
+    .personalDetails{
+        text-align: center;
+
+        .status{
+            background-color: #d4ffc2;
+            padding: 3%;
+            margin-top: 3%;
+        }
+
+        .experienceDesc{
+            background-color: rgba(117, 172, 180, 0.2);
+            margin-bottom: 2%;
+            padding: 3%;
+            font-size: 1.25rem;
+
+            h2{
+                font-size: 1.25rem;
+                border-top: 5px solid #fff;
+                padding-top: 2%;
+                margin-top: 3%;
+            }
+
+            .bold{
+                font-weight: 600;
+            }
+        }
+
+
+        .bio{
+            width: 70vw;
+            margin: 0 auto;
+            padding: 2% 0 4%;
+        }
+
+    }
+
+    .linksDisplay{
+        background-color: #F3F3F3;
+        padding: 3%;
+
+    }
+
+
+    .workDisplay{
+        padding: 3%;
+
+    }
+
+
+
+
+
+    .eduDisplay{
+        background-color: #F3F3F3;
+        padding: 3%;
+
+    }
+
+    .skillsDisplay{
+        padding: 3%;
+
+    }
+
+
+    .postsDisplay{
+        background-color: #F3F3F3;
+        padding: 3%;
+    }
+}
+
+
+
+
 

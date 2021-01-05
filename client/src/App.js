@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import stateReducer from './config/stateReducer'
 import { StateContext } from './config/globalState'
 import blogData from './data/post_data'
+import profileData from './data/profile_data'
 
 
 // components :
@@ -69,13 +70,16 @@ const App = () => {
     const [store, dispatch] = useReducer(stateReducer, initialState)
     const {blogPosts, error} = store
 
+
     const [posts, setPosts] = useState([])
+    const [profiles, setProfiles] = useState([])
 
 
     // set blog posts
     useEffect(() => {
         // fetchBlogPosts()
         setPosts(blogData)
+        setProfiles(profileData)
     }, [])
 
     // add blog posts
@@ -87,6 +91,11 @@ const App = () => {
     const nextId = () => {
         return posts.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
     }
+
+
+    // const addProfile = (profile) => {
+    //     setProfiles([...profiles, profile])
+    // }
 
 
 
@@ -103,10 +112,10 @@ const App = () => {
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
 
-                        <Route exact path="/profiles" render={(props) => <Profiles {...props} />} />
+                        <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profileData} />} />
                         <Route exact path="/profiles/new" component={AddProfile} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} />} />
-                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} />} />
+                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={profileData}/>} />
                         
                         
                         <Route exact path="/posts/new" render={(props) => <AddPost {...props} addPost={addPost} nextId={nextId()} />} />

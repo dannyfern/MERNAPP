@@ -1,4 +1,4 @@
-{
+const languageData = {
   "@context": "http://schema.org",
   "@type": [
     "ItemList",
@@ -6467,3 +6467,6 @@
     }
   ]
 }
+
+
+export default languageData

@@ -199,8 +199,10 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
                         </div>
 
                     </form>  
-                    <button onClick={previous}>back</button>  
-                    <button onClick={next}>Review</button>  
+                    <div className="navigationDiv">
+                    <button className="nextBtn" onClick={previous}>back</button>  
+                    <button className="nextBtn" onClick={next}>Next</button>
+                </div>
                 </div>
             </div>
             

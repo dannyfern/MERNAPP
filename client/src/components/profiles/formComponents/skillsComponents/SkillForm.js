@@ -19,16 +19,13 @@ import FormInput from '../../../reusable/FormInput'
 
 
 const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
+  
     const { technical, soft } = skillsData
     
     // states for tech and soft skills arrays :
-    const [techSkills, setTechSkills] = useState([
-        "",
-    ])
+    const [techSkills, setTechSkills] = useState([])
 
-    const [softSkills, setSoftSkills] = useState([
-        "",
-    ])
+    const [softSkills, setSoftSkills] = useState([])
 
     // states for temporary values and names :
     const [tempVal, setTempVal] = useState("")
@@ -57,14 +54,14 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
 
     // function described above ^ :
     const addToArray = (item) => {
-        if (tempName === "technical"){
+        if (tempName === "technical" && item !== ""){
             const newArr = [...techSkills, item ]
             setTechSkills(newArr)
             setSkills({
                 ...skillsData,
                 technical: newArr
             })
-        } else if (tempName === "soft"){
+        } else if (tempName === "soft" && item !== ""){
             const newArr = [...softSkills, item]
             setSoftSkills(newArr)
             setSkills({
@@ -102,7 +99,7 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
             <div className="formFields">
                 <div>
                     <label>
-                        Skill
+                        Language/skill
                     </label>
                     <div className="skillInputSection">
                         <FormInput name={skillType} value={tempVal} onChange={handleChange} />

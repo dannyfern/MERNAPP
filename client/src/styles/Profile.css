@@ -1,3 +1,24 @@
+.navigationDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5%;
+}
+
+.nextBtn {
+  border: none;
+  border-radius: 3px;
+  background-color: #75ACB4;
+  color: #fff;
+  padding: 1%;
+  font-size: 1.25rem;
+  width: 85vw;
+  margin: 1%;
+}
+
 .profileFormDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -69,10 +90,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  list-style-type: none;
 }
 
 .profileFormDiv .skillsFormSection .skillsDisplayInput .formFields .skillsList .skillItem {
-  padding-left: 40%;
+  padding-left: 100%;
 }
 
 .profileFormDiv .skillsFormSection .skillsDisplayInput .skillInputSection {
@@ -115,14 +137,15 @@
   padding: 6% 8%;
 }
 
-.profileFormDiv .profileFormSection input {
-  border: 1px solid #75ACB4;
-  border-radius: 3px;
-  padding: 0.2rem;
+.profileFormDiv .profileFormSection label {
+  font-weight: 500;
 }
 
-.profileFormDiv .profileFormSection input[type=date] {
-  padding: 0.98%;
+.profileFormDiv .profileFormSection input[type=text], .profileFormDiv .profileFormSection input[type=date] {
+  border: 1px solid #75ACB4;
+  border-radius: 3px;
+  padding: 0 0.4rem;
+  height: 2em;
 }
 
 .profileFormDiv .profileFormSection .doubleFields {
@@ -157,12 +180,14 @@
   height: 20vh;
   border: 1px solid #75ACB4;
   border-radius: 3px;
+  resize: none;
 }
 
 .profileFormDiv .profileFormSection .formFields .description {
   height: 10vh;
   border: 1px solid #75ACB4;
   border-radius: 3px;
+  resize: none;
 }
 
 .profileFormDiv .profileFormSection .interestsSection {
@@ -205,5 +230,97 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+}
+
+#profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#profile #username {
+  font-family: diazo-mvb-ex-cond, sans-serif;
+  color: #75ACB4;
+  font-size: 3.5rem;
+  font-weight: 200;
+}
+
+#profile #name {
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 1%;
+}
+
+#profile #location {
+  font-weight: 100;
+  font-size: 1.5rem;
+  padding: 2%;
+}
+
+#profile h1 {
+  font-weight: 600;
+}
+
+#profile .personalDetails {
+  text-align: center;
+}
+
+#profile .personalDetails .status {
+  background-color: #d4ffc2;
+  padding: 3%;
+  margin-top: 3%;
+}
+
+#profile .personalDetails .experienceDesc {
+  background-color: rgba(117, 172, 180, 0.2);
+  margin-bottom: 2%;
+  padding: 3%;
+  font-size: 1.25rem;
+}
+
+#profile .personalDetails .experienceDesc h2 {
+  font-size: 1.25rem;
+  border-top: 5px solid #fff;
+  padding-top: 2%;
+  margin-top: 3%;
+}
+
+#profile .personalDetails .experienceDesc .bold {
+  font-weight: 600;
+}
+
+#profile .personalDetails .bio {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2% 0 4%;
+}
+
+#profile .linksDisplay {
+  background-color: #F3F3F3;
+  padding: 3%;
+}
+
+#profile .workDisplay {
+  padding: 3%;
+}
+
+#profile .eduDisplay {
+  background-color: #F3F3F3;
+  padding: 3%;
+}
+
+#profile .skillsDisplay {
+  padding: 3%;
+}
+
+#profile .postsDisplay {
+  background-color: #F3F3F3;
+  padding: 3%;
 }
 /*# sourceMappingURL=Profile.css.map */
