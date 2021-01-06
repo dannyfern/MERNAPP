@@ -121,14 +121,83 @@
         }
     }
 
-    .profileForm{
+    
+
+    // profile display :
+
+    #profile{
 
 
-        .profilePhotoUpload{
-            
+        .personalDetails{
+            #username{
+                font-size: 5rem;
+            }
+            #name{
+                font-size: 3rem;
+            }
+            #location{
+                font-size: 2rem;
+                padding: 1%;
+            }
+
+            .status{
+                font-size: 2rem;
+            }
+
+            .experienceDesc{
+                font-size: 2rem;
+
+                h2{
+                    font-size: 2rem;
+                }
+            }
+
+            .bio{
+                font-size: 2rem;
+            }
+
+
         }
 
+        .linksDisplay{
+
+            .linkDiv{
+
+                a{
+                    font-size: 1.75rem;
+                    padding: 1%;
+                    width: 30%;
+                    flex-grow: 1;
+
+                }
+            }
+        }
+
+        .workDisplay, .eduDisplay{
+            h2{
+                font-size: 2rem;
+
+                padding: 2% 0 1%;
+            }
+            h3{
+                font-size: 1.5rem;
+                padding: 0.5% 0 1%;
+            }
+        }
+
+        .skillsDisplay{
+
+            .skillsDiv{
+
+                .skills{
+                    font-size: 1.75rem;
+                }
+            }
+        }
     }
+
+
+
 
 
 

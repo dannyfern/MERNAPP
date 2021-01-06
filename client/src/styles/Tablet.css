@@ -117,5 +117,46 @@
     padding: 3%;
     font-size: 1.5rem;
   }
+  #profile .personalDetails #username {
+    font-size: 5rem;
+  }
+  #profile .personalDetails #name {
+    font-size: 3rem;
+  }
+  #profile .personalDetails #location {
+    font-size: 2rem;
+    padding: 1%;
+  }
+  #profile .personalDetails .status {
+    font-size: 2rem;
+  }
+  #profile .personalDetails .experienceDesc {
+    font-size: 2rem;
+  }
+  #profile .personalDetails .experienceDesc h2 {
+    font-size: 2rem;
+  }
+  #profile .personalDetails .bio {
+    font-size: 2rem;
+  }
+  #profile .linksDisplay .linkDiv a {
+    font-size: 1.75rem;
+    padding: 1%;
+    width: 30%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  #profile .workDisplay h2, #profile .eduDisplay h2 {
+    font-size: 2rem;
+    padding: 2% 0 1%;
+  }
+  #profile .workDisplay h3, #profile .eduDisplay h3 {
+    font-size: 1.5rem;
+    padding: 0.5% 0 1%;
+  }
+  #profile .skillsDisplay .skillsDiv .skills {
+    font-size: 1.75rem;
+  }
 }
 /*# sourceMappingURL=Tablet.css.map */
