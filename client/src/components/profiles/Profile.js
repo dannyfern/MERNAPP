@@ -1,19 +1,57 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// how to map over links and display them with matching icon?
+
 const Profile = ({ profile }) => {
-    console.log(profile)
+
+    // destructuring data variables
     const { detailsData, skillsData, workData, educationData, linkData } = profile
+
     const { username, firstName, lastName, location, phoneNumber, birthday, interests, bio, briefDescription } = detailsData
-
-
     const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
     const { recentSchool, recentDegree, recentStartDate, recentEndDate, pastEducation } = educationData
-
     const { technical, soft, skillLevel, yearsOfExperience } = skillsData
     // const { linkedIn, twitter, instagram, facebook, portfolio, github, resume, additionalLinks } = linkData
+
+    const { additionalLinks } = linkData
+
+    // to display links : 
     const links = Object.entries(linkData)
-    console.log(links)
+    const correctLinks = links.filter(x => x[1] !== "" && x[0] !== "additionalLinks")
+
+    const DisplayLinks = ({ correctLinks }) => {
+
+        const additional = Object.entries(additionalLinks)
+
+        return (
+            <div>
+                <div className="linkDiv">
+                    {
+                        correctLinks.map((x, i) => {
+                            return (
+                                <Link to={x[1]}><li key={i} className="links" >{x[0]}</li></Link> 
+                            )
+                        })
+                    } 
+                    {
+                        additional.length > 0 &&
+                        additional.map((x, i) => {
+                            return (
+                                <Link to={x[1]}><li key={i} className="links">{x[0]}</li></Link>
+                            )
+                        }) 
+                    }
+
+
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+        )
+    }
 
     return(
         <div id="profile">
@@ -53,6 +91,7 @@ const Profile = ({ profile }) => {
             </div>
             <div className="linksDisplay">
                 <h1>Get in touch</h1>
+                <DisplayLinks correctLinks={correctLinks}/>
                 <div>
                     
                 </div>
@@ -68,7 +107,7 @@ const Profile = ({ profile }) => {
                 <h1>Education</h1>
                 <h2>{recentSchool} ({recentStartDate} - {recentEndDate})</h2>
                 <h3>{recentDegree}</h3>
-                <h1>Previous Education ^</h1>
+                <h1>Previous Education^</h1>
             </div>
             <div className="skillsDisplay">
                 <h1>Technical Skills/Languages</h1>

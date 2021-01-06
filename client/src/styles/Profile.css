@@ -306,6 +306,33 @@
   padding: 5% 8%;
 }
 
+#profile .linksDisplay .linkDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  padding: 3%;
+}
+
+#profile .linksDisplay a {
+  color: #75ACB4;
+  width: 50%;
+  font-size: 1.25rem;
+  padding: 2%;
+}
+
+#profile .linksDisplay .links {
+  color: black;
+  list-style-type: none;
+  text-decoration: none;
+}
+
 #profile .workDisplay, #profile .eduDisplay {
   padding: 5% 8%;
 }
@@ -326,11 +353,11 @@
 }
 
 #profile .skillsDisplay {
-  padding: 3%;
+  padding: 5% 8%;
 }
 
 #profile .postsDisplay {
   background-color: #F3F3F3;
-  padding: 3%;
+  padding: 5% 8%;
 }
 /*# sourceMappingURL=Profile.css.map */

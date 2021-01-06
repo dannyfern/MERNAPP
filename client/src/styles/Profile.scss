@@ -300,6 +300,30 @@
         background-color: #F3F3F3;
         padding: 5% 8%;
 
+        .linkDiv{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            text-align: center;
+            padding: 3%;
+
+        }
+
+        a{
+            color: $green;
+            width: 50%;
+            font-size: 1.25rem;
+            padding: 2%;
+        }
+        .links{
+            color: black;
+            list-style-type: none;
+            text-decoration: none;
+            
+
+
+        }
+
     }
 
 
@@ -328,14 +352,16 @@
     }
 
     .skillsDisplay{
-        padding: 3%;
+        padding: 5% 8%;
+
+
 
     }
 
 
     .postsDisplay{
         background-color: #F3F3F3;
-        padding: 3%;
+        padding: 5% 8%;
     }
 }
 

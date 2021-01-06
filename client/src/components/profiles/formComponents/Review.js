@@ -15,6 +15,7 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
   //     })
   //   )
   // }
+  // console.log(linkData.additionalLinks)
 
 
   return (

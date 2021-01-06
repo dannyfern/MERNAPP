@@ -61,7 +61,10 @@ const Posts = ({ postsData }) => {
 
     
     function openFilters () {
-        (filterBtn && filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
+        if (filterBtn){
+            (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
+        }
+        
     }
 
 
