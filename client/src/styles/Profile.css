@@ -356,6 +356,33 @@
   padding: 5% 8%;
 }
 
+#profile .skillsDisplay .skillsDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 3% 0;
+}
+
+#profile .skillsDisplay .skillsDiv .skills {
+  border: 2px solid #75ACB4;
+  border-radius: 3px;
+  padding: 1% 5%;
+  margin: 1% 1%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
 #profile .postsDisplay {
   background-color: #F3F3F3;
   padding: 5% 8%;

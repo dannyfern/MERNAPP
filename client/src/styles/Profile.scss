@@ -354,6 +354,24 @@
     .skillsDisplay{
         padding: 5% 8%;
 
+        .skillsDiv{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 3% 0;
+
+            .skills{
+                border: 2px solid $green;
+                border-radius: 3px;
+                padding: 1% 5%;
+                margin: 1% 1%;
+                flex-grow: 1;
+                text-align: center;
+                
+            }
+        }
+
 
 
     }

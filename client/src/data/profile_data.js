@@ -14,7 +14,7 @@ const profileData = {
     },
     
     skillsData: {
-        technical: ["javascript", "ruby", "html", "css"],
+        technical: ["javascript", "ruby", "html", "css", "ror"],
         soft: ["teamwork", "communication"],
         skillLevel: "junior-level",
         yearsOfExperience: "1"

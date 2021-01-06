@@ -16,6 +16,8 @@ const Profile = ({ profile }) => {
 
     const { additionalLinks } = linkData
 
+
+
     // to display links : 
     const links = Object.entries(linkData)
     const correctLinks = links.filter(x => x[1] !== "" && x[0] !== "additionalLinks")
@@ -42,22 +44,37 @@ const Profile = ({ profile }) => {
                             )
                         }) 
                     }
-
-
-                </div>
-
-                <div>
-                    
                 </div>
             </div>
         )
     }
 
+    const DisplaySkills = ({ skills }) => {
+
+
+        return (
+            <div className="skillsDiv">
+                {
+                    skills.length > 0 &&
+                    skills.map((x, i) => {
+                        return (
+                            <p className="skills">{x}</p>
+                            
+                        )
+                    })
+                }
+            </div>
+
+        )
+    }
+
     return(
         <div id="profile">
+
             <div className="profileImageDisplay">
 
             </div>
+
             <div className="personalDetails">
                 <div>
                     <h2 id="username">@{username}</h2>
@@ -89,30 +106,39 @@ const Profile = ({ profile }) => {
                     {bio}
                 </div>
             </div>
+
             <div className="linksDisplay">
                 <h1>Get in touch</h1>
                 <DisplayLinks correctLinks={correctLinks}/>
-                <div>
-                    
-                </div>
 
             </div>
+
             <div className="workDisplay">
                 <h1>Current Role</h1>
                 <h2>{currentTitle} at {currentCompany}</h2>
-                <h3>{currentStartDate} - present</h3>
-                <h1>Past Roles ^</h1>
+                <h3>{currentStartDate.slice(0, 4)} - present</h3>
+                {
+                    pastRoles.length > 0 &&
+                    <h1>Past Roles ^</h1>
+                }
+                
             </div>
+
             <div className="eduDisplay">
                 <h1>Education</h1>
-                <h2>{recentSchool} ({recentStartDate} - {recentEndDate})</h2>
+                <h2>{recentSchool} ({recentStartDate.slice(0, 4)} - {recentEndDate.slice(0, 4)})</h2>
                 <h3>{recentDegree}</h3>
-                <h1>Previous Education^</h1>
+                {
+                    pastEducation.length > 0 &&
+                    <h1>Previous Education ^</h1>
+                }
             </div>
+
             <div className="skillsDisplay">
                 <h1>Technical Skills/Languages</h1>
-
+                <DisplaySkills skills={technical} />
                 <h1>Soft Skills</h1>
+                <DisplaySkills skills={soft} />
             </div>
             <div className="postsDisplay">
                 <h1>Blog Posts</h1>
