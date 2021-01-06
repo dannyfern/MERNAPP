@@ -236,32 +236,57 @@
     padding: 0;
 
 
-    #username{
-        font-family: $dvb;
-        color: $green;
-        font-size: 3.5rem;
-        font-weight: 200;
-    }
+    .nameLocation{
+        text-align: center;
 
-    #name{
-        font-weight: 400;
-        font-size: 2rem;
-        padding: 1%;
-    }
+        #username{
+            font-family: $dvb;
+            color: $green;
+            font-size: 3.5rem;
+            font-weight: 200;
+        }
 
-    #location{
-        font-weight: 100;
-        font-size: 1.5rem;
-        padding: 2%;
+        #name{
+            font-weight: 400;
+            font-size: 2rem;
+            padding: 1%;
+        }
+
+        #location{
+            font-weight: 100;
+            font-size: 1.5rem;
+            padding: 2%;
+        }
     }
+    
 
 
     h1{
         font-weight: 600;
     }
+
+    .profileImageDisplay{
+
+        .status-desktop{
+            display: none;
+        }
+
+        .profileImg{
+           background-color: #f3f3f3;
+            width: 50%;
+            height: auto;
+            padding-top: 50%;
+            border-radius: 50%;
+            margin: 0 auto; 
+        }
+        
+    }
+
     
     .personalDetails{
         text-align: center;
+
+
 
         .status{
             background-color: #d4ffc2;
@@ -288,16 +313,19 @@
         }
 
 
-        .bio{
-            width: 70vw;
-            margin: 0 auto;
-            padding: 2% 0 4%;
-        }
+        
 
     }
 
+    .bio{
+        width: 70vw;
+        margin: 0 auto;
+        padding: 2% 0 4%;
+        text-align: center;
+    }
+
     .linksDisplay{
-        background-color: #F3F3F3;
+        background-color: $grey;
         padding: 5% 8%;
 
         .linkDiv{

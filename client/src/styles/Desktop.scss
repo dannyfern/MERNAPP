@@ -1,3 +1,5 @@
+@import "variables";
+
 @media only screen and (min-width: 780px) {
     /* For desktop: */
     .col-1 {width: 8.33%;}
@@ -127,6 +129,161 @@
                 font-size: 1.25em;
             }
         }
+    }
+
+
+
+
+    // profile displays :
+
+    #profile{
+
+        
+
+
+        .profileImgName{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5%;
+
+            
+
+            .profileImageDisplay{
+                width: 25%;
+                margin: 0 3% 0 0;
+                order: 2;
+
+                
+
+                .profileImg{
+                    width: 60%;
+                    padding-top: 60%;
+                }
+
+                .status-desktop{
+                    display: block;
+                    background-color: #d4ffc2;
+                    padding: 3%;
+                    text-align: center;
+                    width: 80%;
+                    margin: 3% auto 0;
+                }
+    
+            }
+
+
+
+            .nameLocation{
+                width: 25%;
+                margin: 0 3%;
+                order: 1;
+
+                #username{
+                    font-size: 3rem;
+                }
+                #name{
+                    font-size: 1.75rem;
+                }
+                #location{
+                    font-size: 1.5rem;
+                }
+            }
+
+            .personalDetails{
+                width: 20%;
+                margin: 0 3%;
+                order: 3;
+
+
+                
+
+                .status{
+                    display: none;
+                }
+                .experienceDesc{
+                    font-size: 1.25rem;
+                    padding: 7% 3%;
+                    background-color: #fff;
+                    border: 2px solid $green;
+                    border-radius: 3px;
+                    margin-top: 2%;
+
+                    .experienceLevel{
+                        padding-bottom: 5%;
+                    }
+
+                    h2{
+                        border-top: 2px solid $green;
+                        padding-top: 5%;
+                        font-size: 1.25rem
+                    }
+                }
+            }
+        }
+        
+
+        .bioAndLinks{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            // margin: 0 auto;
+
+            .bio{
+                font-size: 1.5rem;
+                width: 40%;
+                padding: 2% 4%;
+                margin: 0;
+            }
+
+            .linksDisplay{
+                width: 40%;
+                padding: 2% 4%;
+
+                .linkDiv{
+                    a{
+                        width: 30%;
+                        font-size: 1.25rem;
+                    }
+                }
+
+                
+            }
+        }
+
+        .workAndEdu{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            margin-top: 3%;
+
+            
+
+            .workDisplay{
+                padding: 2% 4%;
+                width: 40%;
+
+                background-color: rgba(117, 172, 180, 0.2);
+            }
+            .eduDisplay{
+                padding: 2% 4%;
+                width: 40%;
+
+                background-color: rgba(117, 172, 180, 0.2);
+            }
+        }
+
+        .skillsDisplay{
+            padding: 2% 4%;
+            width: 80%;
+            border: 2px solid $green;
+            border-radius: 3px;
+            margin: 3% auto;
+        }
+        
+
     }
     
     

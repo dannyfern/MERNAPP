@@ -127,8 +127,12 @@
 
     #profile{
 
+        .profileImg{
+            width: 40%;
+            padding-top: 40%;
+        }
 
-        .personalDetails{
+        .nameLocation{
             #username{
                 font-size: 5rem;
             }
@@ -139,6 +143,11 @@
                 font-size: 2rem;
                 padding: 1%;
             }
+        }
+
+
+        .personalDetails{
+            
 
             .status{
                 font-size: 2rem;
@@ -152,11 +161,14 @@
                 }
             }
 
-            .bio{
-                font-size: 2rem;
-            }
+            
 
 
+        }
+
+        .bio{
+            font-size: 2rem;
+            
         }
 
         .linksDisplay{

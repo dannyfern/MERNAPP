@@ -117,13 +117,17 @@
     padding: 3%;
     font-size: 1.5rem;
   }
-  #profile .personalDetails #username {
+  #profile .profileImg {
+    width: 40%;
+    padding-top: 40%;
+  }
+  #profile .nameLocation #username {
     font-size: 5rem;
   }
-  #profile .personalDetails #name {
+  #profile .nameLocation #name {
     font-size: 3rem;
   }
-  #profile .personalDetails #location {
+  #profile .nameLocation #location {
     font-size: 2rem;
     padding: 1%;
   }
@@ -136,7 +140,7 @@
   #profile .personalDetails .experienceDesc h2 {
     font-size: 2rem;
   }
-  #profile .personalDetails .bio {
+  #profile .bio {
     font-size: 2rem;
   }
   #profile .linksDisplay .linkDiv a {

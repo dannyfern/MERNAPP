@@ -244,20 +244,24 @@
   padding: 0;
 }
 
-#profile #username {
+#profile .nameLocation {
+  text-align: center;
+}
+
+#profile .nameLocation #username {
   font-family: diazo-mvb-ex-cond, sans-serif;
   color: #75ACB4;
   font-size: 3.5rem;
   font-weight: 200;
 }
 
-#profile #name {
+#profile .nameLocation #name {
   font-weight: 400;
   font-size: 2rem;
   padding: 1%;
 }
 
-#profile #location {
+#profile .nameLocation #location {
   font-weight: 100;
   font-size: 1.5rem;
   padding: 2%;
@@ -265,6 +269,19 @@
 
 #profile h1 {
   font-weight: 600;
+}
+
+#profile .profileImageDisplay .status-desktop {
+  display: none;
+}
+
+#profile .profileImageDisplay .profileImg {
+  background-color: #f3f3f3;
+  width: 50%;
+  height: auto;
+  padding-top: 50%;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
 #profile .personalDetails {
@@ -295,14 +312,15 @@
   font-weight: 600;
 }
 
-#profile .personalDetails .bio {
+#profile .bio {
   width: 70vw;
   margin: 0 auto;
   padding: 2% 0 4%;
+  text-align: center;
 }
 
 #profile .linksDisplay {
-  background-color: #F3F3F3;
+  background-color: #f5f5f5;
   padding: 5% 8%;
 }
 
