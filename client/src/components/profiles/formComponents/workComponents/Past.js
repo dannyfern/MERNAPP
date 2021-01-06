@@ -67,41 +67,47 @@ const PastWork = ({ setWork, workData }) => {
 
 
     return(
-        <div>
+        <div className="recentWorkInfo">
 
             <div>
                 <Display />
             </div>
 
-            <div>
-                <label>
-                    Title
-                </label>
-                <FormInput name="title" value={title} onChange={handleChange} />
-            </div>
+            <div className="doubleFields">
+                <div className="formFields">
+                    <label>
+                        Title
+                    </label>
+                    <FormInput name="title" value={title} onChange={handleChange} />
+                </div>
 
-            <div>
-                <label>
-                    Company
-                </label>
-                <FormInput name="company" value={company} onChange={handleChange} />
+                <div className="formFields">
+                    <label>
+                        Company
+                    </label>
+                    <FormInput name="company" value={company} onChange={handleChange} />
+                </div>
             </div>
+            
+            <div className="doubleFields">
+                <div className="formFields">
+                    <label>
+                    Start date
+                    </label>
+                    <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+                </div>
 
-            <div>
-                <label>
-                Start date
-                </label>
-                <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+                <div className="formFields">
+                    <label>
+                    End date
+                    </label>
+                    <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+                </div>
+
             </div>
+            
 
-            <div>
-                <label>
-                End date
-                </label>
-                <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
-            </div>
-
-            <button onClick={handleClick}>+</button>
+            <button className="plusButton" onClick={handleClick}>+</button>
 
         </div>
     )

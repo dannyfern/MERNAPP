@@ -17,20 +17,23 @@ const RecentWork = ({ setWork, workData }) => {
     }
 
     return(
-        <div>
-            <div>
-                <label>
-                    Title
-                </label>
-                <FormInput name="currentTitle" value={currentTitle} onChange={handleChange}/>
+        <div className="recentWorkInfo">
+            <div className="doubleFields">
+                <div className="formFields">
+                    <label>
+                        Title
+                    </label>
+                    <FormInput name="currentTitle" value={currentTitle} onChange={handleChange}/>
+                </div>
+                <div className="formFields">
+                    <label>
+                        Company
+                    </label>
+                    <FormInput name="currentCompany" value={currentCompany} onChange={handleChange}/>
+                </div>
             </div>
-            <div>
-                <label>
-                    Company
-                </label>
-                <FormInput name="currentCompany" value={currentCompany} onChange={handleChange}/>
-            </div>
-            <div>
+            
+            <div className="formFields">
                 <label>
                 Start date
                 </label>

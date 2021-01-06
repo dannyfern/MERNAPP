@@ -198,9 +198,77 @@
 
         
     }
+
+    // work
+
+
+    .statusSelection{
+
+        h3{
+            margin-bottom: 5%;
+
+        }
+
+        .statusRadio > * {
+            color: red;
+
+        }
+    }
+
+    .recentWork, .pastWork, .statusSelection{
+        h3{
+            background-color: $grey;
+            padding: 6% 8%;
+        }
+
+        .formFields{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3%;
+            width: 48%;
+            flex-grow: 1;
+            
+            
+        }
+
+        .doubleFields{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .formFields{
+                flex-grow: 0
+            }
+        }
+
+        .recentWorkInfo{
+            padding: 6% 8%;
+
+            
+
+            .plusButton{
+                background-color: $green;
+                color: #fff;
+                border: none;
+                width: 100%;
+                border-radius: 3px;
+                padding: 1%;
+                margin-top: 3%;
+
+            }
+            
+        }
+        input{
+            border: 1px solid $green;
+            border-radius: 3px;
+            padding: 0 0.4rem;
+            height: 2em;
+
+        }
+
+    }
     
 }
-
 
 
 
@@ -220,6 +288,20 @@
         border-radius: 50%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // profile display : ------------------------------------------------------------

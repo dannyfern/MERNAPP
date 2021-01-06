@@ -27,38 +27,41 @@ const Work = ({ setWork, workData, navigation }) => {
                 </div>
                 <div>
                     <form>
-                        <div>
-                            <h3>Please Choose one:</h3>
-                            {/* radio button component from package */}
 
-                            <RadioGroup onChange={handleChange} horizontal>
-                                <RadioButton value="looking">
-                                    Looking for Work
-                                </RadioButton>
-                                <RadioButton value="open">
-                                    Not looking for work, but open to offers
-                                </RadioButton>
-                                <RadioButton value="notLooking">
-                                    Not looking for work
-                                </RadioButton>
-                            </RadioGroup>
-                        </div>
-                        
-                        <div>
+                        <div className="recentWork">
                             <h3>Current Role</h3>
                             <RecentWork {...props} />
                         </div>
 
-                        <div>
+                        <div className="pastWork">
                             <h3>Past Roles</h3>
                             <PastWork {...props} />
                         </div>
 
+
+                        <div className="statusSelection">
+                            <h3>Please Choose one:</h3>
+                            {/* radio button component from package */}
+
+                            <RadioGroup className="statusRadio" onChange={handleChange} horizontal>
+                                <RadioButton value="looking" className="statusOption">
+                                    Looking for Work
+                                </RadioButton>
+                                <RadioButton value="open" className="statusOption">
+                                    Not looking for work, but open to offers
+                                </RadioButton>
+                                <RadioButton value="notLooking" className="statusOption">
+                                    Not looking for work
+                                </RadioButton>
+                            </RadioGroup>
+                        </div>
+
                     </form>
+
                     <div className="navigationDiv">
                         <button className="nextBtn" onClick={previous}>back</button>  
                         <button className="nextBtn" onClick={next}>Next</button>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
