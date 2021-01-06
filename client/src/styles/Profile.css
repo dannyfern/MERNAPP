@@ -303,16 +303,26 @@
 
 #profile .linksDisplay {
   background-color: #F3F3F3;
-  padding: 3%;
+  padding: 5% 8%;
 }
 
-#profile .workDisplay {
-  padding: 3%;
+#profile .workDisplay, #profile .eduDisplay {
+  padding: 5% 8%;
+}
+
+#profile .workDisplay h2, #profile .eduDisplay h2 {
+  font-size: 1.75rem;
+  font-weight: 300;
+  padding: 2% 0 1%;
+}
+
+#profile .workDisplay h3, #profile .eduDisplay h3 {
+  font-weight: 200;
+  padding: 0.5% 0 6%;
 }
 
 #profile .eduDisplay {
   background-color: #F3F3F3;
-  padding: 3%;
 }
 
 #profile .skillsDisplay {

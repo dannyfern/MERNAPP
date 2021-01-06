@@ -66,7 +66,7 @@ const Profile = ({ profile }) => {
             </div>
             <div className="eduDisplay">
                 <h1>Education</h1>
-                <h2>{recentSchool}({recentStartDate} - {recentEndDate})</h2>
+                <h2>{recentSchool} ({recentStartDate} - {recentEndDate})</h2>
                 <h3>{recentDegree}</h3>
                 <h1>Previous Education ^</h1>
             </div>
