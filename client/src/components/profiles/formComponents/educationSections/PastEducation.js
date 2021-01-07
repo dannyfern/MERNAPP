@@ -3,6 +3,9 @@ import FormInput from '../../../reusable/FormInput'
 
 //  how to dry up past education and work ? functions are almost identical
 
+
+// when displaying past education - capitalise and have as labels (eg. startDate, school etc.)
+
 const PastEducation = ({ setEducation, educationData }) => {
 
     const { pastEducation } = educationData
@@ -45,11 +48,11 @@ const PastEducation = ({ setEducation, educationData }) => {
             return(
                 pastEducation.map((item, index) => {
                     return (
-                        <div key={index}>
-                            <h3>Education: {index + 1}</h3>
+                        <div className="eduItemDiv" key={index}>
+                            {/* <h3></h3> */}
                             {
                                 Object.entries(item).map(([key, value]) => {
-                                    return <li key={key}>{key}: {value}</li>
+                                    return <li className="eduItem" key={key}>{key}: {value}</li>
                                 })
                             }
                         </div>
@@ -61,40 +64,46 @@ const PastEducation = ({ setEducation, educationData }) => {
 
 
     return(
-        <div>
+        <div className="eduForms">
             <div>
                 <Display />
             </div>
 
-            <div>
-                <label>
-                    School
-                </label>
-                <FormInput name="school" value={school} onChange={handleChange} />
+            <div className="doubleFields">
+                <div className="formFields">
+                    <label>
+                        School
+                    </label>
+                    <FormInput name="school" value={school} onChange={handleChange} />
+
+                </div>
+                <div className="formFields">
+                    <label>
+                        Degree
+                    </label>
+                    <FormInput name="degree" value={degree} onChange={handleChange} />
+
+                </div>
 
             </div>
-            <div>
-                <label>
-                    Degree
-                </label>
-                <FormInput name="degree" value={degree} onChange={handleChange} />
 
-            </div>
-            <div>
-                <label>
-                    Start Date
-                </label>
-                <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+            <div className="doubleFields">
+                <div className="formFields">
+                    <label>
+                        Start Date
+                    </label>
+                    <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
 
-            </div>
-            <div>
-                <label>
-                    End Date
-                </label>
-                <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+                </div>
+                <div className="formFields">
+                    <label>
+                        End Date
+                    </label>
+                    <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
 
+                </div>
             </div>
-            <button onClick={handleClick}>+</button>
+            <button className="plusButton" onClick={handleClick}>+</button>
         </div>
     )
 }

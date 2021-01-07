@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
-import CheckBox from '../../reusable/CheckBox'
-import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
+import React, { useState, useEffect } from 'react'
+// import CheckBox from '../../reusable/CheckBox'
+// import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
 import FormInput from '../../reusable/FormInput'
+
+import Checkbox from '@material-ui/core/Checkbox';
+
+// checkboxes are broken >:(
 
 // have image shown on screen when uploaded - maybe look into components (antd)
 // move checkbox data to data file (once merged)
@@ -15,55 +19,53 @@ const Details = ({ setDetails, detailsData, navigation }) => {
     // next from hooks helper
     const { next } = navigation;
 
-    // declare empty object for ticked interests
-    const items = {}
-
-    // fill object with key value pairs with keys being names from checkbox data and setting 
-    // initial value to be false :
-    for (const key of interestsCheckBoxes) {
-        const name = key.name
-        items[name] = false
-    }
     
-    // use object from above to track checked items :
-    const [checkedItems, setChecked] = useState(items)
 
-    // array of names of items which are checked :
-    const checkedTrue = []
+    const interests = [
+        {id: 1, value: "Front End", isChecked: false},
+        {id: 2, value: "Back End", isChecked: false},
+        {id: 3, value: "Full Stack", isChecked: false},
+        {id: 4, value: "AI", isChecked: false},
+        {id: 5, value: "Mobile Development", isChecked: false},
+        {id: 6, value: "Software Development", isChecked: false},
+        {id: 7, value: "Data Science", isChecked: false},
+        {id: 8, value: "Cyber Security", isChecked: false},
+        {id: 9, value: "DevOps", isChecked: false},
+        {id: 10, value: "Game Development", isChecked: false}
+    ]
 
-    // function to handle checkbox toggle : 
+    const [checked, setChecked] = useState(interests)
+
+
+
     function handleCheckboxChange (e) {
+        // console.log(e.target.checked)
+        // const checkbox = ""
+        
+        // checked.forEach(item => {
+        //     if (item.value === e.target.value){
+        //         console.log(item)
+        //         setChecked({
+        //             ...checked,
+                    
+        //         })
 
-        const item = e.target.name
-
-        // - check if the item being checked is set to false in the checked items state
-        // - if it is, change to true
-        // - if it isnt, change to false
-        if (checkedItems[item] === false){
-            setChecked({
-                ...checkedItems,
-                [item]: true 
-            })
-        } else {
-            setChecked({
-                ...checkedItems,
-                [item]: false
-            })
-        }
+        //         item.isChecked = e.target.checked
+                
+        //     }
             
-        // - put the items marked true into checkedtrue array
-        for (const key in checkedItems){
-            if (checkedItems[key] === true){
-                checkedTrue.push(key)
-            }
-        }
+        // })
+        // // setChecked(
+        // //     ...checked
+        // // )
+        // console.log(checked)
 
-        // set form data for interests to include all checked true items
-        setDetails({
-            ...detailsData,
-            interests: [...checkedTrue]
-        })
+
+
     }
+  
+
+
 
     // function to handle change of regular form inputs :
     function handleChange (e) {
@@ -186,32 +188,35 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                         </div>
 
 
-                        <div className="interestsSection">
+                        {/* <div className="interestsSection">
                             <h4>Interests</h4>
                             <div className="interestsCheckBoxes">
 
                             
                             { // map over checkbox items from checkbox data file :
-                                interestsCheckBoxes.map((item, index) => {
-                                    const { name } = item
-                                    let isChecked = checkedItems[name]
+                                checked.map((item, index) => {
+                                    // const { value, isChecked, id } = item
+                                    // let isChecked = checkedItems[name]
+                                    // console.log('isChecked', isChecked)
                                     return(
-                                        <div key={index} className="checkboxes">
+                                        <div key={item.id} className="checkboxes">
                                             
 
-                                            <CheckBox name={item.name} checked={isChecked} onChange={handleCheckboxChange}  />
-                                            {/* <span class="check"></span> */}
+                                            <Checkbox value={item.value} checked={item.isChecked} onChange={handleCheckboxChange}  />
+                                          
                                             <label className="checkLabel">
-                                                {item.label}
+                                                {item.value}
                                             
                                             </label>
                                         </div>
                                     )   
                                 })
                             }
+                            
+                               
 
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="formFields">
                             <label>

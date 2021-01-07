@@ -29,8 +29,8 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
 
         <div>
-          <h3>Details</h3>
-          <div>
+          <h3 className="greyTitle">Details</h3>
+          <div className="reviewDivs">
 
             {
               Object.entries(detailsData).map(([key, value]) => {
@@ -67,8 +67,8 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
 
         <div>
-          <h3>Skills</h3>
-          <div>
+          <h3 className="greyTitle">Skills</h3>
+          <div className="reviewDivs">
             {
               Object.entries(skillsData).map(([key, value]) => {
 
@@ -81,8 +81,8 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
 
         <div>
-          <h3>Work</h3>
-          <div>
+          <h3 className="greyTitle">Work</h3>
+          <div className="reviewDivs">
             {
               Object.entries(workData).map(([key, value]) => {
 
@@ -110,8 +110,8 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
 
         <div>
-          <h3>Education</h3>
-          <div>
+          <h3 className="greyTitle">Education</h3>
+          <div className="reviewDivs">
           {
               Object.entries(educationData).map(([key, value]) => {
 
@@ -138,8 +138,8 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
 
         <div>
-          <h3>Links</h3>
-          <div>
+          <h3 className="greyTitle">Links</h3>
+          <div className="reviewDivs">
           {
               Object.entries(linkData).map(([key, value]) => {
                 if (key === "resume"){
@@ -166,8 +166,11 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
         </div>
 
       </div>
-      <button onClick={previous}>back</button>
-      <button>Create Profile</button>
+      <div className="navigationDiv">
+          <button className="nextBtn" onClick={previous}>back</button>  
+          <button className="nextBtn" >Create Profile</button>
+      </div>
+      
 
     </div>
 

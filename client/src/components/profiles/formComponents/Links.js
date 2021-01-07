@@ -7,6 +7,8 @@ import 'react-dropdown/style.css';
 
 const Links = ({ setLinks, linkData, navigation,  }) => {
 
+    const [disabled, setDisabled] = useState(true)
+
     // form props :
     const { linkedIn, twitter, instagram, facebook, additionalLinks, portfolio, github, resume } = linkData
     
@@ -45,6 +47,10 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
 
     }
 
+    const hideFormField = (e) => {
+        
+    }
+
 
     // options for dropdown of additional links :
     const options = [
@@ -63,6 +69,7 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
         if (Object.entries(additionalLinks).length < 1){
             addFormField()
         } 
+        setDisabled(false)
     }
 
 
@@ -128,32 +135,40 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
                 <div className="profileFormDiv">
                     <form>
                         <div>
-                            <h3>Social Media</h3>
+                            <h3 className="greyTitle">Social Media</h3>
                             
-                            <div>
-                                <label>
-                                    LinkedIn
-                                </label>
-                                <FormInput name="linkedIn" value={linkedIn} onChange={handleChange} />
+                            <div className="linkForms">
+                                <div className="doubleFields">
+                                    <div className="formFields">
+                                        <label>
+                                            LinkedIn
+                                        </label>
+                                        <FormInput name="linkedIn" value={linkedIn} onChange={handleChange} />
+                                    </div>
+                                    <div className="formFields">
+                                        <label>
+                                            Twitter
+                                        </label>
+                                        <FormInput name="twitter" value={twitter} onChange={handleChange} />
+                                    </div>
+                                </div>
+                                <div className="doubleFields">
+                                    <div className="formFields">
+                                        <label>
+                                            Instagram
+                                        </label>
+                                        <FormInput name="instagram" value={instagram} onChange={handleChange} />
+                                    </div>
+                                    <div className="formFields">
+                                        <label>
+                                            Facebook
+                                        </label>
+                                        <FormInput name="facebook" value={facebook} onChange={handleChange} />
+                                    </div>
+
+                                </div>
                             </div>
-                            <div>
-                                <label>
-                                    Twitter
-                                </label>
-                                <FormInput name="twitter" value={twitter} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>
-                                    Instagram
-                                </label>
-                                <FormInput name="instagram" value={instagram} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>
-                                    Facebook
-                                </label>
-                                <FormInput name="facebook" value={facebook} onChange={handleChange} />
-                            </div>
+                            
                     
 
                                     
@@ -161,48 +176,74 @@ const Links = ({ setLinks, linkData, navigation,  }) => {
 
 
                         <div>
-                            <h3>Portfolio</h3>
-                            <div>
-                                <label>
-                                    Portfolio
-                                </label>
-                                <FormInput name="portfolio" value={portfolio} onChange={handleChange} />
+                            <h3 className="greyTitle">Portfolio</h3>
+                            <div className="linkForms">
+                                <div className="doubleFields">
+                                    <div className="formFields">
+                                        <label>
+                                            Portfolio
+                                        </label>
+                                        <FormInput name="portfolio" value={portfolio} onChange={handleChange} />
+                                    </div>
+                                    <div className="formFields">
+                                        <label>
+                                            Github
+                                        </label>
+                                        <FormInput name="github" value={github} onChange={handleChange} />
+                                    </div>
+
+                                </div>
+                                
                             </div>
-                            <div>
-                                <label>
-                                    Github
-                                </label>
-                                <FormInput name="github" value={github} onChange={handleChange} />
+
+                            <div className="profilePhotoUpload">
+                                <label for="photoBtn">Upload Resume</label>
+                                <input 
+                                    type="file"
+                                    name="resume"
+                                    accept=".pdf"
+                                    multiple="false"
+                                    onChange={handleUpload}
+                                    id="photoBtn"
+                                    hidden
+                                    
+                                />
+                                <span id="fileChosen">No file Chosen</span>
+
                             </div>
-                            <div>
+                            
+                            
+                            {/* <div className="formFields">
                                 <label>
                                     Resume
                                 </label>
                                 <FormInput type="file" name="resume" accept=".pdf" onChange={handleUpload}/>
                                 
-                            </div>
+                            </div> */}
                         </div>
                         <div>
-                            <h3>Additional</h3>
-                            <div>
-                            <Dropdown options={options} onChange={onSelect} value={defaultOption} name="additionalLinks" />
-                            <button onClick={handleClick}>+</button> 
-                            <div id="additionalForms"></div>
-
+                            <h3 className="greyTitle">Additional</h3>
+                            
+                            <div className="linkDropDown">
+                                <Dropdown options={options} onChange={onSelect} value={defaultOption} name="additionalLinks" />
+                                
+                                <div id="additionalForms"></div>
+                                <button className="plusButton" onClick={handleClick} disabled={disabled} >+</button>                
                             </div>
+                                
                             <div id="additionalItems">
                                     
-                            <DisplayItems />
+                                <DisplayItems />
                                     
                                 
                             </div>
-                        </div>
+                            </div>
 
                     </form>  
                     <div className="navigationDiv">
-                    <button className="nextBtn" onClick={previous}>back</button>  
-                    <button className="nextBtn" onClick={next}>Next</button>
-                </div>
+                        <button className="nextBtn" onClick={previous}>back</button>  
+                        <button className="nextBtn" onClick={next}>Next</button>
+                    </div>
                 </div>
             </div>
             

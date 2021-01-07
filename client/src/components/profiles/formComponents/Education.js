@@ -31,38 +31,54 @@ const Education = ( { setEducation, educationData, navigation }) => {
 
                 <form className="profileForm">
                     <div>
-                        <div>
-                            <h3>Most Recent </h3>
-                            <div>
-                                <label>
-                                    School
-                                </label>
-                                <FormInput name="recentSchool" value={recentSchool} onChange={changeHandler} />
+                        <div className="eduProfileForm">
+                            <h3 className="greyTitle">Most Recent </h3>
+                            <div className="eduForms">
+                                <div className="doubleFields">
+                                    <div className="formFields">
+                                        <label>
+                                            School
+                                        </label>
+                                        <FormInput name="recentSchool" value={recentSchool} onChange={changeHandler} />
+
+                                    </div>
+                                    <div className="formFields">
+                                        <label>
+                                            Degree
+                                        </label>
+                                        <FormInput name="recentDegree" value={recentDegree} onChange={changeHandler} />
+
+                                    </div>
+                                </div>
+
+                                <div className="doubleFields">
+                                    <div className="formFields">
+                                        <label>
+                                            Start Date
+                                        </label>
+                                        <FormInput type="date" name="recentStartDate" value={recentStartDate} onChange={changeHandler} />
+
+                                    </div>
+                                    <div className="formFields">
+                                        <label>
+                                            End date
+                                        </label>
+                                        <FormInput type="date" name="recentEndDate" value={recentEndDate} onChange={changeHandler} />
+
+                                    </div>
+                                </div>
+
+
 
                             </div>
-                            <div>
-                                <label>
-                                    Degree
-                                </label>
-                                <FormInput name="recentDegree" value={recentDegree} onChange={changeHandler} />
+                            
+                            
 
-                            </div>
-                            <div>
-                                <label>
-                                    Start Date
-                                </label>
-                                <FormInput type="date" name="recentStartDate" value={recentStartDate} onChange={changeHandler} />
+                            
 
-                            </div>
-                            <div>
-                                <label>
-                                    End date
-                                </label>
-                                <FormInput type="date" name="recentEndDate" value={recentEndDate} onChange={changeHandler} />
-
-                            </div>
+                            
                     
-                            <h3>Past Education</h3>
+                            <h3 className="greyTitle">Past Education</h3>
                             <PastEducation {...props} />
                             
                         </div>

@@ -72,38 +72,40 @@ const PastWork = ({ setWork, workData }) => {
             <div>
                 <Display />
             </div>
+            <div className="eduForms">
+                <div className="doubleFields">
+                    <div className="formFields">
+                        <label>
+                            Title
+                        </label>
+                        <FormInput name="title" value={title} onChange={handleChange} />
+                    </div>
 
-            <div className="doubleFields">
-                <div className="formFields">
-                    <label>
-                        Title
-                    </label>
-                    <FormInput name="title" value={title} onChange={handleChange} />
+                    <div className="formFields">
+                        <label>
+                            Company
+                        </label>
+                        <FormInput name="company" value={company} onChange={handleChange} />
+                    </div>
                 </div>
-
-                <div className="formFields">
-                    <label>
-                        Company
-                    </label>
-                    <FormInput name="company" value={company} onChange={handleChange} />
-                </div>
-            </div>
             
-            <div className="doubleFields">
-                <div className="formFields">
-                    <label>
-                    Start date
-                    </label>
-                    <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
-                </div>
+                <div className="doubleFields">
+                    <div className="formFields">
+                        <label>
+                        Start date
+                        </label>
+                        <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+                    </div>
 
-                <div className="formFields">
-                    <label>
-                    End date
-                    </label>
-                    <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
-                </div>
+                    <div className="formFields">
+                        <label>
+                        End date
+                        </label>
+                        <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+                    </div>
+                
 
+                </div>
             </div>
             
 

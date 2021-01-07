@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
-import { RadioGroup, RadioButton } from 'react-radio-buttons'
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
+
 
 const Work = ({ setWork, workData, navigation }) => {
 
     const props = { setWork, workData, navigation }
     const { previous, next } = navigation;
+    const { status } = workData
+
 
 
     // handle change function for radio group for work status :
     function handleChange (e) {
         setWork({
             ...workData,
-            status: e
+            status: e.target.value
         })
     }
 
@@ -41,19 +50,17 @@ const Work = ({ setWork, workData, navigation }) => {
 
                         <div className="statusSelection">
                             <h3>Please Choose one:</h3>
-                            {/* radio button component from package */}
+                            <FormControl component="fieldset">
+                                {/* <FormLabel component="legend">Future Employment Status</FormLabel> */}
+                                <RadioGroup aria-label="gender" name="gender1" value={status} onChange={handleChange} className="radioGroupWork">
+                                    <FormControlLabel value="looking" control={<Radio />} label="I'm looking for work" />
+                                    <FormControlLabel value="open" control={<Radio />} label="I'm not currently looking, but I'm open to offers" />
+                                    <FormControlLabel value="notLooking" control={<Radio />} label="I'm not looking for work" />
+                                    
+                                </RadioGroup>
+                                </FormControl>
 
-                            <RadioGroup className="statusRadio" onChange={handleChange} horizontal>
-                                <RadioButton value="looking" className="statusOption">
-                                    Looking for Work
-                                </RadioButton>
-                                <RadioButton value="open" className="statusOption">
-                                    Not looking for work, but open to offers
-                                </RadioButton>
-                                <RadioButton value="notLooking" className="statusOption">
-                                    Not looking for work
-                                </RadioButton>
-                            </RadioGroup>
+                            
                         </div>
 
                     </form>
