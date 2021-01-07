@@ -129,6 +129,46 @@
   #postSections .authorInfo p {
     font-size: 1.25em;
   }
+  .profilePhotoUpload #photoLabel {
+    font-size: 1.25rem;
+  }
+  .profilePhotoUpload #fileChosen {
+    font-size: 1.25rem;
+  }
+  .profileFormDiv .profileForm label {
+    font-size: 1.25rem;
+  }
+  .profileFormDiv .doubleFields {
+    width: 48%;
+  }
+  .profileFormDiv .profileFormSection {
+    padding: 4% 6%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .profileFormDiv .profileFormSection .doubleFields {
+    margin: 1% 1%;
+  }
+  .profileFormDiv .profileFormSection input {
+    font-size: 1rem;
+  }
+  .profileFormDiv .profileFormSection .bio {
+    width: 43vw;
+  }
+  .profileFormDiv .profileFormSection .description {
+    width: 43vw;
+    margin: 0;
+  }
+  .profileFormDiv .profileFormSection p {
+    font-size: 0.75rem;
+  }
   #profile .profileImgName {
     display: -webkit-box;
     display: -ms-flexbox;

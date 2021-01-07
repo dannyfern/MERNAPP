@@ -100,31 +100,34 @@ const Details = ({ setDetails, detailsData, navigation }) => {
             </div>
 
             <div className="profileFormDiv">
-                <div className="profilePhoto">
-                    <img
-                        src={profilePhoto}
-                        alt="profilephoto"
-                        />
-                </div>
+                
 
 
                 <form className="profileForm">
+                    <div className="photoDiv">
+                        <div className="profilePhoto">
+                            <img
+                                src={profilePhoto}
+                                alt="profilephoto"
+                                />
+                        </div>
 
 
-                    <div className="profilePhotoUpload">
-                        <label for="photoBtn">Upload Image</label>
-                        <input 
-                            type="file"
-                            name="profilePhoto"
-                            accept="image/png, image/jpeg"
-                            multiple="false"
-                            onChange={uploadImg}
-                            id="photoBtn"
-                            hidden
-                            
-                        />
-                        <span id="fileChosen">No file Chosen</span>
+                        <div className="profilePhotoUpload">
+                            <label id="photoLabel" for="photoBtn">Upload Image</label>
+                            <input 
+                                type="file"
+                                name="profilePhoto"
+                                accept="image/png, image/jpeg"
+                                multiple="false"
+                                onChange={uploadImg}
+                                id="photoBtn"
+                                hidden
+                                
+                            />
+                            <span id="fileChosen">No file Chosen</span>
 
+                        </div>
                     </div>
 
 
@@ -218,6 +221,20 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             </div>
                         </div> */}
 
+                            <div className="formFields">
+                                <label>
+                                    Brief Author Description 
+                                </label>
+                                <p>(This will be shown underneath your blog posts)</p>
+                                
+                                <textarea 
+                                    name="briefDescription"
+                                    value={briefDescription}
+                                    onChange={handleChange}
+                                    className="description"
+                                />
+                            </div>
+
                         <div className="formFields">
                             <label>
                                 Bio
@@ -230,19 +247,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             />
                         </div>
 
-                        <div className="formFields">
-                            <label>
-                                Brief Author Description 
-                            </label>
-                            <p>(This will be shown underneath your blog posts)</p>
-                            
-                            <textarea 
-                                name="briefDescription"
-                                value={briefDescription}
-                                onChange={handleChange}
-                                className="description"
-                            />
-                        </div>
+                        
                     </div>
                 </form>
                 <div className="navigationDiv">

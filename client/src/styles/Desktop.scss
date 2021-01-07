@@ -133,6 +133,89 @@
 
 
 
+    // profile forms : 
+
+    .profilePhotoUpload{
+        #photoLabel{
+            font-size: 1.25rem;
+        }
+        #fileChosen{
+            font-size: 1.25rem;
+        }
+    }
+
+    
+    .profileFormDiv{
+
+        .profileForm{
+
+            label{
+                font-size: 1.25rem;
+            }
+        }
+
+        .doubleFields{
+            width: 48%;
+        }
+        
+        .profileFormSection{
+            padding: 4% 6%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+            .doubleFields{
+                margin: 1% 1%;
+            }
+            input{
+                font-size: 1rem;
+            }
+
+            .bio{
+                width: 43vw;
+            }
+
+            .description{
+                width: 43vw;
+                margin: 0;
+            }
+            p{
+                font-size: 0.75rem;
+            }
+        }
+    }
+    
+
+    .profileFormDiv{
+
+    }
+    
+
+    // .doubleFields{
+            
+    //     input{
+    //         padding: 1%;
+    //         font-size: 1rem
+    //     }
+    // }
+
+    // input[type=text], input[type=date]{
+    //     padding: 0 0.8rem;
+    //     height: 1em;
+    //     font-size: 1.25rem;
+
+        
+    // }
+
+
+
+
+
+
+
+
+
+
 
     // profile displays :
 
