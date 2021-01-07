@@ -49,29 +49,33 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                 </div>
                 <form onKeyPress={onKeyPress}>
                     <div className="skillsFormSection">
-                        <div>
-                            <h3>Technical Skills</h3>
-                            <SkillsForm {...props} skillType="technical"/>
-                        </div>
-                        <div>
-                            <h3>Soft Skills</h3>
-                            <SkillsForm {...props} skillType="soft"/>
+                        <div className="skillsFormDisplay">
+                            <div className="greySection">
+                                <h3>Technical Skills</h3>
+                                <SkillsForm {...props} skillType="technical"/>
+                            </div>
+                            <div className="greySection">
+                                <h3>Soft Skills</h3>
+                                <SkillsForm {...props} skillType="soft"/>
+                            </div>
                         </div>
                         <div>
                             <h3>Experience</h3>
-                            <div>
-                                <label>
-                                    Skill level
-                                </label>
-                                {/* dropdown component from package : */}
-                                <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
-                            </div>
-                            <div>
-                                <label>
-                                    Years of Experience
-                                </label>
-                                <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} />
-                                
+                            <div className="skillExperience">
+                                <div className="formFields">
+                                    <label>
+                                        Skill level
+                                    </label>
+                                    {/* dropdown component from package : */}
+                                    <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
+                                </div>
+                                <div className="formFields">
+                                    <label>
+                                        Years of Experience
+                                    </label>
+                                    <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} className="yearsExp" />
+                                    
+                                </div>
                             </div>
                             
                             

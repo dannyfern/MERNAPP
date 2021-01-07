@@ -183,7 +183,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             </div>
 
                             <div className="birthdayFields formFields">
-                                <label>Birthday</label>
+                                <label>Date of Birth</label>
 
                                 <FormInput type="date" name="birthday" value={birthday} onChange={handleChange}/>
             
@@ -221,11 +221,11 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                             </div>
                         </div> */}
 
-                            <div className="formFields">
-                                <label>
+                            <div className="formFields desc">
+                                <label id="authorLabel">
                                     Brief Author Description 
                                 </label>
-                                <p>(This will be shown underneath your blog posts)</p>
+                                {/* <p>(This will be shown underneath your blog posts)</p> */}
                                 
                                 <textarea 
                                     name="briefDescription"
@@ -235,7 +235,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                                 />
                             </div>
 
-                        <div className="formFields">
+                        <div className="formFields desc">
                             <label>
                                 Bio
                             </label>
