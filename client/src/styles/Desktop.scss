@@ -133,6 +133,48 @@
 
 
 
+
+    // profiles page :
+    .profileWrapper{
+        width: 75vw;
+        flex-wrap: wrap;
+
+
+
+        #profileLink{
+            width: 32%;
+        }
+
+        .profileCard{
+
+            .profileTopSection{
+
+
+                .profileTopDetails{
+
+                    h2{
+                        font-size: 1rem;
+                    }
+                    h3{
+                        font-size: 1rem;
+                        padding: 1% 0;
+
+                    }
+                    h4{
+                        font-size: 0.85rem;
+                    }
+
+                }
+            }
+
+            .profileBottomSection{
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+
+
     // profile forms : 
 
     // photo :
@@ -268,11 +310,6 @@
     }
 
     
-
-    .recentWorkInfo{
-
-
-    }
     
 
     
@@ -300,6 +337,7 @@
     // profile displays :
 
     #profile{
+        margin-top: 5%;
 
         
 

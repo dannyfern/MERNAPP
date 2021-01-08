@@ -110,6 +110,20 @@
   .authorInfo p {
     font-size: 1.5em;
   }
+  .profileWrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .profileWrapper a {
+    width: 48%;
+  }
   .profileFormDiv label {
     font-size: 1.75rem;
   }

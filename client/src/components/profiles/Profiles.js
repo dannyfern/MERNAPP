@@ -26,7 +26,7 @@ const Profiles = ({ profileData }) => {
 
                         // const path = `/profiles/${x._id}`
                         return (
-                            <Link to={`/profiles/${x._id}`}>
+                            <Link to={`/profiles/${x._id}`} id="profileLink">
                                 <div className="profileCard">
                                     <div className="profileTopSection">
                                         <div className="imagePlaceHolder">
