@@ -66,6 +66,11 @@ const App = () => {
 
     }
 
+    const getProfileFromId = (id) => {
+
+        return profileData.find((p) => p._id === parseInt(id))
+    }
+
 
     const [store, dispatch] = useReducer(stateReducer, initialState)
     const {blogPosts, error} = store
@@ -85,6 +90,10 @@ const App = () => {
     // add blog posts
     const addPost = (post) => {
         setPosts([...posts, post])
+    }
+
+    const addProfile = (profile) => {
+        setProfiles([...profiles, profile])
     }
 
     // next id for blog posts
@@ -115,7 +124,7 @@ const App = () => {
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profileData} />} />
                         <Route exact path="/profiles/new" component={AddProfile} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} />} />
-                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={profileData}/>} />
+                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={getProfileFromId(props.match.params.id)}/>} />
                         
                         
                         <Route exact path="/posts/new" render={(props) => <AddPost {...props} addPost={addPost} nextId={nextId()} />} />

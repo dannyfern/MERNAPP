@@ -47,19 +47,49 @@ const Posts = ({ postsData }) => {
     // with that filtered data, it should impliment the chosen
     // sorting method, eg. newest, oldest, most upvotes, least etc.
 
+    const sortOptions = (a, b, sortBy) => {
+        switch (sortBy){
+            case "Newest":
+                return (b.modified_date - a.modified_date)
+                
+            case "Oldest":
+                return (a.modified_date - b.modified_date)
+                
+            default:
+                return (b.modified_date - a.modified_date)
+                
+
+        }
+    }
+    
 
     function Display (){
+        // console.log(filterData)
+        const { category, sortBy } = filterData
+        // console.log(category)
+        // console.log(postsData.filter(x => x.category === "code"))
+        // console.log(category)
+
         return (postsData
-            .sort((a, b) => b.modified_date - a.modified_date)
+            .filter((x) => {
+                if (category === "All"){
+                    return x
+                } else {
+                    return x.category === category
+                }
+               
+            }
+            )
+            .sort((a, b) => sortOptions(a, b, sortBy))
             .map((post) => {
                 return posts(post)
             })
         )
     }
 
+
     const filterBtn = document.querySelector('.filters')
 
-    
     function openFilters () {
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
@@ -71,6 +101,7 @@ const Posts = ({ postsData }) => {
     // const categoryOptions = ["Code", "Food", "Issues", "Meetups"]
 
     const categoryOptions = [
+        {label: "All", value: "category"},
         {label: "Code", value: "category"},
         {label: "Food", value: "category"},
         {label: "Issues", value: "category"},
@@ -98,10 +129,10 @@ const Posts = ({ postsData }) => {
         console.log('filter: ', filterData)
     }
 
-    const handleFilterSubmit = e => {
-        e.preventDefault()
+    // const handleFilterSubmit = e => {
+    //     e.preventDefault()
 
-    }
+    // }
 
     return(
         <div>
@@ -123,14 +154,14 @@ const Posts = ({ postsData }) => {
                     </div>
                 </div>
                 
-                <div className="filterBtn">
+                {/* <div className="filterBtn">
                     <button onClick={handleFilterSubmit}>Done</button>
-                </div>
+                </div> */}
                 
             </div>
             
             <div className="width70 posts">
-                <Display />
+                <Display filters={filterData} />
             </div>
 
 

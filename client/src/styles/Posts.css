@@ -1,3 +1,7 @@
+.postUpvotes .upvoteButton {
+  cursor: pointer;
+}
+
 .filters {
   border: 1px solid #75ACB4;
   border-radius: 3px;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // how to map over links and display them with matching icon?
 
 const Profile = ({ profile }) => {
+    console.log(profile)
 
     // destructuring data variables
     const { detailsData, skillsData, workData, educationData, linkData } = profile

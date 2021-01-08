@@ -4,6 +4,11 @@ import {Link} from 'react-router-dom'
 const Post = ({history, post}) => {
 
 
+    const handleLikes = () => {
+        // logic for likes here
+    }
+
+
     if (!post) {
         return null
     } else {
@@ -29,7 +34,13 @@ const Post = ({history, post}) => {
                         <div className="authorInfo">
                             <p>author name</p>
                             <p>author description</p>
+
+                            <div className="postUpvotes">
+                                <p onClick={handleLikes} className="upvoteButton">+ 0</p>
+                            
+                            </div>
                         </div>
+                        
                     </div>
                     
                     
