@@ -1,0 +1,373 @@
+@media only screen and (min-width: 780px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+  .heading {
+    margin: 5% !important;
+  }
+  .width70 {
+    width: 70vw !important;
+    margin: 0 auto;
+  }
+  .nav-ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .hamburger {
+    display: none;
+  }
+  #navLinks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #navLinks a {
+    color: white;
+    padding: 1.5% 0;
+  }
+  #navLinks #logo {
+    font-family: diazo-mvb-ex-cond, sans-serif;
+    font-size: 1.5em;
+    padding: 1% 0 1%;
+  }
+  .filters {
+    width: 50vw !important;
+  }
+  .width70 .posts .postCard {
+    padding: 2%;
+    margin: 3%;
+    -webkit-box-flex: 20%;
+        -ms-flex: 20%;
+            flex: 20%;
+  }
+  .width70 .posts .postCard .titleLink .postTitle {
+    font-size: 1.35em;
+  }
+  .width70 .posts .postCard .postInfo h5 {
+    font-size: 0.95em;
+    margin-top: 4%;
+  }
+  .width70 .posts .postCard .postInfo h3 {
+    font-size: 1.25em;
+  }
+  .singlePostTitle {
+    padding: 8% !important;
+  }
+  .singlePostTitle .singleTitleLink #postTitle {
+    font-size: 2em;
+  }
+  #postSections {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 5%;
+  }
+  #postSections .singlePostInfo {
+    width: 40vw;
+    border-left: 1px solid black;
+    padding-left: 5%;
+  }
+  #postSections .singlePostInfo h5 {
+    font-size: 1.25em;
+    margin: 0;
+  }
+  #postSections .singlePostInfo h3 {
+    font-size: 1.5em;
+  }
+  #postSections .singlePostInfo p {
+    font-size: 1.25em;
+  }
+  #postSections .authorInfo {
+    margin: 0;
+  }
+  #postSections .authorInfo p {
+    font-size: 1.25em;
+  }
+  .profilePhotoUpload #photoLabel {
+    font-size: 1.25rem;
+  }
+  .profilePhotoUpload #fileChosen {
+    font-size: 1.25rem;
+  }
+  .profileFormDiv .profileForm label {
+    font-size: 1.25rem;
+  }
+  .profileFormDiv .doubleFields {
+    width: 48%;
+  }
+  .profileFormDiv .profileFormSection {
+    margin: 3%;
+    padding: 4% 6%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .profileFormDiv .profileFormSection .doubleFields {
+    margin: 1% 1%;
+  }
+  .profileFormDiv .profileFormSection input {
+    font-size: 1rem;
+  }
+  .profileFormDiv .profileFormSection .bio {
+    width: 80vw;
+  }
+  .profileFormDiv .profileFormSection .desc {
+    margin: 1%;
+  }
+  .profileFormDiv .profileFormSection .description {
+    width: 39vw;
+    margin: 0;
+  }
+  .profileFormDiv .profileFormSection p {
+    font-size: 0.75rem;
+  }
+  .profileFormDiv input[type=text], .profileFormDiv input[type=date] {
+    font-size: 1rem;
+  }
+  .profileFormDiv .skillsFormSection {
+    padding: 4% 6%;
+    background-color: transparent;
+  }
+  .profileFormDiv .skillsFormSection .greySection {
+    width: 49%;
+  }
+  .profileFormDiv .skillsFormSection .greySection .skillsDisplayInput {
+    background-color: #f5f5f5;
+    padding: 5%;
+  }
+  .profileFormDiv .skillsFormSection .skillsFormDisplay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .profileFormDiv .skillsFormSection .skillExperience {
+    background-color: #f5f5f5;
+    padding: 3%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .profileFormDiv .skillsFormSection .skillExperience .Dropdown-control {
+    padding: 0 2%;
+  }
+  .profileFormDiv .skillsFormSection .skillExperience .yearsExp {
+    margin: 3% 0;
+  }
+  .profileFormDiv .skillsFormSection .skillExperience .formFields {
+    width: 49%;
+  }
+  .navigationDiv .nextBtn {
+    font-size: 1.25rem;
+  }
+  .profileFormDiv .recentWork h3 {
+    padding: 4% 6%;
+    background-color: transparent;
+  }
+  .profileFormDiv .recentWork .recentWorkInfo {
+    background-color: #f5f5f5;
+    width: 50vw;
+    padding: 4% 6%;
+  }
+  #profile .profileImgName {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 5%;
+  }
+  #profile .profileImgName .profileImageDisplay {
+    width: 25%;
+    margin: 0 3% 0 0;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  #profile .profileImgName .profileImageDisplay .profileImg {
+    width: 60%;
+    padding-top: 60%;
+  }
+  #profile .profileImgName .profileImageDisplay .status-desktop {
+    display: block;
+    background-color: #d4ffc2;
+    padding: 3%;
+    text-align: center;
+    width: 80%;
+    margin: 3% auto 0;
+  }
+  #profile .profileImgName .nameLocation {
+    width: 25%;
+    margin: 0 3%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  #profile .profileImgName .nameLocation #username {
+    font-size: 3rem;
+  }
+  #profile .profileImgName .nameLocation #name {
+    font-size: 1.75rem;
+  }
+  #profile .profileImgName .nameLocation #location {
+    font-size: 1.5rem;
+  }
+  #profile .profileImgName .personalDetails {
+    width: 20%;
+    margin: 0 3%;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  #profile .profileImgName .personalDetails .status {
+    display: none;
+  }
+  #profile .profileImgName .personalDetails .experienceDesc {
+    font-size: 1.25rem;
+    padding: 7% 3%;
+    background-color: #fff;
+    border: 2px solid #75ACB4;
+    border-radius: 3px;
+    margin-top: 2%;
+  }
+  #profile .profileImgName .personalDetails .experienceDesc .experienceLevel {
+    padding-bottom: 5%;
+  }
+  #profile .profileImgName .personalDetails .experienceDesc h2 {
+    border-top: 2px solid #75ACB4;
+    padding-top: 5%;
+    font-size: 1.25rem;
+  }
+  #profile .bioAndLinks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #profile .bioAndLinks .bio {
+    font-size: 1.5rem;
+    width: 40%;
+    padding: 2% 4%;
+    margin: 0;
+  }
+  #profile .bioAndLinks .linksDisplay {
+    width: 40%;
+    padding: 2% 4%;
+  }
+  #profile .bioAndLinks .linksDisplay .linkDiv a {
+    width: 30%;
+    font-size: 1.25rem;
+  }
+  #profile .workAndEdu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 3%;
+  }
+  #profile .workAndEdu .workDisplay {
+    padding: 2% 4%;
+    width: 40%;
+    background-color: rgba(117, 172, 180, 0.2);
+  }
+  #profile .workAndEdu .eduDisplay {
+    padding: 2% 4%;
+    width: 40%;
+    background-color: rgba(117, 172, 180, 0.2);
+  }
+  #profile .skillsDisplay {
+    padding: 2% 4%;
+    width: 80%;
+    border: 2px solid #75ACB4;
+    border-radius: 3px;
+    margin: 3% auto;
+  }
+}
+/*# sourceMappingURL=Desktop.css.map */

@@ -3,14 +3,20 @@ import Posts from './posts/Posts'
 
 
 
-const Home = () => {
+const Home = ({postsData}) => {
+    const props = {postsData}
 
 
     return (
-        <div>
-            home page
+        <div className="width70">
+            <div className="heading">
 
-            <Posts />
+                <h1 className="headingFont">Home</h1>
+
+            </div>
+            
+
+            <Posts {...props} />
 
 
         </div>
