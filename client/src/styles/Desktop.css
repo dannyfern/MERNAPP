@@ -376,6 +376,13 @@
             justify-content: center;
     margin-top: 3%;
   }
+  #profile .workAndEdu .workDisplay > h2, #profile .workAndEdu .eduDisplay > h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  #profile .workAndEdu .workDisplay > h3, #profile .workAndEdu .eduDisplay > h3 {
+    font-size: 1.25rem;
+  }
   #profile .workAndEdu .workDisplay {
     padding: 2% 4%;
     width: 40%;
@@ -392,6 +399,10 @@
     border: 2px solid #75ACB4;
     border-radius: 3px;
     margin: 3% auto;
+  }
+  #profile .skillsDisplay .skillsDiv .skills {
+    font-size: 1.25rem !important;
+    padding: 1% 4%;
   }
 }
 /*# sourceMappingURL=Desktop.css.map */
