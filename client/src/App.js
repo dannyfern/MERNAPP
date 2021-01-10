@@ -1,11 +1,15 @@
-import React, { useEffect, useReducer, useState } from 'react'
+
+import React, { Fragment, useEffect, useReducer, useState } from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-
-
 import stateReducer from './config/stateReducer'
 import { StateContext } from './config/globalState'
 import blogData from './data/post_data'
 import profileData from './data/profile_data'
+import Alert from './components/reusable/Alert'
+
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
 
 
 // components :
@@ -66,9 +70,14 @@ const App = () => {
 
     }
 
+    const getProfileFromId = (id) => {
 
-    const [store, dispatch] = useReducer(stateReducer, initialState)
-    const {blogPosts, error} = store
+        return profileData.find((p) => p._id === parseInt(id))
+    }
+
+
+    // const [store, dispatch] = useReducer(stateReducer, initialState)
+    // const {blogPosts, error} = store
 
 
     const [posts, setPosts] = useState([])
@@ -87,6 +96,10 @@ const App = () => {
         setPosts([...posts, post])
     }
 
+    const addProfile = (profile) => {
+        setProfiles([...profiles, profile])
+    }
+
     // next id for blog posts
     const nextId = () => {
         return posts.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
@@ -102,11 +115,12 @@ const App = () => {
 
     return (
         <div>
-            <StateContext.Provider value={{store, dispatch}}>
+            <Provider store={store}>
                 
                 <BrowserRouter >
-                <Navbar />
-                {error ? (<Oopsie />) : (
+                <Fragment>
+                <Navbar/>  
+                <Alert /> 
                     <Switch>
 
                         <Route exact path="/auth/register" component={Register} />
@@ -115,7 +129,7 @@ const App = () => {
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profileData} />} />
                         <Route exact path="/profiles/new" component={AddProfile} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} />} />
-                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={profileData}/>} />
+                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={getProfileFromId(props.match.params.id)}/>} />
                         
                         
                         <Route exact path="/posts/new" render={(props) => <AddPost {...props} addPost={addPost} nextId={nextId()} />} />
@@ -125,19 +139,12 @@ const App = () => {
                         <Route exact path="/" render={(props) => <Home {...props} postsData={posts} />} />
 
                     </Switch>
-                )}
-
-                
-                </BrowserRouter>
-            </StateContext.Provider>
-
-
-
-
-
-
+                    </Fragment>
+                    </BrowserRouter>
+            </Provider>
         </div>
-    )
-}
+                    
+                )};
+
 
 export default App;

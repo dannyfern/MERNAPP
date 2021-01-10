@@ -1,60 +1,56 @@
-import React, {useState} from 'react'
+import React, {Fragment, useState} from 'react';
+import { Link } from 'react-router-dom'
+import './../../styles/Auth.css';
 
 
 const SignIn = () => {
+    const [formData, setFormData] = useState({
+        email:'',
+        password:'',
+    });
 
-    const initialState = {
-        email: "",
-        password: ""
-    }
+    const { email, password } = formData;
 
-    const [userDetails, setUserDetails] = useState(initialState)
+    const onChange = c => setFormData({ ...formData, [c.target.name]: c.target.value })
 
+    const onSubmit = async c => {
+        c.preventDefault();
+            console.log('Success');
+        };
 
-    function handleChange(event){
-        const name = event.target.name
-        const value = event.target.value
-        setUserDetails({
-            ...userDetails,
-            [name]: value
-        })
-    }
-
-    function handleSubmit(event){
-        event.preventDefault()
-
-    }
-
-
-    return(
-        <div>
-            <div>
-                <div className="heading">
-                    <h1>Sign in to an existing account</h1>
-                </div>
-                <div className="authFormDiv">
-                    <form className="authForm" onSubmit={handleSubmit}>
-                        <label>Email</label>
-                        <input 
-                            type="text"
-                            name="email"
-                            onChange={handleChange}
-                        />
-                        <label>Password</label>
-                        <input 
-                            type="text"
-                            name="password"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="submit"
-                        />
-                    </form>
-                </div>
-                </div>
-        </div>
-    )
-}
-
-
+    return (
+    <Fragment>
+    <div className="register">
+        <h1 className="large text-primary">Sign In</h1>
+    </div>
+    <p className="lead"><i className="fas fa-user"></i> Login To Your Account</p>
+        <form className="form" onSubmit={c => onSubmit(c)}>
+          <div className="form-group">
+            <input 
+            type="email" 
+            placeholder="Email Address" 
+            name="email" 
+            value={email}
+            onChange={c => onChange(c)} required />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={c => onChange(c)} required
+              minLength="6"
+            />
+          </div>
+          <div className="ending">
+            <input type="submit" className="btn btn-primary" value="Sign In" />
+          </div>
+             <p className="my-1">
+                Don't have an account? <Link to='/register'>Sign Up</Link>
+             </p>
+            </form>
+        </Fragment>
+    );
+    };
 export default SignIn
