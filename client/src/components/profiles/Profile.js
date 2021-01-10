@@ -174,8 +174,8 @@ const Profile = ({ profile }) => {
             <div className="skillsDisplay">
                 <h1>Technical Skills/Languages</h1>
                 <DisplaySkills skills={technical} />
-                <h1>Soft Skills</h1>
-                <DisplaySkills skills={soft} />
+                {/* <h1>Soft Skills</h1>
+                <DisplaySkills skills={soft} /> */}
             </div>
             <div className="postsDisplay">
                 <h1>Blog Posts</h1>

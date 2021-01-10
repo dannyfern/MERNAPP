@@ -66,10 +66,10 @@ const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
                                 <h3>Technical Skills</h3>
                                 <SkillsForm {...props} skillType="technical"/>
                             </div>
-                            <div className="greySection">
+                            {/* <div className="greySection">
                                 <h3>Soft Skills</h3>
                                 <SkillsForm {...props} skillType="soft"/>
-                            </div>
+                            </div> */}
                         </div>
                         <div>
                             <h3>Experience</h3>

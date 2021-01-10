@@ -25,7 +25,7 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
     // states for tech and soft skills arrays :
     const [techSkills, setTechSkills] = useState([])
 
-    const [softSkills, setSoftSkills] = useState([])
+    // const [softSkills, setSoftSkills] = useState([])
 
     // states for temporary values and names :
     const [tempVal, setTempVal] = useState("")
@@ -61,14 +61,14 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
                 ...skillsData,
                 technical: newArr
             })
-        } else if (tempName === "soft" && item !== ""){
-            const newArr = [...softSkills, item]
-            setSoftSkills(newArr)
-            setSkills({
-                ...skillsData,
-                soft: newArr
-            })
-        }
+         } // else if (tempName === "soft" && item !== ""){
+        //     const newArr = [...softSkills, item]
+        //     setSoftSkills(newArr)
+        //     setSkills({
+        //         ...skillsData,
+        //         soft: newArr
+        //     })
+        // }
         console.log(skillsData)
     }
 
@@ -82,13 +82,13 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
  
                 
             )
-        } else if (tempName === "soft"){
-            return softSkills.map((item, index) => 
+        // }  else if (tempName === "soft"){
+            // return softSkills.map((item, index) => 
 
-                    <li className="skillItem" key={index}>{item}</li>
+            //         <li className="skillItem" key={index}>{item}</li>
 
                 
-            )
+            // )
         } else return null
 
     }

@@ -1,6 +1,6 @@
 import api from '../config/api'
 
-
+// have started setting up functions to make requests to bthe backend - need to get them to work 
 
 export async function getAllUserProfiles() {
     const response = await api.get("/profiles")
