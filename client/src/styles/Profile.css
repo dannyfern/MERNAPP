@@ -19,6 +19,11 @@
   margin: 1%;
 }
 
+.profileFilters {
+  text-decoration: underline;
+  padding: 5%;
+}
+
 .profileWrapper {
   width: 80vw;
   display: -webkit-box;

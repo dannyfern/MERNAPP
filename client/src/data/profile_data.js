@@ -17,8 +17,8 @@ const profileData = [
         skillsData: {
             technical: ["javascript", "ruby", "html", "css", "ror"],
             soft: ["teamwork", "communication"],
-            skillLevel: "junior-level",
-            yearsOfExperience: "1"
+            skillLevel: "Junior-level",
+            yearsOfExperience: "< 1"
         },
         
         workData: {
@@ -68,7 +68,7 @@ const profileData = [
             technical: ["javascript", "ruby", "PHP", "Express", "Node"],
             soft: ["teamwork", "adaptable", "leadership"],
             skillLevel: "Mid-level",
-            yearsOfExperience: "3"
+            yearsOfExperience: "3+"
         },
         
         workData: {
@@ -117,8 +117,58 @@ const profileData = [
         skillsData: {
             technical: ["javascript", "ruby", "PHP", "Express", "Node"],
             soft: ["teamwork", "adaptable", "leadership"],
-            skillLevel: "Mid-level",
-            yearsOfExperience: "3"
+            skillLevel: "Senior-level",
+            yearsOfExperience: "5+"
+        },
+        
+        workData: {
+            status: "not looking for work",
+            currentTitle: "Full-Stack Developer",
+            currentCompany: "CompanyX",
+            currentStartDate: "2017-08-07",
+            pastRoles: []
+        },
+        
+        educationData: {
+            recentSchool: "CoderAcademy",
+            recentDegree: "Diploma of IT",
+            recentStartDate: "2020-03-20",
+            recentEndDate: "2021-02-02",
+            pastEducation: []
+        },
+        
+        linkData: {
+            linkedIn: "johnsmith",
+            twitter: "johnsmith.com",
+            instagram: "johnsmith.com",
+            facebook: "johnsmith.com",
+            portfolio: "johnsmith.com",
+            github: "johnsmith.com",
+            resume: "",
+            additionalLinks: {}
+        }
+
+    },
+    {
+        _id: 4,
+        detailsData: {
+            profilePhoto: "",
+            firstName: "John",
+            lastName: "Smith",
+            username: "johnsmith",
+            location: "Sydney",
+            phoneNumber: "0431829936",
+            birthday: "1996-02-05",
+            interests: ["Back-end", "Full-stack", "AI"],
+            bio: "hello i am john smith",
+            briefDescription: "this is my author bio"
+        },
+        
+        skillsData: {
+            technical: ["javascript", "ruby", "PHP", "Express", "Node"],
+            soft: ["teamwork", "adaptable", "leadership"],
+            skillLevel: "Senior-level",
+            yearsOfExperience: "7+"
         },
         
         workData: {

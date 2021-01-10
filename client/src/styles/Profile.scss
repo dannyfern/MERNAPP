@@ -20,6 +20,11 @@
 }
 
 // profiles page
+.profileFilters{
+    text-decoration: underline;
+    padding: 5%;
+    
+}
 
 .profileWrapper{
     width: 80vw;
@@ -27,6 +32,8 @@
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+
+
     a{
         text-decoration: none;
         color: black;
@@ -484,6 +491,8 @@
     margin: 0 auto;
     padding: 0;
     margin-top: 10%;
+
+
 
 
     .nameLocation{
