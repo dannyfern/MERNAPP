@@ -90,8 +90,8 @@ const App = () => {
 
 
 
-    const [store, dispatch] = useReducer(stateReducer, initialState)
-    const {blogPosts, error, userProfiles} = store
+    // const [store, dispatch] = useReducer(stateReducer, initialState)
+    // const {blogPosts, error, userProfiles} = store
 
 
 

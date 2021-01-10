@@ -20,10 +20,10 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
   let history = useHistory()
 
-  const {store, dispatch} = useGlobalState()
-  const {userProfiles} = store
+  // const {store, dispatch} = useGlobalState()
+  // const {userProfiles} = store
 
-  const [errorMessage, setErrorMessage] = useState(null)
+  // const [errorMessage, setErrorMessage] = useState(null)
 
   const { previous } = navigation;
 
@@ -83,21 +83,21 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
       linkData: linkData
     }
 
-    updateProfile(updatedProfile).then(() => {
-      const otherProfiles = userProfiles.filter((profile) => profile._id !== updatedProfile._id )
-      dispatch({
-        type: "setUserProfiles",
-        data: [updatedProfile, ...otherProfiles]
-      })
-      history.push(`/profiles/${profile._id}`)
-    }).catch((error) => {
-      const status = error.response ? error.response.status : 500
-      console.log("caught error on edit", error)
-      if(status === 403)
-          setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
-      else
-          setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
-    })
+    // updateProfile(updatedProfile).then(() => {
+    //   const otherProfiles = userProfiles.filter((profile) => profile._id !== updatedProfile._id )
+    //   dispatch({
+    //     type: "setUserProfiles",
+    //     data: [updatedProfile, ...otherProfiles]
+    //   })
+    //   history.push(`/profiles/${profile._id}`)
+    // }).catch((error) => {
+    //   const status = error.response ? error.response.status : 500
+    //   console.log("caught error on edit", error)
+    //   if(status === 403)
+    //       setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+    //   else
+    //       setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+    // })
 
   }
 
