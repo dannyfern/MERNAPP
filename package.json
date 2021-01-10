@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.5.3",
     "config": "^3.3.3",
     "express": "^4.17.1",
     "express-validator": "^6.8.1",
@@ -20,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.8",
     "mongoose-unique-validator": "^2.0.3",
+    "react-bootstrap": "^1.4.3",
     "request": "^2.88.2"
   },
   "devDependencies": {
