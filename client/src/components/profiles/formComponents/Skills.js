@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SkillsForm from './skillsComponents/SkillForm'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 import FormInput from '../../reusable/FormInput'
 
 
-const Skills = ({ setSkills, skillsData, navigation }) => {
+const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
+
+    useEffect(() => {
+        if (form === "edit"){
+            setSkills(profile.skillsData)
+        }
+    })
+
+    
 
     const props = { setSkills, skillsData, navigation }
     const { skillLevel, yearsOfExperience } = skillsData
@@ -18,26 +26,30 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
         }
     }
 
-    // function to handle regular input
-    function handleChange (e) {
-
-        const { name, value } = e.target
-        setSkills({
-            ...skillsData,
-            [name]: value
-        })
-    }
-
     // function to handle dropdown and assign its value to the skill level in form data :
     function onSelect (e) {
-        const { value } = e
+        console.log(e)
+        const { label, value } = e
         setSkills({
             ...skillsData,
-            skillLevel: value
+            [value]: label
         })
     }
     // options for skill level drop down :
-    const options = ['Aspirational', 'Junior-level', 'Mid-level', 'Senior-level']
+
+    const levelOptions = [
+        {label: "Junior-level", value: "level"},
+        {label: "Mid-level", value: "level"},
+        {label: "Senior-level", value: "level"}
+    ]
+
+    const experienceOptions = [
+        {label: "< 1", value: "experience"},
+        {label: "1+", value: "experience"},
+        {label: "3+", value: "experience"},
+        {label: "5+", value: "experience"},
+        {label: "7+", value: "experience"}
+    ]
 
     return(
         <div>
@@ -54,10 +66,10 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                                 <h3>Technical Skills</h3>
                                 <SkillsForm {...props} skillType="technical"/>
                             </div>
-                            <div className="greySection">
+                            {/* <div className="greySection">
                                 <h3>Soft Skills</h3>
                                 <SkillsForm {...props} skillType="soft"/>
-                            </div>
+                            </div> */}
                         </div>
                         <div>
                             <h3>Experience</h3>
@@ -67,14 +79,14 @@ const Skills = ({ setSkills, skillsData, navigation }) => {
                                         Skill level
                                     </label>
                                     {/* dropdown component from package : */}
-                                    <Dropdown options={options} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
+                                    <Dropdown options={levelOptions} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
                                 </div>
                                 <div className="formFields">
                                     <label>
                                         Years of Experience
                                     </label>
-                                    <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} className="yearsExp" />
-                                    
+                                    {/* <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} className="yearsExp" /> */}
+                                    <Dropdown options={experienceOptions} onChange={onSelect} value={yearsOfExperience} id="expDropDown" name="yearsOfExperience" />
                                 </div>
                             </div>
                             

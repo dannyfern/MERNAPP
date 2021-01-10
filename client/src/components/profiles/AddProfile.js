@@ -5,7 +5,7 @@ import MultiStepForm from './MultiStepForm'
 
 
 
-const AddProfile = () => {
+const AddProfile = ({ nextIdProfile, addProfile, profiles }) => {
 
 
 
@@ -15,7 +15,7 @@ const AddProfile = () => {
                 <div className="heading">
                     <h1 className="headingFont">Create Your Profile</h1>
                 </div>
-                <MultiStepForm />
+                <MultiStepForm nextIdProfile={nextIdProfile} addProfile={addProfile}  profiles={profiles} />
                 
 
             </div>

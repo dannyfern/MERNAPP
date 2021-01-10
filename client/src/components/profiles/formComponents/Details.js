@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // have image shown on screen when uploaded - maybe look into components (antd)
 // move checkbox data to data file (once merged)
 
-const Details = ({ setDetails, detailsData, navigation }) => {
+const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
     
     // fields from detail form data :
     const { profilePhoto, firstName, lastName, username, location, 
@@ -18,6 +18,14 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
     // next from hooks helper
     const { next } = navigation;
+
+    useEffect(() => {
+        if (form === "edit"){
+            setDetails(profile.detailsData)
+        }
+    }) 
+
+    
 
     
 
@@ -34,7 +42,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         {id: 10, value: "Game Development", isChecked: false}
     ]
 
-    const [checked, setChecked] = useState(interests)
+    // const [checked, setChecked] = useState(interests)
 
 
 
@@ -103,7 +111,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
                 
 
 
-                <form className="profileForm">
+                <div className="profileForm">
                     <div className="photoDiv">
                         <div className="profilePhoto">
                             <img
@@ -114,12 +122,11 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
 
                         <div className="profilePhotoUpload">
-                            <label id="photoLabel" for="photoBtn">Upload Image</label>
+                            <label id="photoLabel" htmlFor="photoBtn">Upload Image</label>
                             <input 
                                 type="file"
                                 name="profilePhoto"
                                 accept="image/png, image/jpeg"
-                                multiple="false"
                                 onChange={uploadImg}
                                 id="photoBtn"
                                 hidden
@@ -249,7 +256,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
                         
                     </div>
-                </form>
+                </div>
                 <div className="navigationDiv">
                     <button className="nextBtn" onClick={next}>next</button>
                 </div>

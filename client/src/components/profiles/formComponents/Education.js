@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PastEducation from './educationSections/PastEducation'
 import FormInput from '../../reusable/FormInput'
 
-const Education = ( { setEducation, educationData, navigation }) => {
+const Education = ( { setEducation, educationData, navigation, form, profile }) => {
     
     const props = { setEducation, educationData }
 
     const { recentSchool, recentDegree, recentStartDate, recentEndDate } = educationData
 
     const { previous, next } = navigation;
+
+    useEffect(() => {
+        if (form === "edit"){
+            setEducation(profile.educationData)
+        }
+    })
+
+    
 
 
     // handles regular input changes and saves to state :

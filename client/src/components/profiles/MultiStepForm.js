@@ -23,57 +23,105 @@ const steps = [
 
 // initial form data :
 
+// const initialDetailsData = {
+//     profilePhoto: "",
+//     firstName: "",
+//     lastName: "",
+//     username: "",
+//     location: "",
+//     phoneNumber: "",
+//     birthday: "",
+//     interests: [],
+//     bio: "",
+//     briefDescription: ""
+// }
+
+// const initialSkillsData = {
+//     technical: [],
+//     soft: [],
+//     skillLevel: "",
+//     yearsOfExperience: ""
+// }
+
+// const initialWorkData = {
+//     status: "",
+//     currentTitle: "",
+//     currentCompany: "",
+//     currentStartDate: "",
+//     pastRoles: []
+// }
+
+// const initialEducationData = {
+//     recentSchool: "",
+//     recentDegree: "",
+//     recentStartDate: "",
+//     recentEndDate: "",
+//     pastEducation: []
+// }
+
+// const initialLinkData = {
+//     linkedIn: "",
+//     twitter: "",
+//     instagram: "",
+//     facebook: "",
+//     portfolio: "",
+//     github: "",
+//     resume: "",
+//     additionalLinks: {}
+
+// }
+
 const initialDetailsData = {
     profilePhoto: "",
-    firstName: "",
-    lastName: "",
-    username: "",
-    location: "",
-    phoneNumber: "",
-    birthday: "",
+    firstName: "ww",
+    lastName: "www",
+    username: "www",
+    location: "www",
+    phoneNumber: "www",
+    birthday: "www",
     interests: [],
-    bio: "",
-    briefDescription: ""
+    bio: "www",
+    briefDescription: "www"
 }
 
 const initialSkillsData = {
     technical: [],
     soft: [],
-    skillLevel: "",
-    yearsOfExperience: ""
+    skillLevel: "www",
+    yearsOfExperience: "www"
 }
 
 const initialWorkData = {
-    status: "",
-    currentTitle: "",
-    currentCompany: "",
-    currentStartDate: "",
+    status: "www",
+    currentTitle: "ww",
+    currentCompany: "ww",
+    currentStartDate: "ww",
     pastRoles: []
 }
 
 const initialEducationData = {
-    recentSchool: "",
-    recentDegree: "",
-    recentStartDate: "",
-    recentEndDate: "",
+    recentSchool: "www",
+    recentDegree: "www",
+    recentStartDate: "ww",
+    recentEndDate: "ww",
     pastEducation: []
 }
 
 const initialLinkData = {
-    linkedIn: "",
-    twitter: "",
-    instagram: "",
-    facebook: "",
-    portfolio: "",
-    github: "",
-    resume: "",
+    linkedIn: "www",
+    twitter: "ww",
+    instagram: "ww",
+    facebook: "www",
+    portfolio: "www",
+    github: "www",
+    resume: "www",
     additionalLinks: {}
 
 }
 
 
 
-const MultiStepForm = () => {
+const MultiStepForm = ({ form, profile, nextIdProfile, addProfile, profiles }) => {
     // states :
     const [detailsData, setDetails] = useState(initialDetailsData)
     const [skillsData, setSkills] = useState(initialSkillsData)
@@ -85,6 +133,8 @@ const MultiStepForm = () => {
     const { step, navigation } = useStep({ initialStep: 0, steps })
     const { id } = step
 
+    
+
     // data and functions to pass to form
     const props = { navigation, detailsData, setDetails, skillsData, setSkills, 
     workData, setWork, educationData, setEducation, linkData, setLinks }
@@ -92,17 +142,17 @@ const MultiStepForm = () => {
     // multi step form :
     switch (id) {
         case "details":
-            return <Details {...props} />
+            return <Details {...props} form={form} profile={profile} />
         case "skills":
-            return <Skills {...props} />
+            return <Skills {...props} form={form} profile={profile} />
         case "work":
-            return <Work {...props} />
+            return <Work {...props} form={form} profile={profile} />
         case "education":
-            return <Education {...props} />
+            return <Education {...props} form={form} profile={profile} />
         case "links":
-            return <Links {...props} />
+            return <Links {...props} form={form} profile={profile} />
         case "review":
-            return <Review {...props} />
+            return <Review {...props} form={form} profile={profile} nextIdProfile={nextIdProfile} addProfile={addProfile}  profiles={profiles} />
         default:
             return null
     }

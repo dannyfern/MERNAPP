@@ -104,6 +104,22 @@
     }
 
 
+    // profiles page :
+
+    .profileWrapper{
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+
+        
+
+        a{
+            width: 48%;
+        }
+    }
+
+
 
     // profile forms :
 

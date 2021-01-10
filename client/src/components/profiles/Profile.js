@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 // how to map over links and display them with matching icon?
 
 const Profile = ({ profile }) => {
+    console.log('DETAILS', profile)
 
     // destructuring data variables
     const { detailsData, skillsData, workData, educationData, linkData } = profile
 
-    const { username, firstName, lastName, location, phoneNumber, birthday, interests, bio, briefDescription } = detailsData
+    const { username, firstName, lastName, location, interests, bio } = detailsData
     const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
     const { recentSchool, recentDegree, recentStartDate, recentEndDate, pastEducation } = educationData
     const { technical, soft, skillLevel, yearsOfExperience } = skillsData
@@ -30,7 +31,7 @@ const Profile = ({ profile }) => {
             <div>
                 <div className="linkDiv">
                     {
-                        correctLinks.map((x, i) => {
+                        correctLinks && correctLinks.map((x, i) => {
                             return (
                                 <Link to={x[1]}><li key={i} className="links" >{x[0]}</li></Link> 
                             )
@@ -70,6 +71,7 @@ const Profile = ({ profile }) => {
 
     return(
         <div id="profile">
+            <Link to={`/profiles/edit/${profile._id}`}><button>Edit profile</button></Link>
 
             <div className="profileImgName">
                 <div className="profileImageDisplay">
@@ -78,7 +80,7 @@ const Profile = ({ profile }) => {
                     </div>
 
                     <div className="status-desktop">
-                        {status}
+                        {status && status}
                     </div>
 
                 </div>
@@ -94,23 +96,30 @@ const Profile = ({ profile }) => {
 
                 <div className="personalDetails">
                     <div className="status">
-                        {status}
+                        {status && status}
                     </div>
                     <div className="experienceDesc">
                         <div className="experienceLevel">
-                            <p><span className="bold">{skillLevel}</span> Developer with <span className="bold">{yearsOfExperience}</span> year of experience</p>
+                            <p><span className="bold">{skillLevel && skillLevel}</span> Developer with <span className="bold">{yearsOfExperience && yearsOfExperience}</span> year of experience</p>
                         </div>
-                        <div>
-                            <h2>Interested in:</h2>
-                            <p>
-                                {
-                                    interests.map((x, index) => {
-                                        return (`${x}, ` )
-                                    })
-                                }  
-                            </p>
+                        { interests.length > 0 && 
+                            <div>
+                                
 
-                        </div>
+
+                                
+                                <h2>Interested in:</h2>
+                                <p>
+                                    {
+                                        interests.map((x, index) => {
+                                            return (`${x}, ` )
+                                        })
+                                    }  
+                                </p>
+                                
+
+                            </div>
+                        }
                         
                     </div>
                 </div>
@@ -122,7 +131,7 @@ const Profile = ({ profile }) => {
 
             <div className="bioAndLinks">
                 <div className="bio">
-                    {bio}
+                    {bio && bio}
                 </div>
                 
                 <div className="linksDisplay">
@@ -140,7 +149,7 @@ const Profile = ({ profile }) => {
             <div className="workAndEdu">
                 <div className="workDisplay">
                     <h1>Current Role</h1>
-                    <h2>{currentTitle} at {currentCompany}</h2>
+                    <h2>{currentTitle && currentTitle} at {currentCompany && currentCompany}</h2>
                     <h3>{currentStartDate.slice(0, 4)} - present</h3>
                     {
                         pastRoles.length > 0 &&
@@ -165,8 +174,8 @@ const Profile = ({ profile }) => {
             <div className="skillsDisplay">
                 <h1>Technical Skills/Languages</h1>
                 <DisplaySkills skills={technical} />
-                <h1>Soft Skills</h1>
-                <DisplaySkills skills={soft} />
+                {/* <h1>Soft Skills</h1>
+                <DisplaySkills skills={soft} /> */}
             </div>
             <div className="postsDisplay">
                 <h1>Blog Posts</h1>

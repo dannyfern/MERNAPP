@@ -133,6 +133,48 @@
 
 
 
+
+    // profiles page :
+    .profileWrapper{
+        width: 75vw;
+        flex-wrap: wrap;
+
+
+
+        #profileLink{
+            width: 32%;
+        }
+
+        .profileCard{
+
+            .profileTopSection{
+
+
+                .profileTopDetails{
+
+                    h2{
+                        font-size: 1rem;
+                    }
+                    h3{
+                        font-size: 1rem;
+                        padding: 1% 0;
+
+                    }
+                    h4{
+                        font-size: 0.85rem;
+                    }
+
+                }
+            }
+
+            .profileBottomSection{
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+
+
     // profile forms : 
 
     // photo :
@@ -268,11 +310,6 @@
     }
 
     
-
-    .recentWorkInfo{
-
-
-    }
     
 
     
@@ -300,6 +337,7 @@
     // profile displays :
 
     #profile{
+        margin-top: 5%;
 
         
 
@@ -422,6 +460,14 @@
             justify-content: center;
             margin-top: 3%;
 
+
+            .workDisplay > h2, .eduDisplay > h2{
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+            .workDisplay > h3, .eduDisplay > h3{
+                font-size: 1.25rem;
+            }
             
 
             .workDisplay{
@@ -444,6 +490,14 @@
             border: 2px solid $green;
             border-radius: 3px;
             margin: 3% auto;
+
+            .skillsDiv{
+                .skills{
+                    font-size: 1.25rem !important;
+                    padding: 1% 4%
+                }
+            }
+            
         }
         
 

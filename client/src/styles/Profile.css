@@ -19,6 +19,90 @@
   margin: 1%;
 }
 
+.profileFilters {
+  text-decoration: underline;
+  padding: 5%;
+}
+
+.profileWrapper {
+  width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.profileWrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.profileWrapper .profileCard {
+  border: 2px solid #75ACB4;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+.profileWrapper .profileCard .profileTopSection {
+  background-color: rgba(117, 172, 180, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 3%;
+}
+
+.profileWrapper .profileCard .profileTopSection .imagePlaceHolder {
+  width: 22%;
+  margin: 2%;
+}
+
+.profileWrapper .profileCard .profileTopSection .imagePlaceHolder .img {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  border-radius: 50%;
+}
+
+.profileWrapper .profileCard .profileTopSection .profileTopDetails {
+  width: 78%;
+  padding: 1% 4%;
+}
+
+.profileWrapper .profileCard .profileTopSection .profileTopDetails h2 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.profileWrapper .profileCard .profileTopSection .profileTopDetails h3 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.profileWrapper .profileCard .profileTopSection .profileTopDetails h4 {
+  font-weight: 400;
+}
+
+.profileWrapper .profileCard .profileBottomSection {
+  padding: 3%;
+  margin-left: 8%;
+}
+
 .profileFormDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -366,6 +450,7 @@
           flex-direction: column;
   margin: 0 auto;
   padding: 0;
+  margin-top: 10%;
 }
 
 #profile .nameLocation {

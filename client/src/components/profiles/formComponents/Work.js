@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
 
@@ -10,11 +10,19 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 
 
-const Work = ({ setWork, workData, navigation }) => {
+const Work = ({ setWork, workData, navigation, form, profile }) => {
 
     const props = { setWork, workData, navigation }
     const { previous, next } = navigation;
     const { status } = workData
+
+    useEffect(() => {
+        if (form === "edit"){
+            setWork(profile.workData)
+        }
+    })
+
+    
 
 
 

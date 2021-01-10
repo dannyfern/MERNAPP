@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // Create an axios instance
 export default axios.create({
-  baseURL: 'https://localhost:3000',
+  baseURL: 'https://localhost:5000',
   timeout: 10000,
   withCredentials: true
 })

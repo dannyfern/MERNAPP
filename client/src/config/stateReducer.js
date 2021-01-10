@@ -19,10 +19,10 @@ export default function (state, action) {
                 error: action.data
             }
         }
-        case "setUserProfile": {
+        case "setUserProfiles": {
             return {
                 ...state,
-                userProfile: action.data
+                userProfiles: action.data
             }
         }
         default:
