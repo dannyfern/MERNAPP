@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SkillsForm from './skillsComponents/SkillForm'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
@@ -7,9 +7,13 @@ import FormInput from '../../reusable/FormInput'
 
 const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
 
-    if (form === "edit"){
-        setSkills(profile.skillsData)
-    }
+    useEffect(() => {
+        if (form === "edit"){
+            setSkills(profile.skillsData)
+        }
+    })
+
+    
 
     const props = { setSkills, skillsData, navigation }
     const { skillLevel, yearsOfExperience } = skillsData

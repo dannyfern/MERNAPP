@@ -3,9 +3,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 
 import stateReducer from './config/stateReducer'
-import { StateContext } from './config/globalState'
+import { StateContext } from './config/store'
 import blogData from './data/post_data'
 import profileData from './data/profile_data'
+import { getAllUserProfiles } from './services/profileServices'
 
 
 // components :
@@ -24,6 +25,8 @@ import EditProfile from './components/profiles/EditProfile'
 
 import Register from './components/auth/Register'
 import SignIn from './components/auth/SignIn'
+
+
 
 // styles :
 import './styles/Styles.css'
@@ -61,31 +64,52 @@ const App = () => {
     //     })
     // }
 
+    function fetchUserProfiles() {
+        getAllUserProfiles().then((profileData) => {
+            dispatch({
+                type: "setUserProfiles",
+                data: profileData
+            })
+        }).catch((error) => {
+            dispatch({
+                type: "setError",
+                data: true
+            })
+            console.log("an error occured fetching profiles from server", error)
+        })
+    }
+    
+
+
+    const [store, dispatch] = useReducer(stateReducer, initialState)
+    const {blogPosts, error, userProfiles} = store
+
+
+    const [posts, setPosts] = useState([])
+    const [profiles, setProfiles] = useState([])
+    
+
+
+    // set blog posts
+    useEffect(() => {
+        fetchUserProfiles()
+
+        setPosts(blogData)
+        setProfiles(profileData)
+    }, [])
+
+
     const getPostFromId = (id) => {
         return posts.find((t) => t._id === parseInt(id))
 
     }
 
     const getProfileFromId = (id) => {
+        console.log(typeof(id))
+        console.log(profileData)
 
         return profiles.find((p) => p._id === parseInt(id))
     }
-
-
-    const [store, dispatch] = useReducer(stateReducer, initialState)
-    const {blogPosts, error} = store
-
-
-    const [posts, setPosts] = useState([])
-    const [profiles, setProfiles] = useState([])
-
-
-    // set blog posts
-    useEffect(() => {
-        // fetchBlogPosts()
-        setPosts(blogData)
-        setProfiles(profileData)
-    }, [])
 
     // add blog posts
     const addPost = (post) => {
@@ -126,7 +150,7 @@ const App = () => {
 
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
                         <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} addProfile={addProfile} profiles={profiles} />} />
-                        <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} profile={getProfileFromId(props.match.params.id)} />} />
+                        <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} profile={getProfileFromId(props.match.params.id)}  />} />
                         <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={getProfileFromId(props.match.params.id)}/>} />
                         
                         

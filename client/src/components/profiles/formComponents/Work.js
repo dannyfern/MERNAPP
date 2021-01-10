@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RecentWork from './workComponents/Recent'
 import PastWork from './workComponents/Past'
 
@@ -16,9 +16,13 @@ const Work = ({ setWork, workData, navigation, form, profile }) => {
     const { previous, next } = navigation;
     const { status } = workData
 
-    if (form === "edit"){
-        setWork(profile.workData)
-    }
+    useEffect(() => {
+        if (form === "edit"){
+            setWork(profile.workData)
+        }
+    })
+
+    
 
 
 

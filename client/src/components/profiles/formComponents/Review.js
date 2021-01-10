@@ -1,32 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
+import { getProfileFromId, updateProfile, addProfile } from '../../../services/profileServices'
+import { useGlobalState } from '../../../config/store'
+
 
 // make DRY !!!!!!!
 // fix functionality for files and arrays
 
-const Review = ({ setForm, detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, addProfile, profiles }) => {
+const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, addProfile, profiles, form, match }) => {
   
+
+
+  const profileId = match && match.params ? match.params.id : -1
+  const profile = getProfileFromId(profiles, profileId)
+
+ 
+
+
   let history = useHistory()
-  console.log(detailsData)
 
-  const { go, previous } = navigation;
+  const {store, dispatch} = useGlobalState()
+  const {userProfiles} = store
+
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const { previous } = navigation;
 
 
-  // function Display (data) {
-  //   return (
-  //     Object.entries(data).map(([key, value]) => {
-  //       return <li key={key}>{key}: {value}</li>
-  //     })
-  //   )
-  // }
-  // console.log(linkData.additionalLinks)
 
   const createProfile = (e) => {
+
     e.preventDefault()
+
+
     const newProfile = {
       _id: nextIdProfile,
-      // modified_date: new Date(),
+      modified_date: new Date(),
       detailsData: detailsData,
       skillsData: skillsData,
       workData: workData,
@@ -34,12 +44,57 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
       linkData: linkData
 
     }
-    console.log(newProfile)
-    console.log(addProfile)
-    addProfile(newProfile)
-    console.log(profiles)
-    history.push(`/profiles`)
-    // return <Redirect to={`/posts/${nextIdProfile}`} />
+
+
+    addProfile(newProfile).then((newProfile) => {
+      dispatch({
+        type: "setUserProfiles",
+        data: [newProfile, ...userProfiles]
+      })
+      history.push(`/profiles/${newProfile._id}`)
+
+
+    }).catch((error) => {
+      const status = error.response ? error.response.status : 500
+      console.log("caught error creating profile", error)
+      if (status === 403)
+      setErrorMessage("lost login session")
+      else 
+        setErrorMessage("problem on the server")
+    })
+    
+    
+  
+  }
+
+  const updateProfile = (e) => {
+    e.preventDefault()
+    const updatedProfile = {
+      _id: nextIdProfile,
+      modified_date: new Date(),
+      detailsData: detailsData,
+      skillsData: skillsData,
+      workData: workData,
+      educationData: educationData,
+      linkData: linkData
+    }
+
+    updateProfile(updatedProfile).then(() => {
+      const otherProfiles = userProfiles.filter((profile) => profile._id !== updatedProfile._id )
+      dispatch({
+        type: "setUserProfiles",
+        data: [updatedProfile, ...otherProfiles]
+      })
+      history.push(`/profiles/${profile._id}`)
+    }).catch((error) => {
+      const status = error.response ? error.response.status : 500
+      console.log("caught error on edit", error)
+      if(status === 403)
+          setErrorMessage("Oops! It appears we lost your login session. Make sure 3rd party cookies are not blocked by your browser settings.")
+      else
+          setErrorMessage("Well, this is embarrassing... There was a problem on the server.")
+    })
+
   }
 
   
@@ -194,8 +249,11 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
 
       </div>
       <div className="navigationDiv">
-          <button className="nextBtn" onClick={previous}>back</button>  
-          <button className="nextBtn" onClick={createProfile}>Create Profile</button>
+          <button className="nextBtn" onClick={previous}>back</button>
+          {
+            (form === "edit") ? (<button className="nextBtn" onClick={updateProfile}>Update Profile</button>) : (<button className="nextBtn" onClick={createProfile}>Create Profile</button>)
+          }  
+          
       </div>
       
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FormInput from '../../reusable/FormInput'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
@@ -8,9 +8,13 @@ import 'react-dropdown/style.css';
 const Links = ({ setLinks, linkData, navigation, form, profile }) => {
 
 
-    if (form === "edit"){
-        setLinks(profile.linkData)
-    }
+    useEffect(() => {
+        if (form === "edit"){
+            setLinks(profile.linkData)
+        }
+    })
+
+    
 
     const [disabled, setDisabled] = useState(true)
 

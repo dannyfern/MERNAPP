@@ -19,9 +19,13 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
     // next from hooks helper
     const { next } = navigation;
 
-    if (form === "edit"){
-        setDetails(profile.detailsData)
-    }
+    useEffect(() => {
+        if (form === "edit"){
+            setDetails(profile.detailsData)
+        }
+    }) 
+
+    
 
     
 
@@ -107,7 +111,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                 
 
 
-                <form className="profileForm">
+                <div className="profileForm">
                     <div className="photoDiv">
                         <div className="profilePhoto">
                             <img
@@ -253,7 +257,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
 
                         
                     </div>
-                </form>
+                </div>
                 <div className="navigationDiv">
                     <button className="nextBtn" onClick={next}>next</button>
                 </div>

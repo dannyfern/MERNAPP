@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Profile from './Profile'
 import Dropdown from 'react-dropdown'
+import { useGlobalState} from '../../config/store'
 
 const Profiles = ({ profileData }) => {
-    console.log(profileData)
+
+    const { store } = useGlobalState()
+    const { userProfiles } = store
+    console.log("PROFILES", userProfiles)
 
     const filters = {
         level: "All",

@@ -31,7 +31,7 @@ const Profile = ({ profile }) => {
             <div>
                 <div className="linkDiv">
                     {
-                        correctLinks.map((x, i) => {
+                        correctLinks && correctLinks.map((x, i) => {
                             return (
                                 <Link to={x[1]}><li key={i} className="links" >{x[0]}</li></Link> 
                             )
@@ -80,7 +80,7 @@ const Profile = ({ profile }) => {
                     </div>
 
                     <div className="status-desktop">
-                        {status}
+                        {status && status}
                     </div>
 
                 </div>
@@ -96,23 +96,30 @@ const Profile = ({ profile }) => {
 
                 <div className="personalDetails">
                     <div className="status">
-                        {status}
+                        {status && status}
                     </div>
                     <div className="experienceDesc">
                         <div className="experienceLevel">
-                            <p><span className="bold">{skillLevel}</span> Developer with <span className="bold">{yearsOfExperience}</span> year of experience</p>
+                            <p><span className="bold">{skillLevel && skillLevel}</span> Developer with <span className="bold">{yearsOfExperience && yearsOfExperience}</span> year of experience</p>
                         </div>
-                        <div>
-                            <h2>Interested in:</h2>
-                            <p>
-                                {
-                                    interests.map((x, index) => {
-                                        return (`${x}, ` )
-                                    })
-                                }  
-                            </p>
+                        { interests.length > 0 && 
+                            <div>
+                                
 
-                        </div>
+
+                                
+                                <h2>Interested in:</h2>
+                                <p>
+                                    {
+                                        interests.map((x, index) => {
+                                            return (`${x}, ` )
+                                        })
+                                    }  
+                                </p>
+                                
+
+                            </div>
+                        }
                         
                     </div>
                 </div>
@@ -124,7 +131,7 @@ const Profile = ({ profile }) => {
 
             <div className="bioAndLinks">
                 <div className="bio">
-                    {bio}
+                    {bio && bio}
                 </div>
                 
                 <div className="linksDisplay">
@@ -142,7 +149,7 @@ const Profile = ({ profile }) => {
             <div className="workAndEdu">
                 <div className="workDisplay">
                     <h1>Current Role</h1>
-                    <h2>{currentTitle} at {currentCompany}</h2>
+                    <h2>{currentTitle && currentTitle} at {currentCompany && currentCompany}</h2>
                     <h3>{currentStartDate.slice(0, 4)} - present</h3>
                     {
                         pastRoles.length > 0 &&
