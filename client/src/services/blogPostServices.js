@@ -28,3 +28,6 @@ export async function updateBlogPost (post) {
     const response = await api.put(`/${post._id}`, post)
     return response.data
 }
+
+
+

@@ -1,10 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 
 // make DRY !!!!!!!
 // fix functionality for files and arrays
 
-const Review = ({ setForm, detailsData, skillsData, workData, educationData, linkData, navigation }) => {
+const Review = ({ setForm, detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, addProfile, profiles }) => {
   
+  let history = useHistory()
+  console.log(detailsData)
+
   const { go, previous } = navigation;
 
 
@@ -16,6 +21,28 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
   //   )
   // }
   // console.log(linkData.additionalLinks)
+
+  const createProfile = (e) => {
+    e.preventDefault()
+    const newProfile = {
+      _id: nextIdProfile,
+      // modified_date: new Date(),
+      detailsData: detailsData,
+      skillsData: skillsData,
+      workData: workData,
+      educationData: educationData,
+      linkData: linkData
+
+    }
+    console.log(newProfile)
+    console.log(addProfile)
+    addProfile(newProfile)
+    console.log(profiles)
+    history.push(`/profiles`)
+    // return <Redirect to={`/posts/${nextIdProfile}`} />
+  }
+
+  
 
 
   return (
@@ -168,7 +195,7 @@ const Review = ({ setForm, detailsData, skillsData, workData, educationData, lin
       </div>
       <div className="navigationDiv">
           <button className="nextBtn" onClick={previous}>back</button>  
-          <button className="nextBtn" >Create Profile</button>
+          <button className="nextBtn" onClick={createProfile}>Create Profile</button>
       </div>
       
 

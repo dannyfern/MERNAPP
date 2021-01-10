@@ -3,6 +3,7 @@ export default [
     {
         _id: 1,
         title: "React is the best",
+        username: "user1",
         modified_date: new Date("2019-09-20"),
         category: "Code",
         content:
@@ -11,6 +12,7 @@ export default [
     {
         _id: 2,
         title: "Why I Meditate",
+        username: "johnsmith",
         modified_date: new Date("2019-08-30"),
         category: "Health",
         content:
@@ -19,6 +21,7 @@ export default [
     {
         _id: 3,
         title: "Github is my friend",
+        username: "user1234939",
         modified_date: new Date("2020-02-10"),
         category: "Code",
         content:
@@ -27,6 +30,7 @@ export default [
     {
         _id: 4	,
         title: "Bulma makes styling easy",
+        username: "dev",
         modified_date: new Date("2020-01-30"),
         category: "Code",
         content:
@@ -35,6 +39,7 @@ export default [
     {
         _id: 5	,
         title: "The best pizza in town",
+        username: "user929273",
         modified_date: new Date("2019-12-19"),
         category: "Food",
         content:

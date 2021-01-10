@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 // how to map over links and display them with matching icon?
 
 const Profile = ({ profile }) => {
-    console.log(profile)
+    console.log('DETAILS', profile)
 
     // destructuring data variables
     const { detailsData, skillsData, workData, educationData, linkData } = profile
 
-    const { username, firstName, lastName, location, phoneNumber, birthday, interests, bio, briefDescription } = detailsData
+    const { username, firstName, lastName, location, interests, bio } = detailsData
     const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
     const { recentSchool, recentDegree, recentStartDate, recentEndDate, pastEducation } = educationData
     const { technical, soft, skillLevel, yearsOfExperience } = skillsData
@@ -71,6 +71,7 @@ const Profile = ({ profile }) => {
 
     return(
         <div id="profile">
+            <Link to={`/profiles/edit/${profile._id}`}><button>Edit profile</button></Link>
 
             <div className="profileImgName">
                 <div className="profileImageDisplay">

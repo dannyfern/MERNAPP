@@ -10,11 +10,15 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 
 
-const Work = ({ setWork, workData, navigation }) => {
+const Work = ({ setWork, workData, navigation, form, profile }) => {
 
     const props = { setWork, workData, navigation }
     const { previous, next } = navigation;
     const { status } = workData
+
+    if (form === "edit"){
+        setWork(profile.workData)
+    }
 
 
 

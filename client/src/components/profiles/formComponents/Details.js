@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // have image shown on screen when uploaded - maybe look into components (antd)
 // move checkbox data to data file (once merged)
 
-const Details = ({ setDetails, detailsData, navigation }) => {
+const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
     
     // fields from detail form data :
     const { profilePhoto, firstName, lastName, username, location, 
@@ -18,6 +18,10 @@ const Details = ({ setDetails, detailsData, navigation }) => {
 
     // next from hooks helper
     const { next } = navigation;
+
+    if (form === "edit"){
+        setDetails(profile.detailsData)
+    }
 
     
 
@@ -34,7 +38,7 @@ const Details = ({ setDetails, detailsData, navigation }) => {
         {id: 10, value: "Game Development", isChecked: false}
     ]
 
-    const [checked, setChecked] = useState(interests)
+    // const [checked, setChecked] = useState(interests)
 
 
 

@@ -19,7 +19,7 @@ const Posts = ({ postsData }) => {
 
 
     const posts = (post) => {
-        const { title, category, modified_date } = post
+        const { title, category, modified_date, username } = post
         return (
             <div className="postCard">
                 <Link to={`/posts/${post._id}`} className="titleLink">
@@ -27,7 +27,7 @@ const Posts = ({ postsData }) => {
                 </Link>
                 <div className="postInfo">
                     
-                    <h5>Posted by: (user), {modified_date.toLocaleString()}</h5>
+                    <h5>Posted by: {username}, {modified_date.toLocaleString()}</h5>
                     <h3>{category}</h3>
                     {/* <p>{content}</p> */}
                     <div className="upVotesDiv">

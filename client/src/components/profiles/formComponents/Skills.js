@@ -5,7 +5,11 @@ import 'react-dropdown/style.css';
 import FormInput from '../../reusable/FormInput'
 
 
-const Skills = ({ setSkills, skillsData, navigation }) => {
+const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
+
+    if (form === "edit"){
+        setSkills(profile.skillsData)
+    }
 
     const props = { setSkills, skillsData, navigation }
     const { skillLevel, yearsOfExperience } = skillsData

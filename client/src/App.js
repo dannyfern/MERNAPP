@@ -68,7 +68,7 @@ const App = () => {
 
     const getProfileFromId = (id) => {
 
-        return profileData.find((p) => p._id === parseInt(id))
+        return profiles.find((p) => p._id === parseInt(id))
     }
 
 
@@ -100,6 +100,9 @@ const App = () => {
     const nextId = () => {
         return posts.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
     }
+    const nextIdProfile = () => {
+        return profiles.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
+    }
 
 
     // const addProfile = (profile) => {
@@ -121,9 +124,9 @@ const App = () => {
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
 
-                        <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profileData} />} />
-                        <Route exact path="/profiles/new" component={AddProfile} />
-                        <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} />} />
+                        <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
+                        <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} addProfile={addProfile} profiles={profiles} />} />
+                        <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} profile={getProfileFromId(props.match.params.id)} />} />
                         <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={getProfileFromId(props.match.params.id)}/>} />
                         
                         

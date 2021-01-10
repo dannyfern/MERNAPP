@@ -4,6 +4,7 @@ import Profile from './Profile'
 import Dropdown from 'react-dropdown'
 
 const Profiles = ({ profileData }) => {
+    console.log(profileData)
 
     const filters = {
         level: "All",
@@ -23,6 +24,7 @@ const Profiles = ({ profileData }) => {
     }
 
     const profiles = (profile) => {
+        console.log(profile)
         const { detailsData, skillsData, workData  } = profile
         const { firstName, lastName, username, interests } = detailsData
         const { skillLevel, yearsOfExperience } = skillsData
