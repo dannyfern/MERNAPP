@@ -87,11 +87,6 @@ const App = () => {
     // }
     
 
-    const getProfileFromId = (id) => {
-
-
-        return profileData.find((p) => p._id === parseInt(id))
-    }
 
 
 
