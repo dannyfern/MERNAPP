@@ -87,16 +87,11 @@ const App = () => {
     // }
     
 
-    const getProfileFromId = (id) => {
-
-
-        return profileData.find((p) => p._id === parseInt(id))
-    }
 
 
 
-    const [store, dispatch] = useReducer(stateReducer, initialState)
-    const {blogPosts, error, userProfiles} = store
+    // const [store, dispatch] = useReducer(stateReducer, initialState)
+    // const {blogPosts, error, userProfiles} = store
 
 
 

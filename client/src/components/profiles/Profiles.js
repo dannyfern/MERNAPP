@@ -6,9 +6,9 @@ import { useGlobalState} from '../../config/store'
 
 const Profiles = ({ profileData }) => {
 
-    const { store } = useGlobalState()
-    const { userProfiles } = store
-    console.log("PROFILES", userProfiles)
+    // const { store } = useGlobalState()
+    // const { userProfiles } = store
+    // console.log("PROFILES", userProfiles)
 
     const filters = {
         level: "All",
