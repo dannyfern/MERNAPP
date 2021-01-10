@@ -64,20 +64,20 @@ const App = () => {
     //     })
     // }
 
-    function fetchUserProfiles() {
-        getAllUserProfiles().then((profileData) => {
-            dispatch({
-                type: "setUserProfiles",
-                data: profileData
-            })
-        }).catch((error) => {
-            dispatch({
-                type: "setError",
-                data: true
-            })
-            console.log("an error occured fetching profiles from server", error)
-        })
-    }
+    // function fetchUserProfiles() {
+    //     getAllUserProfiles().then((profileData) => {
+    //         dispatch({
+    //             type: "setUserProfiles",
+    //             data: profileData
+    //         })
+    //     }).catch((error) => {
+    //         dispatch({
+    //             type: "setError",
+    //             data: true
+    //         })
+    //         console.log("an error occured fetching profiles from server", error)
+    //     })
+    // }
     
 
 
@@ -92,7 +92,7 @@ const App = () => {
 
     // set blog posts
     useEffect(() => {
-        fetchUserProfiles()
+        // fetchUserProfiles()
 
         setPosts(blogData)
         setProfiles(profileData)

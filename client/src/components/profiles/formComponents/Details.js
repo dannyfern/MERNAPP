@@ -122,12 +122,11 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
 
 
                         <div className="profilePhotoUpload">
-                            <label id="photoLabel" for="photoBtn">Upload Image</label>
+                            <label id="photoLabel" htmlFor="photoBtn">Upload Image</label>
                             <input 
                                 type="file"
                                 name="profilePhoto"
                                 accept="image/png, image/jpeg"
-                                multiple="false"
                                 onChange={uploadImg}
                                 id="photoBtn"
                                 hidden

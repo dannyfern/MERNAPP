@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
-import { getProfileFromId, updateProfile, addProfile } from '../../../services/profileServices'
+import { getProfileFromId, updateProfile } from '../../../services/profileServices'
 import { useGlobalState } from '../../../config/store'
 
 
@@ -45,23 +45,27 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
     }
 
-
-    addProfile(newProfile).then((newProfile) => {
-      dispatch({
-        type: "setUserProfiles",
-        data: [newProfile, ...userProfiles]
-      })
-      history.push(`/profiles/${newProfile._id}`)
+    addProfile(newProfile)
+    history.push(`/profiles/${newProfile._id}`)
 
 
-    }).catch((error) => {
-      const status = error.response ? error.response.status : 500
-      console.log("caught error creating profile", error)
-      if (status === 403)
-      setErrorMessage("lost login session")
-      else 
-        setErrorMessage("problem on the server")
-    })
+
+    // addProfile(newProfile).then((newProfile) => {
+    //   dispatch({
+    //     type: "setUserProfiles",
+    //     data: [newProfile, ...userProfiles]
+    //   })
+      
+
+
+    // }).catch((error) => {
+    //   const status = error.response ? error.response.status : 500
+    //   console.log("caught error creating profile", error)
+    //   if (status === 403)
+    //   setErrorMessage("lost login session")
+    //   else 
+    //     setErrorMessage("problem on the server")
+    // })
     
     
   
