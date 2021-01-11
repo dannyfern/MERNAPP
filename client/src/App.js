@@ -11,6 +11,8 @@ import Alert from './components/reusable/Alert'
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './config/api';
+import  setAuthToken  from './utils/setAuthToken';
 
 import { getAllUserProfiles } from './services/profileServices'
 
@@ -45,10 +47,15 @@ import './styles/Tablet.css'
 
 
 
+if(localStorage.token) {
+    setAuthToken(localStorage.token);
+  }; 
 
 
-
-const App = () => {
+const App = () => { 
+    useEffect(() => {
+        store.dispatch(loadUser());
+    }, []);
 
 
     const initialState = {

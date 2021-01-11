@@ -1,13 +1,15 @@
 import React, {Fragment, useState} from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../config/api';
 import './../../styles/Auth.css';
 import PropTypes from 'prop-types';
 
+
 // use forminput component
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         name:'',
         email:'',
@@ -24,10 +26,14 @@ const Register = ({ setAlert }) => {
         if(password !== password2) {
             setAlert('Passwords arent matching', 'danger')
         } else {
-            console.log('Success');
+            register({ name, email, password });
         }
     };
-
+    
+    if(isAuthenticated) {
+      return <Redirect to='/' />
+    }
+    
     return <Fragment>
     <div className="register">
         <h1 className="large text-primary">Sign Up</h1>
@@ -40,7 +46,7 @@ const Register = ({ setAlert }) => {
             placeholder='Name'
             name='name' 
             value={name} 
-            onChange={c => onChange(c)} required />
+            onChange={c => onChange(c)} />
           </div>
           <div className="form-group">
             <input 
@@ -48,7 +54,7 @@ const Register = ({ setAlert }) => {
             placeholder="Email Address" 
             name="email" 
             value={email}
-            onChange={c => onChange(c)} required />
+            onChange={c => onChange(c)}  />
           </div>
           <div className="form-group">
             <input
@@ -56,7 +62,7 @@ const Register = ({ setAlert }) => {
               placeholder="Password"
               name="password"
               value={password}
-              onChange={c => onChange(c)} required
+              onChange={c => onChange(c)} 
               minLength="6"
             />
           </div>
@@ -66,7 +72,7 @@ const Register = ({ setAlert }) => {
               placeholder="Confirm Password"
               name="password2"
               value={password2}
-              onChange={c => onChange(c)} required
+              onChange={c => onChange(c)} 
               minLength="6"
             />
           </div>
@@ -82,9 +88,15 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, {setAlert})(Register);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
 
 // const initialState = {
 //     email: "",
