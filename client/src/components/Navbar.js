@@ -1,12 +1,36 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../config/api';
 
 
 
 // put logo in here to the left and have everyhting else float to the right
 
 
-const Navbar = () => {
+
+// Auth Links for NAVBAR USER ACCESS
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+    const authLinks = (
+        <ul>
+            <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+            <Link className="navLinkStyles" to="/posts/new">New Post</Link>
+            <Link className="navLinkStyles" onClick={logout} to="/#!">Logout</Link>
+        </ul>
+        
+    );
+
+    const guestLinks = (
+        <ul>
+        <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+        <Link className="navLinkStyles" to="/profiles">Developers</Link>
+        <Link className="navLinkStyles" to="/auth/register">Register account</Link>
+        <Link className="navLinkStyles" to="/auth/signin">Sign in</Link> 
+        </ul>
+        
+
+    );
 
     const [isClicked, setClicked] = useState(false)
 
@@ -32,22 +56,26 @@ const Navbar = () => {
                 </div>
                 
 
-                <div id="navLinks" className={className}>
-                    <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
-                    <Link className="navLinkStyles" to="/" >Home</Link>
-                    <Link className="navLinkStyles" to="/posts/new">New Post</Link>
-                    <Link className="navLinkStyles" to="/profiles">Developers</Link>
-                    <Link className="navLinkStyles" to="/auth/register">Register account</Link>
-                    <Link className="navLinkStyles" to="/auth/signin">Sign in</Link>
+                <div id="navLinks" className={className}> 
+                    { !loading && (
+                    <Fragment>
+                        { isAuthenticated ? authLinks : guestLinks} 
+                    </Fragment>)}
                 </div>
-            </div>
-            
-            
 
+            </div>
         </div>
     )
+};
+
+Navbar.propTypes = {
+    logout: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
 }
 
+const mapStateToProps = state => ({
+    auth: state.auth
+});
 
 
-export default Navbar
+export default connect(mapStateToProps, { logout })(Navbar);
