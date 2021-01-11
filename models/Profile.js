@@ -5,6 +5,9 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
+    details: {
+
+    
         name:{
             type: String,
             required: true,
@@ -16,34 +19,35 @@ const ProfileSchema = new mongoose.Schema({
         },
         
         dateofbirth: {
-        type: Date, default: Date.now,
-        required: false
+            type: Date, default: Date.now,
+            required: false
         },
 
         location: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
 
         bio: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
 
         blogpostdescription: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
 
         interests: {
-        type: [String],
-        required: true
-        },
+            type: [String],
+            required: false
+        }
+    },
 //-------------------------------------------------------
     skills: [
     {  
         languages:{
-            type: String,
+            type: Array,
             required: true,
         }, 
         experiencelevel: {
@@ -51,7 +55,7 @@ const ProfileSchema = new mongoose.Schema({
             required: true
         },
         yearsofexperience: {
-            type: Number,
+            type: String,
             required: true
         }
     }],
@@ -167,6 +171,10 @@ pastroles: [
             type: String,
             required: false,
         },
+        resume: {
+            type: String,
+            required: false
+        }
         }], 
 });
 

@@ -18,9 +18,9 @@ import FormInput from '../../../reusable/FormInput'
 
 
 
-const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
+const SkillsForm = ({ setSkills, skillsData }) => {
   
-    const { technical, soft } = skillsData
+    const { languages } = skillsData
     
     // states for tech and soft skills arrays :
     const [techSkills, setTechSkills] = useState([])
@@ -29,14 +29,14 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
 
     // states for temporary values and names :
     const [tempVal, setTempVal] = useState("")
-    const [tempName, setTempName] = useState("")
+    // const [tempName, setTempName] = useState("")
 
 
     // function that handles text change :
     // sets temp val and name :
     function handleChange (e) {
         setTempVal(e.target.value)
-        setTempName(e.target.name)
+        // setTempName(e.target.name)
     }
 
 
@@ -54,12 +54,12 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
 
     // function described above ^ :
     const addToArray = (item) => {
-        if (tempName === "technical" && item !== ""){
+        if (item !== ""){
             const newArr = [...techSkills, item ]
             setTechSkills(newArr)
             setSkills({
                 ...skillsData,
-                technical: newArr
+                languages: newArr
             })
          } // else if (tempName === "soft" && item !== ""){
         //     const newArr = [...softSkills, item]
@@ -75,10 +75,10 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
     // display function that displays the correct list of skills based on temp name :
     function Display(){
         
-        if (tempName === "technical"){
+        if (techSkills){
             return techSkills.map((item, index) => 
 
-                    <li className="skillItem" key={index}>{item}</li>
+                <li className="skillItem" key={index}>{item}</li>
  
                 
             )
@@ -99,10 +99,10 @@ const SkillsForm = ({ setSkills, skillsData, navigation, skillType }) => {
             <div className="formFields">
                 <div>
                     <label>
-                        Language/skill
+                        Languages/Services
                     </label>
                     <div className="skillInputSection">
-                        <FormInput name={skillType} value={tempVal} onChange={handleChange} />
+                        <FormInput name="languages" value={tempVal} onChange={handleChange} />
                         <button onClick={handleSubmit} className="addBtn">+</button>
                     </div>
                 </div>

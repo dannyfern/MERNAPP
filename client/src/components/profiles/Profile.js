@@ -7,25 +7,29 @@ const Profile = ({ profile }) => {
     console.log('DETAILS', profile)
 
     // destructuring data variables
-    const { detailsData, skillsData, workData, educationData, linkData } = profile
+    const { detailsData, skills, currentroles, pastroles, prospects, qualifications, socials, portfolio } = profile
 
-    const { username, firstName, lastName, location, interests, bio } = detailsData
-    const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
-    const { recentSchool, recentDegree, recentStartDate, recentEndDate, pastEducation } = educationData
-    const { technical, soft, skillLevel, yearsOfExperience } = skillsData
-    // const { linkedIn, twitter, instagram, facebook, portfolio, github, resume, additionalLinks } = linkData
+    const { username, name, location, interests, bio } = detailsData
 
-    const { additionalLinks } = linkData
+    const { jobtitle, business } = currentroles
+    const { linkedin, twitter, instagram, facebook } = socials
+    const { github, resume } = portfolio
+    
+    
 
 
 
     // to display links : 
-    const links = Object.entries(linkData)
-    const correctLinks = links.filter(x => x[1] !== "" && x[0] !== "additionalLinks")
+    const socialLinks = Object.entries(socials)
+    const portfolioLinks = Object.entries(portfolio)
+
+    const filteredSocial = socialLinks.filter(x => x[1] !== "")
+    const filteredPortfolio = portfolioLinks.filter(x => x[1] !== "")
+    const correctLinks = filteredSocial.concat(filteredPortfolio)
 
     const DisplayLinks = ({ correctLinks }) => {
 
-        const additional = Object.entries(additionalLinks)
+        
 
         return (
             <div>
@@ -37,14 +41,7 @@ const Profile = ({ profile }) => {
                             )
                         })
                     } 
-                    {
-                        additional.length > 0 &&
-                        additional.map((x, i) => {
-                            return (
-                                <Link to={x[1]}><li key={i} className="links">{x[0]}</li></Link>
-                            )
-                        }) 
-                    }
+                    
                 </div>
             </div>
         )
@@ -79,9 +76,13 @@ const Profile = ({ profile }) => {
 
                     </div>
 
-                    <div className="status-desktop">
-                        {status && status}
-                    </div>
+                    { prospects &&
+                        <div className="status-desktop">
+                            {prospects}
+                        </div>
+
+                    }
+                    
 
                 </div>
 

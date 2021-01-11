@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 
 
 
-const Home = ({postsData}) => {
-    const props = {postsData}
+const Home = ({ posts }) => {
+    const props = {posts}
+    console.log(posts)
 
 
     return (

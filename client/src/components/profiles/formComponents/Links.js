@@ -21,7 +21,7 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
     // form props :
     console.log(linkData)
 
-    const { linkedIn, twitter, instagram, facebook, additionalLinks, portfolio, github, resume } = linkData
+    const { linkedin, twitter, instagram, facebook, portfolio, github, resume } = linkData
     // console.log(profile.linksData.linkedIn, linkedIn)
     
 
@@ -77,10 +77,13 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
 
         const {value} = e
         setTempName(value)
+        // console.log(Object.keys(linkData))
 
-        if (Object.entries(additionalLinks).length < 1){
+        if (Object.keys(linkData).length < 8 ){
             addFormField()
-        } 
+        }
+            
+        
         setDisabled(false)
     }
 
@@ -93,16 +96,33 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
 
         setLinks( {
             ...linkData,
-            [name]: value
+            socials: {
+                [name]: value
+            }
+            
         })
     }
+
+    const handlePortfolioChange = (e) => {
+        const { name, value } = e.target
+
+        setLinks( {
+            ...linkData,
+            portfolio: {
+                [name]: value
+            }
+            
+        })
+    }
+
 
 
     // display additional items keys and values:
     function DisplayItems () {
 
         return (
-            Object.entries(additionalLinks).map(([key, value]) => {
+
+            Object.entries(linkData).map(([key, value]) => {
                 return <li key={key}>{key}: {value}</li>
             })
         )
@@ -118,7 +138,10 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
 
         setLinks({
             ...linkData,
-            additionalLinks: {...additionalLinks, [tempName]: tempValue}
+            socials: {
+                [tempName]: tempValue
+            }
+            
         })
         
         setTempValue("")
@@ -132,7 +155,10 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
         console.log(e.target.files[0])
         setLinks({
             ...linkData,
-            resume: e.target.files[0]
+            portfolio: {
+                resume: e.target.files[0]
+            }
+            
         })
     }
 
@@ -155,7 +181,7 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
                                         <label>
                                             LinkedIn
                                         </label>
-                                        <FormInput name="linkedIn" value={linkedIn} onChange={handleChange} />
+                                        <FormInput name="linkedIn" value={linkedin} onChange={handleChange} />
                                     </div>
                                     <div className="formFields">
                                         <label>
@@ -195,13 +221,13 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
                                         <label>
                                             Portfolio
                                         </label>
-                                        <FormInput name="portfolio" value={portfolio} onChange={handleChange} />
+                                        <FormInput name="portfolio" value={portfolio} onChange={handlePortfolioChange} />
                                     </div>
                                     <div className="formFields">
                                         <label>
                                             Github
                                         </label>
-                                        <FormInput name="github" value={github} onChange={handleChange} />
+                                        <FormInput name="github" value={github} onChange={handlePortfolioChange} />
                                     </div>
 
                                 </div>
@@ -237,7 +263,7 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
                             <h3 className="greyTitle">Additional</h3>
                             
                             <div className="linkDropDown">
-                                <Dropdown options={options} onChange={onSelect} value={defaultOption} name="additionalLinks" />
+                                <Dropdown options={options} onChange={onSelect} value={defaultOption} name="additionallinks" />
                                 
                                 <div id="additionalForms"></div>
                                 <button className="plusButton" onClick={handleClick} disabled={disabled} >+</button>                
@@ -245,7 +271,7 @@ const Links = ({ setLinks, linkData, navigation, form, profile }) => {
                                 
                             <div id="additionalItems">
                                     
-                                <DisplayItems />
+                                {/* <DisplayItems /> */}
                                     
                                 
                             </div>

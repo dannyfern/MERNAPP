@@ -73,49 +73,59 @@ const steps = [
 
 const initialDetailsData = {
     profilePhoto: "",
-    firstName: "ww",
-    lastName: "www",
+    name: "ww",
+    // lastName: "www",
     username: "www",
     location: "www",
-    phoneNumber: "www",
-    birthday: "www",
+    // phoneNumber: "www",
+    dateofbirth: "www",
     interests: [],
     bio: "www",
-    briefDescription: "www"
+    blogpostdescription: "www"
 }
 
 const initialSkillsData = {
-    technical: [],
-    soft: [],
-    skillLevel: "www",
-    yearsOfExperience: "www"
+    languages: [],
+    // soft: [],
+    experienceLevel: "www",
+    yearsofexperience: "www"
 }
 
 const initialWorkData = {
-    status: "www",
-    currentTitle: "ww",
-    currentCompany: "ww",
-    currentStartDate: "ww",
-    pastRoles: []
+
+    prospects: "www",
+    currentroles: {
+        jobtitle: "ww",
+        business: "ww",
+        location: "",
+
+    },
+    pastroles: []
 }
 
-const initialEducationData = {
-    recentSchool: "www",
-    recentDegree: "www",
-    recentStartDate: "ww",
-    recentEndDate: "ww",
-    pastEducation: []
-}
+const initialEducationData = [{
+    institution: "www",
+    degree: "www",
+    startdate: "ww",
+    enddate: "ww",
+}]
 
 const initialLinkData = {
-    linkedIn: "www",
-    twitter: "ww",
-    instagram: "ww",
-    facebook: "www",
-    portfolio: "www",
-    github: "www",
-    resume: "www",
-    additionalLinks: {}
+    socials: {
+        linkedin: "www",
+        twitter: "ww",
+        instagram: "ww",
+        facebook: "www",
+    },
+    portfolio: {
+        portfolio: "www",
+        github: "www",
+        resume: "www"
+    }
+    
+    
+    
+    
 
 }
 

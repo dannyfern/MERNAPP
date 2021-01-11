@@ -12,34 +12,37 @@ const PastEducation = ({ setEducation, educationData }) => {
 
     // empty initial data 
     const education  = {
-        school: "",
+        institution: "",
         degree: "",
-        startDate: "",
-        endDate: ""
+        startdate: "",
+        enddate: ""
     }
     // temp values to save to state :
-    const [tempVals, setTempVals] = useState(education)
+    const [pastTempVals, setPastTempVals] = useState(education)
 
-    const { school, degree, startDate, endDate } = tempVals
+    const { institution, degree, startdate, enddate } = pastTempVals
 
 
     function handleChange (e) {
         const { name, value } = e.target
-        setTempVals({
-            ...tempVals,
+        setPastTempVals({
+            ...pastTempVals,
             [name]: value
         })
+        // console.log(pastTempVals)
     }
 
     function handleClick (e) {
         e.preventDefault()
+        const newArr = [...educationData, {...pastTempVals}]
+        console.log('NEWARR: ', newArr)
 
-        setEducation({
-            ...educationData,
-            pastEducation: [...pastEducation, tempVals]
-        })
+        setEducation(newArr)
 
-        setTempVals(education)
+        console.log("tempvals after click", pastTempVals)
+        setPastTempVals(education)
+        
+        console.log("EDUCATION DATA AFTER CLICK", educationData)
     }
 
     function Display(){
@@ -59,7 +62,7 @@ const PastEducation = ({ setEducation, educationData }) => {
                     )
                 })
             )
-        }
+        } else return null
     }
 
 
@@ -72,9 +75,9 @@ const PastEducation = ({ setEducation, educationData }) => {
             <div className="doubleFields">
                 <div className="formFields">
                     <label>
-                        School
+                        Institution
                     </label>
-                    <FormInput name="school" value={school} onChange={handleChange} />
+                    <FormInput name="institution" value={institution} onChange={handleChange} />
 
                 </div>
                 <div className="formFields">
@@ -92,14 +95,14 @@ const PastEducation = ({ setEducation, educationData }) => {
                     <label>
                         Start Date
                     </label>
-                    <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+                    <FormInput type="date" name="startdate" value={startdate} onChange={handleChange} />
 
                 </div>
                 <div className="formFields">
                     <label>
                         End Date
                     </label>
-                    <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+                    <FormInput type="date" name="enddate" value={enddate} onChange={handleChange} />
 
                 </div>
             </div>

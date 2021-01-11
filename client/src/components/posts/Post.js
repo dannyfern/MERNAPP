@@ -1,19 +1,20 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const Post = ({history, post}) => {
+const Post = ({ history, post }) => {
 
 
     const handleLikes = () => {
         // logic for likes here
+        
     }
 
 
     if (!post) {
         return null
     } else {
-        const { title, category, content, modified_date } = post
-        console.log("POST", post)
+        const { title, catagory, text, likes, user } = post
+        // console.log("POST", post)
         
         return (
             <div>
@@ -26,17 +27,17 @@ const Post = ({history, post}) => {
                     <div id="postSections" className="width70">
                         
                         <div className="singlePostInfo">
-                            <h5 id="postDate">Posted {modified_date.toLocaleString()}</h5>
-                            <h3>{category}</h3>
+                            {/* <h5 id="postDate">Posted {modified_date.toLocaleString()}</h5> */}
+                            <h3>{catagory}</h3>
                             
-                            <p>{content}</p>
+                            <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            <p>author name</p>
+                            <p>{user}</p>
                             <p>author description</p>
 
                             <div className="postUpvotes">
-                                <p onClick={handleLikes} className="upvoteButton">+ 0</p>
+                                <p onClick={handleLikes} className="upvoteButton">++ {likes && likes.length}</p>
                             
                             </div>
                         </div>

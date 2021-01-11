@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PastEducation from './educationSections/PastEducation'
 import FormInput from '../../reusable/FormInput'
 
@@ -6,9 +6,18 @@ const Education = ( { setEducation, educationData, navigation, form, profile }) 
     
     const props = { setEducation, educationData }
 
-    const { recentSchool, recentDegree, recentStartDate, recentEndDate } = educationData
+    const { institution, degree, startdate, enddate } = educationData
 
     const { previous, next } = navigation;
+
+    const education  = {
+        institution: "",
+        degree: "",
+        startdate: "",
+        enddate: ""
+    }
+
+    const [tempVals, setTempVals] = useState(education)
 
     useEffect(() => {
         if (form === "edit"){
@@ -22,10 +31,23 @@ const Education = ( { setEducation, educationData, navigation, form, profile }) 
     // handles regular input changes and saves to state :
     function changeHandler (e){
         const { name, value } = e.target
-        setEducation({
-            ...educationData,
+        console.log(educationData)
+
+        setTempVals({
+            ...tempVals,
             [name]: value
         })
+
+        setEducation([
+            // ...educationData,
+            {0: {tempVals}}
+            
+            
+            
+        ])
+
+
+        console.log("EDU DATA AFTER CHNAGE", educationData)
     }
 
     return(
@@ -47,14 +69,14 @@ const Education = ( { setEducation, educationData, navigation, form, profile }) 
                                         <label>
                                             School
                                         </label>
-                                        <FormInput name="recentSchool" value={recentSchool} onChange={changeHandler} />
+                                        <FormInput name="institution" value={institution} onChange={changeHandler} />
 
                                     </div>
                                     <div className="formFields">
                                         <label>
                                             Degree
                                         </label>
-                                        <FormInput name="recentDegree" value={recentDegree} onChange={changeHandler} />
+                                        <FormInput name="degree" value={degree} onChange={changeHandler} />
 
                                     </div>
                                 </div>
@@ -64,14 +86,14 @@ const Education = ( { setEducation, educationData, navigation, form, profile }) 
                                         <label>
                                             Start Date
                                         </label>
-                                        <FormInput type="date" name="recentStartDate" value={recentStartDate} onChange={changeHandler} />
+                                        <FormInput type="date" name="startdate" value={startdate} onChange={changeHandler} />
 
                                     </div>
                                     <div className="formFields">
                                         <label>
                                             End date
                                         </label>
-                                        <FormInput type="date" name="recentEndDate" value={recentEndDate} onChange={changeHandler} />
+                                        <FormInput type="date" name="enddate" value={enddate} onChange={changeHandler} />
 
                                     </div>
                                 </div>

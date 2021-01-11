@@ -3,19 +3,19 @@ import FormInput from '../../../reusable/FormInput'
 
 const PastWork = ({ setWork, workData }) => {
 
-    const { pastRoles } = workData
+    const { pastroles } = workData
 
     // initial form data for past roles :
     const pastRole = {
         title: "",
         company: "", 
-        startDate: "", 
-        endDate: ""
+        startdate: "", 
+        enddate: ""
     }
 
     // temp values to save to state and then to form data : 
     const [tempVals, setTempVals] = useState(pastRole)
-    const { title, company, startDate, endDate } = tempVals
+    const { title, company, startdate, enddate } = tempVals
 
 
     // function to set values for tempvals from form input :
@@ -34,8 +34,9 @@ const PastWork = ({ setWork, workData }) => {
         // set work form details to include the tempvals
         setWork({
             ...workData,
-            pastRoles: [...pastRoles, tempVals]
+            pastroles: [...pastroles, tempVals]
         })
+        console.log(workData)
 
         // clear tempvals 
         setTempVals(pastRole)
@@ -45,13 +46,13 @@ const PastWork = ({ setWork, workData }) => {
     // display past roles data if there is any :
     function Display (){
 
-        if (pastRoles){
+        if (pastroles){
             return (
-                pastRoles.map((item, index) => {
+                pastroles.map((item, index) => {
                     return (
                         <div key={index}>
 
-                            <h3>role: {index + 1}</h3>
+                            {/* <h3>role: {index + 1}</h3> */}
                             {
                                 Object.entries(item).map(([key, value]) => {
                                     return <li key={key}>{key}: {value}</li>
@@ -94,14 +95,14 @@ const PastWork = ({ setWork, workData }) => {
                         <label>
                         Start date
                         </label>
-                        <FormInput type="date" name="startDate" value={startDate} onChange={handleChange} />
+                        <FormInput type="date" name="startdate" value={startdate} onChange={handleChange} />
                     </div>
 
                     <div className="formFields">
                         <label>
                         End date
                         </label>
-                        <FormInput type="date" name="endDate" value={endDate} onChange={handleChange} />
+                        <FormInput type="date" name="enddate" value={enddate} onChange={handleChange} />
                     </div>
                 
 

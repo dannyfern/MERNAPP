@@ -37,6 +37,7 @@ const AddPost = ({ history, nextId, addPost}) => {
             modified_date: new Date(),
             content: formState.content
         }
+        
         addPost(newPost)
         history.push(`/posts/${nextId}`)
     }
