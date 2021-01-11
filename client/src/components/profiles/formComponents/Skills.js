@@ -46,7 +46,7 @@ const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
     ]
 
     const experienceOptions = [
-        {label: "< 1", value: "yearsofexperience"},
+        {label: "<1", value: "yearsofexperience"},
         {label: "1+", value: "yearsofexperience"},
         {label: "3+", value: "yearsofexperience"},
         {label: "5+", value: "yearsofexperience"},

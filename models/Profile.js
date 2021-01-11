@@ -20,7 +20,7 @@ const ProfileSchema = new mongoose.Schema({
         
         dateofbirth: {
             type: Date, default: Date.now,
-            required: false
+            required: true
         },
 
         location: {

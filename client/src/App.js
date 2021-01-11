@@ -143,11 +143,15 @@ const App = () => {
         axios.post('http://localhost:5000/api/posts/', post )
         .then(res => console.log(res.data))
     }
+    // const token = localStorage.getItem('jwtToken')
 
     const addProfile = (profile) => {
         setProfiles([...profiles, profile])
-        axios.post('http://localhost:5000/api/profile', profile)
-        .then(res => console.log(res.data))
+        console.log("PROFILES", profiles)
+        axios.post('http://localhost:5000/api/profile', profile, {
+            
+        })
+        .then(res => console.log("RES", res.data))
     }
 
     // next id for blog posts

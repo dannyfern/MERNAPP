@@ -33,6 +33,8 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
     e.preventDefault()
 
+    
+
 
     const newProfile = {
       _id: nextIdProfile,
@@ -47,10 +49,12 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
       portfolio: linkData.portfolio
 
     }
+    console.log("NEW", newProfile)
 
     addProfile(newProfile)
     history.push(`/profiles/${newProfile._id}`)
-    console.log(newProfile)
+    console.log("NEW", newProfile)
+    
 
 
 

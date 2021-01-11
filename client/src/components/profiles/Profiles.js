@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Profile from './Profile'
 import Dropdown from 'react-dropdown'
@@ -17,6 +17,13 @@ const Profiles = ({ profileData }) => {
 
 
     const [filterData, setFilterData] = useState(filters)
+    const colors = {
+        looking: "#91ff95",
+        open: "#a8dcff",
+        notLooking: "#c2c2c2"
+    }
+
+    const [colour, setColour] = useState("")
 
     // console.log(profileData)
 
@@ -27,12 +34,15 @@ const Profiles = ({ profileData }) => {
         }
     }
 
+    
+
     const profiles = (profile) => {
         console.log(profile)
-        const { detailsData, skillsData, workData  } = profile
-        const { firstName, lastName, username, interests } = detailsData
-        const { skillLevel, yearsOfExperience } = skillsData
-        const { status } = workData
+        const { details, skills, prospects } = profile
+        const { name, username, interests } = details
+        const { experiencelevel, yearsofexperience } = skills
+
+        // const { status } = workData
 
         return (
             <Link to={`/profiles/${profile._id}`} id="profileLink">
@@ -43,16 +53,21 @@ const Profiles = ({ profileData }) => {
 
                         </div>
                         <div className="profileTopDetails">
-                            <h2>{firstName} {lastName} </h2>
+                            <h2>{name} </h2>
                             <h3>@{username} </h3>
-                            <h4>{skillLevel} Developer </h4>
+                            <h4>{experiencelevel} Developer </h4>
                         </div>
                     </div>
                     <div className="profileBottomSection">
                         <ul>
-                            <li key="status" >{status} </li>
-                            <li key="exp" >{yearsOfExperience} years of experience </li>
-                            <li key="interests" >interests: {interests.join(", ")} </li>
+
+                            <li key="status" id="prospects">{prospects} </li>
+                            <li key="exp" >{yearsofexperience} years of experience </li>
+                            {
+                                interests &&
+                                <li key="interests" >interests: {interests.join(", ")} </li>
+                            }
+                            
                         </ul>
                     </div>
 
@@ -73,7 +88,7 @@ const Profiles = ({ profileData }) => {
                 if (level === "All"){
                     return x
                 } else {
-                    return x.skillsData.skillLevel === level
+                    return x.skills.expriencelevel === level
 
                  
                      
@@ -85,7 +100,7 @@ const Profiles = ({ profileData }) => {
                 } else {
 
                 
-                    return x.skillsData.yearsOfExperience === experience
+                    return x.skills.yearsofexperience === experience
                 }
             })
             .map((profile) => {
@@ -154,45 +169,7 @@ const Profiles = ({ profileData }) => {
 
             <div className="profileWrapper">
                 <Display />
-                {/* {
-                    profileData.map((x) => {
-                        console.log(x)
-                        const { detailsData, skillsData, workData  } = x
-                        const { firstName, lastName, username, interests } = detailsData
-                        const { skillLevel, yearsOfExperience } = skillsData
-                        const { status } = workData
-
-                        // const path = `/profiles/${x._id}`
-                        return (
-                            <Link to={`/profiles/${x._id}`} id="profileLink">
-                                <div className="profileCard">
-                                    <div className="profileTopSection">
-                                        <div className="imagePlaceHolder">
-                                            <div className="img"></div>
-
-                                        </div>
-                                        <div className="profileTopDetails">
-                                            <h2>{firstName} {lastName} </h2>
-                                            <h3>@{username} </h3>
-                                            <h4>{skillLevel} Developer </h4>
-                                        </div>
-                                    </div>
-                                    <div className="profileBottomSection">
-                                        <ul>
-                                            <li>{status} </li>
-                                            <li>{yearsOfExperience} years of experience </li>
-                                            <li>interests: {interests.join(", ")} </li>
-                                        </ul>
-                                    </div>
-
-                                    
-                                </div>
-                            </Link>
-
-                        )
-                    })
-                } */}
-                {/* <Profile profile={profileData}/> */}
+                
 
             </div>
             
