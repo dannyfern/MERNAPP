@@ -16,39 +16,41 @@ const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
     
 
     const props = { setSkills, skillsData, navigation }
-    const { skillLevel, yearsOfExperience } = skillsData
+    const { skilllevel, yearsofexperience } = skillsData
     const { previous, next } = navigation;
 
     // due to current bug, have to disable enter keypress from submitting :
-    function onKeyPress (e) {
-        if (e.which === 13 /* Enter */) {
-            e.preventDefault();
-        }
-    }
+    // function onKeyPress (e) {
+    //     if (e.which === 13 /* Enter */) {
+    //         e.preventDefault();
+    //     }
+    // }
 
     // function to handle dropdown and assign its value to the skill level in form data :
     function onSelect (e) {
-        console.log(e)
+        // console.log(e)
         const { label, value } = e
         setSkills({
             ...skillsData,
             [value]: label
         })
+        console.log(skillsData)
+
     }
     // options for skill level drop down :
 
     const levelOptions = [
-        {label: "Junior-level", value: "level"},
-        {label: "Mid-level", value: "level"},
-        {label: "Senior-level", value: "level"}
+        {label: "Junior-level", value: "skilllevel"},
+        {label: "Mid-level", value: "skilllevel"},
+        {label: "Senior-level", value: "skilllevel"}
     ]
 
     const experienceOptions = [
-        {label: "< 1", value: "experience"},
-        {label: "1+", value: "experience"},
-        {label: "3+", value: "experience"},
-        {label: "5+", value: "experience"},
-        {label: "7+", value: "experience"}
+        {label: "<1", value: "yearsofexperience"},
+        {label: "1+", value: "yearsofexperience"},
+        {label: "3+", value: "yearsofexperience"},
+        {label: "5+", value: "yearsofexperience"},
+        {label: "7+", value: "yearsofexperience"}
     ]
 
     return(
@@ -59,17 +61,14 @@ const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
                         Skills
                     </h4>
                 </div>
-                <form onKeyPress={onKeyPress}>
+                <form >
                     <div className="skillsFormSection">
                         <div className="skillsFormDisplay">
                             <div className="greySection">
                                 <h3>Technical Skills</h3>
                                 <SkillsForm {...props} skillType="technical"/>
                             </div>
-                            {/* <div className="greySection">
-                                <h3>Soft Skills</h3>
-                                <SkillsForm {...props} skillType="soft"/>
-                            </div> */}
+                            
                         </div>
                         <div>
                             <h3>Experience</h3>
@@ -79,14 +78,14 @@ const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
                                         Skill level
                                     </label>
                                     {/* dropdown component from package : */}
-                                    <Dropdown options={levelOptions} onChange={onSelect} value={skillLevel} id="skillDropDown" name="skillLevel" />
+                                    <Dropdown options={levelOptions} onChange={onSelect} value={skilllevel} id="skillDropDown" name="skilllevel" />
                                 </div>
                                 <div className="formFields">
                                     <label>
                                         Years of Experience
                                     </label>
                                     {/* <FormInput name="yearsOfExperience" value={yearsOfExperience} onChange={handleChange} className="yearsExp" /> */}
-                                    <Dropdown options={experienceOptions} onChange={onSelect} value={yearsOfExperience} id="expDropDown" name="yearsOfExperience" />
+                                    <Dropdown options={experienceOptions} onChange={onSelect} value={yearsofexperience} id="expDropDown" name="yearsofexperience" />
                                 </div>
                             </div>
                             

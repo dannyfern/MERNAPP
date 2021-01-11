@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 // how to map over links and display them with matching icon?
@@ -7,25 +7,36 @@ const Profile = ({ profile }) => {
     console.log('DETAILS', profile)
 
     // destructuring data variables
-    const { detailsData, skillsData, workData, educationData, linkData } = profile
+    const { details, skills, currentroles, pastroles, prospects, qualifications, socials, portfolio } = profile
 
-    const { username, firstName, lastName, location, interests, bio } = detailsData
-    const { status, currentTitle, currentCompany, currentStartDate, pastRoles } = workData
-    const { recentSchool, recentDegree, recentStartDate, recentEndDate, pastEducation } = educationData
-    const { technical, soft, skillLevel, yearsOfExperience } = skillsData
-    // const { linkedIn, twitter, instagram, facebook, portfolio, github, resume, additionalLinks } = linkData
+    const { username, name, location, interests, bio } = details
 
-    const { additionalLinks } = linkData
+    // const {  } = currentroles
+    const { linkedin, twitter, instagram, facebook } = socials
+    const { github, resume } = portfolio
+    const { languages, experiencelevel, yearsofexperience } = skills
+    
+    
 
 
 
     // to display links : 
-    const links = Object.entries(linkData)
-    const correctLinks = links.filter(x => x[1] !== "" && x[0] !== "additionalLinks")
+    const socialLinks = Object.entries(socials)
+    const portfolioLinks = Object.entries(portfolio)
+
+    const filteredSocial = socialLinks.filter(x => x[1] !== "")
+    const filteredPortfolio = portfolioLinks.filter(x => x[1] !== "")
+    const correctLinks = filteredSocial.concat(filteredPortfolio)
+
+
+
+
+
+    
 
     const DisplayLinks = ({ correctLinks }) => {
 
-        const additional = Object.entries(additionalLinks)
+        
 
         return (
             <div>
@@ -37,14 +48,7 @@ const Profile = ({ profile }) => {
                             )
                         })
                     } 
-                    {
-                        additional.length > 0 &&
-                        additional.map((x, i) => {
-                            return (
-                                <Link to={x[1]}><li key={i} className="links">{x[0]}</li></Link>
-                            )
-                        }) 
-                    }
+                    
                 </div>
             </div>
         )
@@ -79,29 +83,43 @@ const Profile = ({ profile }) => {
 
                     </div>
 
-                    <div className="status-desktop">
-                        {status && status}
-                    </div>
+                    { prospects &&
+                        <div className="status-desktop">
+                            {prospects}
+                        </div>
+
+                    }
+                    
 
                 </div>
 
                 <div className="nameLocation">
                     <h2 id="username">@{username}</h2>
                     <div className="lastChildren">
-                        <h3 id="name">{firstName} {lastName}</h3>
+                        <h3 id="name">{name} </h3>
                         <h4 id="location">{location}</h4>
                     </div>
                     
                 </div>
 
                 <div className="personalDetails">
-                    <div className="status">
-                        {status && status}
-                    </div>
+                    {
+                        prospects && 
+                        <div className="status">
+                            {prospects}
+                        </div>
+                    }
+
                     <div className="experienceDesc">
                         <div className="experienceLevel">
-                            <p><span className="bold">{skillLevel && skillLevel}</span> Developer with <span className="bold">{yearsOfExperience && yearsOfExperience}</span> year of experience</p>
+                        <p>
+                            {experiencelevel && 
+                                <span className="bold">{experiencelevel}</span> 
+                            } 
+                            Developer with <span className="bold">{yearsofexperience && yearsofexperience}</span> years of experience
+                            </p>
                         </div>
+                        
                         { interests.length > 0 && 
                             <div>
                                 
@@ -149,22 +167,32 @@ const Profile = ({ profile }) => {
             <div className="workAndEdu">
                 <div className="workDisplay">
                     <h1>Current Role</h1>
-                    <h2>{currentTitle && currentTitle} at {currentCompany && currentCompany}</h2>
-                    <h3>{currentStartDate.slice(0, 4)} - present</h3>
+                    <h2>{currentroles.jobtitle && currentroles.jobtitle} at {currentroles.business && currentroles.business}</h2>
+                    {/* <h3>{currentStartDate.slice(0, 4)} - present</h3> */}
                     {
-                        pastRoles.length > 0 &&
-                        <h1>Past Roles ^</h1>
+                        pastroles.length > 0 &&
+                        <div>
+                            <h1>Past Roles ^</h1>
+                            <div className="openPastRoles"></div>
+                        </div>
+                        
                     }
                     
                 </div>
 
                 <div className="eduDisplay">
                     <h1>Education</h1>
-                    <h2>{recentSchool} ({recentStartDate.slice(0, 4)} - {recentEndDate.slice(0, 4)})</h2>
-                    <h3>{recentDegree}</h3>
                     {
-                        pastEducation.length > 0 &&
-                        <h1>Previous Education ^</h1>
+                        qualifications && qualifications.map((x, i) => {
+                            return (
+                                <div key={i} >
+                                    <h2>{x.institution} ({x.startdate.slice(0, 4)} - {x.enddate.slice(0, 4)} ) </h2>
+                                    <h3>{x.degree} </h3>
+                                </div>
+
+                                
+                            )
+                        })
                     }
                 </div>
 
@@ -173,9 +201,8 @@ const Profile = ({ profile }) => {
 
             <div className="skillsDisplay">
                 <h1>Technical Skills/Languages</h1>
-                <DisplaySkills skills={technical} />
-                {/* <h1>Soft Skills</h1>
-                <DisplaySkills skills={soft} /> */}
+                <DisplaySkills skills={languages} />
+            
             </div>
             <div className="postsDisplay">
                 <h1>Blog Posts</h1>

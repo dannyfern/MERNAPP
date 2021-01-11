@@ -13,8 +13,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
     
     // fields from detail form data :
-    const { profilePhoto, firstName, lastName, username, location, 
-    phoneNumber, birthday, bio, briefDescription } = detailsData
+    const { profilePhoto, name, username, location, 
+    dateofbirth, bio, blogpostdescription } = detailsData
 
     // next from hooks helper
     const { next } = navigation;
@@ -82,6 +82,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
             ...detailsData,
             [name]: value
         })
+        console.log(detailsData)
     }
 
     // function for image upload :
@@ -143,19 +144,19 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                         <div className="doubleFields">
                             <div className="formFields">
                                 <label>
-                                    First Name
+                                    Name
                                 </label>
-                                <FormInput name="firstName" value={firstName} onChange={handleChange} />  
+                                <FormInput name="name" value={name} onChange={handleChange} />  
                             </div>
 
                             
-                            <div className="formFields">
+                            {/* <div className="formFields">
                                 <label>
                                     Last Name
                                 </label>
                 
                                 <FormInput name="lastName" value={lastName} onChange={handleChange} />
-                            </div>
+                            </div> */}
 
                         </div>
                         
@@ -181,18 +182,18 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
 
                         
                         <div className="doubleFields">
-                            <div className="formFields">
+                            {/* <div className="formFields">
 
                                 <label>
                                     Phone Number
                                 </label>
                                 <FormInput name="phoneNumber" value={phoneNumber} onChange={handleChange} />
-                            </div>
+                            </div> */}
 
                             <div className="birthdayFields formFields">
                                 <label>Date of Birth</label>
 
-                                <FormInput type="date" name="birthday" value={birthday} onChange={handleChange}/>
+                                <FormInput type="date" name="dateofbirth" value={dateofbirth} onChange={handleChange}/>
             
                             </div>
                         </div>
@@ -235,8 +236,8 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                                 {/* <p>(This will be shown underneath your blog posts)</p> */}
                                 
                                 <textarea 
-                                    name="briefDescription"
-                                    value={briefDescription}
+                                    name="blogpostdescription"
+                                    value={blogpostdescription}
                                     onChange={handleChange}
                                     className="description"
                                 />

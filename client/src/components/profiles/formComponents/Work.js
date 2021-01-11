@@ -14,7 +14,7 @@ const Work = ({ setWork, workData, navigation, form, profile }) => {
 
     const props = { setWork, workData, navigation }
     const { previous, next } = navigation;
-    const { status } = workData
+    const { prospects } = workData
 
     useEffect(() => {
         if (form === "edit"){
@@ -30,7 +30,7 @@ const Work = ({ setWork, workData, navigation, form, profile }) => {
     function handleChange (e) {
         setWork({
             ...workData,
-            status: e.target.value
+            prospects: e.target.value
         })
     }
 
@@ -60,7 +60,7 @@ const Work = ({ setWork, workData, navigation, form, profile }) => {
                             <h3>Please Choose one:</h3>
                             <FormControl component="fieldset">
                                 {/* <FormLabel component="legend">Future Employment Status</FormLabel> */}
-                                <RadioGroup aria-label="gender" name="gender1" value={status} onChange={handleChange} className="radioGroupWork">
+                                <RadioGroup aria-label="gender" name="gender1" value={prospects} onChange={handleChange} className="radioGroupWork">
                                     <FormControlLabel value="looking" control={<Radio />} label="I'm looking for work" />
                                     <FormControlLabel value="open" control={<Radio />} label="I'm not currently looking, but I'm open to offers" />
                                     <FormControlLabel value="notLooking" control={<Radio />} label="I'm not looking for work" />

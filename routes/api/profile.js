@@ -98,7 +98,7 @@ router.post('/', [auth,
     }
 );
 //   ROUTE TO GET ALL PROFILES ------------------------------------------------
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const profiles = await Profile.find().populate('user', ['name', 'avatar']);
         res.json(profiles)

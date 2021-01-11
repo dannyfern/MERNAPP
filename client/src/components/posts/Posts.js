@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Post from './Post'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
-
+import { getAllBlogPosts } from './../../services/blogPostServices'
 import './../../styles/Posts.css'
 
 
-const Posts = ({ postsData }) => {
+const Posts = ({ posts }) => {
+    console.log(posts)
 
     const filters = {
         category: "All",
@@ -18,28 +19,37 @@ const Posts = ({ postsData }) => {
     const [filterData, setFilterData] = useState(filters)
 
 
-    const posts = (post) => {
-        const { title, category, modified_date, username } = post
+    
+
+
+
+
+
+    function displayPosts(post) {
+        const { title, category, user, likes } = post
+        console.log(post)
         return (
             <div className="postCard">
                 <Link to={`/posts/${post._id}`} className="titleLink">
                     <h1 className="postTitle">{title}</h1>
                 </Link>
                 <div className="postInfo">
-                    
-                    <h5>Posted by: {username}, {modified_date.toLocaleString()}</h5>
+
+                    <h5>Posted by: {user}</h5>
                     <h3>{category}</h3>
-                    {/* <p>{content}</p> */}
+
                     <div className="upVotesDiv">
-                        <p className="upVotes">++5</p>
+                        <p className="upVotes">++ {likes.length} </p>
                     </div>
-                    
+
                 </div>
-                    
-                
+
+
             </div>
         )
     }
+
+
 
     // updating display function to take different parameters
     // first it should filter through the posts and find the 
@@ -69,8 +79,9 @@ const Posts = ({ postsData }) => {
         // console.log(category)
         // console.log(postsData.filter(x => x.category === "code"))
         // console.log(category)
+        // console.log( posts)
 
-        return (postsData
+        return (posts && posts
             .filter((x) => {
                 if (category === "All"){
                     return x
@@ -82,15 +93,18 @@ const Posts = ({ postsData }) => {
             )
             .sort((a, b) => sortOptions(a, b, sortBy))
             .map((post) => {
-                return posts(post)
+                return displayPosts(post)
             })
+            
         )
     }
 
 
-    const filterBtn = document.querySelector('.filters')
+    
 
     function openFilters () {
+        const filterBtn = document.querySelector('.filterText')
+
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
         }

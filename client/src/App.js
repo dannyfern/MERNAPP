@@ -5,6 +5,7 @@ import stateReducer from './config/stateReducer'
 import { StateContext } from './config/store'
 import blogData from './data/post_data'
 import profileData from './data/profile_data'
+import axios from 'axios'
 
 import Alert from './components/reusable/Alert'
 
@@ -92,6 +93,8 @@ const App = () => {
     //         console.log("an error occured fetching profiles from server", error)
     //     })
     // }
+
+
     
 
 
@@ -107,17 +110,30 @@ const App = () => {
     
 
 
+    
+        
+        
+    
     // set blog posts
     useEffect(() => {
         // fetchUserProfiles()
+        axios.get('http://localhost:5000/api/posts/')
+        // .then(res => console.log(res))
+        .then(res => setPosts(res.data))
 
-        setPosts(blogData)
-        setProfiles(profileData)
+        axios.get('http://localhost:5000/api/profile/')
+        // .then(res => console.log(res.data))
+        .then(profiles => setProfiles(profiles.data))
+        .catch(err => console.log("oh no! error: ", err))
+
+    
+        // setProfiles(profileData)
     }, [])
+    // console.log(posts)
 
 
     const getPostFromId = (id) => {
-        return posts.find((t) => t._id === parseInt(id))
+        return posts.find((t) => t._id === id)
 
     }
 
@@ -131,10 +147,18 @@ const App = () => {
     // add blog posts
     const addPost = (post) => {
         setPosts([...posts, post])
+        axios.post('http://localhost:5000/api/posts/', post )
+        .then(res => console.log(res.data))
     }
+    // const token = localStorage.getItem('jwtToken')
 
     const addProfile = (profile) => {
         setProfiles([...profiles, profile])
+        console.log("PROFILES", profiles)
+        axios.post('http://localhost:5000/api/profile', profile, {
+            
+        })
+        .then(res => console.log("RES", res.data))
     }
 
     // next id for blog posts
@@ -177,7 +201,7 @@ const App = () => {
                         <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
                         <Route exact path="/posts/:id" render={(props) => <Post {...props}  post={getPostFromId(props.match.params.id)}/>} />
                         
-                        <Route exact path="/" render={(props) => <Home {...props} postsData={posts} />} />
+                        <Route exact path="/" render={(props) => <Home {...props} posts={posts} />} />
 
                     </Switch>
                     </Fragment>

@@ -5,14 +5,17 @@ import FormInput from '../../../reusable/FormInput'
 
 const RecentWork = ({ setWork, workData }) => {
 
-    const { currentTitle, currentCompany, currentStartDate } = workData
+    const { jobtitle, business, location } = workData
 
     // handle change for regular inputs :
     function handleChange (e) {
         const { name, value } = e.target
         setWork({
             ...workData,
-            [name]: value
+            currentroles: {
+                [name]: value
+            }
+            
         })
     }
 
@@ -23,13 +26,13 @@ const RecentWork = ({ setWork, workData }) => {
                     <label>
                         Title
                     </label>
-                    <FormInput name="currentTitle" value={currentTitle} onChange={handleChange}/>
+                    <FormInput name="jobtitle" value={jobtitle} onChange={handleChange}/>
                 </div>
                 <div className="formFields">
                     <label>
                         Company
                     </label>
-                    <FormInput name="currentCompany" value={currentCompany} onChange={handleChange}/>
+                    <FormInput name="business" value={business} onChange={handleChange}/>
                 </div>
             </div>
             
@@ -37,7 +40,7 @@ const RecentWork = ({ setWork, workData }) => {
                 <label>
                 Start date
                 </label>
-                <FormInput type="date" name="currentStartDate" value={currentStartDate} onChange={handleChange}/>
+                <FormInput type="date" name="location" value={location} onChange={handleChange}/>
             </div>
 
         </div>

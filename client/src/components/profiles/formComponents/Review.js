@@ -33,20 +33,28 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
     e.preventDefault()
 
+    
+
 
     const newProfile = {
       _id: nextIdProfile,
-      modified_date: new Date(),
-      detailsData: detailsData,
-      skillsData: skillsData,
-      workData: workData,
-      educationData: educationData,
-      linkData: linkData
+      // modified_date: new Date(),
+      details: detailsData,
+      skills: skillsData,
+      currentroles: workData.currentroles,
+      pastroles: workData.pastroles,
+      prospects: workData.prospects,
+      qualifications: educationData,
+      socials: linkData.socials,
+      portfolio: linkData.portfolio
 
     }
+    console.log("NEW", newProfile)
 
     addProfile(newProfile)
     history.push(`/profiles/${newProfile._id}`)
+    console.log("NEW", newProfile)
+    
 
 
 
@@ -118,7 +126,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
           <h3 className="greyTitle">Details</h3>
           <div className="reviewDivs">
 
-            {
+            {/* {
               Object.entries(detailsData).map(([key, value]) => {
 
 
@@ -144,7 +152,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
                 return <li key={key}>{key}: {value}</li>
 
               })
-            }
+            } */}
 
 
           </div>
@@ -155,12 +163,12 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
         <div>
           <h3 className="greyTitle">Skills</h3>
           <div className="reviewDivs">
-            {
+            {/* {
               Object.entries(skillsData).map(([key, value]) => {
 
                 return <li key={key}>{key}: {value}</li>
               })
-            }
+            } */}
           </div>
         </div>
 
@@ -169,7 +177,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
         <div>
           <h3 className="greyTitle">Work</h3>
           <div className="reviewDivs">
-            {
+            {/* {
               Object.entries(workData).map(([key, value]) => {
 
                 if (typeof(value) === "object"){
@@ -190,7 +198,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
                 return <li key={key}>{key}: {value}</li>
 
               })
-            }
+            } */}
           </div>
         </div>
 
@@ -198,26 +206,35 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
         <div>
           <h3 className="greyTitle">Education</h3>
           <div className="reviewDivs">
+
           {
-              Object.entries(educationData).map(([key, value]) => {
+            // console.log("edu, ", educationData)
+            // educationData.map((x) => {
+            //   console.log("EDUCATION MAP: ", x)
+            //   return Object.entries(x).map(([key, value]) => {
 
-                if (typeof(value) === "object"){
-                  return value.map(x => {
-                    return (
+            //     return <li key={key}>{key}: {value}</li>
+
+            //   })
+            // })
+              // Object.entries(educationData).map(([key, value]) => {
+
+              //   if (typeof(value) === "object"){
+              //     return value.map(x => {
+              //       return (
                       
-                      <div>
-                        <h5> Past Education</h5>
-                        <li>School: {x.school}</li>
-                        <li>degree: {x.degree}</li>
-                        <li>dates: {x.startDate} - {x.endDate}</li>
+              //         <div>
+              //           <h5> Past Education</h5>
+              //           <li>School: {x.institution}</li>
+              //           <li>degree: {x.degree}</li>
+              //           <li>dates: {x.startdate} - {x.enddate}</li>
 
-                      </div>
-                    )
-                  })
-                }
-                return <li key={key}>{key}: {value}</li>
-              })
-            }
+              //         </div>
+              //       )
+              //     })
+          }
+                
+              
           </div>
         </div>
 
@@ -226,7 +243,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
         <div>
           <h3 className="greyTitle">Links</h3>
           <div className="reviewDivs">
-          {
+          {/* {
               Object.entries(linkData).map(([key, value]) => {
                 if (key === "resume"){
                   console.log("RESUME", key, value)
@@ -247,7 +264,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
                 } else 
                 return <li key={key}>{key}: {value}</li>
               })
-            }
+            } */}
           </div>
         </div>
 
