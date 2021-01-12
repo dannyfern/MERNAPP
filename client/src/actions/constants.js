@@ -7,3 +7,12 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
+
+export const CREATE_PROFILE_SUCCESS = 'CREATE_PROFILE_SUCCESS'
+export const PROFILE_LOADED = 'PROFILE_LOADED'
+export const PROFILE_LOAD_ERROR = "PROFILE_LOAD_ERROR"
+export const PROFILE_ERROR = "PROFILE_ERROR"
+
+export const ALL_POSTS ='ALL_POSTS'
+export const POST_ERROR ='POST_ERROR'
+export const CREATE_POST ='CREATE_POST'

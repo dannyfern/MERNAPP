@@ -2,17 +2,20 @@ import React, { useState } from 'react'
 import './../../styles/Posts.css'
 import FormInput from './../reusable/FormInput'
 import Posts from './Posts'
+import { useDispatch } from 'react-redux'
+import { createPost } from './../../config/api'
+
 
 
 const AddPost = ({ history, nextId, addPost}) => {
     // const [posts, setTwoots] = useState([])
-
+    const dispatch = useDispatch()
     
 
     const initialFormState = {
         title: "",
         category: "",
-        content: ""
+        text: ""
     }
 
     const [formState, setFormState] = useState(initialFormState)
@@ -35,10 +38,12 @@ const AddPost = ({ history, nextId, addPost}) => {
             title: formState.title,
             category: formState.category || "general",
             modified_date: new Date(),
-            content: formState.content
+            text: formState.text
         }
+
+        dispatch(createPost(newPost))
         
-        addPost(newPost)
+        // addPost(newPost)
         history.push(`/posts/${nextId}`)
     }
     console.log(formState)
@@ -62,7 +67,7 @@ const AddPost = ({ history, nextId, addPost}) => {
 
                     <label>Post Content</label>
                     <textarea
-                        name="content"
+                        name="text"
                         placeholder="content here..."
                         className="addPostField"
                         onChange={handleChange}

@@ -6,7 +6,7 @@ export default [
         username: "user1",
         modified_date: new Date("2019-09-20"),
         category: "Code",
-        content:
+        text:
             "I'm learning react and I love it!. It makes javascript so much nicer to write. I love the component architecture."
     },
     {
@@ -15,7 +15,7 @@ export default [
         username: "johnsmith",
         modified_date: new Date("2019-08-30"),
         category: "Health",
-        content:
+        text:
             "I've meditated daily for the past 30 years, and I think it has the single biggest impact on the quality of my life"
     },
     {
@@ -24,7 +24,7 @@ export default [
         username: "user1234939",
         modified_date: new Date("2020-02-10"),
         category: "Code",
-        content:
+        text:
             "When I first started learning Github, it was not a happy relationship."
     },
     {
@@ -33,7 +33,7 @@ export default [
         username: "dev",
         modified_date: new Date("2020-01-30"),
         category: "Code",
-        content:
+        text:
             "I'm not a front end kind of girl. I want to like styling - I feel like I'm a creative persona and it should be fun, but CSS and I just don't get along."
     },
     {
@@ -42,7 +42,7 @@ export default [
         username: "user929273",
         modified_date: new Date("2019-12-19"),
         category: "Food",
-        content:
+        text:
             "Who doesn't love pizza? I found the best pizza in town yesterday and I'm so excited about it!"
     }
    ]

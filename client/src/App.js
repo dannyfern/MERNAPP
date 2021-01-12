@@ -1,18 +1,19 @@
 
-import React, { Fragment, useEffect, useReducer, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import stateReducer from './config/stateReducer'
-import { StateContext } from './config/store'
-import blogData from './data/post_data'
+// import stateReducer from './config/stateReducer'
+// import { StateContext } from './config/store'
+// import blogData from './data/post_data'
 import profileData from './data/profile_data'
 import axios from 'axios'
 
 import Alert from './components/reusable/Alert'
 
 // Redux
-import { Provider } from 'react-redux';
+
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
-import { loadUser } from './config/api';
+import { loadUser, getAllPosts } from './config/api';
 import  setAuthToken  from './utils/setAuthToken';
 
 import { getAllUserProfiles } from './services/profileServices'
@@ -50,88 +51,31 @@ import './styles/Tablet.css'
 
 
 
-if(localStorage.token) {
-    setAuthToken(localStorage.token);
-  }; 
+// if(localStorage.token) {
+//     setAuthToken(localStorage.token);
+//   }; 
 
 
 const App = () => { 
-    useEffect(() => {
-        store.dispatch(loadUser());
-    }, []);
-
-
-    const initialState = {
-        blogPosts: [],
-        loggedInUser: null,
-    }
-
-    // const fetchBlogPosts = () => {
-    //     getAllBlogPosts().then((blogData) => {
-    //         dispatch({
-    //             type: "setBlogPosts",
-    //             data: blogData
-    //         })
-    //     }).catch((error) => {
-    //         dispatch({
-    //             type: "setError",
-    //             data: true
-    //         })
-    //         console.log("an error occured fetching blog posts from the server: ", error)
-    //     })
-    // }
-
-    // function fetchUserProfiles() {
-    //     getAllUserProfiles().then((profileData) => {
-    //         dispatch({
-    //             type: "setUserProfiles",
-    //             data: profileData
-    //         })
-    //     }).catch((error) => {
-    //         dispatch({
-    //             type: "setError",
-    //             data: true
-    //         })
-    //         console.log("an error occured fetching profiles from server", error)
-    //     })
-    // }
-
-
-    
-
-
-
-
-    // const [store, dispatch] = useReducer(stateReducer, initialState)
-    // const {blogPosts, error, userProfiles} = store
-
-
 
     const [posts, setPosts] = useState([])
     const [profiles, setProfiles] = useState([])
-    
 
+    const dispatch = useDispatch()
+    const blogPosts = useSelector((state) =>  state.postReducer)
 
     
-        
-        
-    
-    // set blog posts
+    // get blog posts
     useEffect(() => {
-        // fetchUserProfiles()
-        axios.get('http://localhost:5000/api/posts/')
-        // .then(res => console.log(res))
-        .then(res => setPosts(res.data))
 
-        axios.get('http://localhost:5000/api/profile/')
-        // .then(res => console.log(res.data))
-        .then(profiles => setProfiles(profiles.data))
-        .catch(err => console.log("oh no! error: ", err))
-
+       
+        dispatch(getAllPosts())
+        .catch(y => {
+            console.log(y)
+        })
+        
+    }, [dispatch])
     
-        // setProfiles(profileData)
-    }, [])
-    // console.log(posts)
 
 
     const getPostFromId = (id) => {
@@ -152,7 +96,7 @@ const App = () => {
         axios.post('http://localhost:5000/api/posts/', post )
         .then(res => console.log(res.data))
     }
-    // const token = localStorage.getItem('jwtToken')
+    
 
     const addProfile = (profile) => {
         setProfiles([...profiles, profile])
@@ -163,6 +107,8 @@ const App = () => {
         .then(res => console.log("RES", res.data))
     }
 
+
+    
     // next id for blog posts
     const nextId = () => {
         return posts.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
@@ -172,16 +118,11 @@ const App = () => {
     }
 
 
-    // const addProfile = (profile) => {
-    //     setProfiles([...profiles, profile])
-    // }
-
-
 
 
     return (
         <div>
-            <Provider store={store}>
+            {/* <Provider store={store}> */}
                 
                 <BrowserRouter >
                 <Fragment>
@@ -205,12 +146,12 @@ const App = () => {
                         <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
                         <Route exact path="/posts/:id" render={(props) => <Post {...props}  post={getPostFromId(props.match.params.id)}/>} />
                         
-                        <Route exact path="/" render={(props) => <Home {...props} posts={posts} />} />
+                        <Route exact path="/" render={(props) => <Home {...props} posts={blogPosts} />} />
 
                     </Switch>
                     </Fragment>
                     </BrowserRouter>
-            </Provider>
+            {/* </Provider> */}
         </div>
                     
                 )};
