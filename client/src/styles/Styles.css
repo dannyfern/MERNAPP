@@ -64,6 +64,11 @@
   width: 100%;
 }
 
+.navLinkStyles {
+  margin: 20px;
+  margin-left: 90px;
+}
+
 .closedNav {
   display: none;
 }

@@ -24,6 +24,8 @@ import { getAllUserProfiles } from './services/profileServices'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Oopsie from './components/Oopsie'
+import Dashboard from './components/dashboard/Dashboard'
+import PrivateRoute from './components/privateroutes/PrivateRoute'
 
 import Post from './components/posts/Post'
 import AddPost from './components/posts/AddPost'
@@ -130,6 +132,8 @@ const App = () => {
 
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
+                        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+
 
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
                         <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} addProfile={addProfile} profiles={profiles} />} />
