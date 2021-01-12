@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 import { getProfileFromId, updateProfile } from '../../../services/profileServices'
-import { useGlobalState } from '../../../config/store'
+// import { useGlobalState } from '../../../config/store'
+import { addProfile, loadUserId } from './../../../config/api'
+
+import { USER_LOADED } from './../../../actions/constants'
+
+import axios from 'axios'
+import store from './../../../store'
 
 
 // make DRY !!!!!!!
@@ -10,7 +16,7 @@ import { useGlobalState } from '../../../config/store'
 
 const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, addProfile, profiles, form, match }) => {
   
-
+  console.log(store)
 
   const profileId = match && match.params ? match.params.id : -1
   const profile = getProfileFromId(profiles, profileId)
@@ -27,18 +33,26 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
   const { previous } = navigation;
 
+  
+
+
 
 
   const createProfile = (e) => {
 
     e.preventDefault()
 
+
+
+
     
 
-
+    
+    // console.log("DATA", data)
     const newProfile = {
       _id: nextIdProfile,
       // modified_date: new Date(),
+      user: localStorage.userId,
       details: detailsData,
       skills: skillsData,
       currentroles: workData.currentroles,
@@ -49,11 +63,11 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
       portfolio: linkData.portfolio
 
     }
-    console.log("NEW", newProfile)
+    // console.log("NEW", newProfile)
 
     addProfile(newProfile)
     history.push(`/profiles/${newProfile._id}`)
-    console.log("NEW", newProfile)
+    // console.log("NEW", newProfile)
     
 
 

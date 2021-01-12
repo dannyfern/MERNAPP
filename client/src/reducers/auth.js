@@ -6,6 +6,11 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
+    CREATE_PROFILE_SUCCESS,
+    PROFILE_LOADED,
+    PROFILE_LOAD_ERROR,
+    PROFILE_ERROR, 
+    
 }   from '../actions/constants';
 
 const initialState = {
@@ -15,11 +20,14 @@ const initialState = {
     user: null
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function(state = initialState, action) {
     const { type, payload } = action;
     
     switch(type) {
         case USER_LOADED:
+            localStorage.setItem('userId', payload._id)
+            // console.log("USER ID !:", localStorage)
             return {
                 ...state,
                 isAuthenticated: true,
@@ -28,6 +36,7 @@ export default function(state = initialState, action) {
             }
         case LOGIN_SUCCESS:
             localStorage.setItem('token', payload.token );
+            
             return {
                 ...state,
                 ...payload,
@@ -46,6 +55,16 @@ export default function(state = initialState, action) {
                 loading: false
 
             };
+        case CREATE_PROFILE_SUCCESS:
+            // localStorage.setItem('token', payload.token)
+            return {
+                ...state,
+                user: payload.user,
+                isAuthenticated: true,
+                loading: false,
+                
+            }
+        
         default:
             return state;
     }

@@ -13,7 +13,7 @@ const Post = ({ history, post }) => {
     if (!post) {
         return null
     } else {
-        const { title, catagory, text, likes, user } = post
+        const { title, category, text, likes, user } = post
         // console.log("POST", post)
         
         return (
@@ -28,7 +28,7 @@ const Post = ({ history, post }) => {
                         
                         <div className="singlePostInfo">
                             {/* <h5 id="postDate">Posted {modified_date.toLocaleString()}</h5> */}
-                            <h3>{catagory}</h3>
+                            <h3>{category}</h3>
                             
                             <p>{text}</p>
                         </div>

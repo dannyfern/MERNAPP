@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Profile from './Profile'
 import Dropdown from 'react-dropdown'
-import { useGlobalState} from '../../config/store'
+// import { useGlobalState} from '../../config/store'
 
 const Profiles = ({ profileData }) => {
 

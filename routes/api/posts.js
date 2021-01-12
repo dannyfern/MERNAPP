@@ -13,7 +13,7 @@ router.post('/', [auth,
     check('title', 'Title is required')
         .not()
         .isEmpty(),
-    check('catagory', 'Catagory is required')
+    check('category', 'Category is required')
         .not()
         .isEmpty(),
     check('text', 'Text is required')
@@ -33,7 +33,7 @@ async (req, res) => {
         const newPost = new Post ({
             text: req.body.text,
             title: req.body.title,
-            catagory: req.body.catagory,
+            category: req.body.category,
             name: user.name,
             avatar: user.avatar,
             user: req.user.id,

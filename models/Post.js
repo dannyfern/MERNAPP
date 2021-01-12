@@ -6,11 +6,15 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
+    modified_date: {
+        type: Date,
+        required: true
+    },
     title: {
         type: String,
         required: true
     },
-    catagory: [
+    category: [
         {
         type: [String],
         required: true
