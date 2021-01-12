@@ -14,22 +14,34 @@ import { logout } from '../config/api';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
-            <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+            <Link className="navLinkStyles" to="/dashboard">
+            <i className='fas fa-user' />{' '}
+            <span className='hide-sm'></span>Dashboard</Link>
             <Link className="navLinkStyles" to="/posts/new">New Post</Link>
-            <Link className="navLinkStyles" onClick={logout} to="/#!">Logout</Link>
+            <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+            <Link className="navLinkStyles" to="/help">Help Me</Link>
+            <Link className="navLinkStyles" onClick={logout} to="/#!">
+            <i className='fas fa-sign-out-alt' />{' '}
+            <span className='hide-sm'></span>Logout</Link>
         </ul>
         
     );
 
     const guestLinks = (
         <ul>
-        <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
-        <Link className="navLinkStyles" to="/profiles">Developers</Link>
-        <Link className="navLinkStyles" to="/auth/register">Register account</Link>
-        <Link className="navLinkStyles" to="/auth/signin">Sign in</Link> 
-        </ul>
         
-
+        <Link className="navLinkStyles" to="/profiles">
+        <i className='fa fa-code' />{' '}
+        <span className='hide-sm'></span>Developers</Link>
+        <Link className="navLinkStyles" to="/auth/register">
+        <i className='fa fa-users' />{' '}
+        <span className='hide-sm'></span>Register account</Link>
+        <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+        <Link className="navLinkStyles" to="/help">Help Me</Link>
+        <Link className="navLinkStyles" to="/auth/signin">
+        <i className='fas fa-sign-in-alt' />{' '}
+        <span className='hide-sm'></span>Sign in</Link>
+        </ul>
     );
 
     const [isClicked, setClicked] = useState(false)
