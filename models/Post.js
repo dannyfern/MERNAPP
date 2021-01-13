@@ -8,7 +8,7 @@ const PostSchema = new Schema({
     },
     modified_date: {
         type: Date,
-        required: true
+        required: false
     },
     title: {
         type: String,

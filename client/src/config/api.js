@@ -135,7 +135,7 @@ export const addProfile = ( newProfile ) => async dispatch => {
 
   try {
     const { data } = await axios.post('/api/profile', newProfile)
-    .then(x =>  console.log(x))
+    .then(x =>  console.log("x ", x))
 
     dispatch({
       type: CREATE_PROFILE,
@@ -145,6 +145,7 @@ export const addProfile = ( newProfile ) => async dispatch => {
     ('profile data: , ', data)
   } catch (err) {
     const errors = err.response.data.errors;
+    console.log(err)
     
     if(errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));

@@ -43,7 +43,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
     const newProfile = {
       _id: nextIdProfile,
       // modified_date: new Date(),
-      user: localStorage.userId,
+      // user: req.user.id,
       details: detailsData,
       skills: skillsData,
       currentroles: workData.currentroles,

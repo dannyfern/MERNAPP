@@ -11,10 +11,13 @@ module.exports = function(req, res, next) {
     }
 
     try {
+        console.log("hello")
         const decoded = jwt.verify(token, config.get('jwtsign'));
         req.user = decoded.user;
         next();
     } catch(err) {
+        console.log("world")
         res.status(403).send('Bad Request, check your authorization and try again');
+        
     }
 }
