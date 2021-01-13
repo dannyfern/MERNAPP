@@ -33,6 +33,7 @@ router.post('/', [auth,
 ],
     async function (req, res) {
         const errors = validationResult(req);
+        console.log('req: ', req)
         if(!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -51,7 +52,7 @@ router.post('/', [auth,
 
         // Requiring profile fields so that they can be initialized ------------------------
         const profileFields = {};
-        profileFields.user = req.user.id;
+        profileFields.user = req.user;
         if(name) profileFields.name = name;
         if(username) profileFields.username = username;
         if(dateofbirth) profileFields.dateofbirth = dateofbirth;
@@ -92,7 +93,7 @@ router.post('/', [auth,
             res.json(profile);
             
             } catch(err) {
-            console.error(err.message);
+            console.error(err);
             res.status(500).send('Error from Server');
             }
     }

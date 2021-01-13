@@ -7,6 +7,8 @@ import { addProfile, loadUserId } from './../../../config/api'
 
 import { USER_LOADED } from './../../../actions/constants'
 
+import { useDispatch } from 'react-redux'
+
 import axios from 'axios'
 import store from './../../../store'
 
@@ -14,22 +16,18 @@ import store from './../../../store'
 // make DRY !!!!!!!
 // fix functionality for files and arrays
 
-const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, addProfile, profiles, form, match }) => {
+const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, profiles, form, match }) => {
   
-  console.log(store)
+ 
 
   const profileId = match && match.params ? match.params.id : -1
   const profile = getProfileFromId(profiles, profileId)
 
- 
-
-
   let history = useHistory()
 
-  // const {store, dispatch} = useGlobalState()
-  // const {userProfiles} = store
+  const dispatch = useDispatch()
 
-  // const [errorMessage, setErrorMessage] = useState(null)
+  
 
   const { previous } = navigation;
 
@@ -42,17 +40,10 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
     e.preventDefault()
 
-
-
-
-    
-
-    
-    // console.log("DATA", data)
     const newProfile = {
       _id: nextIdProfile,
       // modified_date: new Date(),
-      user: localStorage.userId,
+      // user: req.user.id,
       details: detailsData,
       skills: skillsData,
       currentroles: workData.currentroles,
@@ -64,8 +55,9 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
 
     }
     // console.log("NEW", newProfile)
+    dispatch(addProfile(newProfile))
 
-    addProfile(newProfile)
+    // addProfile(newProfile)
     history.push(`/profiles/${newProfile._id}`)
     // console.log("NEW", newProfile)
     
