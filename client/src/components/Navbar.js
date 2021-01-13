@@ -23,13 +23,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
             <Link className="navLinkStyles" onClick={logout} to="/#!">
             <i className='fas fa-sign-out-alt' />{' '}
             <span className='hide-sm'></span>Logout</Link>
-        </ul>
-        
+        </ul>     
     );
 
     const guestLinks = (
-        <ul>
         
+        // console.log("errguestlink")
+        
+        <ul>
         <Link className="navLinkStyles" to="/profiles">
         <i className='fa fa-code' />{' '}
         <span className='hide-sm'></span>Developers</Link>
@@ -42,6 +43,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <i className='fas fa-sign-in-alt' />{' '}
         <span className='hide-sm'></span>Sign in</Link>
         </ul>
+        
     );
 
     const [isClicked, setClicked] = useState(false)
@@ -60,21 +62,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
         <div>
             <div id="navbar">
-
                 <div>
                     <button className="hamburger" id="hamburger" onClick={toggleNav}>
                         <i className="fas fa-bars"></i>
                     </button>
                 </div>
-                
-
                 <div id="navLinks" className={className}> 
-                    { !loading && (
+                    { loading && (
                     <Fragment>
                         { isAuthenticated ? authLinks : guestLinks} 
                     </Fragment>)}
                 </div>
-
             </div>
         </div>
     )
