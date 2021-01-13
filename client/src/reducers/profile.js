@@ -10,7 +10,7 @@ const profileReducer = (profiles = [], action) => {
         case ALL_PROFILES:
             return profiles
         case CREATE_PROFILE:
-            return profiles
+            return [...profiles, action.payload]
         default:
             return profiles
     }

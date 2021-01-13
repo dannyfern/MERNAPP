@@ -79,13 +79,13 @@ const initialDetailsData = {
     location: "www",
     // phoneNumber: "www",
     dateofbirth: "www",
-    interests: [],
+    interests: ["ss", "ss"],
     bio: "www",
     blogpostdescription: "www"
 }
 
 const initialSkillsData = {
-    languages: [],
+    languages: ["js"],
     // soft: [],
     experienceLevel: "www",
     yearsofexperience: "www"
@@ -97,10 +97,14 @@ const initialWorkData = {
     currentroles: {
         jobtitle: "ww",
         business: "ww",
-        location: "",
+        location: "ss",
 
     },
-    pastroles: []
+    pastroles: [{
+        jobtitle: "ww",
+        business: "ww",
+        location: "ss",
+    }]
 }
 
 const initialEducationData = [{
