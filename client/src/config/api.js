@@ -9,7 +9,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CREATE_PROFILE_SUCCESS,
+  CREATE_PROFILE,
   PROFILE_LOADED,
   PROFILE_ERROR,
   PROFILE_LOAD_ERROR,
@@ -126,38 +126,32 @@ export const logout = () => dispatch => {
 
 // create profile
 
-export const addProfile = ({ newProfile }) => async dispatch => {
+export const addProfile = ( newProfile ) => async dispatch => {
+  console.log("the profile:", newProfile)
   if(localStorage.token) {
     setAuthToken(localStorage.token);
   } 
 
-  const body = JSON.stringify({newProfile})
-
-  const config = {
-    headers: {
-      'Content-Type' : 'application/json'
-    }
-  }
-
 
   try {
-    const res = await axios.post('/api/profile', body, config);
+    const { data } = await axios.post('/api/profile', newProfile)
+    .then(x =>  console.log(x))
 
     dispatch({
-      type: CREATE_PROFILE_SUCCESS,
-      payload: res.data
+      type: CREATE_PROFILE,
+      payload: data
     });
-
-    // dispatch(loadProfile({ id }));
+    console.log
+    ('profile data: , ', data)
   } catch (err) {
     const errors = err.response.data.errors;
     
     if(errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
-    dispatch({
-      type: PROFILE_ERROR
-    });
+    // dispatch({
+    //   type: PROFILE_ERROR
+    // });
   }
 
 }
@@ -192,10 +186,12 @@ export const getAllPosts = () => async dispatch =>{
 //  create post
 
 export const createPost = (post) => async dispatch => {
+  
 
 
   try {
     const { data } = await axios.post('/api/posts', post)
+    .then(x => console.log("the data", x))
 
     dispatch({
       type: CREATE_POST,

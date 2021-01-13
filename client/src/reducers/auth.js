@@ -55,15 +55,6 @@ export default function(state = initialState, action) {
                 loading: false
 
             };
-        case CREATE_PROFILE_SUCCESS:
-            // localStorage.setItem('token', payload.token)
-            return {
-                ...state,
-                user: payload.user,
-                isAuthenticated: true,
-                loading: false,
-                
-            }
         
         default:
             return state;
