@@ -1,22 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { deletePostById } from '../../config/api'
+import { deletePostById, getPostFromId } from '../../config/api'
 
 
-const Post = ({ history, match  }) => {
+const Post = ({ history, match }) => {
     // console.log('POST ', post)
-    // getPostFromId(match.params.id)
+
+    // const [post, setPost] = useState({})
+
     const dispatch = useDispatch()
-
-
-
-
+    // dispatch(getPostFromId(match.params.id))
 
     const posts = useSelector(state => state.postReducer)
+    // console.log(posts)
+
+    let post = posts.filter(x => x._id === match.params.id)
+
+    post = post[0]
+    // setPost(selectedPost)
+
+
+
+
+
+
     
-    let selectedPost = posts.filter(x => x._id === match.params.id)
-    selectedPost = selectedPost[0]
 
 
 
@@ -33,18 +42,18 @@ const Post = ({ history, match  }) => {
 
 
 
-    if (!selectedPost) {
+    if (!post) {
         return null
     } else {
-        const { title, category, text, likes, user } = selectedPost
+        const { title, category, text, likes, user } = post
         // console.log("POST", post)
-        console.log(match.params.id)
+        // console.log(match.params.id)
         
         return (
             <div>
                 <div>
                     <div className="singlePostTitle">
-                        <Link to={`/posts/${selectedPost._id}`} className="singleTitleLink">
+                        <Link to={`/posts/${post._id}`} className="singleTitleLink">
                             <h1 id="postTitle">{title}</h1>
                         </Link>
                     </div>

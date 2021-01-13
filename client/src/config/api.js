@@ -21,6 +21,8 @@ import {
 
 } from '../actions/constants'
 
+import history from "./../history";
+
 // to connect to deployed server
 
 // Create an axios instance
@@ -190,20 +192,29 @@ export const getAllPosts = () => async dispatch =>{
 //  create post
 
 export const createPost = (post) => async dispatch => {
-  
+  if(localStorage.token) {
+    setAuthToken(localStorage.token);
+  } 
 
 
   try {
-    const { data } = await axios.post('/api/posts', post)
-    .then(x => console.log("the data", x))
+    const res = await axios.post('/api/posts', post)
+    // .then(x => console.log("the data", x.data))
+    // .then(x => history.push(`/posts/${x.data._id}`))
+
+    console.log(res)
 
     dispatch({
       type: CREATE_POST,
-      payload: data
+      payload: res.data
     })
 
+    history.push(`/posts/${res.data._id}`)
+    // let url = `/posts/${res.data._id}`
+    
 
-  } catch  (error) {
+
+  } catch (error) {
     console.log(error)
   }
 }
@@ -214,7 +225,7 @@ export const getPostFromId = (id) => async dispatch => {
 
   try {
     const { data } = await axios.get(`/api/posts/${id}`)
-    console.log("correct: ", data)
+    // console.log("correct: ", data)
 
     dispatch({
       type: CURRENT_POST,
