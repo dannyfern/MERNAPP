@@ -1,7 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { getPostFromId } from '../../config/api'
 
-const Post = ({ history, post }) => {
+
+const Post = ({ history, post, match  }) => {
+    // console.log('POST ', post)
+    getPostFromId(match.params.id)
+
+
+
+
+
+    const posts = useSelector(state => state.postReducer)
+    console.log(posts)
+    let selectedPost = posts.filter(x => x._id === match.params.id)
+    console.log(selectedPost)
+    selectedPost = selectedPost[0]
+
 
 
     const handleLikes = () => {
@@ -10,17 +26,18 @@ const Post = ({ history, post }) => {
     }
 
 
-    if (!post) {
+
+    if (!selectedPost) {
         return null
     } else {
-        const { title, category, text, likes, user } = post
+        const { title, category, text, likes, user } = selectedPost
         // console.log("POST", post)
         
         return (
             <div>
                 <div>
                     <div className="singlePostTitle">
-                        <Link to={`/posts/${post._id}`} className="singleTitleLink">
+                        <Link to={`/posts/${selectedPost._id}`} className="singleTitleLink">
                             <h1 id="postTitle">{title}</h1>
                         </Link>
                     </div>

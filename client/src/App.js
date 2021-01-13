@@ -13,7 +13,7 @@ import Alert from './components/reusable/Alert'
 
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
-import { loadUser, getAllPosts } from './config/api';
+import { loadUser, getAllPosts, getPostFromId } from './config/api';
 import  setAuthToken  from './utils/setAuthToken';
 
 import { getAllUserProfiles } from './services/profileServices'
@@ -64,6 +64,7 @@ const App = () => {
     const dispatch = useDispatch()
     const blogPosts = useSelector((state) =>  state.postReducer)
 
+
     
     // get blog posts
     useEffect(() => {
@@ -78,10 +79,10 @@ const App = () => {
     
 
 
-    const getPostFromId = (id) => {
-        return posts.find((t) => t._id === id)
+    // const getPostFromId = (id) => {
+    //     return posts.find((t) => t._id === id)
 
-    }
+    // }
 
     const getProfileFromId = (id) => {
         console.log(typeof(id))

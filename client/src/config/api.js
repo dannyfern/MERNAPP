@@ -15,7 +15,9 @@ import {
   PROFILE_LOAD_ERROR,
   ALL_POSTS,
   POST_ERROR,
-  CREATE_POST
+  CREATE_POST,
+  CURRENT_POST
+
 } from '../actions/constants'
 
 // to connect to deployed server
@@ -202,6 +204,25 @@ export const createPost = (post) => async dispatch => {
 
   } catch  (error) {
     console.log(error)
+  }
+}
+
+// get post by id
+
+export const getPostFromId = (id) => async dispatch => {
+
+  try {
+    const { data } = await axios.get(`/api/posts/${id}`)
+    console.log("correct: ", data)
+
+    dispatch({
+      type: CURRENT_POST,
+      payload: data
+    })
+
+
+  } catch (err) {
+    console.log(err)
   }
 }
 
