@@ -13,6 +13,8 @@ const postReducer = (posts = [], action) => {
             return [...posts, action.payload]
         case CURRENT_POST:
             return action.payload
+        // case DELETE_POST:
+        //     return posts.filter(x => )
         default: 
             return posts;
     }

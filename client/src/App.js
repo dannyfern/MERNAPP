@@ -91,22 +91,7 @@ const App = () => {
         return profiles.find((p) => p._id === parseInt(id))
     }
 
-    // add blog posts
-    const addPost = (post) => {
-        setPosts([...posts, post])
-        axios.post('http://localhost:5000/api/posts/', post )
-        .then(res => console.log(res.data))
-    }
     
-
-    const addProfile = (profile) => {
-        setProfiles([...profiles, profile])
-        console.log("PROFILES", profiles)
-        axios.post('http://localhost:5000/api/profile', profile, {
-            
-        })
-        .then(res => console.log("RES", res.data))
-    }
 
 
     
@@ -137,15 +122,15 @@ const App = () => {
 
 
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
-                        <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} addProfile={addProfile} profiles={profiles} />} />
+                        <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} profiles={profiles} />} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props} profile={getProfileFromId(props.match.params.id)}  />} />
 
                         <Route exact path="/profiles/:id" render={(props) => <Profile {...props} profile={getProfileFromId(props.match.params.id)}/>} />
                         
                         
-                        <Route exact path="/posts/new" render={(props) => <AddPost {...props} addPost={addPost} nextId={nextId()} />} />
+                        <Route exact path="/posts/new" render={(props) => <AddPost {...props} nextId={nextId()} />} />
                         <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
-                        <Route exact path="/posts/:id" render={(props) => <Post {...props}  post={getPostFromId(props.match.params.id)}/>} />
+                        <Route exact path="/posts/:id" render={(props) => <Post {...props}  />} />
                         
                         <Route exact path="/" render={(props) => <Home {...props} posts={blogPosts} />} />
 

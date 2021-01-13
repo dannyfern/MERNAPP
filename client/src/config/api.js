@@ -16,7 +16,8 @@ import {
   ALL_POSTS,
   POST_ERROR,
   CREATE_POST,
-  CURRENT_POST
+  CURRENT_POST,
+  DELETE_POST
 
 } from '../actions/constants'
 
@@ -171,7 +172,7 @@ export const getAllPosts = () => async dispatch =>{
 
     const { data } = await axios.get('/api/posts');
     dispatch({ type: ALL_POSTS, payload: data })
-    console.log("DATA", data)
+    // console.log("DATA", data)
     
   } catch (err) {
 
@@ -226,3 +227,26 @@ export const getPostFromId = (id) => async dispatch => {
   }
 }
 
+
+// delete post
+
+export const deletePostById = (id) => async dispatch => {
+  if(localStorage.token) {
+    setAuthToken(localStorage.token);
+  } 
+
+
+  try {
+    console.log("hello world")
+    const { data } = await axios.delete(`/api/posts/${id}` )
+    
+    // .then(x => console.log(x))
+
+    // dispatch({
+    //   type: DELETE_POST,
+    //   payload: data
+    // })
+  } catch (err) {
+    console.log(err)
+  }
+}
