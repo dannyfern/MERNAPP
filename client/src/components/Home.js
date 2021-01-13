@@ -1,10 +1,16 @@
 import React from 'react'
 import Posts from './posts/Posts'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 
 
-const Home = ({ posts }) => {
+const Home = ({ isAuthenticated, posts }) => {
+    if(isAuthenticated) {
+        return <Redirect to='/dashboard' />
+    }
+
     const props = {posts}
     console.log(posts)
 
@@ -43,6 +49,11 @@ const Home = ({ posts }) => {
     )
 }
 
+Home.propTypes = {
+    isAuthenticated:PropTypes.bool,
+}
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
 
-
-export default Home
+export default connect(mapStateToProps)(Home);
