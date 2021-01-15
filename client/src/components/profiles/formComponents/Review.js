@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
-import { getProfileFromId, updateProfile } from '../../../services/profileServices'
+// import { getProfileFromId, updateProfile } from '../../../services/profileServices'
 // import { useGlobalState } from '../../../config/store'
 import { addProfile, loadUserId } from './../../../config/api'
 
@@ -16,12 +16,12 @@ import store from './../../../store'
 // make DRY !!!!!!!
 // fix functionality for files and arrays
 
-const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation, nextIdProfile, profiles, form, match }) => {
+const Review = ({ detailsData, skillsData, workData, educationData, linkData, navigation,  profiles, form, match }) => {
   
  
 
   const profileId = match && match.params ? match.params.id : -1
-  const profile = getProfileFromId(profiles, profileId)
+  // const profile = getProfileFromId(profiles, profileId)
 
   let history = useHistory()
 
@@ -30,6 +30,7 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
   
 
   const { previous } = navigation;
+  console.log(detailsData)
 
   
 
@@ -41,9 +42,8 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
     e.preventDefault()
 
     const newProfile = {
-      _id: nextIdProfile,
+      // _id: nextIdProfile,
       // modified_date: new Date(),
-      // user: req.user.id,
       details: detailsData,
       skills: skillsData,
       currentroles: workData.currentroles,
@@ -88,7 +88,6 @@ const Review = ({ detailsData, skillsData, workData, educationData, linkData, na
   const updateProfile = (e) => {
     e.preventDefault()
     const updatedProfile = {
-      _id: nextIdProfile,
       modified_date: new Date(),
       detailsData: detailsData,
       skillsData: skillsData,

@@ -5,13 +5,14 @@ import 'react-dropdown/style.css';
 import FormInput from '../../reusable/FormInput'
 
 
-const Skills = ({ setSkills, skillsData, navigation, form, profile }) => {
+const Skills = ({ setSkills, skillsData, navigation, form, profile, detailsData }) => {
 
     useEffect(() => {
         if (form === "edit"){
             setSkills(profile.skillsData)
         }
     })
+    console.log(detailsData)
 
     
 

@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react'
-// import CheckBox from '../../reusable/CheckBox'
-// import interestsCheckBoxes from './../../../config/interestsCheckBoxes'
 import FormInput from '../../reusable/FormInput'
 
+// import Checkbox from '@material-ui/core/Checkbox';
+import { STATES } from 'mongoose';
+
+
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 
-// checkboxes are broken >:(
+import { makeStyles } from '@material-ui/core/styles';
 
-// have image shown on screen when uploaded - maybe look into components (antd)
-// move checkbox data to data file (once merged)
+
+
+// checkboxes are broken >:(
+    // checkboxes now work but the onchange event is slow by one click
+
+
 
 const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
     
@@ -25,49 +36,113 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
         }
     }) 
 
-    
 
     
 
-    const interests = [
-        {id: 1, value: "Front End", isChecked: false},
-        {id: 2, value: "Back End", isChecked: false},
-        {id: 3, value: "Full Stack", isChecked: false},
-        {id: 4, value: "AI", isChecked: false},
-        {id: 5, value: "Mobile Development", isChecked: false},
-        {id: 6, value: "Software Development", isChecked: false},
-        {id: 7, value: "Data Science", isChecked: false},
-        {id: 8, value: "Cyber Security", isChecked: false},
-        {id: 9, value: "DevOps", isChecked: false},
-        {id: 10, value: "Game Development", isChecked: false}
-    ]
+    
 
-    // const [checked, setChecked] = useState(interests)
+    // const interests = [
+    //     {"Front End": false},
+    //     {"Back End": false},
+    //     {"Full Stack": false},
+    //     {"AI": false},
+    //     {"Mobile Development": false},
+    //     {"Software Development": false},
+    //     {"Data Science": false},
+    //     {"Cyber Security": false},
+    //     {"DevOps": false},
+    //     {"Game Development": false}
+    // ]
+    const interests = {
+        frontEnd: false,
+        backEnd: false,
+        fullStack: false,
+        aI: false,
+        mobileDevelopment: false,
+        softwareDevelopment: false,
+        dataScience: false,
+        cyberSecurity: false,
+        devOps: false,
+        gameDevelopment: false
+    }
+
+
+
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          display: 'flex',
+        },
+        formControl: {
+          margin: theme.spacing(3),
+        },
+    }));
+
+    const classes = useStyles();
+
+    // const interests = [
+    //     {frontEnd: false, label: "Front End"},
+    //     {backEnd: false, label: "Back End"},
+    //     {fullStack: false, label: "Full Stack"},
+    //     {aI: false, label: "AI"},
+    //     {mobileDevelopment: false, label: "Mobile Development"},
+    //     {softwareDevelopment: false, label: "Software Development"},
+    //     {dataScience: false, label: "Data Science"},
+    //     {cyberSecurity: false, label: "Cyber Security"},
+    //     {devOps: false, label: "DevOps"},
+    //     {gameDevelopment: false, label: "Game Development"}
+    // ]
+
+
+
+    // const interests = [
+    //     {frontEnd: {checked: false, label: "Front End"}},
+    //     {backEnd: {checked: false, label: "Back End"}},
+    //     {fullStack: {checked:false, label: "Full Stack"}},
+    //     {aI: {checked: false, label: "AI"}},
+    //     {mobileDevelopment: {checked: false, label: "Mobile Development"}},
+    //     {softwareDevelopment: {checked: false, label: "Software Development"}},
+    //     {dataScience: {checked: false, label: "Data Science"}},
+    //     {cyberSecurity: {checked: false, label: "Cyber Security"}},
+    //     {devOps: {checked: false, label: "DevOps"}},
+    //     {gameDevelopment: {checked: false, label: "Game Development"}}
+    // ]
+
+    const [checkedBox, setChecked] = useState(interests)
+
+    const { frontEnd, backEnd, fullStack, aI, mobileDevelopment, softwareDevelopment, dataScience, cyberSecurity, devOps, gameDevelopment } = checkedBox;
+    
 
 
 
     function handleCheckboxChange (e) {
-        // console.log(e.target.checked)
-        // const checkbox = ""
-        
-        // checked.forEach(item => {
-        //     if (item.value === e.target.value){
-        //         console.log(item)
-        //         setChecked({
-        //             ...checked,
-                    
-        //         })
 
-        //         item.isChecked = e.target.checked
-                
-        //     }
-            
-        // })
-        // // setChecked(
-        // //     ...checked
-        // // )
-        // console.log(checked)
+        const { name, checked } = e.target
+        console.log(name, checked)
 
+
+        setChecked({
+            ...checkedBox,
+            [name]: checked
+        })
+        console.log(checkedBox)
+        // console.log(checkedBox)
+        const entries = Object.entries(checkedBox)
+        // console.log(entries)
+
+        const filteredInterests = entries.filter(x => x[1] === true)
+        // console.log(filteredInterests)
+        // const interestData = []
+        // interestData.push(filteredInterests[0])
+        // console.log(filteredInterests)
+        const spliced = filteredInterests.map((x) => {
+            return x.splice(0, 1).toString()
+        })
+        // console.log(spliced)
+        setDetails({
+            ...detailsData,
+            interests: spliced
+        })
 
 
     }
@@ -82,7 +157,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
             ...detailsData,
             [name]: value
         })
-        console.log(detailsData)
+        
     }
 
     // function for image upload :
@@ -149,14 +224,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                                 <FormInput name="name" value={name} onChange={handleChange} />  
                             </div>
 
-                            
-                            {/* <div className="formFields">
-                                <label>
-                                    Last Name
-                                </label>
-                
-                                <FormInput name="lastName" value={lastName} onChange={handleChange} />
-                            </div> */}
+                        
 
                         </div>
                         
@@ -182,13 +250,7 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
 
                         
                         <div className="doubleFields">
-                            {/* <div className="formFields">
-
-                                <label>
-                                    Phone Number
-                                </label>
-                                <FormInput name="phoneNumber" value={phoneNumber} onChange={handleChange} />
-                            </div> */}
+                            
 
                             <div className="birthdayFields formFields">
                                 <label>Date of Birth</label>
@@ -199,13 +261,64 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                         </div>
 
 
-                        {/* <div className="interestsSection">
+                        <div className="interestsSection">
                             <h4>Interests</h4>
                             <div className="interestsCheckBoxes">
 
+                            <FormControl component="fieldset" className={classes.formControl}>
+                                <FormGroup>
+                                    <FormControlLabel
+                                        control={<Checkbox checked={frontEnd} onChange={handleCheckboxChange} name="frontEnd" />}
+                                        label="Front End"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={backEnd} onChange={handleCheckboxChange} name="backEnd" />}
+                                        label="Back End"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={fullStack} onChange={handleCheckboxChange} name="fullStack" />}
+                                        label="Full Stack"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={aI} onChange={handleCheckboxChange} name="aI" />}
+                                        label="AI"
+                                    />
+                                
+                                    <FormControlLabel
+                                        control={<Checkbox checked={mobileDevelopment} onChange={handleCheckboxChange} name="mobileDevelopment" />}
+                                        label="Mobile Development"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={softwareDevelopment} onChange={handleCheckboxChange} name="softwareDevelopment" />}
+                                        label="Software Development"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={dataScience} onChange={handleCheckboxChange} name="dataScience" />}
+                                        label="Data Science"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={cyberSecurity} onChange={handleCheckboxChange} name="cyberSecurity" />}
+                                        label="Cyber Security"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={devOps} onChange={handleCheckboxChange} name="devOps" />}
+                                        label="DevOps"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={gameDevelopment} onChange={handleCheckboxChange} name="gameDevelopment" />}
+                                        label="Game Development"
+                                    />
+
+                                                
+                                            
+                                       
+                                    
+                                </FormGroup>
+                            </FormControl>
+
                             
-                            { // map over checkbox items from checkbox data file :
-                                checked.map((item, index) => {
+                            {/* { // map over checkbox items from checkbox data file :
+                                interests.map((item, index) => {
                                     // const { value, isChecked, id } = item
                                     // let isChecked = checkedItems[name]
                                     // console.log('isChecked', isChecked)
@@ -222,12 +335,13 @@ const Details = ({ setDetails, detailsData, navigation, form, profile }) => {
                                         </div>
                                     )   
                                 })
-                            }
+                            } */}
+
                             
                                
 
                             </div>
-                        </div> */}
+                        </div>
 
                             <div className="formFields desc">
                                 <label id="authorLabel">

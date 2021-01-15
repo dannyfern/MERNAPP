@@ -1,31 +1,19 @@
-
 import React, { Fragment, useEffect, useState } from 'react'
 import {Router, Route, Switch} from 'react-router-dom'
-// import stateReducer from './config/stateReducer'
-// import { StateContext } from './config/store'
-// import blogData from './data/post_data'
-import profileData from './data/profile_data'
 import axios from 'axios'
-
 import history from "./history";
-
 import Alert from './components/reusable/Alert'
 
 // Redux
-
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './store';
 import { loadUser, getAllPosts, getPostFromId } from './config/api';
 import  setAuthToken  from './utils/setAuthToken';
 
-import { getAllUserProfiles } from './services/profileServices'
-
-
 
 // components :
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Oopsie from './components/Oopsie'
 import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/privateroutes/PrivateRoute'
 
@@ -49,24 +37,14 @@ import './styles/Profile.css'
 import './styles/Desktop.css'
 import './styles/Posts.css'
 import './styles/Tablet.css'
-// import { getAllBlogPosts, getPostFromId } from './services/blogPostServices'
-
-
-
-// if(localStorage.token) {
-//     setAuthToken(localStorage.token);
-//   }; 
 
 
 const App = () => { 
 
-    // const [posts, setPosts] = useState([])
     const [profiles, setProfiles] = useState([])
 
     const dispatch = useDispatch()
     const blogPosts = useSelector((state) =>  state.postReducer)
-
-
 
     
     // get blog posts
@@ -81,23 +59,6 @@ const App = () => {
     }, [dispatch])
     
 
-
-
-    
-
-
-    
-    // next id for blog posts
-    const nextId = () => {
-        return blogPosts.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
-    }
-    const nextIdProfile = () => {
-        return profiles.reduce((acc, cur) => acc._id > cur._id ? acc : cur, {_id: 0})._id + 1
-    }
-// http://localhost:3000/posts/5ffe6efcc2b57a65c12ee9ff
-// http://localhost:3000/posts/5ffe6efcc2b57a65c12ee9ff
-
-// http://localhost:3000/posts/5ffe6f6c322be266096dc10d
 
 
     return (
@@ -116,13 +77,13 @@ const App = () => {
 
 
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
-                        <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} nextIdProfile={nextIdProfile()} profiles={profiles} />} />
+                        <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} profiles={profiles} />} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props}   />} />
 
                         <Route exact path="/profiles/:id" render={(props) => <Profile {...props} />} />
                         
                         
-                        <Route exact path="/posts/new" render={(props) => <AddPost {...props} nextId={nextId()} />} />
+                        <Route exact path="/posts/new" render={(props) => <AddPost {...props}/>} />
                         <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
                         <Route exact path="/posts/:id" render={(props) => <Post {...props} />} />
                         

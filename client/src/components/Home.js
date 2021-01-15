@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const Home = ({ posts }) => {
     const props = {posts}
-    console.log(posts)
+    // console.log(posts)
 
 
     return (
