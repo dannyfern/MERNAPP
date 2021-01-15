@@ -23,6 +23,7 @@
     "mongoose": "^5.11.8",
     "mongoose-unique-validator": "^2.0.3",
     "react-bootstrap": "^1.4.3",
+    "react-spinners": "^0.10.4",
     "request": "^2.88.2"
   },
   "devDependencies": {

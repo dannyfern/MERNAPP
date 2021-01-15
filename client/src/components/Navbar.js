@@ -68,7 +68,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     </button>
                 </div>
                 <div id="navLinks" className={className}> 
-                    { loading && (
+                    { !loading && (
                     <Fragment>
                         { isAuthenticated ? authLinks : guestLinks} 
                     </Fragment>)}

@@ -16,8 +16,12 @@ import {
   ALL_POSTS,
   POST_ERROR,
   CREATE_POST,
+
+  CLEAR_PROFILE,
+
   CURRENT_POST,
   DELETE_POST
+
 
 } from '../actions/constants'
 
@@ -123,7 +127,9 @@ export const login = ( email, password ) => async dispatch => {
 // logout user 
 
 export const logout = () => dispatch => {
+  dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  
 };
 
 
