@@ -19,22 +19,12 @@ const Posts = ({ posts }) => {
     }
 
     const [filterData, setFilterData] = useState(filters)
-    // const blogPosts = useSelector(state => state.postReducer)
-    // console.log(blogPosts)
-
-
-
-    
-
-
-
 
 
     function displayPosts(post) {
         const { title, category, user, likes } = post
         
-
-        console.log(post)
+        // console.log(post)
         return (
             <div className="postCard">
                 <Link to={`/posts/${post._id}`} className="titleLink">
@@ -67,6 +57,7 @@ const Posts = ({ posts }) => {
     const sortOptions = (a, b, sortBy) => {
         switch (sortBy){
             case "Newest":
+                // console.log(a.modified_date, b.modified_date)
                 return (b.modified_date - a.modified_date)
                 
             case "Oldest":
@@ -93,7 +84,7 @@ const Posts = ({ posts }) => {
                 if (category === "All"){
                     return x
                 } else {
-                    return x.category === category
+                    return x.category[0] === category
                 }
                
             }
@@ -110,8 +101,8 @@ const Posts = ({ posts }) => {
     
 
     function openFilters () {
-        const filterBtn = document.querySelector('.filterText')
-        console.log(filterBtn)
+        const filterBtn = document.querySelector('.filters')
+
 
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
