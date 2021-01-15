@@ -1,7 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { deletePostById, getPostFromId } from '../../config/api'
 
-const Post = ({ history, post }) => {
+
+const Post = ({ history, match }) => {
+    // console.log('POST ', post)
+
+    // const [post, setPost] = useState({})
+
+    const dispatch = useDispatch()
+    // dispatch(getPostFromId(match.params.id))
+
+    const posts = useSelector(state => state.postReducer)
+    // console.log(posts)
+
+    let post = posts.filter(x => x._id === match.params.id)
+
+    post = post[0]
+    // setPost(selectedPost)
+
+
+
+
+
+
+    
+
 
 
     const handleLikes = () => {
@@ -9,12 +34,20 @@ const Post = ({ history, post }) => {
         
     }
 
+    const deletePost = (e) => {
+        e.preventDefault()
+        dispatch(deletePostById(match.params.id))
+        history.push('/')
+    }
+
+
 
     if (!post) {
         return null
     } else {
         const { title, category, text, likes, user } = post
         // console.log("POST", post)
+        // console.log(match.params.id)
         
         return (
             <div>
@@ -40,7 +73,12 @@ const Post = ({ history, post }) => {
                                 <p onClick={handleLikes} className="upvoteButton">++ {likes && likes.length}</p>
                             
                             </div>
+                            {
+                                user === localStorage.userId && 
+                                <button onClick={deletePost} >Delete post</button>
+                            }
                         </div>
+                        
                         
                     </div>
                     

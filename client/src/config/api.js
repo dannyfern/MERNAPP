@@ -16,8 +16,16 @@ import {
   ALL_POSTS,
   POST_ERROR,
   CREATE_POST,
+
   CLEAR_PROFILE,
+
+  CURRENT_POST,
+  DELETE_POST
+
+
 } from '../actions/constants'
+
+import history from "./../history";
 
 // to connect to deployed server
 
@@ -71,6 +79,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     });
 
     dispatch(loadUser());
+    // history.push('/dashboard')
   } catch (err) {
     const errors = err.response.data.errors;
     
@@ -172,7 +181,7 @@ export const getAllPosts = () => async dispatch =>{
 
     const { data } = await axios.get('/api/posts');
     dispatch({ type: ALL_POSTS, payload: data })
-    console.log("DATA", data)
+    // console.log("DATA", data)
     
   } catch (err) {
 
@@ -190,21 +199,72 @@ export const getAllPosts = () => async dispatch =>{
 //  create post
 
 export const createPost = (post) => async dispatch => {
-  
+  if(localStorage.token) {
+    setAuthToken(localStorage.token);
+  } 
 
 
   try {
-    const { data } = await axios.post('/api/posts', post)
-    .then(x => console.log("the data", x))
+    const res = await axios.post('/api/posts', post)
+    // .then(x => console.log("the data", x.data))
+    // .then(x => history.push(`/posts/${x.data._id}`))
+
+    console.log(res)
 
     dispatch({
       type: CREATE_POST,
-      payload: data
+      payload: res.data
     })
 
+    history.push(`/posts/${res.data._id}`)
+    // let url = `/posts/${res.data._id}`
+    
 
-  } catch  (error) {
+
+  } catch (error) {
     console.log(error)
   }
 }
 
+// get post by id
+
+export const getPostFromId = (id) => async dispatch => {
+
+  try {
+    const { data } = await axios.get(`/api/posts/${id}`)
+    // console.log("correct: ", data)
+
+    dispatch({
+      type: CURRENT_POST,
+      payload: data
+    })
+
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
+// delete post
+
+export const deletePostById = (id) => async dispatch => {
+  if(localStorage.token) {
+    setAuthToken(localStorage.token);
+  } 
+
+
+  try {
+    console.log("hello world")
+    const { data } = await axios.delete(`/api/posts/${id}` )
+    
+    // .then(x => console.log(x))
+
+    // dispatch({
+    //   type: DELETE_POST,
+    //   payload: data
+    // })
+  } catch (err) {
+    console.log(err)
+  }
+}

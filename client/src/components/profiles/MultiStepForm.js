@@ -158,7 +158,7 @@ const MultiStepForm = ({ form, profile, nextIdProfile, addProfile, profiles }) =
         case "details":
             return <Details {...props} form={form} profile={profile} />
         case "skills":
-            return <Skills {...props} form={form} profile={profile} />
+            return <Skills {...props} form={form} profile={profile} detailsData={detailsData}/>
         case "work":
             return <Work {...props} form={form} profile={profile} />
         case "education":

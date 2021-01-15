@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import './../../styles/Posts.css'
 import FormInput from './../reusable/FormInput'
 import Posts from './Posts'
-import { useDispatch } from 'react-redux'
-import { createPost } from './../../config/api'
+import { useDispatch, useSelector } from 'react-redux'
+import { createPost, getAllPosts } from './../../config/api'
+import { Redirect } from 'react-router-dom'
 
 
 
-const AddPost = ({ history, nextId, addPost}) => {
+const AddPost = ({ history, nextId, addPost, match }) => {
     // const [posts, setTwoots] = useState([])
     const dispatch = useDispatch()
+    const posts = useSelector(state => state.postReducer)
+    
     
 
     const initialFormState = {
@@ -33,18 +36,30 @@ const AddPost = ({ history, nextId, addPost}) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        const newPost = {
-            _id: nextId,
+        let newPost = {
+            // _id: nextId,
             title: formState.title,
             category: formState.category || "general",
             modified_date: new Date(),
             text: formState.text
         }
 
+        
+        console.log("BEFORE DISPATCH: ", newPost._id)
         dispatch(createPost(newPost))
+        // let selectedPost = posts.filter(x => x._id === newPost._id)
+        // selectedPost = selectedPost[0]
+        // console.log(selectedPost)
         
         // addPost(newPost)
+        
+        
+
         history.push(`/posts/${nextId}`)
+        // console.log(nextId)
+        // console.log(newPost._id)
+        // console.log(match.params)
+        // dispatch(getAllPosts())
     }
     console.log(formState)
 

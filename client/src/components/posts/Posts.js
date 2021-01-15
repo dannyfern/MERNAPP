@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
-import { getAllBlogPosts } from './../../services/blogPostServices'
+// import { getAllBlogPosts } from './../../services/blogPostServices'
 import './../../styles/Posts.css'
+import { useSelector } from 'react-redux'
+
 
 
 const Posts = ({ posts }) => {
@@ -17,6 +19,9 @@ const Posts = ({ posts }) => {
     }
 
     const [filterData, setFilterData] = useState(filters)
+    // const blogPosts = useSelector(state => state.postReducer)
+    // console.log(blogPosts)
+
 
 
     
@@ -27,6 +32,8 @@ const Posts = ({ posts }) => {
 
     function displayPosts(post) {
         const { title, category, user, likes } = post
+        
+
         console.log(post)
         return (
             <div className="postCard">
@@ -104,6 +111,7 @@ const Posts = ({ posts }) => {
 
     function openFilters () {
         const filterBtn = document.querySelector('.filterText')
+        console.log(filterBtn)
 
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")

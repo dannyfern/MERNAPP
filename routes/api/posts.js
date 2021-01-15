@@ -31,6 +31,7 @@ async (req, res) => {
         const user = await (await User.findById(req.user.id)).isSelected('-password');
 
         const newPost = new Post ({
+            modified_date: new Date(),
             text: req.body.text,
             title: req.body.title,
             category: req.body.category,
