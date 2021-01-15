@@ -21,6 +21,7 @@ import Post from './components/posts/Post'
 import AddPost from './components/posts/AddPost'
 import EditPost from './components/posts/EditPost'
 
+import BaseProfile from './components/profiles/BaseProfile'
 import Profile from './components/profiles/Profile'
 import Profiles from './components/profiles/Profiles'
 import AddProfile from './components/profiles/AddProfile'
@@ -74,6 +75,8 @@ const App = () => {
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
                         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                        <PrivateRoute exact path="/createprofile" component={BaseProfile} />
+                        <PrivateRoute exact path="/editprofile" component={EditProfile} />
 
 
                         <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />

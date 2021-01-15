@@ -5,9 +5,6 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    details: {
-
-    
         name:{
             type: String,
             required: true,
@@ -19,44 +16,43 @@ const ProfileSchema = new mongoose.Schema({
         },
         
         dateofbirth: {
-            type: Date, default: Date.now,
-            required: true
+        type: Date, default: Date.now,
+        required: false
         },
 
         location: {
-            type: String,
-            required: true
+        type: String,
+        required: true
         },
 
         bio: {
-            type: String,
-            required: true
+        type: String,
+        required: true
         },
 
         blogpostdescription: {
-            type: String,
-            required: true
+        type: String,
+        required: true
         },
 
         interests: {
-            type: [String],
-            required: false
-        }
-    },
+        type: [String],
+        required: true
+        },
 //-------------------------------------------------------
     skills: [
     {  
         languages:{
             type: Array,
-            required: true,
+            required: false
         }, 
         experiencelevel: {
             type: String,
-            required: true
+            required: false
         },
         yearsofexperience: {
             type: String,
-            required: true
+            required: false
         }
     }],
 //---------------------------------------------------------
@@ -141,7 +137,7 @@ pastroles: [
     // }
     // }],
 //-------------------------------------------------------------
-    socials: [
+    social: 
         {
         linkedin: { 
             type:String,
@@ -155,11 +151,11 @@ pastroles: [
             type: String,
             required: false,
         },
-        facebook: {
+        github: {
             type: String,
             required: false,
         },
-    }],
+    },
 //-------------------------------------------------------------
     portfolio: [
         {

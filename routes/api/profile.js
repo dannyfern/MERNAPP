@@ -25,15 +25,14 @@ router.get('/me', auth, async (req, res) => {
 });
 
 router.post('/', [auth, 
-    [check('userprofile', 'Profile form is required for signup')
-        .notEmpty(),
-    check('skills', 'Please provide your skillset on the signup to be successfully registered')
-        .notEmpty(),
-    ]
+    // [check('userprofile', 'Profile form is required for signup')
+    //     .notEmpty(),
+    // check('skills', 'Please provide your skillset on the signup to be successfully registered')
+    //     .notEmpty(),
+    // ]
 ],
     async function (req, res) {
         const errors = validationResult(req);
-        console.log('req: ', req)
         if(!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
@@ -48,11 +47,15 @@ router.post('/', [auth,
             languages,
             experiencelevel,
             yearsofexperience,
+            linkedin,
+            instagram,
+            twitter,
+            github,
         } = req.body;
 
         // Requiring profile fields so that they can be initialized ------------------------
         const profileFields = {};
-        profileFields.user = req.user;
+        profileFields.user = req.user.id;
         if(name) profileFields.name = name;
         if(username) profileFields.username = username;
         if(dateofbirth) profileFields.dateofbirth = dateofbirth;
@@ -60,9 +63,9 @@ router.post('/', [auth,
         if(bio) profileFields.bio = bio;
         if(blogpostdescription) profileFields.blogpostdescription = blogpostdescription;
         if(interests) profileFields.interests = interests;
-        if(interests) {
-            profileFields.interests = interests.split(',').map(interests => interests.trim());
-        };
+        // if(interests) {
+        //     profileFields.interests = interests.split(',').map(interests => interests.trim());
+        // };
         // Skills fields to be initialized ---------------------------------------------
         profileFields.skills = {};
         if(languages) profileFields.skills.languages = languages;
@@ -71,6 +74,13 @@ router.post('/', [auth,
         if(languages) {
             profileFields.languages = languages.split(',').map(languages => languages.trim());
         };
+
+        //Social fields to be initialized ------------------------------------
+        profileFields.social = {};
+        if(linkedin) profileFields.social.linkedin = linkedin;
+        if(twitter) profileFields.social.twitter = twitter;
+        if(github) profileFields.social.github = github;
+        if(instagram) profileFields.social.instagram = instagram;
 
         // FIND THE PROFILE BU USER ID AND UPDATE IT BASED ON USER INPUT ----------------
         try {
@@ -93,7 +103,7 @@ router.post('/', [auth,
             res.json(profile);
             
             } catch(err) {
-            console.error(err);
+            console.error(err.message);
             res.status(500).send('Error from Server');
             }
     }
@@ -281,65 +291,65 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 });
 
 // ---------------------- SOCIALS ROUTE --------------------------------------
-router.put('/socials', 
-    [auth, 
-    [
-        check('linkedin', 'linkedin is a required field')
-        .not().isEmpty(),
-    ] 
-],
-async (req, res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-    }
+// router.put('/socials', 
+//     [auth, 
+//     [
+//         check('linkedin', 'linkedin is a required field')
+//         .not().isEmpty(),
+//     ] 
+// ],
+// async (req, res) => {
+//     const errors = validationResult(req);
+//     if(!errors.isEmpty()) {
+//         return res.status(400).json({ errors: errors.array() });
+//     }
 
-const {
-    linkedin,
-    twitter,
-    instagram,
-    facebook,
-} = req.body;
+// const {
+//     linkedin,
+//     twitter,
+//     instagram,
+//     facebook,
+// } = req.body;
 
-const newSoc = {
-    linkedin,
-    twitter,
-    instagram,
-    facebook,
-};
+// const newSoc = {
+//     linkedin,
+//     twitter,
+//     instagram,
+//     facebook,
+// };
 
-try {
-    const profile = await Profile.findOne({ user: req.user.id });
+// try {
+//     const profile = await Profile.findOne({ user: req.user.id });
 
-    profile.socials.unshift(newSoc);
+//     profile.socials.unshift(newSoc);
 
-    await profile.save();
+//     await profile.save();
 
-    res.json(profile);
-} catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-}
-});
+//     res.json(profile);
+// } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+// }
+// });
 
-router.delete('/socials/:soc_id', auth, async (req, res) => {
-    try {
-        const profile = await Profile.findOne({ user: req.user.id });
+// router.delete('/socials/:soc_id', auth, async (req, res) => {
+//     try {
+//         const profile = await Profile.findOne({ user: req.user.id });
 
-        const removeSoc = profile.socials
-        .map(item => item.id)
-        .indexOf(req.params.soc_id);
+//         const removeSoc = profile.socials
+//         .map(item => item.id)
+//         .indexOf(req.params.soc_id);
 
-        profile.socials.splice(removeSoc, 1);
+//         profile.socials.splice(removeSoc, 1);
         
-        await profile.save();
+//         await profile.save();
 
-        res.json(profile);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
-    }
-});
+//         res.json(profile);
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('Server error');
+//     }
+// });
 
 // ------------------------- GET GITHUB PROFILE FROM URI ----------------------------
 
