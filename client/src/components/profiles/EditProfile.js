@@ -1,38 +1,230 @@
-import React, { useState, useEffect } from 'react'
-import FormInput from './../reusable/FormInput'
-import MultiStepForm from './MultiStepForm'
+import React, { Fragment, useState, useEffect } from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { createProfile, currentProfile } from '../../actions/profile'
 
+const EditProfile = ({ profile: { profile, loading },
+    createProfile, currentProfile, history }) => {
+    const [formData, setFormData] = useState ({
+        name:'',
+        username:'',
+        dateofbirth:'',
+        location:'',
+        bio:'',
+        blogpostdescription:'',
+        interests:'',
+        website:'',
+        languages:'',
+        experiencelevel:'',
+        yearsofexperience:'',
+        jobtitle:'',
+        business:'',
+        linkedin:'',
+        instagram:'',
+        twitter:'',
+        github:'',
+    });
 
-const EditProfile = ({ profile,  }) => {
-    console.log(profile)
+    useEffect(() =>{
+        currentProfile();
 
-   
-
-    // const [formState,setFormState] = useState(initialFormState)
-    const [errorMessage, setErrorMessage] = useState(null)
-
+        setFormData({
+        name: loading || !profile.name ? '' : profile.name,
+        username: loading || !profile.username ? '' : profile.username,
+        dateofbirth: loading || !profile.dateofbirth ? '' : profile.dateofbirth,
+        location: loading || !profile.location ? '' : profile.location,
+        bio: loading || !profile.bio ? '' : profile.bio,
+        blogpostdescription: loading || !profile.blogpostdescription ? '' : profile.blogpostdescription,
+        interests: loading || !profile.interests ? '' : profile.interests,
+        website: loading || !profile.website ? '' : profile.website,
+        languages: loading || !profile.languages ? '' : profile.languages,
+        experiencelevel: loading || !profile.experiencelevel ? '' : profile.experiencelevel,
+        yearsofexperience: loading || !profile.yearsofexperience ? '' : profile.yearsofexperience,
+        jobtitle: loading || !profile.jobtitle ? '' : profile.jobtitle,
+        business: loading || !profile.business ? '' : profile.business,
+        linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+        instagram: loading || !profile.social ? '' : profile.social.instagram,
+        twitter: loading || !profile.social ? '' : profile.social.twitter,
+        github: loading || !profile.social ? '' : profile.social.github,
+        });
+    }, [loading]);
     
+    const {
+        name,
+        username,
+        dateofbirth,
+        location,
+        bio,
+        blogpostdescription,
+        interests,
+        languages,
+        website,
+        experiencelevel,
+        yearsofexperience,
+        jobtitle,
+        business,
+        linkedin,
+        instagram,
+        twitter,
+        github
+    } = formData;
+    
+    const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const onSubmit = e => {
+    e.preventDefault();
+    createProfile(formData, history, true);
+  };
 
-    }
+    return (
+    <Fragment>
+        <div id="profile">
+        <h1 className="header">
+        Dot Developer Profile
+        </h1>
+      <p className="lead">
+        <i className="fas fa-user"></i> Let's get some information to make you stand out
+      </p>
+      <small>* = required field</small>
+      <form className="form" onSubmit={e => onSubmit(e)}>
+      <div className="form-group">
+          <input type="text" placeholder="Name" name="name" 
+          value={name} onChange={e => onChange(e)}/>
+      </div>
+      <div className="form-group">
+          <input type="text" placeholder="Username" name="username" 
+          value={username} onChange={e => onChange(e)}/>
+      </div>
 
-    const handleChange = (e) => {
+      
+      <div className="form-group">
+      <small>Date of Birth</small>
+          <input type="date" placeholder="Date of Birth" name="dateofbirth" 
+          value={dateofbirth} onChange={e => onChange(e)}/>
+      </div>
 
-    }
+      
+        <div className="form-group">
+          <select name="experiencelevel" value={experiencelevel} onChange={e => onChange(e)}>
+            <option value="0">* Current Developer Status</option>
+            <option value="Developer">Developer</option>
+            <option value="Junior Developer">Junior Developer</option>
+            <option value="Senior Developer">Senior Developer</option>
+            <option value="Manager">Manager</option>
+            <option value="Student or Learning">Student or Learning</option>
+            <option value="Instructor">Instructor or Teacher</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <select name="yearsofexperience" value={yearsofexperience} onChange={e => onChange(e)}>
+            <option value="0">* Years of Experience </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 + </option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <input type="text" placeholder="Business (Currently Working At)" 
+          name="business" value={business} onChange={e => onChange(e)}/> 
+        </div>
+
+        <div className="form-group">
+          <select name="jobtitle" value={jobtitle} onChange={e => onChange(e)}>
+            <option value="0"> Jobtitle </option>
+            <option value="Web Developer">Web Developers</option>
+            <option value="Web Designer">Web Designer</option>
+            <option value="Game Developer">Game Developer</option>
+            <option value="UI/UX Designer">UI / UX Designer</option>
+            <option value="Dev Ops">Dev Ops </option>
+            <option value="SEO">SEO Specialist</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <input type="text" placeholder="Website ( If Applicable )" name="website" 
+          value={website} onChange={e => onChange(e)}/>
+        </div>
+
+        <div className="form-group">
+          <input type="text" placeholder="Location (City and State)" name="location" 
+          value={location} onChange={e => onChange(e)} />
+        </div>
+
+        <div className="form-group">
+          <input type="text" placeholder="Bio ( A little about yourself)" name="bio"
+          value={bio} onChange={e => onChange(e)} />
+        </div>
+
+        <div className="form-group">
+          <input type="text" placeholder="Interests" name="interests" 
+          value={interests} onChange={e => onChange(e)}/>
+        </div>
 
 
+        <div className="form-group">
+          <input type="text" placeholder="* Programming languages (Seperate by Comma)" name="languages"
+          value={languages} onChange={e => onChange(e)} />
+        </div>
 
-    return(
-        <div>
-            <form id="editPostForm" onSubmit={handleSubmit}>
-            {errorMessage && <p>{errorMessage}</p>}
-           <MultiStepForm form="edit" profile={profile} />
+        <div className="form-group">
+          <input type="text" placeholder="Short Blog Post Description !!" name="blogpostdescription"
+          value={blogpostdescription} onChange={e => onChange(e)} />
+        </div>
+
+
+        <div className="break">
+          <h1> Add Social Network Links </h1>
+        </div>
+
+        
+        <div className="form-group social-input">
+          <i className="fab fa-github fa-2x"></i>
+          <input type="text" placeholder="Github URL" name="github"
+          value={github} onChange={e => onChange(e)}/>
+        </div>
+
+        <div className="form-group social-input">
+          <i className="fab fa-twitter fa-2x"></i>
+          <input type="text" placeholder="Twitter URL" name="twitter" 
+          value={twitter} onChange={e => onChange(e)}/>
+        </div>
+
+        <div className="form-group social-input">
+          <i className="fab fa-linkedin fa-2x"></i>
+          <input type="text" placeholder="Linkedin URL" name="linkedin" 
+          value={linkedin} onChange={e => onChange(e)}/>
+          
+        </div>
+
+        <div className="form-group social-input">
+          <i className="fab fa-instagram fa-2x"></i>
+          <input type="text" placeholder="Instagram URL" name="instagram" 
+          value={instagram} onChange={e => onChange(e)}/>
+        </div>
+
+        <input type="submit" className="btn btn-primary my-1" />
+        <Link className="btn btn-light my-1" href="dashboard.html">Go Back</Link>
         </form>
         </div>
-    )
+    </Fragment>
+    );
+};
+
+EditProfile.propTypes = {
+    createProfile: PropTypes.func.isRequired,
+    currentProfile: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
 }
 
+const mapStateToProps = state => ({
+    profile: state.profile
+});
 
-export default EditProfile 
+export default connect(mapStateToProps, { createProfile, currentProfile })(withRouter(EditProfile));

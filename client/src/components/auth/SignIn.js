@@ -30,8 +30,12 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
     <Fragment>
+      <section className="signin">
+      <h1 className="header">
+        Dot Developer
+      </h1>
     <div className="register">
-        <h1 className="large text-primary">Sign In</h1>
+        <h1 className="large text">Sign In</h1>
     </div>
     <p className="lead"><i className="fas fa-user"></i> Login To Your Account</p>
         <form className="form" onSubmit={c => onSubmit(c)}>
@@ -60,6 +64,7 @@ const Login = ({ login, isAuthenticated }) => {
                 Don't have an account? <Link to='/register'>Sign Up</Link>
              </p>
             </form>
+            </section>
         </Fragment>
     );
     };

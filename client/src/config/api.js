@@ -15,7 +15,8 @@ import {
   PROFILE_LOAD_ERROR,
   ALL_POSTS,
   POST_ERROR,
-  CREATE_POST
+  CREATE_POST,
+  CLEAR_PROFILE,
 } from '../actions/constants'
 
 // to connect to deployed server
@@ -117,7 +118,9 @@ export const login = ( email, password ) => async dispatch => {
 // logout user 
 
 export const logout = () => dispatch => {
+  dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  
 };
 
 
