@@ -75,6 +75,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     });
 
     dispatch(loadUser());
+    // history.push('/dashboard')
   } catch (err) {
     const errors = err.response.data.errors;
     

@@ -111,6 +111,7 @@ const Posts = ({ posts }) => {
 
     function openFilters () {
         const filterBtn = document.querySelector('.filterText')
+        console.log(filterBtn)
 
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
