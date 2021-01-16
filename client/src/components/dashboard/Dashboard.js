@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom'
 import { currentProfile } from '../../actions/profile'
 import { Spinner } from 'react-bootstrap'
 import DashActions from './DashAction'
-
+import DisplayProfile from './DisplayProfile'
 
 const Dashboard = ({ currentProfile, auth: { user }, profile: { profile, loading} }) => {
     useEffect(() => {
         currentProfile();
     }, []);
+    console.log(profile)
 
     return loading && profile === null ? <Spinner /> : 
     <Fragment>
@@ -21,11 +22,18 @@ const Dashboard = ({ currentProfile, auth: { user }, profile: { profile, loading
         <br></br>
         {profile !== null ? ( <Fragment> <DashActions /> </Fragment> ) : (
         <Fragment> You do not have a Profile setup, please create one!</Fragment>)}
-        <section className="profilebutton">
-          <Link to='/createprofile' className="btn btn-info">
-        <span class="glyphicon glyphicon-user">
-            </span>Create Profile</Link>
-        </section>
+        {profile !== null ? (null) : ( 
+            <section className="profilebutton">
+                <Link to='/createprofile' className="btn btn-info">
+                    <span class="glyphicon glyphicon-user">
+                </span>Create Profile</Link>
+            </section>
+        )}
+        {profile && 
+            <DisplayProfile profile={profile} />
+        }
+
+        
         </section>
     </Fragment>;
 }

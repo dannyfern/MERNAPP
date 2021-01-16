@@ -14,6 +14,20 @@
   font-weight: 200;
 }
 
+.backgroundImg {
+  background: url("../img/home.webp") no-repeat center center/cover;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+}
+
 .filterText {
   text-align: center;
   text-decoration: underline;
@@ -97,7 +111,6 @@
 
 .home {
   position: relative;
-  background: url("../img/home.webp") no-repeat center center/cover;
   height: 100vh;
 }
 
@@ -105,7 +118,7 @@
   color: #fff;
   height: 100%;
   width: 100%;
-  margin: auto;
+  margin: 30% auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -120,7 +133,9 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  padding: 26%;
+  padding: 10%;
+  width: 80vw;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .homelead {
@@ -240,8 +255,7 @@
 /* Forms */
 .form .form-group {
   margin: 1.2rem 0;
-  padding-left: 5%;
-  padding-right: 3%;
+  padding: 0 5%;
 }
 
 .form .form-text {

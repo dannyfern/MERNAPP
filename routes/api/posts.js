@@ -132,4 +132,33 @@ router.put('/like/:id', auth, async (req, res) => {
     }
 });
 
+// edit a post
+
+router.put('/edit/:id', auth, async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id);
+        if (!post)
+            res.status(404).send("data is not found");
+        else{
+            console.log('req', req)
+            // const user = await (await User.findById(req.user.id))
+            post.title = req.body.title
+            post.category = req.body.category
+            post.text = req.body.text
+            post.modified_date = new Date()
+            post.save()
+            .then(post => res.json('post updated!'))
+
+        }
+        
+        
+        // const 
+
+    } catch (err) {
+        console.log(err)
+        res.status(400).send("Update not possible");
+    }
+})
+
+
 module.exports = router;

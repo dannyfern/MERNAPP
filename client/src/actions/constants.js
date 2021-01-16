@@ -20,4 +20,5 @@ export const POST_ERROR ='POST_ERROR'
 export const CREATE_POST ='CREATE_POST'
 export const CURRENT_POST = 'CURRENT_POST'
 export const DELETE_POST = 'DELETE_POST'
+export const UPDATED_POST = 'UPDATED_POST'
 

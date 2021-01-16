@@ -69,6 +69,44 @@
     font-size: 1.5em;
     padding: 1% 0 1%;
   }
+  .home-inner {
+    margin: 5% auto;
+  }
+  .registerComponent {
+    padding: 5% 0;
+  }
+  .registerComponent .register {
+    margin-bottom: 3%;
+  }
+  .registerComponent .register .large {
+    font-size: 3rem;
+  }
+  .registerComponent .registerPage .register-form {
+    width: 50vw;
+    margin: 0 auto;
+  }
+  .registerComponent .registerPage .register-form .my-1 {
+    width: 30vw;
+  }
+  .my-1 {
+    padding: 2%;
+  }
+  .signin {
+    padding: 5% 0 !important;
+  }
+  .signin .header {
+    font-size: 3rem;
+  }
+  .signin .register .text {
+    font-size: 2rem !important;
+  }
+  .signin #signin-form {
+    width: 50vw;
+    margin: 0 auto;
+  }
+  .signin #signin-form .my-1 {
+    width: 30vw;
+  }
   .filters {
     width: 50vw !important;
   }

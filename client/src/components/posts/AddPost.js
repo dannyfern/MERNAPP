@@ -40,7 +40,7 @@ const AddPost = ({ history, nextId, addPost, match }) => {
             // _id: nextId,
             title: formState.title,
             category: formState.category || "general",
-            modified_date: new Date(),
+            // modified_date: new Date(),
             text: formState.text
         }
 

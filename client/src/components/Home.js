@@ -19,10 +19,16 @@ const Home = ({ isAuthenticated, posts }) => {
     <div>
         <section className='home'>
             <div className='dark-overlay'>
+                <div className="backgroundImg">
+
+                </div>
                 <div className='home-inner'>
-                    <h1 className='x-large'>Welcome </h1>
+                    <h1 className='x-large'>Welcome!</h1>
                     <p class="homelead">
-                    Giving Developers another life! Your one stop for everything developer
+                        Giving Developers another life! Your one stop for everything developer
+                    </p>
+                    <p>
+                        Sign up for a free account or log in to an existing account to get started
                     </p>
                     <div className="homebuttons">
                         <Link to='auth/Register' className='btn btn-primary'>Sign Up!</Link>
@@ -33,18 +39,7 @@ const Home = ({ isAuthenticated, posts }) => {
             </div>
         </section>
     
-        <div className="width70">
-            <div className="heading">
-
-                <h1 className="headingFont">Latest Posts</h1>
-
-            </div>
-            
-
-            <Posts {...props} />
-
-
-        </div>
+       
     </div>
     )
 }

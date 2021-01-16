@@ -40,6 +40,12 @@ const Post = ({ history, match }) => {
         history.push('/')
     }
 
+    const editPost = (e) => {
+        e.preventDefault()
+
+
+    }
+
 
 
     if (!post) {
@@ -76,6 +82,13 @@ const Post = ({ history, match }) => {
                             {
                                 user === localStorage.userId && 
                                 <button onClick={deletePost} >Delete post</button>
+                            }
+                            {
+                                user === localStorage.userId && 
+                                <Link to={`/posts/edit/${match.params.id}`}>
+                                    <button>Edit post</button>
+                                </Link>
+                                
                             }
                         </div>
                         

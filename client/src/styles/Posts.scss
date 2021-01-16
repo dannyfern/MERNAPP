@@ -16,12 +16,13 @@
 
 .filters{
     border: 1px solid $green;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 4%;
     display: none;
     flex-direction: column;
     width: 85vw;
     margin: 5% auto;
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 
     p{
@@ -100,17 +101,57 @@
 
 // posts
 
+.postsDiv{
+
+   
+    .postBgImage{
+        background: url('./../img/post-bg.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+        min-width: 1024px;
+            
+        /* Set up proportionate scaling */
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1000;
+    }
+
+
+    .postBgTransparent{
+        background-color: rgba(255, 255, 255, 0.3);
+        width: 80vw;
+        margin: 0 auto;
+
+        .postHeading{
+            text-align: center;
+            padding: 5% 0;
+            // color: ;
+            h4{
+                font-size: 3rem;
+            }
+            
+        }
+    }
+}
+
 .posts{
     display: flex;
     flex-direction: column;
 }
 .postCard{
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 4%;
     border: 1px solid $green;
     margin: 4% auto;
     width: 85vw;
-    border-radius: 3px;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
     .titleLink{
         text-decoration: none !important;
         .postTitle{

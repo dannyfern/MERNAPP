@@ -29,43 +29,43 @@ const Login = ({ login, isAuthenticated }) => {
         }
 
     return (
-    <Fragment>
-      <section className="signin">
-      <h1 className="header">
-        Dot Developer
-      </h1>
-    <div className="register">
-        <h1 className="large text">Sign In</h1>
-    </div>
-    <p className="lead"><i className="fas fa-user"></i> Login To Your Account</p>
-        <form className="form" onSubmit={c => onSubmit(c)}>
-          <div className="form-group">
-            <input 
-            type="email" 
-            placeholder="Email Address" 
-            name="email" 
-            value={email}
-            onChange={c => onChange(c)} required />
+      <Fragment>
+        <section className="signin">
+          <h1 className="header">
+            Dot Developer
+          </h1>
+          <div className="register">
+              <h1 className="large text">Sign In</h1>
           </div>
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={c => onChange(c)} required
-              minLength="6"
-            />
-          </div>
-          <div className="ending">
-            <input type="submit" className="btn btn-primary" value="Sign In" />
-          </div>
-             <p className="my-1">
-                Don't have an account? <Link to='/auth/register'>Sign Up</Link>
-             </p>
-            </form>
-            </section>
-        </Fragment>
+          <p className="lead"><i className="fas fa-user"></i>&nbsp; Login To Your Account</p>
+          <form className="form " id="signin-form" onSubmit={c => onSubmit(c)}>
+            <div className="form-group ">
+              <input 
+              type="email" 
+              placeholder="Email Address" 
+              name="email" 
+              value={email}
+              onChange={c => onChange(c)} required />
+            </div>
+            <div className="form-group">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={c => onChange(c)} required
+                minLength="6"
+              />
+            </div>
+            <div className="ending">
+              <input type="submit" className="btn btn-primary" value="Sign In" />
+            </div>
+              <p className="my-1">
+                  Don't have an account? <Link to='/auth/register'>&nbsp; Sign Up</Link>
+              </p>
+          </form>
+        </section>
+      </Fragment>
     );
     };
 

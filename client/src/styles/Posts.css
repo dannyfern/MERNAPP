@@ -4,7 +4,7 @@
 
 .filters {
   border: 1px solid #75ACB4;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 4%;
   display: none;
   -webkit-box-orient: vertical;
@@ -13,6 +13,7 @@
           flex-direction: column;
   width: 85vw;
   margin: 5% auto;
+  background-color: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
 }
@@ -80,6 +81,35 @@
   margin: 0 auto;
 }
 
+.postsDiv .postBgImage {
+  background: url("./../img/post-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+}
+
+.postsDiv .postBgTransparent {
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.postsDiv .postBgTransparent .postHeading {
+  text-align: center;
+  padding: 5% 0;
+}
+
+.postsDiv .postBgTransparent .postHeading h4 {
+  font-size: 3rem;
+}
+
 .posts {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -91,13 +121,14 @@
 }
 
 .postCard {
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 4%;
   border: 1px solid #75ACB4;
   margin: 4% auto;
   width: 85vw;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
 }
 
 .postCard .titleLink {

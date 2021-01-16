@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { useStep } from 'react-hooks-helper'
 
 // form components : 
-import Details from './formComponents/Details'
-import Skills from './formComponents/Skills'
-import Work from './formComponents/Work'
-import Education from './formComponents/Education'
-import Links from './formComponents/Links'
-import Review from './formComponents/Review'
+import Details from '../formComponents/Details'
+import Skills from '../formComponents/Skills'
+import Work from '../formComponents/Work'
+import Education from '../formComponents/Education'
+import Links from '../formComponents/Links'
+import Review from '../formComponents/Review'
 
 
 

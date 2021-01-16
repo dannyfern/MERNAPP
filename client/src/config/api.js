@@ -20,7 +20,8 @@ import {
   CLEAR_PROFILE,
 
   CURRENT_POST,
-  DELETE_POST
+  DELETE_POST,
+  UPDATED_POST
 
 
 } from '../actions/constants'
@@ -238,6 +239,28 @@ export const getPostFromId = (id) => async dispatch => {
       type: CURRENT_POST,
       payload: data
     })
+
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+// edit post
+export const editPost = (id, updatedPost) => async dispatch => {
+
+  try{
+    let post = await (await axios.get(`/api/posts/${id}`))
+    post = post.data
+    console.log('post: ', post)
+    post = updatedPost
+    
+    dispatch({
+      type: UPDATED_POST,
+      payload: post
+    })
+
+
 
 
   } catch (err) {

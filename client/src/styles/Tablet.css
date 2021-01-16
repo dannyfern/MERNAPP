@@ -46,6 +46,34 @@
   .headingFont {
     font-size: 3rem;
   }
+  .registerComponent .registerPage {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .registerComponent .registerPage .my-1 {
+    width: 50vw;
+  }
+  .registerComponent .register h1 {
+    font-size: 4rem;
+  }
+  .my-1 {
+    font-size: 1.25rem;
+    padding: 3%;
+    width: 70vw;
+  }
+  .header {
+    font-size: 4rem;
+  }
+  .signin {
+    padding: 10% 0;
+  }
+  .signin .signin-form {
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .signin .register .large {
+    font-size: 3rem;
+  }
   .filterText {
     font-size: 1.5rem;
     margin-bottom: 3%;

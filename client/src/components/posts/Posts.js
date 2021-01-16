@@ -57,7 +57,7 @@ const Posts = ({ posts }) => {
     const sortOptions = (a, b, sortBy) => {
         switch (sortBy){
             case "Newest":
-                // console.log(a.modified_date, b.modified_date)
+                console.log(a.modified_date, b.modified_date)
                 return (b.modified_date - a.modified_date)
                 
             case "Oldest":
@@ -78,8 +78,10 @@ const Posts = ({ posts }) => {
         // console.log(postsData.filter(x => x.category === "code"))
         // console.log(category)
         // console.log( posts)
+        // console.log(posts)
 
         return (posts && posts
+
             .filter((x) => {
                 if (category === "All"){
                     return x
@@ -89,7 +91,7 @@ const Posts = ({ posts }) => {
                
             }
             )
-            .sort((a, b) => sortOptions(a, b, sortBy))
+            .sort((a, b) =>  sortOptions(a, b, sortBy))
             .map((post) => {
                 return displayPosts(post)
             })
@@ -148,10 +150,15 @@ const Posts = ({ posts }) => {
     // }
 
     return(
-        <div>
-            {/* <div className="heading">
+        <div className="postsDiv">
+            <div className="postBgImage">
+                
+            </div>
+            <div className="postBgTransparent">
+
+            <div className="postHeading">
                 <h4>Posts</h4>
-            </div> */}
+            </div>
             <div className="filterText">
                 <p onClick={openFilters}>Filter</p>
             </div>
@@ -176,6 +183,8 @@ const Posts = ({ posts }) => {
             <div className="width70 posts">
                 <Display filters={filterData} />
             </div>
+            </div>
+
 
 
         </div>
