@@ -2,23 +2,27 @@ import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { deletePostById, getPostFromId } from '../../config/api'
+import axios from 'axios'
 
-
-const Post = ({ history, match }) => {
+const Post = ({ history, match  }) => {
     // console.log('POST ', post)
+    // console.log(user)
 
-    // const [post, setPost] = useState({})
+    // const [postData, setPost] = useState({})
 
     const dispatch = useDispatch()
     // dispatch(getPostFromId(match.params.id))
 
     const posts = useSelector(state => state.postReducer)
     // console.log(posts)
+    let post 
+    if (posts){ 
+        console.log(posts)
+        post = posts.filter(x => x._id === match.params.id)
+        post = post[0]
 
-    let post = posts.filter(x => x._id === match.params.id)
+    }
 
-    post = post[0]
-    // setPost(selectedPost)
 
 
 
@@ -45,6 +49,14 @@ const Post = ({ history, match }) => {
 
 
     }
+
+
+    // console.log(post.user)
+    const getProfile = async () => {
+        const profile = await axios.get('http://localhost:5000/api/profile/')
+        console.log(profile)
+    }
+    // getProfile()
 
 
 

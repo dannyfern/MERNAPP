@@ -11,7 +11,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 85vw;
+  width: 70vw;
   margin: 5% auto;
   background-color: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
@@ -118,6 +118,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding-bottom: 5%;
 }
 
 .postCard {
@@ -125,7 +126,7 @@
   padding: 4%;
   border: 1px solid #75ACB4;
   margin: 4% auto;
-  width: 85vw;
+  width: 70vw;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
@@ -137,18 +138,18 @@
 
 .postCard .titleLink .postTitle {
   color: #75ACB4;
-  font-size: 1.75em;
+  font-size: 1.5em;
 }
 
 .postCard .postInfo h5 {
   font-weight: 500;
-  margin-top: 6%;
+  margin-top: 3%;
   font-size: 1em;
 }
 
 .postCard .postInfo h3 {
   font-weight: 300;
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-top: 3%;
 }
 
@@ -165,6 +166,7 @@
   color: #75ACB4;
   font-weight: 700;
   font-size: 1.25em;
+  margin-bottom: 0;
 }
 
 .singlePostTitle {

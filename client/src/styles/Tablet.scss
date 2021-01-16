@@ -81,7 +81,7 @@
 
     .filters{
         margin: 5% auto;
-        width: 85vw;
+        width: 70vw;
 
         .filterDropdowns{
             display: flex;
@@ -110,8 +110,10 @@
     .posts{
         flex-direction: row;
         flex-wrap: wrap;
+        width: 75vw;
         .postCard{
             flex: 40%;
+            width: 40%;
             margin: 3% 3%;
         }
 

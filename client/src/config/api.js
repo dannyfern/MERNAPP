@@ -176,21 +176,28 @@ export const addProfile = ( newProfile ) => async dispatch => {
 
 // get all posts
 
-export const getAllPosts = () => async dispatch =>{
+export const getAllPosts = (newPosts) => async dispatch =>{
 
   try {
 
     const { data } = await axios.get('/api/posts');
-    dispatch({ type: ALL_POSTS, payload: data })
+    if (newPosts){
+      dispatch({type: ALL_POSTS, payload: newPosts })
+    } else {
+      dispatch({ type: ALL_POSTS, payload: data })
+
+    }
+
     // console.log("DATA", data)
     
   } catch (err) {
 
-    const errors = err.response.data.errors;
+    // const errors = err.response.data.errors;
+    console.log(err)
     
-    if(errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
+    // if(err) {
+    //   err.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    // }
     dispatch({
       type: POST_ERROR
     });
@@ -227,6 +234,23 @@ export const createPost = (post) => async dispatch => {
   }
 }
 
+
+// export const setAllPosts = (newPosts) => async dispatch => {
+//   console.log(newPosts)
+
+//   try {
+//     dispatch({
+//       type: ALL_POSTS,
+//       payload: newPosts
+//     })
+
+//   } catch(err) {
+//     console.log(err)
+//   }
+
+
+// }
+
 // get post by id
 
 export const getPostFromId = (id) => async dispatch => {
@@ -250,17 +274,14 @@ export const getPostFromId = (id) => async dispatch => {
 export const editPost = (id, updatedPost) => async dispatch => {
 
   try{
-    let post = await (await axios.get(`/api/posts/${id}`))
-    post = post.data
-    console.log('post: ', post)
-    post = updatedPost
-    
+
+    const res = await axios.post(`/api/posts/edit/${id}`, updatedPost)
+
     dispatch({
       type: UPDATED_POST,
-      payload: post
+      payload: res.data
     })
-
-
+    return res.data
 
 
   } catch (err) {

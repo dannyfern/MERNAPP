@@ -46,7 +46,6 @@ const App = () => {
     const [profiles, setProfiles] = useState([])
 
     const dispatch = useDispatch()
-    const blogPosts = useSelector((state) =>  state.postReducer)
 
     
     // get blog posts
@@ -54,11 +53,14 @@ const App = () => {
 
        
         dispatch(getAllPosts())
+
         .catch(y => {
             console.log(y)
         })
         
     }, [dispatch])
+    const blogPosts = useSelector((state) =>  state.postReducer)
+
     
 
 

@@ -134,7 +134,8 @@ router.put('/like/:id', auth, async (req, res) => {
 
 // edit a post
 
-router.put('/edit/:id', auth, async (req, res) => {
+router.post('/edit/:id', auth, async (req, res) => {
+    console.log('req: ', req)
     try {
         const post = await Post.findById(req.params.id);
         if (!post)

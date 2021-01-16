@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import FormInput from './../reusable/FormInput'
-import {editPost} from './../../config/api'
+import {editPost, setAllPosts, getAllPosts } from './../../config/api'
 import { useDispatch } from 'react-redux'
 
 const EditPost = ({ match, posts, history }) => {
+    console.log(posts)
 
     const dispatch = useDispatch()
 
     const id = match.params.id
     
     const post = posts.filter(x => x._id === id)[0]
-    console.log(post)
+    // console.log(post)
     // const { text, title, category, modified_date } = post
 
     const [newForm, setNewForm] = useState({
@@ -26,26 +27,39 @@ const EditPost = ({ match, posts, history }) => {
     const handleChange = (e) => {
         const { name, value } = e.target
         setNewForm({
+            ...newForm,
             [name]: value
         })
+        console.log(newForm)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const updatedPost = {
+            _id: id,
+            user: post.user,
             modified_date: new Date(),
             title: newForm.title,
             category: newForm.category,
             text: newForm.text
         }
+        console.log(updatedPost)
 
         dispatch(editPost(match.params.id, updatedPost))
+        .then((x) => {
+            const otherPosts = posts.filter(x => x._id !== match.params.id)
+            console.log('other, ', otherPosts)  
+            console.log('x', x)
+            const newPosts = [...otherPosts, x]
+            console.log("NEW: ", newPosts)
+            dispatch(getAllPosts(newPosts))
+        })
 
 
 
 
-        history.push(`/posts/${match.params.id}`)
+        history.push(`/posts/${id}`)
 
 
 

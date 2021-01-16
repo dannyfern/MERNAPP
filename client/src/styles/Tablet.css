@@ -80,7 +80,7 @@
   }
   .filters {
     margin: 5% auto;
-    width: 85vw;
+    width: 70vw;
   }
   .filters .filterDropdowns {
     display: -webkit-box;
@@ -113,11 +113,13 @@
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    width: 75vw;
   }
   .posts .postCard {
     -webkit-box-flex: 40%;
         -ms-flex: 40%;
             flex: 40%;
+    width: 40%;
     margin: 3% 3%;
   }
   .singlePostTitle {

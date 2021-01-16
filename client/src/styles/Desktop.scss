@@ -117,20 +117,53 @@
 
 
     // filter posts
-    .filters{
-        width: 50vw !important;
-
-    }
+    
 
 
     // posts :
+    .postsDiv{
+
+        .postBgTransparent{
+
+
+            .posts{
+                .postCard{
+                    padding: 1.5%;
+                    margin: 1%;
+                }
+            }
+            .postHeading{
+                padding: 2% 0 1%;
+            }
+
+            .filters{
+                width: 60vw !important;
+                margin: 1% auto;
+                padding: 2%;
+
+                p{
+                    font-size: 1.25rem;
+                }
+                .Dropdown-control{
+                    font-size: 1rem;
+                }
+                .Dropdown-menu{
+                    font-size: 1rem;
+                }
+        
+            }
+        }
+    }
+
+    
+
+    
     .width70{
         .posts{
             
 
             .postCard{
-                padding: 2%;
-                margin: 3%;
+                
                 flex: 20%;
         
                 .titleLink{
