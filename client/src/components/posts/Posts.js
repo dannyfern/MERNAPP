@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
-// import { getAllBlogPosts } from './../../services/blogPostServices'
 import './../../styles/Posts.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-
+// try filters with controlled input
 
 const Posts = ({ posts }) => {
-    console.log(posts)
 
     const filters = {
         category: "All",
@@ -20,11 +18,18 @@ const Posts = ({ posts }) => {
 
     const [filterData, setFilterData] = useState(filters)
 
+    const dispatch = useDispatch()
+
+    
+
+    
+
+
 
     function displayPosts(post) {
         const { title, category, user, likes } = post
+
         
-        // console.log(post)
         return (
             <div className="postCard">
                 <Link to={`/posts/${post._id}`} className="titleLink">
@@ -55,16 +60,20 @@ const Posts = ({ posts }) => {
     // sorting method, eg. newest, oldest, most upvotes, least etc.
 
     const sortOptions = (a, b, sortBy) => {
+
         switch (sortBy){
             case "Newest":
-                console.log(a.modified_date, b.modified_date)
-                return (b.modified_date - a.modified_date)
+                console.log(new Date(a.modified_date), new Date(b.modified_date))
+                return (new Date(b.modified_date) - new Date(a.modified_date))
                 
             case "Oldest":
-                return (a.modified_date - b.modified_date)
-                
+                return (new Date(a.modified_date) - new Date(b.modified_date))
+            case "Most Upvotes":
+                return null
+            case "Least Upvotes":
+                return null
             default:
-                return (b.modified_date - a.modified_date)
+                return (new Date(b.modified_date) - new Date(a.modified_date))
                 
 
         }
@@ -72,13 +81,8 @@ const Posts = ({ posts }) => {
     
 
     function Display (){
-        // console.log(filterData)
         const { category, sortBy } = filterData
-        // console.log(category)
-        // console.log(postsData.filter(x => x.category === "code"))
-        // console.log(category)
-        // console.log( posts)
-        // console.log(posts)
+       
 
         return (posts && posts
 
@@ -144,10 +148,7 @@ const Posts = ({ posts }) => {
         console.log('filter: ', filterData)
     }
 
-    // const handleFilterSubmit = e => {
-    //     e.preventDefault()
 
-    // }
 
     return(
         <div className="postsDiv">

@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FormInput from './../reusable/FormInput'
 import {editPost, setAllPosts, getAllPosts } from './../../config/api'
 import { useDispatch } from 'react-redux'
 
-const EditPost = ({ match, posts, history }) => {
-    console.log(posts)
+// use effect
+
+const EditPost = ({ match, posts, history}) => {
 
     const dispatch = useDispatch()
-
     const id = match.params.id
-    
     const post = posts.filter(x => x._id === id)[0]
-    // console.log(post)
-    // const { text, title, category, modified_date } = post
+
 
     const [newForm, setNewForm] = useState({
         title: post.title,
@@ -22,6 +20,11 @@ const EditPost = ({ match, posts, history }) => {
 
     const { title, category, text } = newForm
 
+    useEffect(() => {
+
+        dispatch(getAllPosts)
+
+    }, [])
 
 
     const handleChange = (e) => {
@@ -47,21 +50,9 @@ const EditPost = ({ match, posts, history }) => {
         console.log(updatedPost)
 
         dispatch(editPost(match.params.id, updatedPost))
-        .then((x) => {
-            const otherPosts = posts.filter(x => x._id !== match.params.id)
-            console.log('other, ', otherPosts)  
-            console.log('x', x)
-            const newPosts = [...otherPosts, x]
-            console.log("NEW: ", newPosts)
-            dispatch(getAllPosts(newPosts))
-        })
 
-
-
-
+        // figure out a way to set all posts and have them refresh in real time - maybe use effect
         history.push(`/posts/${id}`)
-
-
 
     }
 

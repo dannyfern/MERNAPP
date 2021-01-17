@@ -18,6 +18,7 @@ import {
   CREATE_POST,
 
   CLEAR_PROFILE,
+  ALL_PROFILE,
 
   CURRENT_POST,
   DELETE_POST,
@@ -170,6 +171,21 @@ export const addProfile = ( newProfile ) => async dispatch => {
 
 }
 
+// export const getAllProfiles = () => async dispatch => {
+
+//   try {
+//     const profiles = await axios.get(`/api/profile`)
+//     console.log('PROFILES, ', profiles)
+
+//     dispatch({
+//       type: ALL_PROFILE,
+//       payload: profiles.data
+//     })
+//   } catch(err) {
+//     console.log(err)
+//   }
+// }
+
 
 
 
@@ -214,8 +230,7 @@ export const createPost = (post) => async dispatch => {
 
   try {
     const res = await axios.post('/api/posts', post)
-    // .then(x => console.log("the data", x.data))
-    // .then(x => history.push(`/posts/${x.data._id}`))
+   
 
     console.log(res)
 
@@ -225,7 +240,6 @@ export const createPost = (post) => async dispatch => {
     })
 
     history.push(`/posts/${res.data._id}`)
-    // let url = `/posts/${res.data._id}`
     
 
 
@@ -235,21 +249,7 @@ export const createPost = (post) => async dispatch => {
 }
 
 
-// export const setAllPosts = (newPosts) => async dispatch => {
-//   console.log(newPosts)
 
-//   try {
-//     dispatch({
-//       type: ALL_POSTS,
-//       payload: newPosts
-//     })
-
-//   } catch(err) {
-//     console.log(err)
-//   }
-
-
-// }
 
 // get post by id
 
@@ -281,7 +281,8 @@ export const editPost = (id, updatedPost) => async dispatch => {
       type: UPDATED_POST,
       payload: res.data
     })
-    return res.data
+
+    // return res.data
 
 
   } catch (err) {

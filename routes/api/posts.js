@@ -29,6 +29,7 @@ async (req, res) => {
 // REQUIRE SCHEMA FOR NEW POST ------------------------------------
     try {
         const user = await (await User.findById(req.user.id)).isSelected('-password');
+        console.log('profile', req)
 
         const newPost = new Post ({
             modified_date: new Date(),
@@ -38,6 +39,7 @@ async (req, res) => {
             name: user.name,
             avatar: user.avatar,
             user: req.user.id,
+            username: req.username
         });
 
         const post = await newPost.save();
