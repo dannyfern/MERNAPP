@@ -39,12 +39,9 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
 
     let profiles = useSelector(state => state.profile)
     profiles = profiles.profiles
-    console.log(profiles)
     const { blogpostdescription, username } = profiles
-    // console.log(blogpostdescription)
-    // const avatar = profiles.user.avatar
-
-    // const [correctPost, setPost] = useState(post)
+    const profileId = profiles._id
+    
 
 
 
@@ -102,7 +99,7 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            <p className="postUsername">@{username}</p>
+                            <Link to={`/profile/${profileId}`}><p className="postUsername">@{username}</p></Link> 
                             
                             <p className="postDesc">{
                                 blogpostdescription && blogpostdescription
