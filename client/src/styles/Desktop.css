@@ -164,6 +164,9 @@
     width: 75%;
     margin: 0 auto;
   }
+  #addPostDiv {
+    width: 40vw;
+  }
   .postsDiv .postBgTransparent .posts .postCard {
     padding: 1.5%;
     margin: 1%;

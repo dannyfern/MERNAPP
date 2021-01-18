@@ -58,7 +58,7 @@
 
 #addPostDiv {
   margin: 3% auto;
-  width: 30vw;
+  width: 80vw;
 }
 
 #addPostForm {
@@ -81,7 +81,7 @@
   margin: 0 auto;
 }
 
-.postsDiv .postBgImage {
+.postBgImage {
   background: url("./../img/post-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100%;
@@ -93,6 +93,11 @@
   top: 0;
   left: 0;
   z-index: -1000;
+}
+
+#addPostForm {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 6%;
 }
 
 .postsDiv .postBgTransparent {
