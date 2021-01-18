@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import ProfileDisplay from './ProfileDisplay'
 import { getProfileId } from '../../actions/profile'
 
-
-const Profile = ({ getProfileId, profile: {profile, loading},auth, match }) => {
+const Profile = ({ getProfileId, profile: {profiles, match} }) => {
     useEffect(() => {
         getProfileId(match.params.id);
     },[getProfileId]);
@@ -13,10 +12,8 @@ const Profile = ({ getProfileId, profile: {profile, loading},auth, match }) => {
     return (
         <Fragment>
            <Fragment>
-               
              <div>
-                 <h1>{profile}</h1>
-             <ProfileDisplay profile={profile}/>
+             <ProfileDisplay profile={profiles}/>
              </div>
            </Fragment>
         </Fragment>

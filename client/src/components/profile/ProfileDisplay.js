@@ -117,7 +117,7 @@ const ProfileDisplay = ({ profile: {
 }
 
 ProfileDisplay.propTypes = {
-    profile: PropTypes.object.isRequired,
+    Profile: PropTypes.object.isRequired,
 }
 
 export default ProfileDisplay;

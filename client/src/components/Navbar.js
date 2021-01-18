@@ -14,13 +14,16 @@ import { logout } from '../config/api';
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
-            <Link className="navLinkStyles" to="/dashboard">
-            <i className='fas fa-user' />{' '}
-            <span className='hide-sm'></span>Dashboard</Link>
-            <Link className="navLinkStyles" to="/posts">Posts</Link>
-            <Link className="navLinkStyles" to="/posts/new">New Post</Link>
             <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
-            <Link className="navLinkStyles" to="/profiles"> Profiles </Link>
+            <Link className="navLinkStyles" to="/dashboard">
+                
+                <i className='fas fa-user' />{' '}
+                <span className='hide-sm'></span>Dashboard
+            </Link>
+            <Link className="navLinkStyles" to="/posts"><i class="fas fa-book-reader"></i>&nbsp;Posts</Link>
+            <Link className="navLinkStyles" to="/posts/new"><i class="fas fa-pencil-alt"></i>&nbsp;New Post</Link>
+            
+            <Link className="navLinkStyles" to="/profiles"><i class="fas fa-user-friends"></i>&nbsp; Profiles </Link>
             <Link className="navLinkStyles" onClick={logout} to="/#!">
             <i className='fas fa-sign-out-alt' />{' '}
             <span className='hide-sm'></span>Logout</Link>

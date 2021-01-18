@@ -30,13 +30,13 @@ const Home = ({ isAuthenticated, posts }) => {
                     <p>
                         Sign up for a free account or log in to an existing account to get started
                     </p>
-                        <a class="buttonhome">
+                        <a className="buttonhome">
                         <span class="away"><Link to='auth/Register'>Sign Up</Link></span>
                         <span class="over"><Link to='auth/Register'>Get Noticed</Link></span>
                         </a>
                         &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;
-                        <a class="buttonhome">
+                        <a className="buttonhome">
                         <span class="away"><Link to='auth/signin'>Sign In</Link></span>
                         <span class="over"><Link to='auth/signin'>Welcome Back!</Link></span>
                         </a>
