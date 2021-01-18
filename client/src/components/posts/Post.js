@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { currentProfile } from '../../actions/profile'
+import { currentProfile, getProfileId } from '../../actions/profile'
 
 
 
@@ -15,22 +15,34 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
     const currentUser = user
 
 
+
     const dispatch = useDispatch()
 
     const posts = useSelector(state => state.postReducer)
 
     let post 
     if (posts){ 
-        console.log(posts)
+        // console. log(posts)
         post = posts.filter(x => x._id === match.params.id)
         post = post[0]
 
     }
+    const postUser = post.user
+    console.log(postUser)
     
     useEffect(() => {
+        dispatch(getProfileId(postUser))
         
-    })
-    console.log(post)
+    }, [dispatch, postUser])
+
+    // console.log(postUser)
+
+    let profiles = useSelector(state => state.profile)
+    profiles = profiles.profiles
+    console.log(profiles)
+    const { blogpostdescription, username } = profiles
+    // console.log(blogpostdescription)
+    // const avatar = profiles.user.avatar
 
     // const [correctPost, setPost] = useState(post)
 
@@ -98,8 +110,13 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            <p>{user}</p>
-                            <p>author description</p>
+                            {/* <img src={avatar} alt="avatar"  id="postAvatar"/> */}
+                            <p className="postUsername">@{username}</p>
+                            
+                            <p className="postDesc">{
+                                blogpostdescription && blogpostdescription
+                            }
+                            </p>
 
                             <div className="postUpvotes">
                                 <p onClick={handleLikes} className="upvoteButton">++ {likes && likes.length}</p>
@@ -140,4 +157,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, { currentProfile })(Post);
+export default connect(mapStateToProps, {currentProfile})(Post);

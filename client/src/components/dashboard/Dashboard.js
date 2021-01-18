@@ -6,13 +6,15 @@ import { currentProfile, deleteAccount } from '../../actions/profile'
 import { Spinner } from 'react-bootstrap'
 import DashActions from './DashAction'
 
+import DisplayProfile from './DisplayProfile'
+
+
 import Experience from './Experience'
 import Qualification from './Qualification'
 import AwesomeButton from 'react'
 
 const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
 
-import DisplayProfile from './DisplayProfile'
 
 
     useEffect(() => {

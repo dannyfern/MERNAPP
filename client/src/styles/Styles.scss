@@ -27,7 +27,7 @@
 
 // home page: 
 .backgroundImg{
-  background: url("../img/home.webp") no-repeat center center/cover;
+  background: url("../img/home.jpg") no-repeat center center/cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -97,14 +97,21 @@
 }
 
 #navLinks {
-    width: 100%;
+  width: 100%;
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    
+  }
 
 }
 
 .navLinkStyles {
-  margin: 10px;
-  margin-left: 20px;
-  margin-right: 80px;
+  // margin: 10px;
+  // margin-left: 20px;
+  // margin-right: 80px;
+
 }
 
 

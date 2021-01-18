@@ -16,7 +16,7 @@
 }
 
 .backgroundImg {
-  background: url("../img/home.webp") no-repeat center center/cover;
+  background: url("../img/home.jpg") no-repeat center center/cover;
   background-size: cover;
   background-position: center center;
   min-height: 100%;
@@ -79,10 +79,14 @@
   width: 100%;
 }
 
-.navLinkStyles {
-  margin: 10px;
-  margin-left: 20px;
-  margin-right: 80px;
+#navLinks ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .closedNav {
@@ -113,9 +117,7 @@
 
 .home {
   position: relative;
-
   background: url("../img/home.jpg") no-repeat center center/cover;
-
   height: 100vh;
 }
 
@@ -304,7 +306,6 @@
 /* Forms */
 .form .form-group {
   margin: 1.2rem 0;
-
   padding-left: 5%;
   padding-right: 3%;
   color: black;
@@ -315,9 +316,6 @@
   color: black;
   font-weight: bold;
   padding-right: 60%;
-
-  padding: 0 5%;
-
 }
 
 .form .form-text {
