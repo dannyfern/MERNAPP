@@ -1,181 +1,45 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Profile from './Profile'
-import Dropdown from 'react-dropdown'
-// import { useGlobalState} from '../../config/store'
-
-const Profiles = ({ profileData }) => {
-
-    // const { store } = useGlobalState()
-    // const { userProfiles } = store
-    // console.log("PROFILES", userProfiles)
-
-    const filters = {
-        level: "All",
-        experience: "All"
-    }
+import React, { Fragment, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Spinner from '../dashboard/spinner'
+import ProfileFields from './ProfileFields'
+import { getProfiles } from '../../actions/profile'
 
 
-    const [filterData, setFilterData] = useState(filters)
-    const colors = {
-        looking: "#91ff95",
-        open: "#a8dcff",
-        notLooking: "#c2c2c2"
-    }
+const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
+    useEffect(() => {
+        getProfiles();
+    }, []);
 
-    const [colour, setColour] = useState("")
+    return (
+        <Fragment>
+            { loading ? (
+            <Spinner /> ) : (
+            <Fragment>
 
-    // console.log(profileData)
+                <h1 className="profiletext"> Developer Profiles</h1>
 
-    const toggleFilter = () => {
-        const div = document.getElementById("openFilter")
-        if (div){
-            (div.style.display === "none") ? (div.style.display = "flex") : (div.style.display = "none")
-        }
-    }
+                <div className="profiles">
+                    {profiles.length > 0 ? (
+                        profiles.map(profile => (
+                            <ProfileFields key={profile._id} profile={profile} />
+                        ))
+                    ) : ( <h1> No Profiles Found </h1> )}
 
-    
-
-    const profiles = (profile) => {
-        console.log(profile)
-        const { details, skills, prospects } = profile
-        const { name, username, interests } = details
-        const { experiencelevel, yearsofexperience } = skills
-
-        // const { status } = workData
-
-        return (
-            <Link to={`/profiles/${profile._id}`} id="profileLink">
-                <div className="profileCard">
-                    <div className="profileTopSection">
-                        <div className="imagePlaceHolder">
-                            <div className="img"></div>
-
-                        </div>
-                        <div className="profileTopDetails">
-                            <h2>{name} </h2>
-                            <h3>@{username} </h3>
-                            <h4>{experiencelevel} Developer </h4>
-                        </div>
-                    </div>
-                    <div className="profileBottomSection">
-                        <ul>
-
-                            <li key="status" id="prospects">{prospects} </li>
-                            <li key="exp" >{yearsofexperience} years of experience </li>
-                            {
-                                interests &&
-                                <li key="interests" >interests: {interests.join(", ")} </li>
-                            }
-                            
-                        </ul>
-                    </div>
-
-                    
                 </div>
-            </Link>
+            </Fragment>
+            )}
 
-        )
+        </Fragment>
+)};
 
+Profiles.propTypes = {
+    getProfiles: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
+};
 
-    }
+const mapStateToProps = state => ({
+    profile: state.profile
+});
 
-    const Display = () => {
-        const { level, experience } = filterData
-
-        return (profileData
-            .filter((x) => {
-                if (level === "All"){
-                    return x
-                } else {
-                    return x.skills.expriencelevel === level
-
-                 
-                     
-                }
-            })
-            .filter((x) => {
-                if (experience === "All"){
-                    return x
-                } else {
-
-                
-                    return x.skills.yearsofexperience === experience
-                }
-            })
-            .map((profile) => {
-                return profiles(profile)
-            })
-
-        )
-
-
-        
-    }
-
-
-
-    const handleSelection = (e) => {
-
-        const { value, label } = e
-
-        setFilterData({
-            ...filterData,
-            [value]: label
-        })
-        console.log(filterData)
-    }
-
-    const levelOptions = [
-        {label: "All", value: "level"},
-        {label: "Junior-level", value: "level"},
-        {label: "Mid-level", value: "level"},
-        {label: "Senior-level", value: "level"}
-    ]
-
-    const experienceOptions = [
-        {label: "All", value: "experience"},
-        {label: "< 1", value: "experience"},
-        {label: "1+", value: "experience"},
-        {label: "3+", value: "experience"},
-        {label: "5+", value: "experience"},
-        {label: "7+", value: "experience"}
-    ]
-
-
-
-    return(
-        <div>
-            <div className="heading">
-                <h1>Profiles</h1>
-                <Link to="/profiles/new">New Profile</Link>
-
-                <p className="profileFilters" onClick={toggleFilter} >Filter^</p>
-                <div id="openFilter" className="filters">
-                    <div className="filterDropdowns">
-                        <div className="dropdownDiv">
-                            <p>Experience level</p>
-                            <Dropdown options={levelOptions} onChange={handleSelection} label="level" />
-                        </div>
-                        <div className="dropdownDiv">
-                            <p>Years of experience</p>
-                            <Dropdown options={experienceOptions} onChange={handleSelection} label="experience" />
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div className="profileWrapper">
-                <Display />
-                
-
-            </div>
-            
-        </div>
-    )
-}
-
-
-export default Profiles
+export default connect(mapStateToProps, { getProfiles })(Profiles)

@@ -35,12 +35,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     }
     
     return <Fragment>
+    <section className="signup">
     <div className="register">
-        <h1 className="large text-primary">Sign Up</h1>
+        <h1 className="text-signup">Sign Up</h1>
     </div>
-    <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+    <p className="text-signup"><i className=""></i> Create Your Account</p>
         <form className="form" onSubmit={c => onSubmit(c)}>
-          <div className="form-group">
+          <div className="form-signup">
             <input 
             type='text'
             placeholder='Name'
@@ -48,7 +49,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={name} 
             onChange={c => onChange(c)} />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input 
             type="email" 
             placeholder="Email Address" 
@@ -56,7 +57,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={c => onChange(c)}  />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input
               type="password"
               placeholder="Password"
@@ -66,7 +67,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               minLength="6"
             />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input
               type="password"
               placeholder="Confirm Password"
@@ -80,9 +81,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <input type="submit" className="btn btn-primary" value="Register" />
              </div>
              <p className="my-1">
-            Already have an account? <Link to="/Login">Sign In</Link>
+            Already have an account? <Link to="/auth/signin">Sign In</Link>
              </p>
             </form>
+            </section>
         </Fragment>
 }
 

@@ -79,8 +79,9 @@
 }
 
 .navLinkStyles {
-  margin: 20px;
-  margin-left: 90px;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 80px;
 }
 
 
@@ -105,9 +106,10 @@
 
 .home {
     position: relative;
-    background: url('../img/home.webp') no-repeat center center/cover;
+    background: url('../img/home.jpg') no-repeat center center/cover;
     height: 100vh;
   }
+
 
   .home-inner {
     color: #fff;
@@ -208,11 +210,30 @@
    text-align: center;
  }
 
+ .lead3 {
+   color: rgb(30, 116, 27);
+   font-size: 24px;
+ }
+
  .profilebutton {
    margin-top: 25px;
  }
 
+.experience {
+  position: relative;
+  background: url('../img/experience.jpg') no-repeat center center/cover;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+}
 
+.qualifications {
+    position: relative;
+    background: url('../img/qualification.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+}
 
  .dashboard {
     position: relative;
@@ -231,6 +252,28 @@
   text-align: center;
  }
 
+ .signup {
+  position: relative;
+  background: url('../img/signup.jpg') no-repeat center center/cover;
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  text-align: center;
+ }
+
+ .form-signup {
+   width: 100%;
+   padding-left: 200px;
+   padding-right: 200px;
+   margin-top: 30px;
+ }
+
+ .text-signup {
+   margin-top: 50px;
+ }
+
+ .ending {
+   margin-top: 30px;
+ }
 
  .dashbuttons {
   color:rgb(0, 0, 0)
@@ -242,6 +285,14 @@
   margin: 1.2rem 0;
   padding-left: 5%;
   padding-right: 3%;
+  color:rgb(0, 0, 0)
+}
+
+.checkbox {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  padding-right: 60%;
 }
 
 .form .form-text {
@@ -293,15 +344,24 @@ button {
   color: #0077b5;
 }
 
+
 .table th,
 .table td {
-  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: bold;
+  
 }
 
 .table th {
   background: var(--light-color);
+  color: #000000;
+  padding-left: 3%;
 }
+
 
 .header {
   text-align: center;
@@ -320,3 +380,141 @@ button {
   text-align: center;
 }
 
+.dashboardheadings {
+  color: #ffffff;
+  padding-top: 20px;
+  font-weight: lighter;
+}
+
+
+//----- BUTTON 
+
+:root {
+  --border-size: 0.125rem;
+  --duration: 250ms;
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --font-family: monospace;
+  --color-primary: rgb(255, 255, 255);
+  --color-secondary: #75acb4;
+  --color-tertiary: rgb(0, 0, 0);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --space: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.multi-button {
+  padding-left: 22%;
+  display: flex;
+  width: 80%;
+  box-shadow: var(--shadow) 4px 4px;
+}
+
+.multi-button button {
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  padding:
+    calc(var(--space) / 1.125)
+    var(--space)
+    var(--space);
+  border: var(--border-size) solid black;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  font-size: 1.5rem;
+  font-family: var(--font-family);
+  text-transform: lowercase;
+  text-shadow: var(--shadow) 2px 2px;
+  transition: flex-grow var(--duration) var(--ease);
+}
+
+.multi-button button + button {
+  border-left: var(--border-size) solid rgb(0, 0, 0);
+  margin-left: calc(var(--border-size) * -1);
+}
+
+.multi-button button:hover,
+.multi-button button:focus {
+  flex-grow: 2;
+  color: white;
+  outline: none;
+  text-shadow: none;
+  background-color: var(--color-secondary);
+}
+
+.multi-button button:focus {
+  outline: var(--border-size) dashed var(--color-primary);
+  outline-offset: calc(var(--border-size) * -3);
+}
+
+.multi-button:hover button:focus:not(:hover) {
+  flex-grow: 1;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  outline-color: var(--color-tertiary);
+}
+
+.multi-button button:active {
+  transform: translateY(var(--border-size));
+}
+
+// home button
+
+@import  url(https://fonts.googleapis.com/css?family=Montserrat);
+$button-color: #2D3142;
+
+
+h3{
+  margin-top: -20px;
+}
+
+.buttonhome{
+  box-sizing: border-box;
+  height: 50px;
+  width: 200px;
+  display: table;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 0px 5px 0px rgb(255, 255, 255);
+  transition: background .5s;
+  color:white;
+  margin-top: 10px;
+  cursor: pointer;
+  
+  span{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: $button-color;
+    box-shadow: 0 0 0 3px $button-color inset;
+    background: transparent;
+  }
+  
+  .away{
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+  }
+  
+  .over{
+    display: none;
+  }
+  
+  &:hover span.away{
+    display: none;
+  }
+  
+  &:hover span.over{
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+    color: white;
+    box-shadow: none;
+  }
+  
+  &:hover{
+    background: $button-color;
+  }
+}

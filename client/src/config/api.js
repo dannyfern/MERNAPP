@@ -79,7 +79,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     });
 
     dispatch(loadUser());
-    // history.push('/dashboard')
+    history.push('/dashboard')
   } catch (err) {
     const errors = err.response.data.errors;
     
@@ -133,41 +133,6 @@ export const logout = () => dispatch => {
 };
 
 
-
-
-
-// create profile
-
-export const addProfile = ( newProfile ) => async dispatch => {
-  console.log("the profile:", newProfile)
-  if(localStorage.token) {
-    setAuthToken(localStorage.token);
-  } 
-
-
-  try {
-    const { data } = await axios.post('/api/profile', newProfile)
-    .then(x =>  console.log("x ", x))
-
-    dispatch({
-      type: CREATE_PROFILE,
-      payload: data
-    });
-    console.log
-    ('profile data: , ', data)
-  } catch (err) {
-    const errors = err.response.data.errors;
-    console.log(err)
-    
-    if(errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-    // dispatch({
-    //   type: PROFILE_ERROR
-    // });
-  }
-
-}
 
 
 

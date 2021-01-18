@@ -21,11 +21,14 @@ import Post from './components/posts/Post'
 import AddPost from './components/posts/AddPost'
 import EditPost from './components/posts/EditPost'
 
-import BaseProfile from './components/profiles/BaseProfile'
-import Profile from './components/profiles/Profile'
 import Profiles from './components/profiles/Profiles'
+import BaseProfile from './components/profiles/BaseProfile'
+// import Profile from './components/profiles/Profilemeikas'
+// import Profiles from './components/profiles/Profilemeika'
 import AddProfile from './components/profiles/AddProfile'
 import EditProfile from './components/profiles/EditProfile'
+import AddExperience from './components/profiles/AddExperience'
+import AddQualification from './components/profiles/AddQualification'
 
 import Register from './components/auth/Register'
 import SignIn from './components/auth/SignIn'
@@ -71,24 +74,26 @@ const App = () => {
                 <Navbar/>  
                 <Alert /> 
                     <Switch>
-
+                        <Route exact path="/profiles" component={Profiles} />
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
                         <PrivateRoute exact path="/dashboard" component={Dashboard} />
                         <PrivateRoute exact path="/createprofile" component={BaseProfile} />
                         <PrivateRoute exact path="/editprofile" component={EditProfile} />
+                        <PrivateRoute exact path="/addexperience" component={AddExperience} /> 
+                        <PrivateRoute exact path="/addqualification" component={AddQualification} />
 
-
-                        <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
+                        
+                        {/* <Route exact path="/profiles" render={(props) => <Profiles {...props} profileData={profiles} />} />
                         <Route exact path="/profiles/new" render={(props) => <AddProfile {...props} profiles={profiles} />} />
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props}   />} />
-
-                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} />} />
+                        <Route exact path="/profiles/:id" render={(props) => <Profile {...props} />} /> */}
                         
                         
                         <Route exact path="/posts/new" render={(props) => <AddPost {...props}/>} />
                         <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
                         <Route exact path="/posts/:id" render={(props) => <Post {...props} />} />
+                        
                         
                         <Route exact path="/" render={(props) => <Home {...props} posts={blogPosts} />} />
 
