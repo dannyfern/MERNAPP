@@ -42,7 +42,7 @@
   z-index: -1000;
 }
 
-.profilesPage .profiledisplay {
+.profilesPage .profileimage {
   background-color: rgba(255, 255, 255, 0.95);
   width: 75vw;
   margin: 0 auto;
@@ -54,22 +54,27 @@
   padding-bottom: 3%;
 }
 
-.profilesPage .profiledisplay .profile-top h2 {
+.profilesPage .profileimage .profile-top {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.profilesPage .profileimage .profile-top h2 {
   color: #75ACB4;
   font-weight: 700;
   font-size: 2.5rem;
 }
 
-.profilesPage .profiledisplay .round-img {
+.profilesPage .profileimage .round-img {
   border-radius: 50%;
   margin: 10% 0;
 }
 
-.profilesPage .profiledisplay .text {
+.profilesPage .profileimage .text {
   list-style: none;
 }
 
-.profilesPage .profiledisplay .text .skills {
+.profilesPage .profileimage .text .skills {
   font-weight: 600;
 }
 /*# sourceMappingURL=Profile.css.map */

@@ -22,27 +22,29 @@ const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { p
     return loading && profile === null ? <Spinner /> : 
     <Fragment>
         <section className='dashboard'>
-        <h1 className ="display-4">Dot Developer</h1>
-            <i className='fas fa-user-check' /> Welcome to Dot Dev { user && user.name }
-        <br></br>
-        <br></br>
-        {profile !== null ? ( 
-            <Fragment> 
-            <DashActions/>
-            <Experience experience={profile.experience}/>
-            <Qualification qualification={profile.qualification}/>
-            </Fragment> ) : (
-        <Fragment> You do not have a Profile setup, please create one!</Fragment>)}
+            <div className="dashboardBgImg"></div>
+            <div className="dashboard-inner">
+                <h1 className ="display-4">Dot Developer</h1>
+                    <p className="welcome"><i className='fas fa-user-check' /> Welcome to Dot Dev { user && user.name }</p>
+                <br></br>
+                <br></br>
+                {profile !== null ? ( 
+                    <Fragment> 
+                        <DashActions/>
+                        <Experience experience={profile.experience}/>
+                        <Qualification qualification={profile.qualification}/>
+                    </Fragment> ) : (
+                    <Fragment> You do not have a Profile setup, please create one!</Fragment>)}
 
-        <section className="profilebutton">
-          <Link to='/createprofile' className="btn btn-info">
-        <span class="glyphicon glyphicon-user">
-            </span>Create Profile</Link>
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-        <span class="glyphicon glyphicon-user">
-            </span>Delete Account</button>
-        </section>
-
+                <section className="profilebutton">
+                    <Link to='/createprofile' className="btn btn-info">
+                        <span class="glyphicon glyphicon-user">
+                    </span>Create Profile</Link>
+                    <button className="btn btn-danger" onClick={() => deleteAccount()}>
+                    <span class="glyphicon glyphicon-user">
+                    </span>Delete Account</button>
+                </section>
+            </div>
         </section>
     </Fragment>;
 }

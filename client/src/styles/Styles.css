@@ -266,10 +266,45 @@
 
 .dashboard {
   position: relative;
-  background: url("../img/dashboard.jpg") no-repeat center center/cover;
-  height: 100vh;
   color: #fff;
   text-align: center;
+}
+
+.dashboard .dashboard-inner {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.dashboard .dashboardBgImg {
+  background: url("../img/dashboard.jpg") no-repeat center center/cover;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  z-index: -1000;
+}
+
+.dashboard .display-4 {
+  color: #000;
+  font-size: 3rem;
+  font-weight: 400;
+  text-decoration: underline;
+  padding: 9% 0 3%;
+}
+
+.dashboard .welcome {
+  color: #000000;
+  font-size: 1.5rem;
+  padding: 0 5%;
+}
+
+.dashboard .profilebutton {
+  padding-bottom: 5%;
 }
 
 .signin {
@@ -382,9 +417,13 @@ button {
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  color: white;
   font-size: 16px;
   font-weight: bold;
+}
+
+.tableData {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .table th {
@@ -411,7 +450,7 @@ button {
 }
 
 .dashboardheadings {
-  color: #ffffff;
+  color: #000;
   padding-top: 20px;
   font-weight: lighter;
 }

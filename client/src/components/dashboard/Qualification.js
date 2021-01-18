@@ -7,10 +7,10 @@ import { deleteQualification } from '../../actions/profile'
 const Qualification = ({ qualification, deleteQualification }) => {
     const qualifications = qualification.map(qua => (
         <tr key={qua._id}>
-        <td>{qua.institution}</td>
-        <td>{qua.degree}</td>
-        <td><Moment format='DD/MM/YYYY'>{qua.startdate}</Moment></td>
-        <td><Moment format='DD/MM/YYYY'>{qua.enddate}</Moment></td>
+        <td className="tableData">{qua.institution}</td>
+        <td className="tableData">{qua.degree}</td>
+        <td className="tableData"><Moment format='DD/MM/YYYY'>{qua.startdate}</Moment></td>
+        <td className="tableData"><Moment format='DD/MM/YYYY'>{qua.enddate}</Moment></td>
         <td button onClick={() => deleteQualification(qua._id)} className= 'btn btn-danger'>Delete</td>
         </tr>
         
@@ -22,7 +22,7 @@ const Qualification = ({ qualification, deleteQualification }) => {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>Company</th>
+                        
                         <th className='hide-sm'>Institution</th>
                         <th className='hide-sm'>Degree</th>
                         <th className='hide-sm'>StartDate</th>

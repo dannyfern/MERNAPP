@@ -53,8 +53,9 @@
         left: 0;
         z-index: -1000;
     }
+    // .profileimage
 
-    .profiledisplay{
+    .profileimage{
         background-color: rgba(255, 255, 255, 0.95);
         width: 75vw;
         margin: 0 auto;
@@ -65,7 +66,13 @@
         text-align: center;
         padding-bottom: 3%;
 
+
+
+
         .profile-top{
+           width: 80%; 
+           margin: 0 auto;
+
             h2{
                 color: $green;
                 font-weight: 700;

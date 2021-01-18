@@ -56,6 +56,20 @@
         }
     }
 
+    // dash
+    .dashboard{
+
+        .display-4{
+            padding: 5% 0 2%
+        }
+        .dashboard-inner{
+            width: 80vw;
+
+        }
+    }
+
+
+
     // auth
 
 
@@ -137,14 +151,18 @@
             flex-direction: row;
             justify-content: space-between;
             flex-wrap: wrap;
-            width: 80vw;
+            width: 70vw;
             margin: 0 auto;
+
 
 
         }
 
         .profileimage{
-            width: 30%;
+            width: 26%;
+            margin: 1%;
+
+
         }
 
         .profiledisplay{
@@ -153,6 +171,23 @@
             .round-img{
                 width: 80%;
             }
+
+            .profile-top{
+
+                width: 75%;
+                h2{
+                    font-size: 1.5rem;
+                }
+                h3{
+                    font-size: 1.25rem;
+                }
+            }
+
+            .text{
+                width: 75%;
+                margin: 0 auto;
+            }
+
 
 
         }

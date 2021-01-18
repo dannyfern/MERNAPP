@@ -25,7 +25,7 @@ const ProfileFields = ({ profile: {
                 <p>{skills.experiencelevel}</p>
             </div>
             <ul>
-                {skills.slice(0,5).map((skills, index) => (
+                {skills.slice(0,5).map((skills, index) =>  (
                     <li key={index} className="text">
                         {/* <p className="profileheadings">Programming Languages:</p> */}
                         {

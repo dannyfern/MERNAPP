@@ -7,12 +7,12 @@ import { deleteExperience } from '../../actions/profile'
 const Experience = ({ experience, deleteExperience }) => {
     const experiences = experience.map(exp => (
         <tr key={exp._id}>
-        <td>{exp.company}</td>
-        <td>{exp.jobtitle}</td>
-        <td>{exp.business}</td>
-        <td>{exp.location}</td>
-        <td><Moment format='DD/MM/YYYY'>{exp.startdate}</Moment></td>
-        <td><Moment format='DD/MM/YYYY'>{exp.enddate}</Moment></td>
+        <td className="tableData">{exp.company}</td>
+        <td className="tableData">{exp.jobtitle}</td>
+        <td className="tableData">{exp.business}</td>
+        <td className="tableData">{exp.location}</td>
+        <td className="tableData"><Moment format='DD/MM/YYYY'>{exp.startdate}</Moment></td>
+        <td className="tableData"><Moment format='DD/MM/YYYY'>{exp.enddate}</Moment></td>
         <td button onClick={() => deleteExperience(exp._id)} className= 'btn btn-danger'>Delete</td>
         </tr>
         
