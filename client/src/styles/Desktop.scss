@@ -122,6 +122,44 @@
     }
 
 
+
+
+    // profiles :
+    .profilesPage{
+
+        h1{
+            margin: 3% 0;
+            font-size: 3rem;
+        }
+
+        .profiles{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 80vw;
+            margin: 0 auto;
+
+
+        }
+
+        .profileimage{
+            width: 30%;
+        }
+
+        .profiledisplay{
+            width: 100%;
+
+            .round-img{
+                width: 80%;
+            }
+
+
+        }
+
+    }
+
+
     // filter posts
     
 

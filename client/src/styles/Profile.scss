@@ -19,12 +19,90 @@
 
 }
 
-// profiles page
 .profileFilters{
     text-decoration: underline;
     padding: 5%;
 
 }
+
+
+
+// profiles page
+
+.profilesPage{
+
+    h1{
+        text-align: center;
+        margin: 10% 0;
+
+    }
+    .profileBgImg{
+        background: url("./../img/profile-bg.jpg")  no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+        min-width: 1024px;
+            
+       
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1000;
+    }
+
+    .profiledisplay{
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 75vw;
+        margin: 0 auto;
+        // border: 2px solid #000;
+        box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        margin-bottom: 5%;
+        text-align: center;
+        padding-bottom: 3%;
+
+        .profile-top{
+            h2{
+                color: $green;
+                font-weight: 700;
+                font-size: 2.5rem;
+            }
+        }
+
+        .round-img{
+            border-radius: 50%;
+            margin: 10% 0;
+        }
+
+        .text{
+            list-style: none;
+
+            .skills{
+                font-weight: 600;
+
+            }
+
+            .skillsExp{
+
+            }
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 

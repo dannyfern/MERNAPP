@@ -115,6 +115,35 @@
   .signin #signin-form .my-1 {
     width: 30vw;
   }
+  .profilesPage h1 {
+    margin: 3% 0;
+    font-size: 3rem;
+  }
+  .profilesPage .profiles {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  .profilesPage .profileimage {
+    width: 30%;
+  }
+  .profilesPage .profiledisplay {
+    width: 100%;
+  }
+  .profilesPage .profiledisplay .round-img {
+    width: 80%;
+  }
   .postsDiv .postBgTransparent .posts .postCard {
     padding: 1.5%;
     margin: 1%;
