@@ -42,7 +42,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <i className='fa fa-users' />{' '}
         <span className='hide-sm'></span>Register account</Link>
         <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
-        <Link className="navLinkStyles" to="/help">Help Me</Link>
+        <Link className="navLinkStyles" to="/profiles"> Profiles </Link>
         <Link className="navLinkStyles" to="/auth/signin">
         <i className='fas fa-sign-in-alt' />{' '}
         <span className='hide-sm'></span>Sign in</Link>

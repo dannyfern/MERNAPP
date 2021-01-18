@@ -11,15 +11,12 @@ import DisplayProfile from './DisplayProfile'
 
 import Experience from './Experience'
 import Qualification from './Qualification'
-import AwesomeButton from 'react'
 
 const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
 
-
-
     useEffect(() => {
         currentProfile();
-    }, []);
+    }, [currentProfile]);
     console.log(profile)
 
     return loading && profile === null ? <Spinner /> : 

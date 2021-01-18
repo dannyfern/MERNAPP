@@ -80,7 +80,16 @@
 
     
 }
-
+.profiledisplay {
+  border: 1px solid black;
+  margin-left: 350px;
+  text-align: center;
+  margin-right: 350px;
+  background-color: rgb(255, 255, 255);
+}
+.profileheadings {
+  font-size: 20px;
+}
 
 .hamburger {
     display: block;
@@ -261,6 +270,8 @@
   color: #fff;
   text-align: center;
 }
+
+
 
 .qualifications {
     position: relative;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+
 const ProfileFields = ({ profile: {
     user: { _id, name, avatar },
     title,
@@ -12,29 +13,38 @@ const ProfileFields = ({ profile: {
 
 }) => {
     return (
-        <div className="profile bg-light">
+        <section className="profileimage">
+        <div className="profiledisplay">
             <img src={avatar} alt="" className="round-img"/>
             <div>
                 <h2>{name}</h2>
                 <p>{title} {company && <span> at {company}</span>}</p>
-                <p className="my-1">{location && <span>{location}</span>}</p>
-                <Link to={`/profile/${_id}`} className='btn btn-primary'>
-                    View Profile
-                </Link>
+                <p className="profileheadings">Country</p>
+                <p>{location && <span>{location}</span>}</p>
+                <p>{skills.experiencelevel}</p>
             </div>
             <ul>
-                {skills.slice(0,5).Array.prototype.map((skill, index) => (
-                    <li key={index} className="text-primary">
-                        <i>{skill}</i>
+                {skills.slice(0,5).map((skills, index) => (
+                    <li key={index} className="text">
+                        <p className="profileheadings">Programming Languages</p>
+                        <i className="profileskills"></i>{skills.languages}
+                        <p className="profileheadings"> Experience Level</p>
+                        <i className="profileskills"></i>{skills.experiencelevel}
+
+                        <p className="profileheadings"> Years of experience</p>
+                        <i className="profileskills"></i>{skills.yearsofexperience}
+                
+                        <Link to={`/profile/${_id}`} className='btn btn-primary'> View Profile</Link>
                     </li>
                 ))}
-            </ul>  
+            </ul>
         </div>
+    </section>
     )
-}
+};
 
 ProfileFields.propTypes = {
-    profile: PropTypes.object.isRequired,
+    Profile: PropTypes.object.isRequired,
 }
 
 export default ProfileFields

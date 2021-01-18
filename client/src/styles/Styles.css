@@ -61,6 +61,18 @@
   text-decoration: none;
 }
 
+.profiledisplay {
+  border: 1px solid black;
+  margin-left: 350px;
+  text-align: center;
+  margin-right: 350px;
+  background-color: white;
+}
+
+.profileheadings {
+  font-size: 20px;
+}
+
 .hamburger {
   display: block;
   background-color: transparent;

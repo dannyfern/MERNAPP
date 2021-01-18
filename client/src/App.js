@@ -22,6 +22,7 @@ import Post from './components/posts/Post'
 import AddPost from './components/posts/AddPost'
 import EditPost from './components/posts/EditPost'
 
+import Profile from './components/profile/Profile'
 import Profiles from './components/profiles/Profiles'
 import BaseProfile from './components/profiles/BaseProfile'
 // import Profile from './components/profiles/Profilemeikas'
@@ -78,6 +79,7 @@ const App = () => {
                 <Alert /> 
                     <Switch>
                         <Route exact path="/profiles" component={Profiles} />
+                        <Route exact path="/profile/:id" component={Profile} />
                         <Route exact path="/auth/register" component={Register} />
                         <Route exact path="/auth/signin" component={SignIn} />
                         <PrivateRoute exact path="/dashboard" component={Dashboard} />
