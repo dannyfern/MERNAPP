@@ -58,18 +58,9 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
     // user only likes once
     // 
     const handleLikes = () => {
-        // console.log(currentUser)
-        // const currentId = currentUser._id
-        // if (post.likes.includes(currentId)){
-        //     let index = post.likes.findIndex(x => x === currentId)
-        //     post.likes.splice(index, 1)
-        // } else {
-        //     post.likes.push(currentId)
-        //     console.log(post.likes)
-        // }
+        
        
         dispatch(toggleLikes(post._id))
-        // console.log(post.likes)
         
         
 
@@ -96,6 +87,7 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
         return (
             <div>
                 <div>
+                <div className="postBgImage"></div>
                     <div className="singlePostTitle">
                         <Link to={`/posts/${post._id}`} className="singleTitleLink">
                             <h1 id="postTitle">{title}</h1>
@@ -104,13 +96,12 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                     <div id="postSections" className="width70">
                         
                         <div className="singlePostInfo">
-                            <h5 id="postDate">Posted {modified_date.toLocaleString().slice(0, 10)}</h5><br></br>
+                            <h5 id="postDate">Posted {modified_date.toLocaleString().slice(0, 10)}</h5>
                             <h3>{category}</h3>
                             
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            {/* <img src={avatar} alt="avatar"  id="postAvatar"/> */}
                             <p className="postUsername">@{username}</p>
                             
                             <p className="postDesc">{

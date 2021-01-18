@@ -271,7 +271,8 @@
     }
 
     .singlePostTitle{
-        padding: 8% !important;
+        padding: 2% !important;
+
         .singleTitleLink{
             #postTitle{
                 font-size: 2em;
@@ -284,12 +285,13 @@
         flex-direction: row-reverse;
         align-items: flex-start;
         margin-top: 5%;
+        padding-top: 3%;
         
 
         .singlePostInfo{
             width: 40vw;
             border-left: 1px solid black;
-            padding-left: 5%;
+            padding-left: 3%;
 
 
             h5{
@@ -307,6 +309,7 @@
 
         .authorInfo{
             margin: 0;
+            padding-right: 3%;
             p{
                 font-size: 1.25em;
             }
