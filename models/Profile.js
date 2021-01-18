@@ -39,6 +39,44 @@ const ProfileSchema = new mongoose.Schema({
         type: [String],
         required: true
         },
+        experience: [
+            {
+                title: {
+                    type: String,
+                    required: false,
+                },
+                company: {
+                    type: String,
+                    required: false,
+                },
+                current: {
+                    type: Boolean,
+                    default: false,
+                },
+                jobtitle: {
+                    type: String,
+                    required: false,
+                },
+                business: {
+                    type: String,
+                    required: false,
+                },
+                location: {
+                    type: String,
+                    required: false
+                },
+                startdate: {
+                    type: Date,  default: Date.now,
+                    required: false
+                },
+                enddate: {
+                    type: Date,  default: Date.now,
+                    required: false
+                },
+                description: {
+                    type: String,
+                }
+            }],
 //-------------------------------------------------------
     skills: [
     {  
@@ -55,56 +93,22 @@ const ProfileSchema = new mongoose.Schema({
             required: false
         }
     }],
-//---------------------------------------------------------
-currentroles: [
-    {
-        jobtitle: {
-            type: String,
-            required: false,
-        },
-        business: {
-            type: String,
-            required: false,
-        },
-        location: {
-            type: String,
-            required: false
-        },
-    }],
-//----------------------------------------------------------
-pastroles: [
-    {
-        title: {
-            type: String,
-            required: false,
-        },
-        company: {
-            type: String,
-            required: false,
-        },
-        startdate: {
-            type: Date,  default: Date.now,
-            required: false
-        },
-        enddate: {
-            type: Date,  default: Date.now,
-            required: false
-        }
-    }],
+
+
 //-------------------------------------------------------------
     prospects: {
         type: [String],
         required: false
     },
 //-------------------------------------------------------------
-    qualifications: [
+    qualification: [
     {
         institution: {
             type: String,
             required: false,
         },
         degree: {
-            type: [String],
+            type: String,
             required: false,
         },
         startdate: {
@@ -113,6 +117,10 @@ pastroles: [
         },
         enddate: {
             type: Date,
+            required: false,
+        },
+        description: {
+            type: String,
             required: false,
         }
     }],
@@ -137,7 +145,7 @@ pastroles: [
     // }
     // }],
 //-------------------------------------------------------------
-    social: 
+    socials: 
         {
         linkedin: { 
             type:String,

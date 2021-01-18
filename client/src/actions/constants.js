@@ -9,11 +9,11 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 
 export const ALL_PROFILE = 'ALL_PROFILE'
-export const CREATE_PROFILE = 'CREATE_PROFILE'
-export const PROFILE_LOADED = 'PROFILE_LOADED'
-export const PROFILE_LOAD_ERROR = "PROFILE_LOAD_ERROR"
-export const PROFILE_ERROR = "PROFILE_ERROR"
+export const GET_PROFILES = 'GET_PROFILES'
 export const CLEAR_PROFILE = "CLEAR_PROFILE"
+export const UPDATE_PROFILE = "UPDATE_PROFILE"
+export const PROFILE_ERROR = "PROFILE_ERROR"
+export const DELETE_ACCOUNT = "DELETE_ACCOUNT"
 
 export const ALL_POSTS ='ALL_POSTS'
 export const POST_ERROR ='POST_ERROR'

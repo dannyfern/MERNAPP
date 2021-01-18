@@ -30,11 +30,16 @@ const Home = ({ isAuthenticated, posts }) => {
                     <p>
                         Sign up for a free account or log in to an existing account to get started
                     </p>
-                    <div className="homebuttons">
-                        <Link to='auth/Register' className='btn btn-primary'>Sign Up!</Link>
+                        <a class="buttonhome">
+                        <span class="away"><Link to='auth/Register'>Sign Up</Link></span>
+                        <span class="over"><Link to='auth/Register'>Get Noticed</Link></span>
+                        </a>
                         &nbsp;&nbsp;&nbsp;
-                        <Link to='auth/signin' className='btn btn-secondary'>Sign In!</Link>
-                    </div>
+                        &nbsp;&nbsp;&nbsp;
+                        <a class="buttonhome">
+                        <span class="away"><Link to='auth/signin'>Sign In</Link></span>
+                        <span class="over"><Link to='auth/signin'>Welcome Back!</Link></span>
+                        </a>
                 </div>
             </div>
         </section>
@@ -52,3 +57,9 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(Home);
+
+{/* <div className="homebuttons">
+<Link to='auth/Register' className='btn btn-primary'>Sign Up!</Link>
+&nbsp;&nbsp;&nbsp;
+<Link to='auth/signin' className='btn btn-secondary'>Sign In!</Link>
+</div> */}

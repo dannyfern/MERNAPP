@@ -165,57 +165,69 @@ async (req, res) => {
     }
 
 const {
-    jobtitle,
-    business,
-    location,
     title,
     company,
-    startdate,
-    enddate
-} = req.body;
-
-const currentExp = {
+    current,
     jobtitle,
     business,
     location,
-}
-const pastExp = {
+    startdate,
+    enddate,
+    description,
+} = req.body;
+
+const exp = {
+    current,
+    jobtitle,
+    business,
+    location,
     title,
     company,
     startdate,
     enddate,
+    description,
 }
-// DELETE EXPERIENCE BY ID ---------------------------------------------------
+
 try {
-    const profile = await Profile.findOne({ user: req.user.id });
+    const profile = await Profile.findOne({ user: req.user.id })
 
-    profile.currentroles.unshift(currentExp);
-    profile.pastroles.unshift(pastExp)
-
+    profile.experience.unshift(exp);
+    
     await profile.save();
 
-    res.json(profile);
+    res.json(profile)
 } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
-}
-});
+    res.status(500).send('Servers Down')
+}});
+
+
+// DELETE EXPERIENCE BY ID ---------------------------------------------------
+// try {
+//     const profile = await Profile.findOne({ user: req.user.id });
+
+//     profile.currentroles.unshift(currentExp);
+//     profile.pastroles.unshift(pastExp)
+
+//     await profile.save();
+
+//     res.json(profile);
+// } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+// }
+// });
 
 // DELETE EXPERIENCE ROUTE ----------------------------------------
 router.delete('/experience/:exp_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        const removeCurrent = profile.currentroles
-        .map(item => item.id)
+        const removeIndex = profile.experience.map(item => item.id)
         .indexOf(req.params.exp_id);
 
-        const removePast = profile.pastroles
-        .map(item => item.id)
-        .indexOf(req.params.exp_id);
+        profile.experience.splice(removeIndex, 1)
 
-        profile.currentroles.splice(removeCurrent, 1);
-        profile.pastroles.splice(removePast, 1);
         await profile.save();
 
         res.json(profile);
@@ -227,7 +239,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 
 // EDUCATION FOR PROFILE --------------------------------
 
-router.put('/education', 
+router.put('/qualification', 
     [auth, 
     [
         check('institution', 'Institution is a required field')
@@ -247,19 +259,21 @@ const {
     degree,
     startdate,
     enddate,
+    description,
 } = req.body;
 
-const newEdu = {
+const newQua = {
     institution,
     degree,
     startdate,
     enddate,
+    description,
 }
-// DELETE QUALIFICATIONS BY ID ----------------------------------------
+
 try {
     const profile = await Profile.findOne({ user: req.user.id });
 
-    profile.qualifications.unshift(newEdu);
+    profile.qualification.unshift(newQua);
 
     await profile.save();
 
@@ -271,15 +285,14 @@ try {
 });
 
 // DELETE QUALIFICATIONS BASED ON ID -------------------------------------
-router.delete('/education/:edu_id', auth, async (req, res) => {
+router.delete('/qualification/:qua_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        const removeEdu = profile.qualifications
-        .map(item => item.id)
-        .indexOf(req.params.edu_id);
+        const removeIndex = profile.qualification.map(item => item.id)
+        .indexOf(req.params.qua_id);
 
-        profile.qualifications.splice(removeEdu, 1);
+        profile.qualification.splice(removeIndex, 1);
         
         await profile.save();
 

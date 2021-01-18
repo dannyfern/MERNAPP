@@ -1,4 +1,4 @@
-import { ALL_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from "../actions/constants";
+import { ALL_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, UPDATE_PROFILE, GET_PROFILES } from "../actions/constants";
 
 const initialState = {
     profile: null,
@@ -24,11 +24,18 @@ export default function (state = initialState, action) {
 
     switch(type) {
         case ALL_PROFILE:
+        case UPDATE_PROFILE:
             return {
                 ...state,
                 profile: payload,
                 loading: false
             };
+        case GET_PROFILES:
+            return {
+                ...state,
+                profiles: payload,
+                loading: false
+            }
         case PROFILE_ERROR:
             return {
                 ...state,

@@ -35,6 +35,16 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     return <Redirect to='/dashboard' />
   }
     
+
+//     return <Fragment>
+//     <section className="signup">
+//     <div className="register">
+//         <h1 className="text-signup">Sign Up</h1>
+//     </div>
+//     <p className="text-signup"><i className=""></i> Create Your Account</p>
+//         <form className="form" onSubmit={c => onSubmit(c)}>
+//           <div className="form-signup">
+
     
   return <Fragment>
     <div className="registerComponent">
@@ -51,6 +61,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p className="lead"><i className="fas fa-user"></i>&nbsp; Create Your Account</p>
         <form className="form register-form" onSubmit={c => onSubmit(c)}>
           <div className="form-group">
+
             <input 
             type='text'
             placeholder='Name...'
@@ -58,7 +69,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={name} 
             onChange={c => onChange(c)} />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input 
             type="email" 
             placeholder="Email Address..." 
@@ -66,7 +77,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={c => onChange(c)}  />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input
               type="password"
               placeholder="Password..."
@@ -76,7 +87,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               minLength="6"
             />
           </div>
-          <div className="form-group">
+          <div className="form-signup">
             <input
               type="password"
               placeholder="Confirm Password..."
@@ -88,6 +99,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </div>
           <div className="ending">
             <input type="submit" className="btn btn-primary" value="Register" />
+
+//              </div>
+//              <p className="my-1">
+//             Already have an account? <Link to="/auth/signin">Sign In</Link>
+//              </p>
+//             </form>
+//             </section>
+//         </Fragment>
+
           </div>
           <p className="my-1">
             Already have an account? <Link to="/auth/signin">&nbsp; Sign In</Link>
@@ -98,6 +118,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     </div>
 
   </Fragment>
+
 }
 
 Register.propTypes = {
