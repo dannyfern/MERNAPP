@@ -6,6 +6,7 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 import './../../styles/Posts.css'
 import { useSelector, useDispatch } from 'react-redux'
+import { getProfiles, getProfileId } from './../../actions/profile'
 
 // try filters with controlled input
 
@@ -22,6 +23,22 @@ const Posts = ({ posts }) => {
     console.log(posts)
 
     
+    
+    // useEffect(() => {
+    //     dispatch(getProfiles)
+    // }, [dispatch])
+
+    // let profiles = useSelector(state => state.profile.profiles)
+    // console.log(profiles)
+
+    // const getAllProfiles = async () => {
+    //     const res = await axios.get('http://localhost:5000/api/profile')
+    //     // console.log(res.data)
+    //     let profiles = res.data
+    //     return profiles
+    // }
+    // let profiles = getAllProfiles()
+    // console.log(profiles)
 
     
 
@@ -29,8 +46,11 @@ const Posts = ({ posts }) => {
 
 
 
-    function displayPosts(post) {
+    function DisplayPosts(post) {
         const { title, category, user, likes } = post
+        // const profile = profiles.find(x => x._id === user)
+        // console.log(profile)
+        
 
         
         return (
@@ -40,7 +60,7 @@ const Posts = ({ posts }) => {
                 </Link>
                 <div className="postInfo">
 
-                    <h5>Posted by: {user}</h5>
+                    {/* <h5>Posted by: {user}</h5> */}
                     <h3>{category}</h3>
 
                     <div className="upVotesDiv">
@@ -100,7 +120,7 @@ const Posts = ({ posts }) => {
             )
             .sort((a, b) =>  sortOptions(a, b, sortBy))
             .map((post) => {
-                return displayPosts(post)
+                return DisplayPosts(post)
             })
             
         )
