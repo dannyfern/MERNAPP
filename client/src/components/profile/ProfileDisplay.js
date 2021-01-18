@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const ProfileDisplay = ({ profile: {
-    
+    user: { name, avatar },
+    title,
     company,
     location,
     social,
-    user: { name, avatar }
-}}) => {
+    }
+
+}) => {
     return(
         <div class="profile-top bg-primary p-2">
           <img
@@ -16,6 +18,7 @@ const ProfileDisplay = ({ profile: {
             alt=""
           />
           <h1 class="large">{name}</h1>
+          <p class="lead"> {title}</p>
           <p class="lead"> {company}</p>
           <p>{location}</p>
           <div class="icons my-1">
@@ -114,7 +117,7 @@ const ProfileDisplay = ({ profile: {
 }
 
 ProfileDisplay.propTypes = {
-
+    profile: PropTypes.object.isRequired,
 }
 
-export default ProfileDisplay
+export default ProfileDisplay;
