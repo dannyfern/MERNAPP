@@ -113,17 +113,21 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                                 <p onClick={handleLikes} className="upvoteButton">++ {likes && likes.length}</p>
                             
                             </div>
-                            {
-                                currentUser && currentUser._id === user && 
-                                <button onClick={deletePost} >Delete post</button>
-                            }
-                            {
-                                currentUser && currentUser._id === user && 
-                                <Link to={`/posts/edit/${match.params.id}`}>
-                                    <button>Edit post</button>
-                                </Link>
-                                
-                            }
+                            <div className="crudBtns">
+
+                                {
+                                    currentUser && currentUser._id === user && 
+                                    <button className="crudB" onClick={deletePost} >Delete post</button>
+                                }
+                                {
+                                    currentUser && currentUser._id === user && 
+                                    <Link to={`/posts/edit/${match.params.id}`}>
+                                        <button className="crudB" >Edit post</button>
+                                    </Link>
+                                    
+                                }
+                            </div>
+
                         </div>
                         
                         

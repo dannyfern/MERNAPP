@@ -226,7 +226,7 @@
   #postSections .singlePostInfo {
     width: 40vw;
     border-left: 1px solid black;
-    padding-left: 3%;
+    padding-left: 2%;
   }
   #postSections .singlePostInfo h5 {
     font-size: 1.25em;
@@ -240,10 +240,18 @@
   }
   #postSections .authorInfo {
     margin: 0;
-    padding-right: 3%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    width: 40%;
   }
   #postSections .authorInfo p {
     font-size: 1.25em;
+  }
+  #postSections .authorInfo .crudBtns .crudB {
+    padding: 3%;
+    margin: 0 2%;
+    border: none;
+    background-color: #75ACB4;
   }
   .profileWrapper {
     width: 75vw;
