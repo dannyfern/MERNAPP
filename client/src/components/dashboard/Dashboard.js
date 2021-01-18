@@ -5,14 +5,20 @@ import { Link } from 'react-router-dom'
 import { currentProfile, deleteAccount } from '../../actions/profile'
 import { Spinner } from 'react-bootstrap'
 import DashActions from './DashAction'
+
 import Experience from './Experience'
 import Qualification from './Qualification'
 import AwesomeButton from 'react'
 
 const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
+
+import DisplayProfile from './DisplayProfile'
+
+
     useEffect(() => {
         currentProfile();
     }, []);
+    console.log(profile)
 
     return loading && profile === null ? <Spinner /> : 
     <Fragment>
@@ -28,6 +34,7 @@ const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { p
             <Qualification qualification={profile.qualification}/>
             </Fragment> ) : (
         <Fragment> You do not have a Profile setup, please create one!</Fragment>)}
+
         <section className="profilebutton">
           <Link to='/createprofile' className="btn btn-info">
         <span class="glyphicon glyphicon-user">
@@ -36,6 +43,7 @@ const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { p
         <span class="glyphicon glyphicon-user">
             </span>Delete Account</button>
         </section>
+
         </section>
     </Fragment>;
 }

@@ -50,22 +50,120 @@
         }
     }
 
+    // auth
 
-    // filter posts
-    .filters{
-        width: 50vw !important;
 
+    .home-inner{
+        margin: 5% auto;
+
+    }
+    .registerComponent{
+        padding: 5% 0;
+
+        .register{
+            margin-bottom: 3%;
+
+            .large{
+                font-size: 3rem;
+            }
+        }
+
+        
+        .registerPage{
+            .register-form{
+                width: 50vw;
+                margin: 0 auto;
+    
+                .my-1{
+                    width: 30vw;
+                }
+    
+            }
+        }
+
+
+        
+    }
+
+    .my-1{
+        padding: 2%;
+    }
+
+    .signin{
+        padding: 5% 0 !important;
+
+        .header{
+            font-size: 3rem;
+        }
+
+        .register{
+
+            .text{
+                font-size: 2rem !important;
+
+            }
+        }
+
+        #signin-form{
+            width: 50vw ;
+            margin: 0 auto;
+
+            .my-1{
+                width: 30vw;
+            }
+
+        }
     }
 
 
+    // filter posts
+    
+
+
     // posts :
+    .postsDiv{
+
+        .postBgTransparent{
+
+
+            .posts{
+                .postCard{
+                    padding: 1.5%;
+                    margin: 1%;
+                }
+            }
+            .postHeading{
+                padding: 2% 0 1%;
+            }
+
+            .filters{
+                width: 60vw !important;
+                margin: 1% auto;
+                padding: 2%;
+
+                p{
+                    font-size: 1.25rem;
+                }
+                .Dropdown-control{
+                    font-size: 1rem;
+                }
+                .Dropdown-menu{
+                    font-size: 1rem;
+                }
+        
+            }
+        }
+    }
+
+    
+
+    
     .width70{
         .posts{
             
 
             .postCard{
-                padding: 2%;
-                margin: 3%;
+                
                 flex: 20%;
         
                 .titleLink{

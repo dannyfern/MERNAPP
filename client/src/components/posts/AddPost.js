@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import './../../styles/Posts.css'
 import FormInput from './../reusable/FormInput'
 import Posts from './Posts'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector, connect } from 'react-redux'
 import { createPost, getAllPosts } from './../../config/api'
 import { Redirect } from 'react-router-dom'
+import { currentProfile } from '../../actions/profile'
+import PropTypes from 'prop-types'
 
 
 
-const AddPost = ({ history, nextId, addPost, match }) => {
-    // const [posts, setTwoots] = useState([])
+const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading}, history, addPost, match }) => {
+    console.log(profile)
+
     const dispatch = useDispatch()
     const posts = useSelector(state => state.postReducer)
     
@@ -18,7 +21,10 @@ const AddPost = ({ history, nextId, addPost, match }) => {
     const initialFormState = {
         title: "",
         category: "",
-        text: ""
+        text: "",
+        // username: profile.username
+        // profile: profile
+
     }
 
     const [formState, setFormState] = useState(initialFormState)
@@ -37,37 +43,21 @@ const AddPost = ({ history, nextId, addPost, match }) => {
     const handleSubmit = e => {
         e.preventDefault()
         let newPost = {
-            // _id: nextId,
             title: formState.title,
             category: formState.category || "general",
-            modified_date: new Date(),
-            text: formState.text
+            text: formState.text,
+            // username: formState.username
         }
+        console.log('new', newPost)
 
-        
-        console.log("BEFORE DISPATCH: ", newPost._id)
         dispatch(createPost(newPost))
-        // let selectedPost = posts.filter(x => x._id === newPost._id)
-        // selectedPost = selectedPost[0]
-        // console.log(selectedPost)
+        history.push(`/posts/${newPost._id}`)
         
-        // addPost(newPost)
-        
-        
-
-        history.push(`/posts/${nextId}`)
-        // console.log(nextId)
-        // console.log(newPost._id)
-        // console.log(match.params)
-        // dispatch(getAllPosts())
     }
-    console.log(formState)
 
 
     return(
         <div>
-            
-            
             <div id="addPostDiv">
                 <div className="heading">
                     <h1>Add post</h1>
@@ -100,5 +90,16 @@ const AddPost = ({ history, nextId, addPost, match }) => {
     )
 }
 
+AddPost.propTypes = {
+    currentProfile: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
+};
 
-export default AddPost
+const mapStateToProps = state => ({
+    auth: state.auth,
+    profile: state.profile
+});
+
+
+export default connect(mapStateToProps, { currentProfile })(AddPost)

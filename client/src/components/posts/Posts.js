@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
-// import { getAllBlogPosts } from './../../services/blogPostServices'
 import './../../styles/Posts.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-
+// try filters with controlled input
 
 const Posts = ({ posts }) => {
-    console.log(posts)
 
     const filters = {
         category: "All",
@@ -19,22 +17,22 @@ const Posts = ({ posts }) => {
     }
 
     const [filterData, setFilterData] = useState(filters)
-    // const blogPosts = useSelector(state => state.postReducer)
-    // console.log(blogPosts)
 
+    const dispatch = useDispatch()
+    console.log(posts)
 
+    
+
+    
 
     
 
 
 
-
-
     function displayPosts(post) {
         const { title, category, user, likes } = post
-        
 
-        console.log(post)
+        
         return (
             <div className="postCard">
                 <Link to={`/posts/${post._id}`} className="titleLink">
@@ -65,15 +63,20 @@ const Posts = ({ posts }) => {
     // sorting method, eg. newest, oldest, most upvotes, least etc.
 
     const sortOptions = (a, b, sortBy) => {
+
         switch (sortBy){
             case "Newest":
-                return (b.modified_date - a.modified_date)
+                return (new Date(b.modified_date) - new Date(a.modified_date))
                 
             case "Oldest":
-                return (a.modified_date - b.modified_date)
-                
+                return (new Date(a.modified_date) - new Date(b.modified_date))
+            case "Most Upvotes":
+                return (b.likes.length - a.likes.length)
+                // return null
+            case "Least Upvotes":
+                return null
             default:
-                return (b.modified_date - a.modified_date)
+                return (new Date(b.modified_date) - new Date(a.modified_date))
                 
 
         }
@@ -81,24 +84,21 @@ const Posts = ({ posts }) => {
     
 
     function Display (){
-        // console.log(filterData)
         const { category, sortBy } = filterData
-        // console.log(category)
-        // console.log(postsData.filter(x => x.category === "code"))
-        // console.log(category)
-        // console.log( posts)
+       
 
         return (posts && posts
+
             .filter((x) => {
                 if (category === "All"){
                     return x
                 } else {
-                    return x.category === category
+                    return x.category[0] === category
                 }
                
             }
             )
-            .sort((a, b) => sortOptions(a, b, sortBy))
+            .sort((a, b) =>  sortOptions(a, b, sortBy))
             .map((post) => {
                 return displayPosts(post)
             })
@@ -110,8 +110,8 @@ const Posts = ({ posts }) => {
     
 
     function openFilters () {
-        const filterBtn = document.querySelector('.filterText')
-        console.log(filterBtn)
+        const filterBtn = document.querySelector('.filters')
+
 
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
@@ -127,7 +127,8 @@ const Posts = ({ posts }) => {
         {label: "Code", value: "category"},
         {label: "Food", value: "category"},
         {label: "Issues", value: "category"},
-        {label: "Meetups", value: "category"}
+        {label: "Meetups", value: "category"},
+        {label: "Health", value: "category"}
     ]
 
     // const sortByOptions = ["Newest", "Oldest", "Most Upvotes", "Least Upvotes"]
@@ -151,16 +152,18 @@ const Posts = ({ posts }) => {
         console.log('filter: ', filterData)
     }
 
-    // const handleFilterSubmit = e => {
-    //     e.preventDefault()
 
-    // }
 
     return(
-        <div>
-            {/* <div className="heading">
+        <div className="postsDiv">
+            <div className="postBgImage">
+                
+            </div>
+            <div className="postBgTransparent">
+
+            <div className="postHeading">
                 <h4>Posts</h4>
-            </div> */}
+            </div>
             <div className="filterText">
                 <p onClick={openFilters}>Filter</p>
             </div>
@@ -185,6 +188,8 @@ const Posts = ({ posts }) => {
             <div className="width70 posts">
                 <Display filters={filterData} />
             </div>
+            </div>
+
 
 
         </div>

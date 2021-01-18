@@ -3,6 +3,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // height: 100vh;
+}
+.registerComponent{
+
+    .bgImage{
+        background: url('../img/signin.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height: 100%;
+        min-width: 1024px;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        z-index: -1000;
+    }
+    padding: 15% 0;
+
+    
+
+    
+
+}
+.ending{
+    margin-bottom: 5%;
+}
+.my-1{
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 5%;
+    width: 90vw;
+    margin: auto;
+}
+
+.signin{
+    padding: 15% 0;
 }
 
 .form-group {

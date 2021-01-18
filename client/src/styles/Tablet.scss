@@ -26,6 +26,51 @@
         font-size: 3rem;
     }
 
+    // auth 
+    .registerComponent{
+
+        .registerPage{
+            width: 80vw;
+            margin: 0 auto;
+            .my-1{
+                width: 50vw;
+            }
+        }
+
+        .register{
+
+            h1{
+                font-size: 4rem;
+            }
+        }
+    }
+    .my-1{
+        font-size: 1.25rem;
+        padding: 3%;
+        width: 70vw;
+
+        
+    }
+    .header{
+        font-size: 4rem;
+    }
+    .signin{
+        padding: 10% 0;
+        // width: 60vw;
+
+        .signin-form{
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        .register{
+            .large{
+                font-size: 3rem;
+                
+            }
+        }
+    }
+
 
     // post filters :
 
@@ -36,7 +81,7 @@
 
     .filters{
         margin: 5% auto;
-        width: 85vw;
+        width: 70vw;
 
         .filterDropdowns{
             display: flex;
@@ -65,8 +110,10 @@
     .posts{
         flex-direction: row;
         flex-wrap: wrap;
+        width: 75vw;
         .postCard{
             flex: 40%;
+            width: 40%;
             margin: 3% 3%;
         }
 

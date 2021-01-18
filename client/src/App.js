@@ -17,6 +17,7 @@ import Home from './components/Home'
 import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/privateroutes/PrivateRoute'
 
+import Posts from './components/posts/Posts'
 import Post from './components/posts/Post'
 import AddPost from './components/posts/AddPost'
 import EditPost from './components/posts/EditPost'
@@ -48,7 +49,6 @@ const App = () => {
     const [profiles, setProfiles] = useState([])
 
     const dispatch = useDispatch()
-    const blogPosts = useSelector((state) =>  state.postReducer)
 
     
     // get blog posts
@@ -56,11 +56,14 @@ const App = () => {
 
        
         dispatch(getAllPosts())
+
         .catch(y => {
             console.log(y)
         })
         
     }, [dispatch])
+    const blogPosts = useSelector((state) =>  state.postReducer)
+
     
 
 
@@ -89,9 +92,9 @@ const App = () => {
                         <Route exact path="/profiles/edit/:id" render={(props) => <EditProfile {...props}   />} />
                         <Route exact path="/profiles/:id" render={(props) => <Profile {...props} />} /> */}
                         
-                        
+                        <Route exact path="/posts" render={(props) => <Posts {...props} posts={blogPosts} />} />
                         <Route exact path="/posts/new" render={(props) => <AddPost {...props}/>} />
-                        <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} />} />
+                        <Route exact path="/posts/edit/:id" render={(props) => <EditPost {...props} posts={blogPosts} />} />
                         <Route exact path="/posts/:id" render={(props) => <Post {...props} />} />
                         
                         

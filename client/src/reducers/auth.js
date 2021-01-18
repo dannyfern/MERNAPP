@@ -27,7 +27,7 @@ export default function(state = initialState, action) {
     
     switch(type) {
         case USER_LOADED:
-            localStorage.setItem('userId', payload._id)
+            
             // console.log("USER ID !:", localStorage)
             return {
                 ...state,
