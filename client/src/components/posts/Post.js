@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { deletePostById, getPostFromId } from '../../config/api'
+import { deletePostById, getPostFromId, toggleLikes } from '../../config/api'
 import axios from 'axios'
 
-const Post = ({ history, match  }) => {
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { currentProfile } from '../../actions/profile'
+
+
+
+const Post = ({ history, match, currentProfile, auth: { user }, profile: { profile, loading}   }) => {
+    // console.log(user)
+    const currentUser = user
 
 
     const dispatch = useDispatch()
@@ -18,6 +26,13 @@ const Post = ({ history, match  }) => {
         post = post[0]
 
     }
+    
+    useEffect(() => {
+        
+    })
+    console.log(post)
+
+    // const [correctPost, setPost] = useState(post)
 
 
 
@@ -28,9 +43,24 @@ const Post = ({ history, match  }) => {
     
 
 
-
+    // user only likes once
+    // 
     const handleLikes = () => {
-        // logic for likes here
+        // console.log(currentUser)
+        // const currentId = currentUser._id
+        // if (post.likes.includes(currentId)){
+        //     let index = post.likes.findIndex(x => x === currentId)
+        //     post.likes.splice(index, 1)
+        // } else {
+        //     post.likes.push(currentId)
+        //     console.log(post.likes)
+        // }
+       
+        dispatch(toggleLikes(post._id))
+        // console.log(post.likes)
+        
+        
+
         
     }
 
@@ -76,11 +106,11 @@ const Post = ({ history, match  }) => {
                             
                             </div>
                             {
-                                user === localStorage.userId && 
+                                currentUser && currentUser._id === user && 
                                 <button onClick={deletePost} >Delete post</button>
                             }
                             {
-                                user === localStorage.userId && 
+                                currentUser && currentUser._id === user && 
                                 <Link to={`/posts/edit/${match.params.id}`}>
                                     <button>Edit post</button>
                                 </Link>
@@ -98,5 +128,16 @@ const Post = ({ history, match  }) => {
     }
 }
 
+Post.propTypes = {
+    currentProfile: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired,
+};
 
-export default Post
+const mapStateToProps = state => ({
+    auth: state.auth,
+    profile: state.profile
+});
+
+
+export default connect(mapStateToProps, { currentProfile })(Post);

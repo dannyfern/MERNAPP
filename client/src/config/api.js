@@ -313,3 +313,24 @@ export const deletePostById = (id) => async dispatch => {
     console.log(err)
   }
 }
+
+export const toggleLikes = (id) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type' : 'application/json'
+    }
+  }
+
+  try {
+
+    const temp = await axios.put(`/api/posts/like/${id}`, config)
+    console.log('likes', temp)
+
+    // dispatch({
+      
+    // })
+
+  } catch(err) {
+    console.log(err)
+  }
+}

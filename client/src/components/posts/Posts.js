@@ -19,6 +19,9 @@ const Posts = ({ posts }) => {
     const [filterData, setFilterData] = useState(filters)
 
     const dispatch = useDispatch()
+    console.log(posts)
+
+    
 
     
 
@@ -63,13 +66,13 @@ const Posts = ({ posts }) => {
 
         switch (sortBy){
             case "Newest":
-                console.log(new Date(a.modified_date), new Date(b.modified_date))
                 return (new Date(b.modified_date) - new Date(a.modified_date))
                 
             case "Oldest":
                 return (new Date(a.modified_date) - new Date(b.modified_date))
             case "Most Upvotes":
-                return null
+                return (b.likes.length - a.likes.length)
+                // return null
             case "Least Upvotes":
                 return null
             default:
@@ -124,7 +127,8 @@ const Posts = ({ posts }) => {
         {label: "Code", value: "category"},
         {label: "Food", value: "category"},
         {label: "Issues", value: "category"},
-        {label: "Meetups", value: "category"}
+        {label: "Meetups", value: "category"},
+        {label: "Health", value: "category"}
     ]
 
     // const sortByOptions = ["Newest", "Oldest", "Most Upvotes", "Least Upvotes"]
