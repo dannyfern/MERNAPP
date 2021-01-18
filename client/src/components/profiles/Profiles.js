@@ -9,29 +9,21 @@ import { getProfiles } from '../../actions/profile'
 const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
     useEffect(() => {
         getProfiles();
-    }, []);
+    }, [getProfiles]);
 
-    return (
-        <Fragment>
-            { loading ? (
-            <Spinner /> ) : (
-            <Fragment>
-
-                <h1 className="profiletext"> Developer Profiles</h1>
-
-                <div className="profiles">
-                    {profiles.length > 0 ? (
-                        profiles.map(profile => (
-                            <ProfileFields key={profile._id} profile={profile} />
-                        ))
-                    ) : ( <h1> No Profiles Found </h1> )}
-
-                </div>
-            </Fragment>
-            )}
-
+    return <Fragment>
+           { loading ? <Spinner /> : <Fragment>
+            <h1> Developer Profiles </h1>
+            <div className="profiles">
+                {profiles.length > 0 ? (
+                    profiles.map(profile => (
+                        <ProfileFields key={profile._id} profile={profile} />
+                    ))
+                ) : <h2> No Profiles Found </h2>}
+            </div>
+           </Fragment>}
         </Fragment>
-)};
+};
 
 Profiles.propTypes = {
     getProfiles: PropTypes.func.isRequired,

@@ -99,25 +99,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           </div>
           <div className="ending">
             <input type="submit" className="btn btn-primary" value="Register" />
-
-//              </div>
-//              <p className="my-1">
-//             Already have an account? <Link to="/auth/signin">Sign In</Link>
-//              </p>
-//             </form>
-//             </section>
-//         </Fragment>
-
           </div>
-          <p className="my-1">
-            Already have an account? <Link to="/auth/signin">&nbsp; Sign In</Link>
-          </p>
-          </form>
-      </div>
-
-    </div>
-
-  </Fragment>
+              <p className="my-1">
+                  Already have an account? <Link to="/auth/signin">Sign In</Link>              </p>
+            </form>
+            </div>
+            </div>
+       </Fragment>
 
 }
 

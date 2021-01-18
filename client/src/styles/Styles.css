@@ -16,7 +16,7 @@
 }
 
 .backgroundImg {
-  background: url("../img/home.webp") no-repeat center center/cover;
+  background: url("../img/home.jpg") no-repeat center center/cover;
   background-size: cover;
   background-position: center center;
   min-height: 100%;
@@ -59,6 +59,18 @@
 #navbar a {
   color: #000;
   text-decoration: none;
+}
+
+.profiledisplay {
+  border: 1px solid black;
+  margin-left: 350px;
+  text-align: center;
+  margin-right: 350px;
+  background-color: white;
+}
+
+.profileheadings {
+  font-size: 20px;
 }
 
 .hamburger {
@@ -113,9 +125,7 @@
 
 .home {
   position: relative;
-
   background: url("../img/home.jpg") no-repeat center center/cover;
-
   height: 100vh;
 }
 
@@ -304,7 +314,6 @@
 /* Forms */
 .form .form-group {
   margin: 1.2rem 0;
-
   padding-left: 5%;
   padding-right: 3%;
   color: black;
@@ -315,9 +324,6 @@
   color: black;
   font-weight: bold;
   padding-right: 60%;
-
-  padding: 0 5%;
-
 }
 
 .form .form-text {

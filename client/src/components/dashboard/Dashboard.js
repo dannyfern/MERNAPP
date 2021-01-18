@@ -8,16 +8,11 @@ import DashActions from './DashAction'
 
 import Experience from './Experience'
 import Qualification from './Qualification'
-import AwesomeButton from 'react'
 
 const Dashboard = ({ currentProfile, deleteAccount, auth: { user }, profile: { profile, loading} }) => {
-
-import DisplayProfile from './DisplayProfile'
-
-
     useEffect(() => {
         currentProfile();
-    }, []);
+    }, [currentProfile]);
     console.log(profile)
 
     return loading && profile === null ? <Spinner /> : 
