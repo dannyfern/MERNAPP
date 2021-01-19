@@ -47,9 +47,9 @@ import './styles/Tablet.css'
 
 const App = () => { 
 
-    const [profiles, setProfiles] = useState([])
 
     const dispatch = useDispatch()
+
 
     
     // get blog posts
@@ -61,8 +61,9 @@ const App = () => {
         .catch(y => {
             console.log(y)
         })
+
         
-    }, [dispatch])
+    })
     const blogPosts = useSelector((state) =>  state.postReducer)
 
     
