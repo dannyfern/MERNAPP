@@ -18,7 +18,7 @@ const ProfileFields = ({ profile: {
         <section className="profileimage">
         <div className="profiledisplay">
             <img src={avatar} alt="" className="round-img"/>
-            <div className="profile-top">
+            <div className="profile-top" id="profile-top">
                 <h2>{name}</h2>
                 <h3>@{username}</h3>
                 <p>{title} {company && <span> at {company}</span>}</p>
@@ -51,7 +51,7 @@ const ProfileFields = ({ profile: {
                         }
                         
                 
-                        <Link to={`/profile/${_id}`} className='btn btn-primary'> View Profile</Link>
+                        <Link to={`/profile/${_id}`} className='btn btn-primary ' > View Profile</Link>
                     </li>
                 ))}
             </ul>

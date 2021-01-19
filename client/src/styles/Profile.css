@@ -24,12 +24,55 @@
   padding: 5%;
 }
 
-.profilesPage h1 {
-  text-align: center;
-  margin: 10% 0;
+.profile-top {
+  background-color: rgba(247, 247, 247, 0.9);
+  width: 80vw;
+  margin: 0 auto;
 }
 
-.profilesPage .profileBgImg {
+.profile-top .round-img {
+  width: 80%;
+  border-radius: 50%;
+}
+
+.profile-top .top-center {
+  text-align: center;
+}
+
+.profile-top .top-center p {
+  font-size: 1.25rem;
+}
+
+.profile-top .top-center .user {
+  font-size: 1.75rem;
+  color: #75ACB4;
+  font-weight: 800;
+}
+
+.profile-top .profile-about, .profile-top .profile-exp, .profile-top .profile-edu {
+  padding: 0 6%;
+}
+
+.profile-top .profile-about p, .profile-top .profile-exp p, .profile-top .profile-edu p {
+  font-size: 1.25rem;
+}
+
+.profile-top .profile-about .bold-head, .profile-top .profile-exp .bold-head, .profile-top .profile-edu .bold-head {
+  width: 100%;
+  text-decoration: underline;
+}
+
+.profile-top .qualificationField, .profile-top .experienceField {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 3%;
+  margin: 8% 0 3%;
+  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.profileBgImg {
   background: url("./../img/profile-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100%;
@@ -40,6 +83,15 @@
   top: 0;
   left: 0;
   z-index: -1000;
+}
+
+.profilesPage h1 {
+  text-align: center;
+  margin: 10% 0;
+}
+
+.profilesPage #profile-top {
+  background-color: transparent;
 }
 
 .profilesPage .profileimage {
@@ -60,7 +112,6 @@
 }
 
 .profilesPage .profileimage .profile-top h2 {
-  color: #75ACB4;
   font-weight: 700;
   font-size: 2.5rem;
 }

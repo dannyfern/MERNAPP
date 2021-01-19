@@ -86,6 +86,9 @@
   .backToPosts button {
     margin: 3% 0 0;
   }
+  .profile-top .round-img {
+    width: 30%;
+  }
   .home-inner {
     margin: 5% auto;
   }
