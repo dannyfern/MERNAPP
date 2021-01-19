@@ -6,7 +6,6 @@ import { currentProfile, deleteAccount } from '../../actions/profile'
 import { Spinner } from 'react-bootstrap'
 import DashActions from './DashAction'
 
-import DisplayProfile from './DisplayProfile'
 
 
 import Experience from './Experience'

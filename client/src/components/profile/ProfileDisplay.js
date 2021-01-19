@@ -68,38 +68,38 @@ const ProfileDisplay = ({ profile: {
           <div class="icons my-1">
             {
               portfolio && portfolio.length > 0 && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={portfolio} target="_blank" rel="noopener noreferrer">
                 <i class="fab  fa-globe fa-2x"></i>
               </a>
             }
       
             {
               social && social.twitter && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={social.twitter} target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-twitter fa-2x"></i>
               </a>
             }
             {
               social && social.linkedin && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={social.linkedin} target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin fa-2x"></i>
               </a>
             }
             {
               social && social.facebook && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={social.facebook} target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-facebook fa-2x"></i>
               </a>
             }
             {
               social && social.youtube && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={social.youtube} target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-youtube fa-2x"></i>
               </a>
             }
             {
               social && social.instagram && 
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={social.instagram} target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
             }
@@ -126,7 +126,6 @@ const ProfileDisplay = ({ profile: {
             }
             {
               interests && interests.length > 0 &&
-              // <h2>Interests:</h2>,
               interests.map(i => {
                 return (
                   <p>{i}</p>

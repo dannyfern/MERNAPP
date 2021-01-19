@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import FormInput from './../reusable/FormInput'
-import {editPost, setAllPosts, getAllPosts } from './../../config/api'
+import {editPost, getAllPosts } from './../../config/api'
 import { useDispatch } from 'react-redux'
 
 // use effect

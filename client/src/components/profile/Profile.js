@@ -1,16 +1,13 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import ProfileDisplay from './ProfileDisplay'
 import { getProfileId } from '../../actions/profile'
 
 const Profile = ({ getProfileId, match }) => {
-    // const dispatch = useDispatch()
     console.log(match.params.id)
 
-    // useEffect(() => {
-    //     dispatch(getProfileId(match.params.id))
-    // }, [dispatch, getProfileId, match.params.id]);
+    
 
     let profiles = useSelector(state => state.profile.profiles)
 
