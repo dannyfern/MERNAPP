@@ -13,22 +13,22 @@ import { currentProfile, getProfileId } from '../../actions/profile'
 const Post = ({ history, match, currentProfile, auth: { user }, profile: { profile, loading}   }) => {
     // console.log(user)
     const currentUser = user
-
-
-
     const dispatch = useDispatch()
 
-    const posts = useSelector(state => state.postReducer)
+    let posts = useSelector(state => state.postReducer)
 
     let post 
-    if (posts){ 
-        // console. log(posts)
-        post = posts.filter(x => x._id === match.params.id)
-        post = post[0]
+    posts = [...posts]
+    post = posts && posts.filter(x => x._id === match.params.id)  
+    post = post[0]
 
-    }
-    const postUser = post.user
+    
+    // console.log(post)
+    let postUser
+    postUser = post.user
     console.log(postUser)
+
+    
     
     useEffect(() => {
         dispatch(getProfileId(postUser))
@@ -99,6 +99,7 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
+                            
                             <Link to={`/profile/${profileId}`}><p className="postUsername">@{username}</p></Link> 
                             
                             <p className="postDesc">{

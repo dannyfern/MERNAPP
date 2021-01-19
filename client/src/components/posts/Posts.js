@@ -1,45 +1,50 @@
 import React, { useState, useEffect } from 'react'
 import Post from './Post'
+import PropTypes from 'prop-types'
+
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 import './../../styles/Posts.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import { getProfiles, getProfileId } from './../../actions/profile'
+import { getAllPosts } from './../../config/api'
 
 // try filters with controlled input
 
-const Posts = ({ posts }) => {
+const Posts = ( ) => {
 
     const filters = {
         category: "All",
         sortBy: "Newest"
     }
 
+    // useEffect(() => {
+    //     getAllPosts()
+    // }, [getAllPosts])
+
+
+
+
+
     const [filterData, setFilterData] = useState(filters)
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getAllPosts)
+
+    }, [dispatch])
+
+
+    let posts = useSelector(state => state.postReducer)
+
     console.log(posts)
 
     
     
-    // useEffect(() => {
-    //     dispatch(getProfiles)
-    // }, [dispatch])
-
-    // let profiles = useSelector(state => state.profile.profiles)
-    // console.log(profiles)
-
-    // const getAllProfiles = async () => {
-    //     const res = await axios.get('http://localhost:5000/api/profile')
-    //     // console.log(res.data)
-    //     let profiles = res.data
-    //     return profiles
-    // }
-    // let profiles = getAllProfiles()
-    // console.log(profiles)
-
+    
     
 
     
@@ -64,7 +69,7 @@ const Posts = ({ posts }) => {
                     <h3>{category}</h3>
 
                     <div className="upVotesDiv">
-                        <p className="upVotes">++ {likes.length} </p>
+                        <p className="upVotes">++ {likes && likes.length} </p>
                     </div>
 
                 </div>
@@ -106,24 +111,25 @@ const Posts = ({ posts }) => {
     function Display (){
         const { category, sortBy } = filterData
        
-
-        return (posts && posts
-
-            .filter((x) => {
-                if (category === "All"){
-                    return x
-                } else {
-                    return x.category[0] === category
+        posts = [...posts]
+        // if (posts){
+            return (posts && posts
+                .filter((x) => {
+                    if (category === "All"){
+                        return x
+                    } else {
+                        return x.category[0] === category
+                    }
+                
                 }
-               
-            }
-            )
-            .sort((a, b) =>  sortOptions(a, b, sortBy))
-            .map((post) => {
-                return DisplayPosts(post)
-            })
-            
-        )
+                )
+                .sort((a, b) =>  sortOptions(a, b, sortBy))
+                .map((post) => {
+                    return DisplayPosts(post)
+                })
+                
+            ) 
+        // } else return null
     }
 
 
@@ -215,6 +221,15 @@ const Posts = ({ posts }) => {
         </div>
     )
 }
+
+
+// Posts.propTypes = {
+//     getAllPosts: PropTypes.func.isRequired,
+//     posts: PropTypes.array.isRequired
+// }
+// const mapStateToProps = state => ({
+//     posts: state.posts
+// })
 
 
 export default Posts

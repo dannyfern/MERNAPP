@@ -113,6 +113,7 @@ export const login = ( email, password ) => async dispatch => {
       payload: res.data
     });
 
+
     dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
@@ -147,12 +148,10 @@ export const getAllPosts = (newPosts) => async dispatch =>{
   try {
 
     const { data } = await axios.get('/api/posts');
-    if (newPosts){
-      dispatch({type: ALL_POSTS, payload: newPosts })
-    } else {
+    
       dispatch({ type: ALL_POSTS, payload: data })
 
-    }
+    
 
     // console.log("DATA", data)
     
