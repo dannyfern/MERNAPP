@@ -29,38 +29,7 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
    
 
     let correctProfile = useSelector(state => state.profile.profile)
-    // correctProfile && setPostUser(correctProfile)
-    
-    // useEffect(() => {
-    //     post && correctProfile && setPostUser(correctProfile)
-    //     // dispatch(getProfileId(postUser))
-        
-        
-    // }, [correctProfile, post])
-
-
-
-    // console.log(profiles)
-    // console.log(post.user)
-    // let correctProfile = profiles.filter(x => x.user._id === post.user)[0]
-    // console.log(correctProfile.username)
-    // // profiles = profiles.profile
-    // // let correctProfile = profiles
-    // let username
-    // let blogpostdescription
-    // if (currentProfile) {
-    //     blogpostdescription = correctProfile.blogpostdescription
-    //     username = correctProfile.username 
-    // }
-    // console.log(username)
-
-
-    
-
-
-    
    
-    // const profileId = correctProfile._id
 
 
     
