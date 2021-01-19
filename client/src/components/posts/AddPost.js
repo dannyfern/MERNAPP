@@ -51,7 +51,7 @@ const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading},
         console.log('new', newPost)
 
         dispatch(createPost(newPost))
-        history.push(`/posts/${newPost._id}`)
+        history.push(`/posts/`)
         
     }
 

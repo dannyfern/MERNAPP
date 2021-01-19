@@ -83,6 +83,9 @@
   .dashboard .dashboard-inner {
     width: 80vw;
   }
+  .backToPosts button {
+    margin: 3% 0 0;
+  }
   .home-inner {
     margin: 5% auto;
   }
@@ -220,7 +223,7 @@
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    margin-top: 5%;
+    margin-top: 2%;
     padding-top: 3%;
   }
   #postSections .singlePostInfo {

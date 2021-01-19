@@ -9,6 +9,8 @@ const Profile = ({ getProfileId, profile: {profile, match} }) => {
         getProfileId(match.params.id)
     }, [getProfileId]);
 
+    // console.log(profiles)
+
     return (
         <Fragment>
              {typeof(profiles) ==='object' && <ProfileDisplay profile={profile}/>}

@@ -63,7 +63,7 @@ const App = () => {
         })
 
         
-    })
+    }, [])
     const blogPosts = useSelector((state) =>  state.postReducer)
 
     
