@@ -9,6 +9,8 @@ const Profile = ({ getProfileId, profile: {profiles, match} }) => {
         getProfileId(match.params.id);
     },[getProfileId]);
 
+    // console.log(profiles)
+
     return (
         <Fragment>
            <Fragment>

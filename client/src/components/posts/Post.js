@@ -38,7 +38,9 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
     // console.log(postUser)
 
     let profiles = useSelector(state => state.profile)
-    profiles = profiles.profiles
+    profiles = profiles.profile
+    console.log(profiles)
+
     const { blogpostdescription, username } = profiles
     const profileId = profiles._id
     
@@ -84,11 +86,14 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
         return (
             <div>
                 <div>
-                <div className="postBgImage"></div>
+                    <div className="postBgImage"></div>
                     <div className="singlePostTitle">
                         <Link to={`/posts/${post._id}`} className="singleTitleLink">
                             <h1 id="postTitle">{title}</h1>
                         </Link>
+                    </div>
+                    <div className="backToPosts">
+                        <Link to="/posts"><button>Back to Posts</button></Link>
                     </div>
                     <div id="postSections" className="width70">
                         
