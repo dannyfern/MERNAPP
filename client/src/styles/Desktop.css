@@ -77,6 +77,12 @@
     font-size: 1.5em;
     padding: 0.7% 0;
   }
+  .dashboard .display-4 {
+    padding: 5% 0 2%;
+  }
+  .dashboard .dashboard-inner {
+    width: 80vw;
+  }
   .home-inner {
     margin: 5% auto;
   }
@@ -115,6 +121,52 @@
   .signin #signin-form .my-1 {
     width: 30vw;
   }
+  .profilesPage h1 {
+    margin: 3% 0;
+    font-size: 3rem;
+  }
+  .profilesPage .profiles {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 70vw;
+    margin: 0 auto;
+  }
+  .profilesPage .profileimage {
+    width: 26%;
+    margin: 1%;
+  }
+  .profilesPage .profiledisplay {
+    width: 100%;
+  }
+  .profilesPage .profiledisplay .round-img {
+    width: 80%;
+  }
+  .profilesPage .profiledisplay .profile-top {
+    width: 75%;
+  }
+  .profilesPage .profiledisplay .profile-top h2 {
+    font-size: 1.5rem;
+  }
+  .profilesPage .profiledisplay .profile-top h3 {
+    font-size: 1.25rem;
+  }
+  .profilesPage .profiledisplay .text {
+    width: 75%;
+    margin: 0 auto;
+  }
+  #addPostDiv {
+    width: 40vw;
+  }
   .postsDiv .postBgTransparent .posts .postCard {
     padding: 1.5%;
     margin: 1%;
@@ -152,7 +204,7 @@
     font-size: 1.25em;
   }
   .singlePostTitle {
-    padding: 8% !important;
+    padding: 2% !important;
   }
   .singlePostTitle .singleTitleLink #postTitle {
     font-size: 2em;
@@ -169,11 +221,12 @@
         -ms-flex-align: start;
             align-items: flex-start;
     margin-top: 5%;
+    padding-top: 3%;
   }
   #postSections .singlePostInfo {
     width: 40vw;
     border-left: 1px solid black;
-    padding-left: 5%;
+    padding-left: 2%;
   }
   #postSections .singlePostInfo h5 {
     font-size: 1.25em;
@@ -187,6 +240,9 @@
   }
   #postSections .authorInfo {
     margin: 0;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    width: 40%;
   }
   #postSections .authorInfo p {
     font-size: 1.25em;

@@ -1,11 +1,10 @@
-
 import React, {Fragment, useState} from 'react';
 import { Link, Redirect } from 'react-router-dom'
 import './../../styles/Auth.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../config/api';
-
+import FormInput from './../reusable/FormInput'
 
 const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
@@ -23,7 +22,6 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   // Redirect if logged in
-
   if(isAuthenticated) {
     return <Redirect to='/dashboard' />
   }
@@ -40,22 +38,12 @@ const Login = ({ login, isAuthenticated }) => {
         <p className="lead"><i className="fas fa-user"></i>&nbsp; Login To Your Account</p>
         <form className="form " id="signin-form" onSubmit={c => onSubmit(c)}>
           <div className="form-group ">
-            <input 
-            type="email" 
-            placeholder="Email Address" 
-            name="email" 
-            value={email}
-            onChange={c => onChange(c)} required />
+            <FormInput type="email" placeholder="Email Address..." name="email" value={email} onChange={c => onChange(c)} required/>
           </div>
           <div className="form-group">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={c => onChange(c)} required
-              minLength="6"
-            />
+          <FormInput type="password" placeholder="Password..." name="password" value={password} onChange={c => onChange(c)} required minLength="6"/>
+
+            
           </div>
           <div className="ending">
             <input type="submit" className="btn btn-primary" value="Sign In" />

@@ -56,6 +56,20 @@
         }
     }
 
+    // dash
+    .dashboard{
+
+        .display-4{
+            padding: 5% 0 2%
+        }
+        .dashboard-inner{
+            width: 80vw;
+
+        }
+    }
+
+
+
     // auth
 
 
@@ -122,11 +136,75 @@
     }
 
 
+
+
+    // profiles :
+    .profilesPage{
+
+        h1{
+            margin: 3% 0;
+            font-size: 3rem;
+        }
+
+        .profiles{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 70vw;
+            margin: 0 auto;
+
+
+
+        }
+
+        .profileimage{
+            width: 26%;
+            margin: 1%;
+
+
+        }
+
+        .profiledisplay{
+            width: 100%;
+
+            .round-img{
+                width: 80%;
+            }
+
+            .profile-top{
+
+                width: 75%;
+                h2{
+                    font-size: 1.5rem;
+                }
+                h3{
+                    font-size: 1.25rem;
+                }
+            }
+
+            .text{
+                width: 75%;
+                margin: 0 auto;
+            }
+
+
+
+        }
+
+    }
+
+
     // filter posts
     
 
 
     // posts :
+
+    #addPostDiv{
+        width: 40vw;
+
+    }
     .postsDiv{
 
         .postBgTransparent{
@@ -193,7 +271,8 @@
     }
 
     .singlePostTitle{
-        padding: 8% !important;
+        padding: 2% !important;
+
         .singleTitleLink{
             #postTitle{
                 font-size: 2em;
@@ -206,12 +285,13 @@
         flex-direction: row-reverse;
         align-items: flex-start;
         margin-top: 5%;
+        padding-top: 3%;
         
 
         .singlePostInfo{
             width: 40vw;
             border-left: 1px solid black;
-            padding-left: 5%;
+            padding-left: 2%;
 
 
             h5{
@@ -229,9 +309,14 @@
 
         .authorInfo{
             margin: 0;
+            padding-right: 5%;
+            padding-bottom: 5%;
+            width: 40%;
             p{
                 font-size: 1.25em;
             }
+
+            
         }
     }
 

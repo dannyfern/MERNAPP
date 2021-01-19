@@ -58,7 +58,7 @@
 
 #addPostDiv {
   margin: 3% auto;
-  width: 30vw;
+  width: 80vw;
 }
 
 #addPostForm {
@@ -81,7 +81,7 @@
   margin: 0 auto;
 }
 
-.postsDiv .postBgImage {
+.postBgImage {
   background: url("./../img/post-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100%;
@@ -93,6 +93,11 @@
   top: 0;
   left: 0;
   z-index: -1000;
+}
+
+#addPostForm {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 6%;
 }
 
 .postsDiv .postBgTransparent {
@@ -170,8 +175,8 @@
 }
 
 .singlePostTitle {
-  background: rgba(117, 172, 180, 0.3);
-  padding: 15% 10%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5%;
 }
 
 .singlePostTitle .singleTitleLink {
@@ -180,9 +185,15 @@
 }
 
 .singlePostTitle .singleTitleLink h1 {
-  color: black;
+  color: #fff;
   font-family: diazo-mvb-ex-cond, sans-serif;
   font-weight: 100;
+}
+
+#postSections {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 80vw;
+  margin: 3% auto;
 }
 
 .singlePostInfo {
@@ -194,26 +205,27 @@
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  width: 80vw;
-  margin: 0 auto;
 }
 
 .singlePostInfo h5 {
-  margin: 12% 0 2%;
+  margin: 5% 0 0;
   font-size: 1.25em;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .singlePostInfo h3 {
-  margin: 0 0 5%;
+  margin: 1% 0 10%;
   font-weight: 200;
   font-size: 1.5em;
+  color: #75ACB4;
+  text-decoration: underline;
 }
 
 .singlePostInfo p {
   margin: 3% 0;
   font-size: 1.25em;
   line-height: 1.5;
+  margin: 0 5%;
 }
 
 .authorInfo {
@@ -226,5 +238,43 @@
           flex-direction: column;
   text-align: center;
   margin-top: 10%;
+}
+
+.authorInfo .crudBtns {
+  padding-bottom: 5%;
+}
+
+.authorInfo .crudBtns .crudB {
+  padding: 3%;
+  margin: 0 2%;
+  border: none;
+  background-color: #75ACB4;
+}
+
+.authorInfo a {
+  color: #75ACB4;
+}
+
+.authorInfo a:hover {
+  color: #75ACB4;
+}
+
+.authorInfo .postUsername {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.authorInfo .postDesc {
+  border: 1px solid #75ACB4;
+  border-radius: 3px;
+  padding: 5%;
+  margin: 0 5%;
+}
+
+.authorInfo .postUpvotes {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #75ACB4;
+  padding: 5%;
 }
 /*# sourceMappingURL=Posts.css.map */
