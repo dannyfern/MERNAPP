@@ -52,43 +52,51 @@ const EditPost = ({ match, posts, history}) => {
         dispatch(editPost(match.params.id, updatedPost))
 
         // figure out a way to set all posts and have them refresh in real time - maybe use effect
-        history.push(`/posts/${id}`)
+        history.push(`/posts`)
+        window.location.reload()
 
     }
 
 
     return(
         <div>
-            <div>
-                Edit Post
+            <div id="addPostDiv">
+
+                <div className="heading">
+                    <h1>Edit Post</h1>
+                </div>
+                <div className="postBgImage">
+
+                </div>
+                <div>
+                    <form id="addPostForm" onSubmit={handleSubmit}>
+
+                        <label>Post Title</label>
+                        <FormInput name="title" placeholder="Title here..." className="editPostField" onChange={handleChange} value={title} />
+
+                        <label>Post Category</label>
+                        <FormInput name="category" placeholder="Category here..." className="editPostField" onChange={handleChange} value={category} />
+
+                        <label>Post Content</label>
+                        <textarea
+                            name="text"
+                            placeholder="content here..."
+                            className="addPostField"
+                            onChange={handleChange}
+                            value={text && text}
+                            
+                        />
+                        <input 
+                        type="submit"
+                        className="editPostSubmit"
+                        value="Update Post"
+                        />
+
+                    </form>
+
+                </div>
             </div>
-            <div>
-                <form id="editPostForm" onSubmit={handleSubmit}>
 
-                    <label>Post Title</label>
-                    <FormInput name="title" placeholder="Title here..." className="editPostField" onChange={handleChange} value={title} />
-
-                    <label>Post Category</label>
-                    <FormInput name="category" placeholder="Category here..." className="editPostField" onChange={handleChange} value={category} />
-
-                    <label>Post Content</label>
-                    <textarea
-                        name="text"
-                        placeholder="content here..."
-                        className="editPostField"
-                        onChange={handleChange}
-                        value={text && text}
-                        
-                    />
-                    <input 
-                    type="submit"
-                    className="editPostSubmit"
-                    value="Update Post"
-                    />
-
-                </form>
-
-            </div>
         </div>
     )
 }
