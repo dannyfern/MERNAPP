@@ -35,6 +35,7 @@ const ProfileDisplay = ({ profile: {
           <div className="top-center">
 
             <h1 class="large">{name}</h1>
+              &nbsp; 
             <p className="user text-primary">@{username}</p>
             {
               title && 
