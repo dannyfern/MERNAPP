@@ -128,7 +128,7 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             {
                                 username && blogpostdescription && profileId &&
                                 <div>
-                                    <Link to={`/profile/${profileId}`}><p className="postUsername">@{username && username}</p></Link> 
+                                    <p className="postUsername">@{username && username}</p>
                                 
                                     <p className="postDesc">{
                                         blogpostdescription && blogpostdescription

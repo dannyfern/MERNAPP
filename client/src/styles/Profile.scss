@@ -25,18 +25,83 @@
 
 }
 
+// single profile display
+
+.profile-top{
+    background-color: rgba(247, 247, 247, 0.9);
+    width: 80vw;
+    margin: 0 auto;
+
+    .round-img{
+        width: 80%;
+        border-radius: 50%;
+        
+        
+
+    }
+
+   
+    
+    .top-center{
+        text-align: center;
+
+        p{
+            font-size: 1.25rem;
+        }
+        .user{
+            font-size: 1.75rem;
+            color: $green;
+            font-weight: 800;
+    
+    
+    
+        }
+
+    }
+
+    .profile-about, .profile-exp, .profile-edu{
+        padding: 0 6%;
+        p{
+            font-size: 1.25rem;
+        }
+
+        .bold-head{
+            // background-color: rgba(189, 189, 189, 0.7);
+            width: 100%;
+            
+            
+            text-decoration: underline;
+        }
+    }
+
+    .qualificationField, .experienceField {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 2px solid ;
+        border-radius: 3px;
+        padding: 3%;
+        margin: 8% 0 3%;
+        box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+        
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // profiles page
-
-.profilesPage{
-
-    h1{
-        text-align: center;
-        margin: 10% 0;
-
-    }
-    .profileBgImg{
+.profileBgImg{
         background: url("./../img/profile-bg.jpg")  no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -53,7 +118,19 @@
         left: 0;
         z-index: -1000;
     }
+
+.profilesPage{
+
+    h1{
+        text-align: center;
+        margin: 10% 0;
+
+    }
+    
     // .profileimage
+    #profile-top{
+        background-color: transparent;
+    }
 
     .profileimage{
         background-color: rgba(255, 255, 255, 0.95);
@@ -74,7 +151,7 @@
            margin: 0 auto;
 
             h2{
-                color: $green;
+                // color: $green;
                 font-weight: 700;
                 font-size: 2.5rem;
             }
