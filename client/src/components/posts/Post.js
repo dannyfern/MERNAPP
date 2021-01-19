@@ -11,38 +11,59 @@ import { currentProfile, getProfileId } from '../../actions/profile'
 
 
 const Post = ({ history, match, currentProfile, auth: { user }, profile: { profile, loading}   }) => {
-    // console.log(user)
     const currentUser = user
+    // console.log(currentUser)
+
+    const [postUser, setPostUser] = useState(null)
+ 
+
     const dispatch = useDispatch()
-
     let posts = useSelector(state => state.postReducer)
-
-    let post 
+    // console.log(posts)
+    
     posts = [...posts]
-    post = posts && posts.filter(x => x._id === match.params.id)  
-    post = post[0]
+    let post = posts && posts.filter(x => x._id === match.params.id)[0] 
+    console.log(post.user) 
+    
 
     
-    // console.log(post)
-    let postUser
-    postUser = post.user
-    console.log(postUser)
+    // console.log(post.user)
+    
+    // let postUser = post.user
+    // setPostUser(post.user)
+    // postUser = 
+    // console.log(postUser)
 
     
     
     useEffect(() => {
+        post && setPostUser(post.user)
         dispatch(getProfileId(postUser))
         
-    }, [dispatch, postUser])
+        
+    }, [dispatch, post, postUser])
 
     // console.log(postUser)
 
     let profiles = useSelector(state => state.profile)
-    profiles = profiles.profile
     console.log(profiles)
+    profiles = profiles.profile
+    let correctProfile = profiles
 
-    const { blogpostdescription, username } = profiles
-    const profileId = profiles._id
+
+    
+
+
+    // let correctProfile = profiles.filter(x => x.user._id === post.user)
+    console.log(correctProfile)
+    
+    const blogpostdescription = correctProfile.blogpostdescription
+    const username = correctProfile.username
+        // const { blogpostdescription, username } = correctProfile
+    const profileId = correctProfile._id
+
+
+    
     
 
 
@@ -104,13 +125,19 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            
-                            <Link to={`/profile/${profileId}`}><p className="postUsername">@{username}</p></Link> 
-                            
-                            <p className="postDesc">{
-                                blogpostdescription && blogpostdescription
+                            {
+                                username && blogpostdescription && profileId &&
+                                <div>
+                                    <Link to={`/profile/${profileId}`}><p className="postUsername">@{username && username}</p></Link> 
+                                
+                                    <p className="postDesc">{
+                                        blogpostdescription && blogpostdescription
+                                    }
+                                    </p>
+                                </div>
                             }
-                            </p>
+                            
+                            
 
                             <div className="postUpvotes">
                                 <p onClick={handleLikes} className="upvoteButton">++ {likes && likes.length}</p>
@@ -144,7 +171,8 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
 }
 
 Post.propTypes = {
-    currentProfile: PropTypes.func.isRequired,
+    // currentProfile: PropTypes.func.isRequired,
+    getProfileId: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
 };
@@ -155,4 +183,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {currentProfile})(Post);
+export default connect(mapStateToProps, { getProfileId })(Post);
