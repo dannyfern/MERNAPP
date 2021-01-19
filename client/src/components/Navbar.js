@@ -4,17 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../config/api';
 
-
-
-// put logo in here to the left and have everyhting else float to the right
-
-
-
 // Auth Links for NAVBAR USER ACCESS
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <ul>
-            <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+            <Link className="navLinkStyles" to="/" >Dot Developer</Link>
             <Link className="navLinkStyles" to="/dashboard">
                 
                 <i className='fas fa-user' />{' '}
@@ -31,9 +25,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     );
 
     const guestLinks = (
-        
-        // console.log("errguestlink")
-        
         <ul>
         <Link className="navLinkStyles" to="/profiles">
         <i className='fa fa-code' />{' '}
@@ -41,7 +32,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link className="navLinkStyles" to="/auth/register">
         <i className='fa fa-users' />{' '}
         <span className='hide-sm'></span>Register account</Link>
-        <Link className="navLinkStyles" id="logo" to="/" >Dot Developer</Link>
+        <Link className="navLinkStyles" to="/" >Dot Developer</Link>
         <Link className="navLinkStyles" to="/profiles"> Profiles </Link>
         <Link className="navLinkStyles" to="/auth/signin">
         <i className='fas fa-sign-in-alt' />{' '}
@@ -72,10 +63,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     </button>
                 </div>
                 <div id="navLinks" className={className}> 
-                    { !loading && (
+                
                     <Fragment>
                         { isAuthenticated ? authLinks : guestLinks} 
-                    </Fragment>)}
+                    </Fragment>
                 </div>
             </div>
         </div>
