@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import './../../styles/Posts.css'
 import FormInput from './../reusable/FormInput'
-import Posts from './Posts'
-import { useDispatch, useSelector, connect } from 'react-redux'
-import { createPost, getAllPosts } from './../../config/api'
-import { Redirect } from 'react-router-dom'
+import { useDispatch, connect } from 'react-redux'
+import { createPost } from './../../config/api'
 import { currentProfile } from '../../actions/profile'
 import PropTypes from 'prop-types'
 
@@ -14,7 +12,6 @@ const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading},
     console.log(profile)
 
     const dispatch = useDispatch()
-    const posts = useSelector(state => state.postReducer)
     
     
 
@@ -22,13 +19,9 @@ const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading},
         title: "",
         category: "",
         text: "",
-        // username: profile.username
-        // profile: profile
-
     }
 
     const [formState, setFormState] = useState(initialFormState)
-
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -39,14 +32,12 @@ const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading},
     }
 
     
-
     const handleSubmit = e => {
         e.preventDefault()
         let newPost = {
             title: formState.title,
             category: formState.category || "general",
             text: formState.text,
-            // username: formState.username
         }
         console.log('new', newPost)
 
