@@ -1,14 +1,10 @@
 import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import ProfileDisplay from './ProfileDisplay'
-import Spinner from '../dashboard/spinner'
 import { getProfileId } from '../../actions/profile'
 
-
-
-const Profile = ({ getProfileId, profile: {profile, loading},auth, match }) => {
+const Profile = ({ getProfileId, profile: {profiles, match} }) => {
     useEffect(() => {
         getProfileId(match.params.id);
     },[getProfileId]);
@@ -16,7 +12,9 @@ const Profile = ({ getProfileId, profile: {profile, loading},auth, match }) => {
     return (
         <Fragment>
            <Fragment>
-             <ProfileDisplay profile={profile}/>
+             <div>
+             <ProfileDisplay profile={profiles}/>
+             </div>
            </Fragment>
         </Fragment>
     );
