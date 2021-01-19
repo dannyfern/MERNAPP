@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { deletePostById, getPostFromId, toggleLikes } from '../../config/api'
-import axios from 'axios'
+import { deletePostById, toggleLikes } from '../../config/api'
 
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -11,80 +10,65 @@ import { currentProfile, getProfileId } from '../../actions/profile'
 
 
 const Post = ({ history, match, currentProfile, auth: { user }, profile: { profile, loading}   }) => {
+    
+    
     const currentUser = user
-    // console.log(currentUser)
 
     const [postUser, setPostUser] = useState(null)
- 
 
     const dispatch = useDispatch()
     let posts = useSelector(state => state.postReducer)
-    // console.log(posts)
     
     posts = [...posts]
+    console.log(posts)
+
     let post = posts && posts.filter(x => x._id === match.params.id)[0] 
-    console.log(post.user) 
     
 
     
+   
+
+    let correctProfile = useSelector(state => state.profile.profile)
+    // correctProfile && setPostUser(correctProfile)
+    
+    // useEffect(() => {
+    //     post && correctProfile && setPostUser(correctProfile)
+    //     // dispatch(getProfileId(postUser))
+        
+        
+    // }, [correctProfile, post])
+
+
+
+    // console.log(profiles)
     // console.log(post.user)
-    
-    // let postUser = post.user
-    // setPostUser(post.user)
-    // postUser = 
-    // console.log(postUser)
-
-    
-    
-    useEffect(() => {
-        post && setPostUser(post.user)
-        dispatch(getProfileId(postUser))
-        
-        
-    }, [dispatch, post, postUser])
-
-    // console.log(postUser)
-
-    let profiles = useSelector(state => state.profile)
-    console.log(profiles)
-    profiles = profiles.profile
-    let correctProfile = profiles
+    // let correctProfile = profiles.filter(x => x.user._id === post.user)[0]
+    // console.log(correctProfile.username)
+    // // profiles = profiles.profile
+    // // let correctProfile = profiles
+    // let username
+    // let blogpostdescription
+    // if (currentProfile) {
+    //     blogpostdescription = correctProfile.blogpostdescription
+    //     username = correctProfile.username 
+    // }
+    // console.log(username)
 
 
     
 
 
-    // let correctProfile = profiles.filter(x => x.user._id === post.user)
-    console.log(correctProfile)
     
-    const blogpostdescription = correctProfile.blogpostdescription
-    const username = correctProfile.username
-        // const { blogpostdescription, username } = correctProfile
-    const profileId = correctProfile._id
+   
+    // const profileId = correctProfile._id
 
 
     
-    
-
-
-
-
-
-
-
-    
-
-
-    // user only likes once
-    // 
+ 
     const handleLikes = () => {
-        
+        // doesnt quite work yet :(
        
-        dispatch(toggleLikes(post._id))
-        
-        
-
-        
+        dispatch(toggleLikes(post._id)) 
     }
 
     const deletePost = (e) => {
@@ -95,13 +79,11 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
 
 
 
-
-
-
     if (!post) {
         return null
     } else {
         const { title, category, text, likes, user, modified_date } = post
+        // console.log(user.name)
 
         
         return (
@@ -125,13 +107,13 @@ const Post = ({ history, match, currentProfile, auth: { user }, profile: { profi
                             <p>{text}</p>
                         </div>
                         <div className="authorInfo">
-                            {
-                                username && blogpostdescription && profileId &&
+                            {correctProfile &&
+                                
                                 <div>
-                                    <p className="postUsername">@{username && username}</p>
+                                    <p className="postUsername">@{correctProfile.username && correctProfile.username}</p>
                                 
                                     <p className="postDesc">{
-                                        blogpostdescription && blogpostdescription
+                                        correctProfile.blogpostdescription && correctProfile.blogpostdescription
                                     }
                                     </p>
                                 </div>

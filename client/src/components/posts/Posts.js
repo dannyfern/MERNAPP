@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Post from './Post'
-import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css';
 import './../../styles/Posts.css'
-import { useSelector, useDispatch, connect } from 'react-redux'
-import { getProfiles, getProfileId } from './../../actions/profile'
+import { useSelector, useDispatch } from 'react-redux'
 import { getAllPosts } from './../../config/api'
 
-// try filters with controlled input
 
 const Posts = ( ) => {
 
@@ -20,14 +15,7 @@ const Posts = ( ) => {
         sortBy: "Newest"
     }
 
-    // useEffect(() => {
-    //     getAllPosts()
-    // }, [getAllPosts])
-
-
-
-
-
+  
     const [filterData, setFilterData] = useState(filters)
 
     const dispatch = useDispatch()
@@ -40,21 +28,9 @@ const Posts = ( ) => {
 
     let posts = useSelector(state => state.postReducer)
 
-    console.log(posts)
-
-    
-    
-    
-    
-
-    
-
-
-
     function DisplayPosts(post) {
-        const { title, category, user, likes } = post
-        // const profile = profiles.find(x => x._id === user)
-        // console.log(profile)
+        const { title, category, likes } = post
+        
         
 
         
@@ -65,7 +41,6 @@ const Posts = ( ) => {
                 </Link>
                 <div className="postInfo">
 
-                    {/* <h5>Posted by: {user}</h5> */}
                     <h3>{category}</h3>
 
                     <div className="upVotesDiv">
@@ -112,7 +87,6 @@ const Posts = ( ) => {
         const { category, sortBy } = filterData
        
         posts = [...posts]
-        // if (posts){
             return (posts && posts
                 .filter((x) => {
                     if (category === "All"){
@@ -129,7 +103,6 @@ const Posts = ( ) => {
                 })
                 
             ) 
-        // } else return null
     }
 
 
@@ -137,16 +110,12 @@ const Posts = ( ) => {
 
     function openFilters () {
         const filterBtn = document.querySelector('.filters')
-
-
         if (filterBtn){
             (filterBtn.style.display === "none") ? (filterBtn.style.display = "flex") : (filterBtn.style.display = "none")
         }
-        
     }
 
 
-    // const categoryOptions = ["Code", "Food", "Issues", "Meetups"]
 
     const categoryOptions = [
         {label: "All", value: "category"},
@@ -157,7 +126,6 @@ const Posts = ( ) => {
         {label: "Health", value: "category"}
     ]
 
-    // const sortByOptions = ["Newest", "Oldest", "Most Upvotes", "Least Upvotes"]
 
     const sortByOptions = [
         {label: "Newest", value: "sortBy"},
@@ -205,10 +173,7 @@ const Posts = ( ) => {
                     </div>
                 </div>
                 
-                {/* <div className="filterBtn">
-                    <button onClick={handleFilterSubmit}>Done</button>
-                </div> */}
-                
+               
             </div>
             
             <div className="width70 posts">
@@ -223,13 +188,7 @@ const Posts = ( ) => {
 }
 
 
-// Posts.propTypes = {
-//     getAllPosts: PropTypes.func.isRequired,
-//     posts: PropTypes.array.isRequired
-// }
-// const mapStateToProps = state => ({
-//     posts: state.posts
-// })
+
 
 
 export default Posts
