@@ -12,16 +12,20 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
     }, [getProfiles]);
 
     return <Fragment>
-           { loading ? <Spinner /> : <Fragment>
-            <h1> Developer Profiles </h1>
-            <div className="profiles">
-                {profiles.length > 0 ? (
-                    profiles.map(profile => (
-                        <ProfileFields key={profile._id} profile={profile} />
-                    ))
-                ) : <h2> No Profiles Found </h2>}
+        { loading ? <Spinner /> : <Fragment>
+            <div className="profilesPage">
+                <div className="profileBgImg"></div>
+               <h1> Developer Profiles </h1>
+                <div className="profiles">
+                    {profiles.length > 0 ? (
+                        profiles.map(profile => (
+                            <ProfileFields key={profile._id} profile={profile} />
+                        ))
+                    ) : <h2> No Profiles Found </h2>}
+                </div>
             </div>
-           </Fragment>}
+            
+        </Fragment>}
         </Fragment>
 };
 

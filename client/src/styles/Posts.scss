@@ -70,7 +70,7 @@
 
 #addPostDiv{
     margin: 3% auto;
-    width: 30vw;
+    width: 80vw;
 
 }
 
@@ -100,27 +100,33 @@
 
 
 // posts
+.postBgImage{
+    background: url('./../img/post-bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 1024px;
+        
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+}
+
+#addPostForm{
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 6%;
+}
 
 .postsDiv{
 
    
-    .postBgImage{
-        background: url('./../img/post-bg.jpg') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        min-height: 100%;
-        min-width: 1024px;
-            
-        /* Set up proportionate scaling */
-        width: 100%;
-        height: auto;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1000;
-    }
+    
 
 
     .postBgTransparent{
@@ -193,8 +199,8 @@
 
 
 .singlePostTitle{
-    background: rgba(117, 172, 180, 0.3);
-    padding: 15% 10%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5%;
 
     .singleTitleLink{
         text-align: center;
@@ -202,36 +208,50 @@
         
 
         h1{
-            color: black;
+            color: #fff;
             font-family: $dvb;
             font-weight: 100;
             
         }
     }
 }
+#postSections{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 80vw;
+    margin: 3% auto;
+
+
+
+}
+
 
 .singlePostInfo{
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 80vw;
-    margin: 0 auto;
+    // width: 80vw;
+    // margin: 0 auto;
 
     h5{
-        margin: 12% 0 2%;
+        margin: 5% 0 0;
         font-size: 1.25em;
-        font-weight: 400;
+        font-weight: 500;
     }
     h3{
-        margin: 0 0 5%;
+        margin: 1% 0 10%;
         font-weight: 200;
         font-size: 1.5em;
+        color: $green;
+        text-decoration: underline;
 
     }
     p{
         margin: 3% 0;
         font-size: 1.25em;
         line-height: 1.5;
+
+        margin: 0 5%;
+        
 
     }
 }
@@ -241,4 +261,45 @@
     flex-direction: column;
     text-align: center;
     margin-top: 10%;
+
+    .crudBtns{
+        padding-bottom: 5%;
+        .crudB{
+            padding: 3%;
+            margin: 0 2%;
+            border: none;
+            background-color: $green;
+
+
+        }
+    }
+
+    a {
+        color: $green;
+
+        &:hover{
+            color: $green;
+        }
+    }
+
+    .postUsername{
+        font-size: 1.25rem;
+        font-weight: 600;
+
+    }
+    .postDesc{
+        border: 1px solid $green;
+        border-radius: 3px;
+        padding: 5%;
+        margin: 0 5%;
+
+    }
+    .postUpvotes{
+        font-size: 2rem;
+        font-weight: 600;
+        color: $green;
+        padding: 5%;
+        
+
+    }
 }

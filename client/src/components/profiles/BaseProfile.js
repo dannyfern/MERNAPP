@@ -6,43 +6,43 @@ import { createProfile } from '../../actions/profile'
 
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState ({
-        name:'',
-        username:'',
-        dateofbirth:'',
-        location:'',
-        bio:'',
-        blogpostdescription:'',
-        interests:'',
-        website:'',
-        languages:'',
-        experiencelevel:'',
-        yearsofexperience:'',
-        jobtitle:'',
-        business:'',
-        linkedin:'',
-        instagram:'',
-        twitter:'',
-        github:'',
+      name:'',
+      username:'',
+      dateofbirth:'',
+      location:'',
+      bio:'',
+      blogpostdescription:'',
+      interests:'',
+      website:'',
+      languages:'',
+      experiencelevel:'',
+      yearsofexperience:'',
+      jobtitle:'',
+      business:'',
+      linkedin:'',
+      instagram:'',
+      twitter:'',
+      github:'',
     });
     
     const {
-        name,
-        username,
-        dateofbirth,
-        location,
-        bio,
-        blogpostdescription,
-        interests,
-        languages,
-        website,
-        experiencelevel,
-        yearsofexperience,
-        jobtitle,
-        business,
-        linkedin,
-        instagram,
-        twitter,
-        github
+      name,
+      username,
+      dateofbirth,
+      location,
+      bio,
+      blogpostdescription,
+      interests,
+      languages,
+      website,
+      experiencelevel,
+      yearsofexperience,
+      jobtitle,
+      business,
+      linkedin,
+      instagram,
+      twitter,
+      github
     } = formData;
     
     const onChange = e =>
@@ -128,12 +128,12 @@ const CreateProfile = ({ createProfile, history }) => {
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Location (City and State)" name="location" 
+          <input type="text" placeholder="* Location (City and State)" name="location" 
           value={location} onChange={e => onChange(e)} />
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Bio ( A little about yourself)" name="bio"
+          <input type="text" placeholder="* Bio (A little about yourself)" name="bio"
           value={bio} onChange={e => onChange(e)} />
         </div>
 
@@ -149,7 +149,7 @@ const CreateProfile = ({ createProfile, history }) => {
         </div>
 
         <div className="form-group">
-          <input type="text" placeholder="Short Blog Post Description !!" name="blogpostdescription"
+          <input type="text" placeholder="* Short Blog Post Description!!" name="blogpostdescription"
           value={blogpostdescription} onChange={e => onChange(e)} />
         </div>
 

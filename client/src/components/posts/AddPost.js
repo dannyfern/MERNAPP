@@ -62,6 +62,10 @@ const AddPost = ({ currentProfile, auth: { user }, profile: { profile, loading},
                 <div className="heading">
                     <h1>Add post</h1>
                 </div>
+
+                <div className="postBgImage">
+
+                </div>
                 <form id="addPostForm" onSubmit={handleSubmit}>
 
                     <label>Post Title</label>

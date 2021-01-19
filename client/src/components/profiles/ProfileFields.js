@@ -8,7 +8,8 @@ const ProfileFields = ({ profile: {
     title,
     company,
     location,
-    skills
+    skills,
+    username
     }
 
 }) => {
@@ -16,23 +17,37 @@ const ProfileFields = ({ profile: {
         <section className="profileimage">
         <div className="profiledisplay">
             <img src={avatar} alt="" className="round-img"/>
-            <div>
+            <div className="profile-top">
                 <h2>{name}</h2>
+                <h3>@{username}</h3>
                 <p>{title} {company && <span> at {company}</span>}</p>
-                <p className="profileheadings">Country</p>
-                <p>{location && <span>{location}</span>}</p>
+                <p>{location && <span><i class="fas fa-map-marker-alt"></i>&nbsp;{location}</span>}</p>
                 <p>{skills.experiencelevel}</p>
             </div>
             <ul>
-                {skills.slice(0,5).map((skills, index) => (
+                {skills.slice(0,5).map((skills, index) =>  (
                     <li key={index} className="text">
-                        <p className="profileheadings">Programming Languages</p>
-                        <i className="profileskills"></i>{skills.languages}
-                        <p className="profileheadings"> Experience Level</p>
-                        <i className="profileskills"></i>{skills.experiencelevel}
-
-                        <p className="profileheadings"> Years of experience</p>
-                        <i className="profileskills"></i>{skills.yearsofexperience}
+                        {/* <p className="profileheadings">Programming Languages:</p> */}
+                        {
+                            skills.languages.length > 0 && 
+                            <p className="skills"><i class="fas fa-cogs"></i>&nbsp;{skills.languages}</p>
+                        }
+                        
+                        {/* <p className="profileheadings"> Experience Level</p> */}
+                        <i className="profileskills"></i><p className="skillsExp">{skills.experiencelevel}  </p>
+                        {
+                            skills.yearsofexperience && 
+                            skills.yearsofexperience === "1" &&
+                            <p className="profileheadings">{skills.yearsofexperience}   Year of experience</p>
+        
+                        }
+                        {
+                            skills.yearsofexperience && 
+                            skills.yearsofexperience !== "1" &&
+                            <p className="profileheadings">{skills.yearsofexperience} Years of experience</p>
+        
+                        }
+                        
                 
                         <Link to={`/profile/${_id}`} className='btn btn-primary'> View Profile</Link>
                     </li>
