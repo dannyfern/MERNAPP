@@ -4,20 +4,16 @@ import { connect } from 'react-redux'
 import ProfileDisplay from './ProfileDisplay'
 import { getProfileId } from '../../actions/profile'
 
-const Profile = ({ getProfileId, profile: {profiles, match} }) => {
+const Profile = ({ getProfileId, profile: {profile, match} }) => {
     useEffect(() => {
-        getProfileId(match.params.id);
-    },[getProfileId]);
+        getProfileId(match.params.id)
+    }, [getProfileId]);
 
     // console.log(profiles)
 
     return (
         <Fragment>
-           <Fragment>
-             <div>
-             <ProfileDisplay profile={profiles}/>
-             </div>
-           </Fragment>
+             {typeof(profiles) ==='object' && <ProfileDisplay profile={profile}/>}
         </Fragment>
     );
 };
