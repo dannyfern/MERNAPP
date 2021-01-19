@@ -19,7 +19,7 @@ const ProfileFields = ({ profile: {
             <img src={avatar} alt="" className="round-img"/>
             <div className="profile-top" id="profile-top">
                 <h2>{name}</h2>
-                <h3>@{username}</h3>
+                <h4>@{username}</h4>
                 <p>{title} {company && <span> at {company}</span>}</p>
                 <p>{location && <span><i class="fas fa-map-marker-alt"></i>&nbsp;{location}</span>}</p>
                 <p>{skills.experiencelevel}</p>
