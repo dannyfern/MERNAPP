@@ -9,7 +9,8 @@ const ProfileFields = ({ profile: {
     company,
     location,
     skills,
-    username
+    username,
+    social,
     }
 
 }) => {
@@ -23,6 +24,7 @@ const ProfileFields = ({ profile: {
                 <p>{title} {company && <span> at {company}</span>}</p>
                 <p>{location && <span><i class="fas fa-map-marker-alt"></i>&nbsp;{location}</span>}</p>
                 <p>{skills.experiencelevel}</p>
+
             </div>
             <ul>
                 {skills.slice(0,5).map((skills, index) =>  (
